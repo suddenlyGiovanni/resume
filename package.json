@@ -1,0 +1,15 @@
+{
+  "name": "@suddenly-giovanni/resume",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./resume.json": "./resume.json"
+  },
+  "author": {
+    "name": "Giovanni Ravalico",
+    "email": "15946771+suddenlygiovanni@users.noreply.github.com",
+    "url": "https://wwww.suddenlygiovanni.dev"
+  },
+  "license": "UNLICENSED"
+}
