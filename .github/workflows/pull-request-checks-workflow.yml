@@ -53,3 +53,6 @@ jobs:
             --no-errors-on-unmatched          \
             --diagnostic-level=error          \
             .
+
+      - name: 🦋 Require changesets
+        run: pnpm exec changeset status --since=main
