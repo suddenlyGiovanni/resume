@@ -51,3 +51,8 @@ jobs:
         uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          version: "pnpm run changeset:version"
+          commit: "chore(🦋): update versions"
+          title: "chore(🦋): Update Package Version"
+          createGithubReleases: true

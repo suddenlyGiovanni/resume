@@ -12,11 +12,12 @@
 		"url": "https://wwww.suddenlygiovanni.dev"
 	},
 	"scripts": {
-		"format": "biome format .",
-		"format:write": "pnpm format --write",
 		"changeset:add": "pnpm exec changeset add",
+		"changeset:empty": "pnpm exec changeset --empty",
+		"changeset:publish": "pnpm exec changeset publish",
 		"changeset:version": "pnpm exec changeset version",
-		"changeset:publish": "pnpm exec changeset publish"
+		"format": "biome format .",
+		"format:write": "pnpm format --write"
 	},
 	"license": "UNLICENSED",
 	"devDependencies": {
