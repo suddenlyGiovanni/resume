@@ -13,11 +13,15 @@
 	},
 	"scripts": {
 		"format": "biome format .",
-		"format:write": "pnpm format --write"
+		"format:write": "pnpm format --write",
+		"changeset:add": "pnpm exec changeset add",
+		"changeset:version": "pnpm exec changeset version",
+		"changeset:publish": "pnpm exec changeset publish"
 	},
 	"license": "UNLICENSED",
 	"devDependencies": {
-		"@biomejs/biome": "1.6.4"
+		"@biomejs/biome": "1.6.4",
+		"@changesets/cli": "2.27.1"
 	},
 	"packageManager": "pnpm@8.15.6"
 }
