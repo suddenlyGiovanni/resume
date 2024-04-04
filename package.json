@@ -11,5 +11,6 @@
     "email": "15946771+suddenlygiovanni@users.noreply.github.com",
     "url": "https://wwww.suddenlygiovanni.dev"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@8.15.6"
 }
