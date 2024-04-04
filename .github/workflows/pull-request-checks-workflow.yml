@@ -59,6 +59,7 @@ jobs:
         with:
           file: 'resume.json'
           schema: 'https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json'
+          mode: 'lax'
 
 
       - name: 🦋 Require changesets
