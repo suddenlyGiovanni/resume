@@ -54,11 +54,11 @@ jobs:
             --diagnostic-level=error          \
             .
 
-      - name: Validate resume.json against a local schema
+      - name: 🩺 Validate resume.json against schema
         uses: cardinalby/schema-validator-action@v3
         with:
           file: 'resume.json'
-          schema: 'schema.json'
+          schema: 'https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json'
 
 
       - name: 🦋 Require changesets
