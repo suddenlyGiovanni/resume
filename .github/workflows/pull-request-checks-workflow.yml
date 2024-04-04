@@ -54,5 +54,12 @@ jobs:
             --diagnostic-level=error          \
             .
 
+      - name: Validate resume.json against a local schema
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          file: 'resume.json'
+          schema: 'schema.json'
+
+
       - name: 🦋 Require changesets
         run: pnpm exec changeset status --since=origin/main
