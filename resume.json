@@ -190,9 +190,7 @@
 			"studyType": "Bachelor",
 			"startDate": "2011-09-01",
 			"endDate": "2014-09-01",
-			"courses": [
-				"Completed 90% of required credits toward Bachelor of Arts in Modern History"
-			],
+			"courses": ["Completed 90% of required credits toward Bachelor of Arts in Modern History"],
 			"location": "Trieste, Italy"
 		}
 	],
@@ -253,14 +251,7 @@
 		},
 		{
 			"name": "Back-end",
-			"keywords": [
-				"Node",
-				"Deno",
-				"Next.js",
-				"Remix",
-				"Express",
-				"Handlebars"
-			]
+			"keywords": ["Node", "Deno", "Next.js", "Remix", "Express", "Handlebars"]
 		},
 		{
 			"name": "Libraries",
@@ -280,29 +271,15 @@
 		},
 		{
 			"name": "Databases",
-			"keywords": [
-				"PostgreSQL",
-				"MySQL",
-				"MongoDB",
-				"Redis",
-				"Firebase Realtime Database"
-			]
+			"keywords": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Firebase Realtime Database"]
 		},
 		{
 			"name": "APIs",
-			"keywords": [
-				"GraphQL",
-				"RESTful"
-			]
+			"keywords": ["GraphQL", "RESTful"]
 		},
 		{
 			"name": "Tools",
-			"keywords": [
-				"Git",
-				"Docker",
-				"CircleCI",
-				"GitHub Actions"
-			]
+			"keywords": ["Git", "Docker", "CircleCI", "GitHub Actions"]
 		}
 	],
 	"languages": [
@@ -318,25 +295,13 @@
 	"interests": [
 		{
 			"name": "Functional Programming",
-			"keywords": [
-				"Scala",
-				"Rust",
-				"Haskell"
-			]
+			"keywords": ["Scala", "Rust", "Haskell"]
 		},
 		{
 			"name": "Object Oriented Programming",
-			"keywords": [
-				"Kotlin",
-				"Java"
-			]
+			"keywords": ["Kotlin", "Java"]
 		}
 	],
 	"references": [],
-	"projects": [],
-	"meta": {
-		"canonical": "https://github.com/suddenlyGiovanni/suddenlygiovanni.dev/blob/main/packages/resume/resume.json",
-		"lastModified": "2022-01-09T18:44:13.077Z",
-		"version": "v1.2.0"
-	}
+	"projects": []
 }
