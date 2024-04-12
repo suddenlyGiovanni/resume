@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 4.0.0
+
+### Major Changes
+
+- 4fb81ca: Reflect work entry in resume semver versioning
+
+  - Ravalico Real Estate s.a.s, Real Estate Agent
+
 ## 3.0.0
 
 ### Major Changes
