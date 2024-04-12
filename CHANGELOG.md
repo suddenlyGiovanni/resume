@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 3.0.0
+
+### Major Changes
+
+- 64cf550: Reflect education entry in resume semver versioning
+
+  - SPICED Academy, Coding Bootcamp - '2017-06-01' / '2017-09-30'
+
 ## 2.0.0
 
 ### Major Changes
