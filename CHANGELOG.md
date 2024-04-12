@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 9.0.0
+
+### Major Changes
+
+- 719d10c: Reflect work entry in resume semver versioning
+
+  - [Bettermarks Gmbh](./resume.yml:31), Software Developer, '2021-04-01' / '2021-10-31'
+
 ## 8.0.0
 
 ### Major Changes
