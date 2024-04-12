@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 1.0.0
+
+### Major Changes
+
+- 05a69fe: Reflect education entry in resume semver versioning
+
+  - Università degli studi di Trieste - '2011-09-01' / '2014-09-01'
+
 ## 0.0.3
 
 ### Patch Changes
