@@ -28,6 +28,42 @@ graph TB
     I --> J[End]
 ```
 
+## Webhooks and Notifications
+
+In this project, I use GitHub `webhooks` to keep external services updated with changes to the main branch. While these external services could `pull` updates from GitHub, this could lead to a high number of requests. To mitigate this, these services might introduce a cache. However, this cache needs to be invalidated when new changes are made to the main branch. To facilitate this, I provide a `push` behavior using webhooks. This allows me to notify these external services when changes occur, enabling them to invalidate their cache and pull the latest changes.
+
+Here's a simplified workflow:
+
+```mermaid
+graph TB
+	A[Start: Commit Pushed to Main Branch] --> B[Trigger Webhook]
+	B --> C[External Service Receives Payload]
+	C --> D[Perform Necessary Action]
+	D --> E[End]
+```
+
+In this workflow:
+1. A commit is pushed to the main branch.
+2. This triggers the webhook.
+3. The external service receives the payload from GitHub.
+4. The external service performs the necessary action (e.g., sending a notification).
+5. The process ends.
+
+### How?
+To set up a webhook on GitHub, follow these steps:
+
+1. Go to the main page of your GitHub repository and click on "Settings".
+2. In the left sidebar, click on "Webhooks".
+3. Click on "Add webhook".
+4. In the "Payload URL" field, enter the URL where you want GitHub to send the payloads.
+5. In the "Content type" field, select how you want the data to be sent. Usually, this is "application/json".
+6. In the "Secret" field, you can enter a secret token. This token will be sent with the payload, and the receiving server can use it to verify that the payload is indeed from GitHub.
+7. In the "Which events would you like to trigger this webhook?" section, select the events that should trigger the webhook.
+8. Click on "Add webhook" to save your changes.
+
+Now, whenever the selected events happen in your repository, GitHub will send a payload to the URL you specified. Your external service can then use this payload to perform whatever action is necessary.
+
+
 ## CI/CD
 
 ### Requirements:
@@ -37,3 +73,19 @@ graph TB
 	- change the semver version number
 	- update the change log with corresponding description
 	- tag that commit with corresponding version number
+
+
+```mermaid
+graph TB
+    A[Start: Pull Request Created or Updated] --> B{Run Tests and Linters}
+    B -->|Tests Pass| C[Pull Request Merged]
+    B -->|Tests Fail| D[Fix Issues and Update Pull Request]
+    D --> B
+    C --> E[Increment Version Number and Update CHANGELOG.md]
+    E --> F[Commit and Tag with Version Number]
+    F --> G[New Tag Created]
+    G --> H[Trigger Deployment Process]
+    H --> I[Deployment Completed]
+    I --> J[Send Notification]
+    J --> K[End]
+```
