@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 5.0.0
+
+### Major Changes
+
+- 55b7b52: Reflect work entry in resume semver versioning
+
+  - [Ravalico Real Estate s.a.s](./resume.yml:123), Front-end Web Developer, '2015-10-01' / '2016-10-30'
+
 ## 4.0.0
 
 ### Major Changes
