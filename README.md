@@ -3,29 +3,37 @@
 This is my personal resume data; It is based on an extension of the resume.json schema published
 by https://jsonresume.org .
 
-It is follow sem ver versioning, where in the form of
+## Versioning
+It is follow sem ver versioning; let's define what constitutes a MAJOR, MINOR, and PATCH change in the context of the [resume.yml](resume.yml) file:
+- **MAJOR**: A major change would be a significant addition or modification to the resume. This could include adding a new job or education entry, or making a significant change to an existing entry. For example, changing the job title or the institution of an education entry would be considered a major change.
+- **MINOR**: A minor change would be a small addition or modification that doesn't significantly alter the existing information. This could include adding new responsibilities or achievements to a job entry, or adding a new certification. These changes are backward compatible as they don't alter the existing structure or content in a significant way.
+- **PATCH**: A patch change would be a small fix that doesn't add new information or significantly alter existing information. This could include fixing a typo, making a small change to the formatting, or rephrasing existing content without changing its meaning.
+These definitions should be used as a guide when deciding how to increment the version number based on the changes made to the resume.json file.
 
-- MAJOR version when a new entry is added or modified in a braking way, such as:
-	- e.g. a transition to a new job
-	- e.g. new education entry
-	- etc...
-- MINOR version when a entry is extended with new details in a backward compatible manner, such as:
-	- e.g. new role within the same company
-	- e.g. new responsibilities within the same company
-	- e.g. new achievement within the same company
-	- e.g. new certification
-	- etc...
-- PATCH version when bug fixes are added in a backward compatible way such as:
-	- e.g. fixing a typo
-	- e.g. change in the formatting
-	- e.g. small rephrasing of existing concepts without changes to the content
-	- etc...
+
+```mermaid
+graph TB
+    A[Start: v1.0.0] --> B{Is it a new entry or a major modification?}
+    B -->|Yes, e.g. new job or education entry| C[Increment Major Version: v2.0.0]
+    B -->|No| D{Is it a minor detail addition?}
+    D -->|Yes, e.g. new role or responsibilities within the same company| E[Increment Minor Version: v1.1.0]
+    D -->|No| F{Is it a bug fix or minor change?}
+    F -->|Yes, e.g. fixing a typo or small rephrasing of existing content| G[Increment Patch Version: v1.0.1]
+    C --> H1[Update CHANGELOG.md: v2.0.0]
+    E --> H2[Update CHANGELOG.md: v1.1.0]
+    G --> H3[Update CHANGELOG.md: v1.0.1]
+    H1 --> I[Commit and Tag with Version Number]
+    H2 --> I
+    H3 --> I
+    I --> J[End]
+```
 
 ## CI/CD
 
 ### Requirements:
+
 - git `main` branch must only composed of released versions (tags)
 - each change ending merged in main needs to:
-  - change the semver version number
-  - update the change log with corresponding description
-  - tag that commit with corresponding version number
+	- change the semver version number
+	- update the change log with corresponding description
+	- tag that commit with corresponding version number
