@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 8.0.0
+
+### Major Changes
+
+- 0346d2b: Reflect work entry in resume semver versioning
+
+  - [ToolTime Gmbh](./resume.yml:60), Senior Frontend Engineer, '2019-09-01' / '2020-02-29'
+
 ## 7.0.0
 
 ### Major Changes
