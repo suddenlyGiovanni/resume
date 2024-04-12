@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 2.0.0
+
+### Major Changes
+
+- d116574: Reflect education entry in resume semver versioning
+
+  - Innovation Factory, AREA Science Park - '2015-04-01' / '2015-05-30'
+
 ## 1.0.0
 
 ### Major Changes
