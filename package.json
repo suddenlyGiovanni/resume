@@ -1,10 +1,9 @@
 {
 	"name": "@suddenly-giovanni/resume",
-	"version": "9.0.0",
+	"version": "9.0.1",
 	"private": true,
 	"type": "module",
 	"exports": {
-		"./resume.json": "./resume.json",
 		"./resume.yml": "./resume.yml"
 	},
 	"author": {
@@ -22,8 +21,8 @@
 	},
 	"license": "UNLICENSED",
 	"devDependencies": {
-		"@biomejs/biome": "1.6.4",
+		"@biomejs/biome": "1.7.1",
 		"@changesets/cli": "2.27.1"
 	},
-	"packageManager": "pnpm@8.15.6"
+	"packageManager": "pnpm@9.0.6"
 }

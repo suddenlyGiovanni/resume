@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 9.0.1
+
+### Patch Changes
+
+- 3f2fe5b:
+  - Deleted deprecated `resume.json`
+  - Upgraded pnpm to v9
+
 ## 9.0.0
 
 ### Major Changes
