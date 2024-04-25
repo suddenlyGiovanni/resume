@@ -1,539 +1,793 @@
 {
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"additionalProperties": false,
-	"definitions": {
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$defs": {
 		"iso8601": {
 			"type": "string",
 			"description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
 			"pattern": "^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$"
+		},
+		"Email": {
+			"type": "string",
+			"description": "Email address",
+			"title": "email",
+			"format": "email",
+			"examples": ["<local-part>@<domain>", "foo@bar.com", "foo.bar@baz.com"]
+		},
+		"UrlString": {
+			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
+			"examples": [
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
+			],
+			"format": "uri",
+			"title": "url",
+			"type": "string"
+		},
+		"NonEmptyString": {
+			"type": "string",
+			"description": "a non empty string",
+			"title": "non empty string",
+			"minLength": 1,
+			"examples": ["' test string  '", "'test string'"]
 		}
 	},
+	"additionalProperties": false,
 	"properties": {
 		"$schema": {
-			"type": "string",
 			"description": "link to the version of the schema that can validate the resume",
-			"format": "uri"
+			"examples": ["http://jsonresume.org/schema"],
+			"format": "uri",
+			"title": "$schema",
+			"type": "string"
+		},
+		"awards": {
+			"additionalItems": false,
+			"description": "Specify any awards you have received throughout your professional career",
+			"items": {
+				"additionalProperties": false,
+				"properties": {
+					"awarder": {
+						"description": "The name of the award given",
+						"examples": ["Time Magazine"],
+						"title": "awarder",
+						"type": "string"
+					},
+					"date": {
+						"$ref": "#/$defs/iso8601"
+					},
+					"summary": {
+						"description": "A brief summary of the award",
+						"examples": ["Received for my work with Quantum Physics"],
+						"title": "summary",
+						"type": "string"
+					},
+					"title": {
+						"description": "Title of the award",
+						"examples": ["One of the 100 greatest minds of the century"],
+						"title": "title",
+						"type": "string"
+					}
+				},
+				"required": [],
+				"type": "object"
+			},
+			"type": "array"
 		},
 		"basics": {
-			"type": "object",
-			"required": [
-				"name",
-				"label",
-				"email",
-				"summary",
-				"location",
-				"profiles"
-			],
-			"additionalProperties": true,
+			"additionalProperties": false,
 			"properties": {
-				"name": {
-					"type": "string"
-				},
-				"label": {
-					"type": "string",
-					"description": "e.g. Web Developer"
+				"email": {
+					"$ref": "#/$defs/Email"
 				},
 				"image": {
-					"type": "string",
-					"description": "URL (as per RFC 3986) to a image in JPEG or PNG format"
+					"$ref": "#/$defs/UrlString",
+					"title": "image"
 				},
-				"email": {
-					"type": "string",
-					"description": "e.g. thomas@gmail.com",
-					"format": "email"
-				},
-				"phone": {
-					"type": "string",
-					"description": "Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923"
-				},
-				"url": {
-					"type": "string",
-					"description": "URL (as per RFC 3986) to your website, e.g. personal homepage",
-					"format": "uri"
-				},
-				"summary": {
-					"type": "string",
-					"description": "Write a short 2-3 sentence biography about yourself"
+				"label": {
+					"description": "Label",
+					"examples": ["Web Developer"],
+					"title": "label",
+					"type": "string"
 				},
 				"location": {
-					"type": "object",
-					"additionalProperties": true,
-					"required": [
-						"city",
-						"countryCode"
-					],
+					"additionalProperties": false,
 					"properties": {
 						"address": {
-							"type": "string",
-							"description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
-						},
-						"postalCode": {
+							"description": "To add multiple address lines, use \"\\n\".",
+							"examples": ["1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."],
+							"title": "address",
 							"type": "string"
 						},
 						"city": {
+							"description": "City",
+							"examples": ["Berlin", "New York", "San Francisco"],
+							"title": "city",
 							"type": "string"
 						},
 						"countryCode": {
-							"type": "string",
-							"description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN"
+							"description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN",
+							"title": "countryCode",
+							"type": "string"
+						},
+						"postalCode": {
+							"description": "European postal code",
+							"examples": ["12209"],
+							"title": "postalCode",
+							"type": "string"
 						},
 						"region": {
-							"type": "string",
-							"description": "The general region where you live. Can be a US state, or a province, for instance."
+							"description": "The general region where you live. Can be a US state, or a province",
+							"examples": ["California", "Quebec"],
+							"title": "region",
+							"type": "string"
 						}
-					}
+					},
+					"required": ["city", "countryCode"],
+					"type": "object"
+				},
+				"name": {
+					"description": "Your full name",
+					"examples": ["Thomas Anderson"],
+					"title": "name",
+					"type": "string"
+				},
+				"phone": {
+					"description": "Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923",
+					"type": "string"
 				},
 				"profiles": {
-					"type": "array",
-					"description": "Specify any number of social networks that you participate in",
 					"additionalItems": false,
+					"description": "Specify any number of social networks that you participate in",
 					"items": {
-						"type": "object",
-						"additionalProperties": true,
-						"required": [
-							"network",
-							"url",
-							"username"
-						],
+						"additionalProperties": false,
 						"properties": {
 							"network": {
-								"type": "string",
-								"description": "e.g. Facebook or Twitter"
-							},
-							"username": {
-								"type": "string",
-								"description": "e.g. neutralthoughts"
+								"description": "The name of the social network",
+								"examples": ["Facebook", "Twitter"],
+								"title": "network",
+								"type": "string"
 							},
 							"url": {
-								"type": "string",
-								"description": "e.g. http://twitter.example.com/neutralthoughts",
-								"format": "uri"
+								"$ref": "#/$defs/UrlString",
+								"description": "e.g. http://twitter.example.com/neutralthoughts"
+							},
+							"username": {
+								"description": "The username of the profile on the social network",
+								"examples": ["neutralthoughts"],
+								"title": "username",
+								"type": "string"
 							}
-						}
-					}
-				}
-			}
-		},
-		"work": {
-			"type": "array",
-			"additionalItems": false,
-			"items": {
-				"type": "object",
-				"additionalProperties": true,
-				"required": [
-					"name",
-					"position",
-					"description",
-					"summary",
-					"highlights",
-					"startDate"
-				],
-				"properties": {
-					"name": {
-						"type": "string",
-						"description": "e.g. Facebook"
+						},
+						"required": ["network", "url", "username"],
+						"type": "object"
 					},
-					"location": {
-						"type": "string",
-						"description": "e.g. Menlo Park, CA"
-					},
-					"description": {
-						"type": "string",
-						"description": "e.g. Social Media Company"
-					},
-					"position": {
-						"type": "string",
-						"description": "e.g. Software Engineer"
-					},
-					"url": {
-						"type": "string",
-						"description": "e.g. http://facebook.example.com",
-						"format": "uri"
-					},
-					"startDate": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"endDate": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"summary": {
-						"type": "string",
-						"description": "Give an overview of your responsibilities at the company"
-					},
-					"highlights": {
-						"type": "array",
-						"description": "Specify multiple accomplishments",
-						"additionalItems": false,
-						"items": {
-							"type": "string",
-							"description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
-						}
-					}
-				}
-			}
-		},
-		"volunteer": {
-			"type": "array",
-			"additionalItems": false,
-			"items": {
-				"type": "object",
-				"additionalProperties": true,
-				"properties": {
-					"organization": {
-						"type": "string",
-						"description": "e.g. Facebook"
-					},
-					"position": {
-						"type": "string",
-						"description": "e.g. Software Engineer"
-					},
-					"url": {
-						"type": "string",
-						"description": "e.g. http://facebook.example.com",
-						"format": "uri"
-					},
-					"startDate": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"endDate": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"summary": {
-						"type": "string",
-						"description": "Give an overview of your responsibilities at the company"
-					},
-					"highlights": {
-						"type": "array",
-						"description": "Specify accomplishments and achievements",
-						"additionalItems": false,
-						"items": {
-							"type": "string",
-							"description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
-						}
-					}
-				}
-			}
-		},
-		"education": {
-			"type": "array",
-			"additionalItems": false,
-			"items": {
-				"additionalProperties": true,
-				"properties": {
-					"institution": {
-						"type": "string",
-						"description": "e.g. Massachusetts Institute of Technology"
-					},
-					"url": {
-						"type": "string",
-						"description": "e.g. http://facebook.example.com",
-						"format": "uri"
-					},
-					"area": {
-						"type": "string",
-						"description": "e.g. Arts"
-					},
-					"studyType": {
-						"type": "string",
-						"description": "e.g. Bachelor"
-					},
-					"startDate": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"endDate": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"score": {
-						"type": "string",
-						"description": "grade point average, e.g. 3.67/4.0"
-					},
-					"courses": {
-						"type": "array",
-						"description": "List notable courses/subjects",
-						"additionalItems": false,
-						"items": {
-							"type": "string",
-							"description": "e.g. H1302 - Introduction to American history"
-						}
-					}
+					"type": "array"
 				},
-				"required": [
-					"institution",
-					"area",
-					"studyType",
-					"startDate"
-				],
-				"type": "object"
-			}
-		},
-		"awards": {
-			"type": "array",
-			"description": "Specify any awards you have received throughout your professional career",
-			"additionalItems": false,
-			"items": {
-				"type": "object",
-				"additionalProperties": true,
-				"properties": {
-					"title": {
-						"type": "string",
-						"description": "e.g. One of the 100 greatest minds of the century"
-					},
-					"date": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"awarder": {
-						"type": "string",
-						"description": "e.g. Time Magazine"
-					},
-					"summary": {
-						"type": "string",
-						"description": "e.g. Received for my work with Quantum Physics"
-					}
+				"summary": {
+					"description": "Write a short 2-3 sentence biography about yourself",
+					"examples": ["Web Developer with a passion for web-based applications"],
+					"title": "summary",
+					"type": "string"
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "URL (as per RFC 3986) to your website, e.g. personal homepage"
 				}
-			}
+			},
+			"required": ["name", "label", "email", "summary", "location", "profiles"],
+			"type": "object"
 		},
 		"certificates": {
-			"type": "array",
-			"description": "Specify any certificates you have received throughout your professional career",
 			"additionalItems": false,
+			"description": "Specify any certificates you have received throughout your professional career",
 			"items": {
-				"type": "object",
-				"additionalProperties": true,
+				"additionalProperties": false,
 				"properties": {
-					"name": {
-						"type": "string",
-						"description": "e.g. Certified Kubernetes Administrator"
-					},
 					"date": {
-						"$ref": "#/definitions/iso8601"
-					},
-					"url": {
-						"type": "string",
-						"description": "e.g. http://example.com",
-						"format": "uri"
+						"description": "a string",
+						"title": "string",
+						"type": "string"
 					},
 					"issuer": {
-						"type": "string",
-						"description": "e.g. CNCF"
-					}
-				}
-			}
-		},
-		"publications": {
-			"type": "array",
-			"description": "Specify your publications through your career",
-			"additionalItems": false,
-			"items": {
-				"type": "object",
-				"additionalProperties": true,
-				"properties": {
+						"description": "issuer of the certificate",
+						"examples": ["e.g. CNCF"],
+						"title": "issuer",
+						"type": "string"
+					},
 					"name": {
-						"type": "string",
-						"description": "e.g. The World Wide Web"
-					},
-					"publisher": {
-						"type": "string",
-						"description": "e.g. IEEE, Computer Magazine"
-					},
-					"releaseDate": {
-						"$ref": "#/definitions/iso8601"
+						"description": "name of the certificate",
+						"examples": ["e.g. Certified Kubernetes Administrator"],
+						"title": "Name",
+						"type": "string"
 					},
 					"url": {
-						"type": "string",
-						"description": "e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html",
-						"format": "uri"
-					},
-					"summary": {
-						"type": "string",
-						"description": "Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML."
+						"$ref": "#/$defs/UrlString"
 					}
-				}
-			}
+				},
+				"required": [],
+				"type": "object"
+			},
+			"type": "array"
 		},
-		"skills": {
-			"type": "array",
-			"description": "List out your professional skill-set",
+		"education": {
 			"additionalItems": false,
 			"items": {
-				"type": "object",
 				"additionalProperties": true,
-				"required": [
-					"name",
-					"keywords"
-				],
+				"properties": {
+					"area": {
+						"description": "e.g. Arts",
+						"examples": ["Arts", "Computer Science"],
+						"title": "area",
+						"type": "string"
+					},
+					"courses": {
+						"additionalItems": false,
+						"description": "List notable courses/subjects",
+						"items": {
+							"description": "a string",
+							"examples": ["H1302 - Introduction to American history"],
+							"title": "course",
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"endDate": {
+						"$ref": "#/$defs/iso8601"
+					},
+					"institution": {
+						"description": "name of the institution",
+						"examples": ["Massachusetts Institute of Technology"],
+						"title": "institution",
+						"type": "string"
+					},
+					"location": {
+						"$ref": "#/$defs/NonEmptyString"
+					},
+					"score": {
+						"description": "grade point average, e.g. 3.67/4.0",
+						"examples": ["3.67/4.0"],
+						"title": "score",
+						"type": "string"
+					},
+					"startDate": {
+						"$ref": "#/$defs/iso8601"
+					},
+					"studyType": {
+						"description": "the type of study",
+						"examples": ["Bachelor", "Master", "Doctorate"],
+						"title": "studyType",
+						"type": "string"
+					},
+					"url": {
+						"$ref": "#/$defs/UrlString"
+					}
+				},
+				"required": ["area", "institution", "startDate", "studyType"],
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"interests": {
+			"additionalItems": false,
+			"items": {
+				"additionalProperties": false,
+				"properties": {
+					"keywords": {
+						"items": {
+							"description": "a string",
+							"examples": ["philosophy"],
+							"title": "keyword",
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"name": {
+						"description": "Interest name",
+						"examples": ["Philosophy"],
+						"title": "name",
+						"type": "string"
+					}
+				},
+				"required": [],
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"languages": {
+			"additionalItems": false,
+			"description": "List any other languages you speak",
+			"items": {
+				"additionalProperties": false,
+				"properties": {
+					"fluency": {
+						"description": "e.g. English, Spanish",
+						"examples": ["English", "Spanish"],
+						"title": "language",
+						"type": "string"
+					},
+					"language": {
+						"description": "e.g. English, Spanish",
+						"type": "string"
+					}
+				},
+				"required": [],
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"projects": {
+			"additionalItems": false,
+			"description": "Specify career projects",
+			"items": {
+				"additionalProperties": false,
+				"properties": {
+					"description": {
+						"description": "Short summary of project",
+						"examples": ["Collated works of 2017"],
+						"title": "description",
+						"type": "string"
+					},
+					"endDate": {
+						"$ref": "#/$defs/iso8601"
+					},
+					"entity": {
+						"description": "Specify the relevant company/entity affiliations",
+						"examples": ["Greenpeace", "Microsoft"],
+						"title": "entity",
+						"type": "string"
+					},
+					"highlights": {
+						"additionalItems": false,
+						"description": "Specify multiple features",
+						"items": {
+							"description": "Specify multiple features",
+							"examples": ["Directs you close but not quite there"],
+							"title": "highlight",
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"keywords": {
+						"additionalItems": false,
+						"description": "Specify special elements involved",
+						"items": {
+							"description": "a string",
+							"examples": ["AngularJS", "elements"],
+							"title": "keyword",
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"name": {
+						"description": "Name of the project",
+						"examples": ["The World Wide Web"],
+						"title": "name",
+						"type": "string"
+					},
+					"roles": {
+						"additionalItems": false,
+						"description": "Specify your role on this project or in company",
+						"items": {
+							"description": "a string",
+							"examples": ["Team Lead", "Speaker", "Writer"],
+							"title": "role",
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"startDate": {
+						"$ref": "#/$defs/iso8601"
+					},
+					"type": {
+						"description": "Type of project",
+						"examples": ["volunteering", "presentation", "talk", "application", "conference"],
+						"title": "type",
+						"type": "string"
+					},
+					"url": {
+						"$ref": "#/$defs/UrlString"
+					}
+				},
+				"required": [],
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"publications": {
+			"additionalItems": false,
+			"description": "Specify your publications through your career",
+			"items": {
+				"additionalProperties": false,
 				"properties": {
 					"name": {
-						"type": "string",
-						"description": "e.g. Web Development"
+						"description": "The name of the publication",
+						"examples": ["The World Wide Web"],
+						"title": "name",
+						"type": "string"
+					},
+					"publisher": {
+						"description": "The publisher of the publication",
+						"examples": ["IEEE", "Computer Magazine"],
+						"title": "publisher",
+						"type": "string"
+					},
+					"releaseDate": {
+						"$ref": "#/$defs/iso8601"
+					},
+					"summary": {
+						"description": "Short summary of publication",
+						"examples": ["Discussion of the World Wide Web, HTTP, HTML"],
+						"title": "summary",
+						"type": "string"
+					},
+					"url": {
+						"$ref": "#/$defs/UrlString",
+						"examples": [
+							"e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
+						]
+					}
+				},
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"references": {
+			"additionalItems": false,
+			"description": "List references you have received",
+			"items": {
+				"additionalProperties": false,
+				"properties": {
+					"name": {
+						"description": "The name of the reference",
+						"examples": ["Timothy Cook"],
+						"title": "name",
+						"type": "string"
+					},
+					"reference": {
+						"description": "The reference text",
+						"examples": [
+							"Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
+						],
+						"title": "reference",
+						"type": "string"
+					}
+				},
+				"required": ["name"],
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"skills": {
+			"additionalItems": false,
+			"description": "List out your professional skill-set",
+			"items": {
+				"additionalProperties": false,
+				"properties": {
+					"keywords": {
+						"additionalItems": false,
+						"description": "List some keywords pertaining to this skill",
+						"items": {
+							"description": "a string",
+							"examples": ["Rust"],
+							"title": "keyword",
+							"type": "string"
+						},
+						"type": "array"
 					},
 					"level": {
 						"type": "string",
-						"description": "e.g. Master"
+						"description": "Level of expertise",
+						"title": "level",
+						"examples": ["Master", "Intermediate"]
 					},
-					"keywords": {
-						"type": "array",
-						"description": "List some keywords pertaining to this skill",
-						"additionalItems": false,
-						"items": {
-							"type": "string",
-							"description": "e.g. HTML"
-						}
-					}
-				}
-			}
-		},
-		"languages": {
-			"type": "array",
-			"description": "List any other languages you speak",
-			"additionalItems": false,
-			"items": {
-				"type": "object",
-				"additionalProperties": true,
-				"properties": {
-					"language": {
-						"type": "string",
-						"description": "e.g. English, Spanish"
-					},
-					"fluency": {
-						"type": "string",
-						"description": "e.g. Fluent, Beginner"
-					}
-				}
-			}
-		},
-		"interests": {
-			"type": "array",
-			"additionalItems": false,
-			"items": {
-				"type": "object",
-				"additionalProperties": true,
-				"properties": {
 					"name": {
-						"type": "string",
-						"description": "e.g. Philosophy"
-					},
-					"keywords": {
-						"type": "array",
-						"additionalItems": false,
-						"items": {
-							"type": "string",
-							"description": "e.g. Friedrich Nietzsche"
-						}
+						"description": "Name of the skill",
+						"examples": ["Web Development"],
+						"title": "name",
+						"type": "string"
 					}
-				}
-			}
+				},
+				"required": ["name", "keywords"],
+				"type": "object"
+			},
+			"type": "array"
 		},
-		"references": {
-			"type": "array",
-			"description": "List references you have received",
+		"volunteer": {
 			"additionalItems": false,
 			"items": {
-				"type": "object",
-				"additionalProperties": true,
+				"additionalProperties": false,
 				"properties": {
-					"name": {
-						"type": "string",
-						"description": "e.g. Timothy Cook"
-					},
-					"reference": {
-						"type": "string",
-						"description": "e.g. Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
-					}
-				}
-			}
-		},
-		"projects": {
-			"type": "array",
-			"description": "Specify career projects",
-			"additionalItems": false,
-			"items": {
-				"type": "object",
-				"additionalProperties": true,
-				"properties": {
-					"name": {
-						"type": "string",
-						"description": "e.g. The World Wide Web"
-					},
-					"description": {
-						"type": "string",
-						"description": "Short summary of project. e.g. Collated works of 2017."
+					"endDate": {
+						"$ref": "#/$defs/iso8601"
 					},
 					"highlights": {
-						"type": "array",
-						"description": "Specify multiple features",
 						"additionalItems": false,
+						"description": "Specify accomplishments and achievements",
 						"items": {
-							"type": "string",
-							"description": "e.g. Directs you close but not quite there"
-						}
+							"description": "a string",
+							"examples": ["Increased profits by 20% from 2011-2012 through viral advertising"],
+							"title": "highlight",
+							"type": "string"
+						},
+						"type": "array"
 					},
-					"keywords": {
-						"type": "array",
-						"description": "Specify special elements involved",
-						"additionalItems": false,
-						"items": {
-							"type": "string",
-							"description": "e.g. AngularJS"
-						}
+					"organization": {
+						"description": "Name of the organization",
+						"examples": ["Facebook"],
+						"title": "organization",
+						"type": "string"
+					},
+					"position": {
+						"description": "The title of your position at the company",
+						"examples": ["Software Engineer"],
+						"title": "position",
+						"type": "string"
 					},
 					"startDate": {
-						"$ref": "#/definitions/iso8601"
+						"$ref": "#/$defs/iso8601"
 					},
-					"endDate": {
-						"$ref": "#/definitions/iso8601"
+					"summary": {
+						"description": "Give an overview of your responsibilities at the company",
+						"examples": [
+							"My day-to-day activities involved designing and building web applications..."
+						],
+						"title": "summary",
+						"type": "string"
 					},
 					"url": {
-						"type": "string",
-						"format": "uri",
-						"description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html"
+						"$ref": "#/$defs/UrlString"
+					}
+				},
+				"required": [],
+				"type": "object"
+			},
+			"type": "array"
+		},
+		"work": {
+			"additionalItems": false,
+			"items": {
+				"additionalProperties": false,
+				"properties": {
+					"contact": {
+						"additionalProperties": false,
+						"properties": {
+							"email": {
+								"$ref": "#/$defs/Email"
+							},
+							"name": {
+								"description": "The name and role of the contact person",
+								"examples": ["Mark Zuckerberg (CTO)"],
+								"title": "name",
+								"type": "string"
+							},
+							"phone": {
+								"description": "a string",
+								"title": "string",
+								"type": "string"
+							}
+						},
+						"required": ["name", "email"],
+						"type": "object"
+					},
+					"description": {
+						"description": "A short description of the company",
+						"examples": ["Social Media Company", "Educational Software Company"],
+						"title": "description",
+						"type": "string"
+					},
+					"endDate": {
+						"$ref": "#/$defs/iso8601"
+					},
+					"highlights": {
+						"additionalItems": false,
+						"description": "Specify multiple accomplishments",
+						"items": {
+							"description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"location": {
+						"description": "Location of the company",
+						"examples": ["Menlo Park, CA"],
+						"title": "location",
+						"type": "string"
+					},
+					"name": {
+						"description": "Name of the company",
+						"examples": ["Facebook"],
+						"title": "name",
+						"type": "string"
 					},
 					"roles": {
-						"type": "array",
-						"description": "Specify your role on this project or in company",
-						"additionalItems": false,
-						"items": {
-							"type": "string",
-							"description": "e.g. Team Lead, Speaker, Writer"
-						}
+						"additionalItems": {
+							"additionalProperties": false,
+							"properties": {
+								"endDate": {
+									"type": "string",
+									"description": "a string",
+									"title": "string"
+								},
+								"highlights": {
+									"additionalItems": {
+										"description": "A specific accomplishment",
+										"examples": [
+											"Increased profits by 20% from 2011-2012 through viral advertising"
+										],
+										"title": "highlight",
+										"type": "string"
+									},
+									"items": [
+										{
+											"description": "A specific accomplishment",
+											"examples": [
+												"Increased profits by 20% from 2011-2012 through viral advertising"
+											],
+											"title": "highlight",
+											"type": "string"
+										}
+									],
+									"minItems": 1,
+									"type": "array"
+								},
+								"responsibilities": {
+									"items": {
+										"description": "A specific responsibility",
+										"examples": ["code owner of x"],
+										"title": "responsibility",
+										"type": "string"
+									},
+									"type": "array"
+								},
+								"startDate": {
+									"description": "a string",
+									"title": "string",
+									"type": "string"
+								},
+								"technologies": {
+									"additionalItems": {
+										"description": "A specific technology used",
+										"examples": ["React", "Node.js"],
+										"title": "technology",
+										"type": "string"
+									},
+									"items": [
+										{
+											"description": "A specific technology used",
+											"examples": ["React", "Node.js"],
+											"title": "technology",
+											"type": "string"
+										}
+									],
+									"minItems": 1,
+									"type": "array"
+								},
+								"title": {
+									"description": "The title of your position at the company: <seniority level> <role title>",
+									"examples": ["Junior Software Developer", "Senior Software Engineer"],
+									"title": "title",
+									"type": "string"
+								}
+							},
+							"required": ["title", "startDate", "responsibilities"],
+							"type": "object"
+						},
+						"items": [
+							{
+								"additionalProperties": false,
+								"properties": {
+									"endDate": {
+										"description": "a string",
+										"title": "string",
+										"type": "string"
+									},
+									"highlights": {
+										"additionalItems": {
+											"description": "A specific accomplishment",
+											"examples": [
+												"Increased profits by 20% from 2011-2012 through viral advertising"
+											],
+											"title": "highlight",
+											"type": "string"
+										},
+										"items": [
+											{
+												"description": "A specific accomplishment",
+												"examples": [
+													"Increased profits by 20% from 2011-2012 through viral advertising"
+												],
+												"title": "highlight",
+												"type": "string"
+											}
+										],
+										"minItems": 1,
+										"type": "array"
+									},
+									"responsibilities": {
+										"type": "array",
+										"items": {
+											"description": "A specific responsibility",
+											"examples": ["code owner of x"],
+											"title": "responsibility",
+											"type": "string"
+										}
+									},
+									"startDate": {
+										"description": "a string",
+										"title": "string",
+										"type": "string"
+									},
+									"technologies": {
+										"additionalItems": {
+											"description": "A specific technology used",
+											"examples": ["React", "Node.js"],
+											"title": "technology",
+											"type": "string"
+										},
+										"items": [
+											{
+												"description": "A specific technology used",
+												"examples": ["React", "Node.js"],
+												"title": "technology",
+												"type": "string"
+											}
+										],
+										"minItems": 1,
+										"type": "array"
+									},
+									"title": {
+										"description": "The title of your position at the company: <seniority level> <role title>",
+										"examples": ["Junior Software Developer", "Senior Software Engineer"],
+										"title": "title",
+										"type": "string"
+									}
+								},
+								"required": ["title", "startDate", "responsibilities"],
+								"type": "object"
+							}
+						],
+						"minItems": 1,
+						"type": "array"
 					},
-					"entity": {
-						"type": "string",
-						"description": "Specify the relevant company/entity affiliations e.g. 'greenpeace', 'corporationXYZ'"
+					"startDate": {
+						"$ref": "#/$defs/iso8601"
 					},
-					"type": {
-						"type": "string",
-						"description": " e.g. 'volunteering', 'presentation', 'talk', 'application', 'conference'"
+					"summary": {
+						"description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
+						"examples": [
+							"An educational software company that helps students learn through interactive games",
+							"Help users to handle all their administrative tasks digitally with ease."
+						],
+						"title": "summary",
+						"type": "string"
+					},
+					"techStack": {
+						"additionalItems": {
+							"$ref": "#/$defs/NonEmptyString"
+						},
+						"items": [
+							{
+								"$ref": "#/$defs/NonEmptyString"
+							}
+						],
+						"minItems": 1,
+						"type": "array"
+					},
+					"url": {
+						"$ref": "#/$defs/UrlString",
+						"description": "e.g. http://facebook.example.com"
 					}
-				}
-			}
-		},
-		"meta": {
-			"type": "object",
-			"description": "The schema version and any other tooling configuration lives here",
-			"additionalProperties": true,
-			"properties": {
-				"canonical": {
-					"type": "string",
-					"description": "URL (as per RFC 3986) to latest version of this document",
-					"format": "uri"
 				},
-				"version": {
-					"type": "string",
-					"description": "A version field which follows semver - e.g. v1.0.0"
-				},
-				"lastModified": {
-					"type": "string",
-					"description": "Using ISO 8601 with YYYY-MM-DDThh:mm:ss"
-				}
-			}
+				"required": ["description", "name", "startDate", "roles"],
+				"type": "object"
+			},
+			"type": "array"
 		}
 	},
-	"required": [
-		"$schema",
-		"basics",
-		"education",
-		"work"
-	],
+	"required": ["$schema", "basics", "education", "skills", "work"],
 	"title": "Resume Schema",
 	"type": "object"
 }
