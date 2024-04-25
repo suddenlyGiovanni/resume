@@ -17,12 +17,23 @@
 		"changeset:publish": "pnpm exec changeset publish",
 		"changeset:version": "pnpm exec changeset version",
 		"format": "biome format .",
-		"format:write": "pnpm format --write"
+		"format:write": "pnpm format --write",
+		"test:unit": "vitest",
+		"test:integration": "echo 'No integration tests yet'"
 	},
 	"license": "UNLICENSED",
+	"dependencies": {
+		"@effect/schema": "0.66.8",
+		"effect": "3.0.5"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.1",
-		"@changesets/cli": "2.27.1"
+		"@changesets/cli": "2.27.1",
+		"@tsconfig/node21": "21.0.3",
+		"@tsconfig/strictest": "2.0.5",
+		"@types/node": "20.12.7",
+		"typescript": "5.4.5",
+		"vitest": "1.5.2"
 	},
 	"packageManager": "pnpm@9.0.6"
 }
