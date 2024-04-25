@@ -1,0 +1,108 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": [],
+	"properties": {
+		"description": {
+			"type": "string",
+			"description": "Short summary of project",
+			"title": "description",
+			"examples": [
+				"Collated works of 2017"
+			]
+		},
+		"endDate": {
+			"type": "string",
+			"description": "a string",
+			"title": "string"
+		},
+		"entity": {
+			"type": "string",
+			"description": "Specify the relevant company/entity affiliations",
+			"title": "entity",
+			"examples": [
+				"Greenpeace",
+				"Microsoft"
+			]
+		},
+		"name": {
+			"type": "string",
+			"description": "Name of the project",
+			"title": "name",
+			"examples": [
+				"The World Wide Web"
+			]
+		},
+		"startDate": {
+			"type": "string",
+			"description": "a string",
+			"title": "string"
+		},
+		"type": {
+			"type": "string",
+			"description": "Type of project",
+			"title": "type",
+			"examples": [
+				"volunteering",
+				"presentation",
+				"talk",
+				"application",
+				"conference"
+			]
+		},
+		"url": {
+			"$ref": "#/$defs/UrlString"
+		},
+		"highlights": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"description": "Specify multiple features",
+				"title": "highlight",
+				"examples": [
+					"Directs you close but not quite there"
+				]
+			}
+		},
+		"keywords": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"description": "a string",
+				"title": "keyword",
+				"examples": [
+					"AngularJS",
+					"elements"
+				]
+			}
+		},
+		"roles": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"description": "a string",
+				"title": "role",
+				"examples": [
+					"Team Lead",
+					"Speaker",
+					"Writer"
+				]
+			}
+		}
+	},
+	"additionalProperties": false,
+	"$defs": {
+		"UrlString": {
+			"type": "string",
+			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "url",
+			"examples": [
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
+			]
+		}
+	}
+}

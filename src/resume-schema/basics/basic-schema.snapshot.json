@@ -1,0 +1,161 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": [
+		"email",
+		"label",
+		"name",
+		"summary",
+		"location",
+		"profiles"
+	],
+	"properties": {
+		"email": {
+			"$ref": "#/$defs/Email"
+		},
+		"image": {
+			"$ref": "#/$defs/UrlString"
+		},
+		"label": {
+			"type": "string",
+			"description": "Label",
+			"title": "label",
+			"examples": [
+				"Web Developer"
+			]
+		},
+		"name": {
+			"type": "string",
+			"description": "Your full name",
+			"title": "name",
+			"examples": [
+				"Thomas Anderson"
+			]
+		},
+		"phone": {
+			"type": "string",
+			"description": "a string",
+			"title": "string"
+		},
+		"summary": {
+			"type": "string",
+			"description": "Write a short 2-3 sentence biography about yourself",
+			"title": "summary",
+			"examples": [
+				"Web Developer with a passion for web-based applications"
+			]
+		},
+		"url": {
+			"$ref": "#/$defs/UrlString"
+		},
+		"location": {
+			"type": "object",
+			"required": [
+				"city",
+				"countryCode"
+			],
+			"properties": {
+				"address": {
+					"type": "string",
+					"description": "To add multiple address lines, use \"\\n\".",
+					"title": "address",
+					"examples": [
+						"1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
+					]
+				},
+				"city": {
+					"type": "string",
+					"description": "City",
+					"title": "city",
+					"examples": [
+						"Berlin",
+						"New York",
+						"San Francisco"
+					]
+				},
+				"countryCode": {
+					"type": "string",
+					"description": "a string",
+					"title": "string"
+				},
+				"postalCode": {
+					"type": "string",
+					"description": "European postal code",
+					"title": "postalCode",
+					"examples": [
+						"12209"
+					]
+				},
+				"region": {
+					"type": "string",
+					"description": "The general region where you live. Can be a US state, or a province",
+					"title": "region",
+					"examples": [
+						"California",
+						"Quebec"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"profiles": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"network",
+					"url",
+					"username"
+				],
+				"properties": {
+					"network": {
+						"type": "string",
+						"description": "The name of the social network",
+						"title": "network",
+						"examples": [
+							"Facebook",
+							"Twitter"
+						]
+					},
+					"url": {
+						"$ref": "#/$defs/UrlString"
+					},
+					"username": {
+						"type": "string",
+						"description": "The username of the profile on the social network",
+						"title": "username",
+						"examples": [
+							"neutralthoughts"
+						]
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	},
+	"additionalProperties": false,
+	"$defs": {
+		"Email": {
+			"type": "string",
+			"description": "Email address",
+			"title": "email",
+			"examples": [
+				"<local-part>@<domain>",
+				"foo@bar.com",
+				"foo.bar@baz.com"
+			]
+		},
+		"UrlString": {
+			"type": "string",
+			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "url",
+			"examples": [
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
+			]
+		}
+	}
+}
