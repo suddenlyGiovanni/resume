@@ -4,7 +4,9 @@
 	"private": true,
 	"type": "module",
 	"exports": {
-		"./resume.yml": "./resume.yml"
+		"./resume.yml": "./resume.yml",
+		"./resume-schema": "./src/resume-schema/index.ts",
+		"./schema-primitive": "./src/schema-primitive/index.ts"
 	},
 	"author": {
 		"name": "Giovanni Ravalico",
