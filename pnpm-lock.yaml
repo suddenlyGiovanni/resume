@@ -21,6 +21,9 @@ importers:
       '@changesets/cli':
         specifier: 2.27.1
         version: 2.27.1
+      '@std/yaml':
+        specifier: npm:@jsr/std__yaml@0.224.0
+        version: '@jsr/std__yaml@0.224.0'
       '@tsconfig/node21':
         specifier: 21.0.3
         version: 21.0.3
@@ -316,6 +319,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.4.15':
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
+
+  '@jsr/std__yaml@0.224.0':
+    resolution: {integrity: sha512-l8qlK5q0JeObBqznhgmTYsLTTIzvHvM1b6OMvEWe9LIpUpPMMTgNePOPKWHUTbh1J1ocj9f9h1rXGinu0Qw5vg==, tarball: https://npm.jsr.io/~/8/@jsr/std__yaml/0.224.0.tgz}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -1989,6 +1995,8 @@ snapshots:
       '@sinclair/typebox': 0.27.8
 
   '@jridgewell/sourcemap-codec@1.4.15': {}
+
+  '@jsr/std__yaml@0.224.0': {}
 
   '@manypkg/find-root@1.1.0':
     dependencies:
