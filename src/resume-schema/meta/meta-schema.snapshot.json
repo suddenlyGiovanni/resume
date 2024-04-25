@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": [],
+	"properties": {
+		"canonical": {
+			"$ref": "#/$defs/UrlString"
+		},
+		"lastModified": {
+			"type": "string",
+			"description": "a string",
+			"title": "string"
+		},
+		"version": {
+			"type": "string",
+			"description": "A version field which follows semver - e.g. v1.0.0",
+			"title": "version",
+			"examples": [
+				"v1.0.0"
+			]
+		}
+	},
+	"additionalProperties": false,
+	"$defs": {
+		"UrlString": {
+			"type": "string",
+			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "url",
+			"examples": [
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
+			]
+		}
+	}
+}
