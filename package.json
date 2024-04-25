@@ -9,7 +9,7 @@
 	"author": {
 		"name": "Giovanni Ravalico",
 		"email": "15946771+suddenlygiovanni@users.noreply.github.com",
-		"url": "https://wwww.suddenlygiovanni.dev"
+		"url": "https://wwww.suddenlygiovanni.dev/resume"
 	},
 	"scripts": {
 		"changeset:add": "pnpm exec changeset add",
@@ -19,7 +19,7 @@
 		"format": "biome format .",
 		"format:write": "pnpm format --write",
 		"test:unit": "vitest",
-		"test:integration": "echo 'No integration tests yet'"
+		"test:integration": "vitest ./src/__integration-test__/integration-test.spec.ts"
 	},
 	"license": "UNLICENSED",
 	"dependencies": {
@@ -33,6 +33,7 @@
 		"@tsconfig/node21": "21.0.3",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/node": "20.12.7",
+		"@vitest/coverage-v8": "1.5.2",
 		"@vitest/ui": "1.5.2",
 		"typescript": "5.4.5",
 		"vite-tsconfig-paths": "4.3.2",

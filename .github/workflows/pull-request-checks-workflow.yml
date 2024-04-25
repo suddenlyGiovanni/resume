@@ -54,5 +54,20 @@ jobs:
             --diagnostic-level=error          \
             .
 
+      - name: 🧪 Run unit tests
+        run: pnpm run test:unit -- --coverage
+
+      - name: 🛫Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          directory: ./coverage/reports/
+          fail_ci_if_error: false
+          name: codecov-umbrella
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
+
+      - name: 🧪🧪 Run integration tests
+        run: pnpm run test:integration
+
       - name: 🦋 Require changesets
         run: pnpm exec changeset status --since=origin/main
