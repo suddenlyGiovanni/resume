@@ -8,13 +8,28 @@
 		"./resume-schema": "./src/resume-schema/index.ts",
 		"./schema-primitive": "./src/schema-primitive/index.ts"
 	},
+	"publishConfig": {
+		"exports": {
+			"./resume-schema": "./lib/resume-schema/index.js",
+			"./schema-primitive": "./lib/schema-primitive/index.js"
+		}
+	},
+	"files": [
+		"lib/**",
+		"README.md"
+	],
 	"author": {
 		"name": "Giovanni Ravalico",
 		"email": "15946771+suddenlygiovanni@users.noreply.github.com",
 		"url": "https://wwww.suddenlygiovanni.dev/resume"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/suddenlyGiovanni/resume.git"
+	},
 	"scripts": {
 		"build": "tsc -b tsconfig.build.json",
+		"ci:publish": "pmpm publish",
 		"typecheck": "tsc --noEmit",
 		"changeset:add": "pnpm exec changeset add",
 		"changeset:empty": "pnpm exec changeset --empty",
@@ -42,15 +57,5 @@
 		"vite-tsconfig-paths": "4.3.2",
 		"vitest": "1.5.2"
 	},
-	"packageManager": "pnpm@9.0.6",
-	"files": [
-		"lib/**",
-		"README.md"
-	],
-	"publishConfig": {
-		"exports": {
-			"./resume-schema": "./lib/resume-schema/index.js",
-			"./schema-primitive": "./lib/schema-primitive/index.js"
-		}
-	}
+	"packageManager": "pnpm@9.0.6"
 }
