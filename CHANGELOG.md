@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 10.0.1
+
+### Patch Changes
+
+- 7f3931f: Add build step and publish workflow to GHA
+
 ## 10.0.0
 
 ### Major Changes
