@@ -20,8 +20,7 @@
 		"changeset:version": "pnpm exec changeset version",
 		"format": "biome format .",
 		"format:write": "pnpm format --write",
-		"test:unit": "vitest",
-		"test:integration": "vitest ./src/__integration-test__/integration-test.spec.ts"
+		"test": "vitest"
 	},
 	"license": "UNLICENSED",
 	"dependencies": {
