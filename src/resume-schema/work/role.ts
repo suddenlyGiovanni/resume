@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { ISO8601DateString, nonEmptyString } from '@/schema-primitive/index.ts'
+import { ISO8601DateString, nonEmptyString } from '@/schema-primitive/index.js'
 
 export class Role extends S.Class<Role>('Role')({
 	title: nonEmptyString({

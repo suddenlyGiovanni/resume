@@ -8,20 +8,36 @@
 		"./resume-schema": "./src/resume-schema/index.ts",
 		"./schema-primitive": "./src/schema-primitive/index.ts"
 	},
+	"publishConfig": {
+		"exports": {
+			"./resume-schema": "./lib/resume-schema/index.js",
+			"./schema-primitive": "./lib/schema-primitive/index.js"
+		}
+	},
+	"files": [
+		"lib/**",
+		"README.md"
+	],
 	"author": {
 		"name": "Giovanni Ravalico",
 		"email": "15946771+suddenlygiovanni@users.noreply.github.com",
 		"url": "https://wwww.suddenlygiovanni.dev/resume"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/suddenlyGiovanni/resume.git"
+	},
 	"scripts": {
+		"build": "tsc -b tsconfig.build.json",
+		"ci:publish": "pmpm publish",
+		"typecheck": "tsc --noEmit",
 		"changeset:add": "pnpm exec changeset add",
 		"changeset:empty": "pnpm exec changeset --empty",
 		"changeset:publish": "pnpm exec changeset publish",
 		"changeset:version": "pnpm exec changeset version",
 		"format": "biome format .",
 		"format:write": "pnpm format --write",
-		"test:unit": "vitest",
-		"test:integration": "vitest ./src/__integration-test__/integration-test.spec.ts"
+		"test": "vitest"
 	},
 	"license": "UNLICENSED",
 	"dependencies": {

@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, nonEmptyString } from '@/schema-primitive/index.ts'
+import { UrlString, nonEmptyString } from '@/schema-primitive/index.js'
 
 export const Publication = S.Struct({
 	name: S.optional(

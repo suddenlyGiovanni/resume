@@ -2,7 +2,7 @@ import * as JSONSchema from '@effect/schema/JSONSchema'
 import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
-import { Certificate } from './certificates.ts'
+import { Certificate } from './certificates.js'
 
 describe('Certificate', () => {
 	describe('decode', () => {

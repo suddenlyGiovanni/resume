@@ -2,7 +2,7 @@ import * as JSONSchema from '@effect/schema/JSONSchema'
 import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
-import { Language } from './language.ts'
+import { Language } from './language.js'
 
 describe('Language', () => {
 	const languageInput = {

@@ -2,7 +2,7 @@ import * as JSONSchema from '@effect/schema/JSONSchema'
 import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
-import { Location } from './location.ts'
+import { Location } from './location.js'
 
 describe('Location', () => {
 	const locationInput = {

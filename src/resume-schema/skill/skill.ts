@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/index.ts'
+import { nonEmptyString } from '@/schema-primitive/index.js'
 
 export const Skill = S.Struct({
 	keywords: S.Array(

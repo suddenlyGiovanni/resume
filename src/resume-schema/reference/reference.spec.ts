@@ -2,7 +2,7 @@ import * as JSONSchema from '@effect/schema/JSONSchema'
 import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
-import { Reference } from './reference.ts'
+import { Reference } from './reference.js'
 
 describe('Reference', () => {
 	const referenceInput = {
