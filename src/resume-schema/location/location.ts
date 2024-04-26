@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/non-empty-string/non-empty-string.ts'
+import { nonEmptyString } from '@/schema-primitive/non-empty-string/non-empty-string.js'
 
 export const Location = S.Struct({
 	address: S.optional(

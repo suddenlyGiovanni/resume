@@ -6,9 +6,9 @@ import {
 	Phone,
 	UrlString,
 	nonEmptyString,
-} from '@/schema-primitive/index.ts'
+} from '@/schema-primitive/index.js'
 
-import { Role } from './role.ts'
+import { Role } from './role.js'
 
 export const Work = S.Struct({
 	contact: S.optional(

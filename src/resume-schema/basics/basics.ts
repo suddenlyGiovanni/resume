@@ -1,9 +1,9 @@
 import * as S from '@effect/schema/Schema'
 
-import { Email, Phone, UrlString, nonEmptyString } from '@/schema-primitive/index.ts'
+import { Email, Phone, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
 
-import { Location } from '../location/location.ts'
-import { Profile } from '../profile/profile.ts'
+import { Location } from '../location/location.js'
+import { Profile } from '../profile/profile.js'
 
 export const Basics = S.Struct({
 	email: Email,

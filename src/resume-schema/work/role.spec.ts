@@ -3,7 +3,7 @@ import * as S from '@effect/schema/Schema'
 
 import { describe, expect, test } from 'vitest'
 
-import { Role } from './role.ts'
+import { Role } from './role.js'
 
 describe('Role', () => {
 	const role: S.Schema.Encoded<typeof Role> = {

@@ -2,7 +2,7 @@ import * as jsonSchema from '@effect/schema/JSONSchema'
 import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
-import { UrlString } from './url-string.ts'
+import { UrlString } from './url-string.js'
 
 type UrlDescriptionTuple = [url: string, description: string]
 type UrlDescriptionTupleArray = readonly UrlDescriptionTuple[]

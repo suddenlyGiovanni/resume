@@ -3,7 +3,7 @@ import * as S from '@effect/schema/Schema'
 
 import { describe, expect, test } from 'vitest'
 
-import { Work, type WorkEncoded } from './work.ts'
+import { Work, type WorkEncoded } from './work.js'
 
 describe('Work', () => {
 	const workInput = {

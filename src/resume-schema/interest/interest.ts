@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/index.ts'
+import { nonEmptyString } from '@/schema-primitive/index.js'
 
 export const Interest = S.Struct({
 	keywords: S.optional(
