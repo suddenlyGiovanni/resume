@@ -9,7 +9,7 @@
 		"./schema-primitive": "./src/schema-primitive/index.ts"
 	},
 	"publishConfig": {
-		"@suddenlyGiovanni:registry": "https://npm.pkg.github.com",
+		"registry": "https://npm.pkg.github.com",
 		"exports": {
 			"./resume-schema": "./lib/resume-schema/index.js",
 			"./schema-primitive": "./lib/schema-primitive/index.js"
