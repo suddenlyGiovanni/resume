@@ -1,5 +1,19 @@
 # @suddenly-giovanni/resume
 
+## 10.0.0
+
+### Major Changes
+
+- a387e64: Derive resume schema from '@effect/schema'
+
+  - resume schema is computed out of the this fn `JSONSchema.make(Schema.encodedSchema(ResumeSchema))`
+  - both top level and nested schemas are exposed from the package
+  - CI validates with integration tests changes of `resume.yml` against the schema definition.
+
+### Minor Changes
+
+- a387e64: Update the schema and corresponding resume fields
+
 ## 9.0.1
 
 ### Patch Changes
