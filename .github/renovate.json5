@@ -6,6 +6,7 @@
 		':pinDevDependencies',
 		'group:monorepos',
 		'group:recommended',
+		"regexManagers:biomeVersions",
 		'replacements:all',
 		'workarounds:all',
 		':followTag(typescript, rc)',
