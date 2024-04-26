@@ -1,7 +1,7 @@
 import * as fs from 'node:fs/promises'
-import { describe, it, expect } from 'vitest'
-import * as yaml from '@std/yaml'
 import * as S from '@effect/schema/Schema'
+import * as yaml from '@std/yaml'
+import { describe, expect, it } from 'vitest'
 
 import { Resume } from '@/resume-schema/resume.ts'
 

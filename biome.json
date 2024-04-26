@@ -67,6 +67,16 @@
 			"formatter": {
 				"enabled": false
 			}
+		},
+		{
+			"include": ["src/test/test-utils.ts"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noExplicitAny": "off"
+					}
+				}
+			}
 		}
 	]
 }

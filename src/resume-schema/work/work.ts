@@ -3,9 +3,9 @@ import * as S from '@effect/schema/Schema'
 import {
 	Email,
 	ISO8601DateString,
-	nonEmptyString,
 	Phone,
 	UrlString,
+	nonEmptyString,
 } from '@/schema-primitive/index.ts'
 
 import { Role } from './role.ts'

@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { ISO8601DateString, nonEmptyString, UrlString } from '@/schema-primitive/index.ts'
+import { ISO8601DateString, UrlString, nonEmptyString } from '@/schema-primitive/index.ts'
 
 export const Education = S.Struct({
 	area: nonEmptyString({

@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { Email, nonEmptyString, Phone, UrlString } from '@/schema-primitive/index.ts'
+import { Email, Phone, UrlString, nonEmptyString } from '@/schema-primitive/index.ts'
 
 import { Location } from '../location/location.ts'
 import { Profile } from '../profile/profile.ts'

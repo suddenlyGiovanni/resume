@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString, UrlString } from '@/schema-primitive/index.ts'
+import { UrlString, nonEmptyString } from '@/schema-primitive/index.ts'
 
 export const Certificate = S.Struct({
 	name: S.optional(
