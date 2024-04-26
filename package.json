@@ -4,12 +4,14 @@
 	"private": true,
 	"type": "module",
 	"exports": {
-		"./resume.yml": "./resume.yml"
+		"./resume.yml": "./resume.yml",
+		"./resume-schema": "./src/resume-schema/index.ts",
+		"./schema-primitive": "./src/schema-primitive/index.ts"
 	},
 	"author": {
 		"name": "Giovanni Ravalico",
 		"email": "15946771+suddenlygiovanni@users.noreply.github.com",
-		"url": "https://wwww.suddenlygiovanni.dev"
+		"url": "https://wwww.suddenlygiovanni.dev/resume"
 	},
 	"scripts": {
 		"changeset:add": "pnpm exec changeset add",
@@ -17,12 +19,27 @@
 		"changeset:publish": "pnpm exec changeset publish",
 		"changeset:version": "pnpm exec changeset version",
 		"format": "biome format .",
-		"format:write": "pnpm format --write"
+		"format:write": "pnpm format --write",
+		"test:unit": "vitest",
+		"test:integration": "vitest ./src/__integration-test__/integration-test.spec.ts"
 	},
 	"license": "UNLICENSED",
+	"dependencies": {
+		"@effect/schema": "0.66.8",
+		"effect": "3.0.5"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.1",
-		"@changesets/cli": "2.27.1"
+		"@changesets/cli": "2.27.1",
+		"@std/yaml": "npm:@jsr/std__yaml@0.224.0",
+		"@tsconfig/node21": "21.0.3",
+		"@tsconfig/strictest": "2.0.5",
+		"@types/node": "20.12.7",
+		"@vitest/coverage-v8": "1.5.2",
+		"@vitest/ui": "1.5.2",
+		"typescript": "5.4.5",
+		"vite-tsconfig-paths": "4.3.2",
+		"vitest": "1.5.2"
 	},
 	"packageManager": "pnpm@9.0.6"
 }

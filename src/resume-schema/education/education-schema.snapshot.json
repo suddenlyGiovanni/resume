@@ -1,0 +1,98 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": [
+		"area",
+		"institution",
+		"startDate",
+		"studyType"
+	],
+	"properties": {
+		"area": {
+			"type": "string",
+			"description": "e.g. Arts",
+			"title": "area",
+			"examples": [
+				"Arts",
+				"Computer Science"
+			]
+		},
+		"endDate": {
+			"type": "string",
+			"description": "a string",
+			"title": "string"
+		},
+		"score": {
+			"type": "string",
+			"description": "grade point average, e.g. 3.67/4.0",
+			"title": "score",
+			"examples": [
+				"3.67/4.0"
+			]
+		},
+		"institution": {
+			"type": "string",
+			"description": "name of the institution",
+			"title": "institution",
+			"examples": [
+				"Massachusetts Institute of Technology"
+			]
+		},
+		"location": {
+			"$ref": "#/$defs/NonEmptyString"
+		},
+		"startDate": {
+			"type": "string",
+			"description": "a string",
+			"title": "string"
+		},
+		"studyType": {
+			"type": "string",
+			"description": "the type of study",
+			"title": "studyType",
+			"examples": [
+				"Bachelor",
+				"Master",
+				"Doctorate"
+			]
+		},
+		"url": {
+			"$ref": "#/$defs/UrlString"
+		},
+		"courses": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"description": "a string",
+				"title": "course",
+				"examples": [
+					"H1302 - Introduction to American history"
+				]
+			}
+		}
+	},
+	"additionalProperties": false,
+	"$defs": {
+		"NonEmptyString": {
+			"type": "string",
+			"description": "a non empty string",
+			"title": "non empty string",
+			"examples": [
+				"' test string  '",
+				"'test string'"
+			]
+		},
+		"UrlString": {
+			"type": "string",
+			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "url",
+			"examples": [
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
+			]
+		}
+	}
+}

@@ -1,0 +1,30 @@
+{
+	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+	configMigration: true,
+	extends: [
+		'config:recommended',
+		':pinDevDependencies',
+		'group:monorepos',
+		'group:recommended',
+		"regexManagers:biomeVersions",
+		'replacements:all',
+		'workarounds:all',
+		':followTag(typescript, rc)',
+		'schedule:earlyMondays',
+	],
+	labels: [
+		'dependencies',
+	],
+	dockerfile: {
+		enabled: true,
+	},
+	packageRules: [
+		{
+			matchPackagePatterns: [
+				'^effect$',
+				'^@effect/',
+			],
+			groupName: 'effect packages',
+		},
+	],
+}
