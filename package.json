@@ -14,6 +14,8 @@
 		"url": "https://wwww.suddenlygiovanni.dev/resume"
 	},
 	"scripts": {
+		"build": "tsc -b tsconfig.build.json",
+		"typecheck": "tsc --noEmit",
 		"changeset:add": "pnpm exec changeset add",
 		"changeset:empty": "pnpm exec changeset --empty",
 		"changeset:publish": "pnpm exec changeset publish",
@@ -40,5 +42,15 @@
 		"vite-tsconfig-paths": "4.3.2",
 		"vitest": "1.5.2"
 	},
-	"packageManager": "pnpm@9.0.6"
+	"packageManager": "pnpm@9.0.6",
+	"files": [
+		"lib/**",
+		"README.md"
+	],
+	"publishConfig": {
+		"exports": {
+			"./resume-schema": "./lib/resume-schema/index.js",
+			"./schema-primitive": "./lib/schema-primitive/index.js"
+		}
+	}
 }
