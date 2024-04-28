@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BiomeSettings">
-    <option name="configPath" value="$PROJECT_DIR$" />
+    <option name="applySafeFixesOnSave" value="true" />
+    <option name="configPath" value="$PROJECT_DIR$/biome.json" />
     <option name="configurationMode" value="MANUAL" />
     <option name="executablePath" value="$PROJECT_DIR$/.pnpm/@biomejs+biome@1.7.1/node_modules/@biomejs/biome/bin/biome" />
     <option name="formatOnSave" value="true" />
