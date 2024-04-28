@@ -11,7 +11,9 @@
 	],
 	"properties": {
 		"email": {
-			"$ref": "#/$defs/Email"
+			"type": "string",
+			"description": "a string",
+			"title": "string"
 		},
 		"image": {
 			"$ref": "#/$defs/UrlString"
@@ -135,16 +137,6 @@
 	},
 	"additionalProperties": false,
 	"$defs": {
-		"Email": {
-			"type": "string",
-			"description": "Email address",
-			"title": "email",
-			"examples": [
-				"<local-part>@<domain>",
-				"foo@bar.com",
-				"foo.bar@baz.com"
-			]
-		},
 		"UrlString": {
 			"type": "string",
 			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",

@@ -71,7 +71,9 @@
 					]
 				},
 				"email": {
-					"$ref": "#/$defs/Email"
+					"type": "string",
+					"description": "a string",
+					"title": "string"
 				},
 				"phone": {
 					"type": "string",
@@ -286,16 +288,6 @@
 				"http://example.com:8080",
 				"http://🍌🍌🍌.ws",
 				"https://www.übercool.de"
-			]
-		},
-		"Email": {
-			"type": "string",
-			"description": "Email address",
-			"title": "email",
-			"examples": [
-				"<local-part>@<domain>",
-				"foo@bar.com",
-				"foo.bar@baz.com"
 			]
 		},
 		"NonEmptyString": {
