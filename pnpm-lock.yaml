@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@effect/schema':
-        specifier: 0.66.8
-        version: 0.66.8(effect@3.0.5)(fast-check@3.17.2)
+        specifier: 0.66.10
+        version: 0.66.10(effect@3.0.7)(fast-check@3.17.2)
       effect:
-        specifier: 3.0.5
-        version: 3.0.5
+        specifier: 3.0.7
+        version: 3.0.7
     devDependencies:
       '@biomejs/biome':
         specifier: 1.7.1
@@ -192,10 +192,10 @@ packages:
   '@changesets/write@0.3.0':
     resolution: {integrity: sha512-slGLb21fxZVUYbyea+94uFiD6ntQW0M2hIKNznFizDhZPDgn2c/fv1UzzlW43RVzh1BEDuIqW6hzlJ1OflNmcw==}
 
-  '@effect/schema@0.66.8':
-    resolution: {integrity: sha512-TJ2wGt1O4WqNrZtz9bRd+Mo8sitS33Ifj1u9TqXAg8FlWn7OA+MtULQmktdDVAlWw18QmamKX7grKeatL+0iCg==}
+  '@effect/schema@0.66.10':
+    resolution: {integrity: sha512-5lZTPRbncsqAhqQx3cCd3emR/q/CtvFFJZNvwNF66sUD1SjbMsLPbRkEzIaG9k2X8M71YD9GDbUE0lRWG1J+mA==}
     peerDependencies:
-      effect: ^3.0.5
+      effect: ^3.0.7
       fast-check: ^3.13.2
 
   '@esbuild/aix-ppc64@0.20.2':
@@ -738,8 +738,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  effect@3.0.5:
-    resolution: {integrity: sha512-cXAKns46iWEQkZHgRU+ehgfV2Au34HopVIBkWwTbD+iRR50zMOHNEHEjXGnyJPtWyYlLBQtB9AZXFoc72ChwPA==}
+  effect@3.0.7:
+    resolution: {integrity: sha512-VlEpWUc3IBc7k9NUdsdbh7cnGFNIdMpIoUFbbiVkt304d40pSr6Zadnr5Tk8m1cniqOLo4SXSZLw0M6f7N17Hg==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2050,9 +2050,9 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@effect/schema@0.66.8(effect@3.0.5)(fast-check@3.17.2)':
+  '@effect/schema@0.66.10(effect@3.0.7)(fast-check@3.17.2)':
     dependencies:
-      effect: 3.0.5
+      effect: 3.0.7
       fast-check: 3.17.2
 
   '@esbuild/aix-ppc64@0.20.2':
@@ -2539,7 +2539,7 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  effect@3.0.5: {}
+  effect@3.0.7: {}
 
   emoji-regex@8.0.0: {}
 
