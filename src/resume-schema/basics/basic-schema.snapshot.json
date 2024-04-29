@@ -22,19 +22,13 @@
 		},
 		"label": {
 			"type": "string",
-			"description": "Label",
-			"title": "label",
-			"examples": [
-				"Web Developer"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"name": {
 			"type": "string",
-			"description": "Your full name",
-			"title": "name",
-			"examples": [
-				"Thomas Anderson"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"phone": {
 			"type": "string",
@@ -43,11 +37,8 @@
 		},
 		"summary": {
 			"type": "string",
-			"description": "Write a short 2-3 sentence biography about yourself",
-			"title": "summary",
-			"examples": [
-				"Web Developer with a passion for web-based applications"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"url": {
 			"type": "string",
