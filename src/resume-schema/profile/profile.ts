@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Profile = S.Struct({
+export class Profile extends S.Class<Profile>('Profile')({
 	network: TrimmedNonEmpty.annotations({
 		title: 'network',
 		description: 'The name of the social network',
@@ -20,5 +20,4 @@ export const Profile = S.Struct({
 		description: 'The username of the profile on the social network',
 		examples: ['neutralthoughts'],
 	}),
-})
-export type Profile = S.Schema.Encoded<typeof Profile>
+}) {}
