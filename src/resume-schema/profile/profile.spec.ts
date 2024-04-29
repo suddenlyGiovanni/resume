@@ -34,8 +34,8 @@ describe('Profile', () => {
 	})
 
 	test('JSONSchema', () => {
-		expect(
-			JSON.stringify(JSONSchema.make(Profile), null, '\t'),
-		).toMatchFileSnapshot('profile-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Profile), null, '\t')).toMatchFileSnapshot(
+			'profile-schema.snapshot.json',
+		)
 	})
 })

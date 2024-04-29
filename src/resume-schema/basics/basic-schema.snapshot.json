@@ -4,46 +4,46 @@
 	"required": [
 		"email",
 		"label",
-		"name",
-		"summary",
 		"location",
-		"profiles"
+		"name",
+		"profiles",
+		"summary"
 	],
 	"properties": {
 		"email": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+			"title": "Email",
+			"examples": [
+				"<local-part>@<domain>",
+				"foo@bar.com",
+				"foo.bar@baz.com"
+			],
+			"format": "email",
+			"pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$"
 		},
 		"image": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "URL to a image in JPEG or PNG format (as per RFC 3986)",
+			"title": "image",
+			"examples": [
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
+			],
+			"format": "uri"
 		},
 		"label": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"name": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"phone": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"summary": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"url": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "Label",
+			"title": "label",
+			"examples": [
+				"Web Developer"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"location": {
 			"type": "object",
@@ -54,31 +54,81 @@
 			"properties": {
 				"address": {
 					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"description": "To add multiple address lines, use \"\\n\".",
+					"title": "address",
+					"examples": [
+						"1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
+					],
+					"minLength": 1,
+					"pattern": "^[^\\s].*[^\\s]$"
 				},
 				"city": {
 					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"description": "City",
+					"title": "city",
+					"examples": [
+						"Berlin",
+						"New York",
+						"San Francisco"
+					],
+					"minLength": 1,
+					"pattern": "^[^\\s].*[^\\s]$"
 				},
 				"countryCode": {
 					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"description": "Country code as per ISO-3166-1 ALPHA-2",
+					"title": "countryCode",
+					"examples": [
+						"US",
+						"AU",
+						"IN"
+					],
+					"minLength": 2,
+					"maxLength": 2,
+					"pattern": "^[A-Z]{2}$"
 				},
 				"postalCode": {
 					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"description": "European postal code",
+					"title": "postalCode",
+					"examples": [
+						"12209"
+					],
+					"minLength": 1,
+					"pattern": "^[^\\s].*[^\\s]$"
 				},
 				"region": {
 					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"description": "The general region where you live. Can be a US state, or a province",
+					"title": "region",
+					"examples": [
+						"California",
+						"Quebec"
+					],
+					"minLength": 1,
+					"pattern": "^[^\\s].*[^\\s]$"
 				}
 			},
 			"additionalProperties": false
+		},
+		"name": {
+			"type": "string",
+			"description": "Your full name",
+			"title": "name",
+			"examples": [
+				"Thomas Anderson"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"phone": {
+			"type": "string",
+			"description": "Phone numbers are stored as strings so use any format you like, as long as it is a valid phone number. E.164 format is recommended.",
+			"title": "phone",
+			"examples": [
+				"712-117-2923"
+			],
+			"pattern": "^\\+[1-9]\\d{1,14}$"
 		},
 		"profiles": {
 			"type": "array",
@@ -92,22 +142,58 @@
 				"properties": {
 					"network": {
 						"type": "string",
-						"description": "a string",
-						"title": "string"
+						"description": "The name of the social network",
+						"title": "network",
+						"examples": [
+							"Facebook",
+							"Twitter"
+						],
+						"minLength": 1,
+						"pattern": "^[^\\s].*[^\\s]$"
 					},
 					"url": {
 						"type": "string",
-						"description": "a string",
-						"title": "string"
+						"description": "The URL of the profile on the social network",
+						"title": "url",
+						"examples": [
+							"http://twitter.example.com/neutralthoughts"
+						],
+						"format": "uri"
 					},
 					"username": {
 						"type": "string",
-						"description": "a string",
-						"title": "string"
+						"description": "The username of the profile on the social network",
+						"title": "username",
+						"examples": [
+							"neutralthoughts"
+						],
+						"minLength": 1,
+						"pattern": "^[^\\s].*[^\\s]$"
 					}
 				},
 				"additionalProperties": false
-			}
+			},
+			"description": "Specify any number of social networks that you participate in",
+			"title": "profiles"
+		},
+		"summary": {
+			"type": "string",
+			"description": "Write a short 2-3 sentence biography about yourself",
+			"title": "summary",
+			"examples": [
+				"Web Developer with a passion for web-based applications"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"url": {
+			"type": "string",
+			"description": "URL (as per RFC 3986) to your website, e.g. personal homepage",
+			"title": "url",
+			"examples": [
+				"http://thomasanderson.com"
+			],
+			"format": "uri"
 		}
 	},
 	"additionalProperties": false
