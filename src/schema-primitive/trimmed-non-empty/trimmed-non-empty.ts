@@ -9,17 +9,13 @@ import * as S from '@effect/schema/Schema'
  * @param {K} k - The key of the property to omit
  * @returns {Omit<O, K>} - The object without the omitted property
  */
-export const omit = <O extends object, K extends keyof O>(o: O, k: K): Omit<O, K> =>
-	Object.entries(o).reduce(
-		(_o, [key, value]) =>
-			key === k
-				? _o
-				: {
-						..._o,
-						[key]: value,
-					},
-		{} as Omit<O, K>,
-	)
+export const omit = <O extends object, K extends keyof O>(o: O, k: K): Omit<O, K> => {
+	const x = structuredClone(o)
+	if (k in x) {
+		delete x[k]
+	}
+	return x
+}
 
 /**
  * String filter that validates that given string, after the removal of leading and trailing whitespaces, has a minimum length of 1
