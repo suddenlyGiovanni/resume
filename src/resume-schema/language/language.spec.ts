@@ -32,6 +32,8 @@ describe('Language', () => {
 	})
 
 	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(Language), null, '\t')).toMatchFileSnapshot('language-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Language), null, '\t')).toMatchFileSnapshot(
+			'language-schema.snapshot.json',
+		)
 	})
 })

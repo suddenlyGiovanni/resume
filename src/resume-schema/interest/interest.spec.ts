@@ -32,6 +32,8 @@ describe('Interest', () => {
 	})
 
 	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(Interest), null, '\t')).toMatchFileSnapshot('interest-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Interest), null, '\t')).toMatchFileSnapshot(
+			'interest-schema.snapshot.json',
+		)
 	})
 })
