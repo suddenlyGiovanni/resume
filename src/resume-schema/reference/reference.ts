@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Reference = S.Struct({
+export class Reference extends S.Class<Reference>('Reference')({
 	name: TrimmedNonEmpty.annotations({
 		title: 'name',
 		description: 'The name of the reference',
@@ -19,6 +19,4 @@ export const Reference = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Reference = S.Schema.Encoded<typeof Reference>
+}) {}
