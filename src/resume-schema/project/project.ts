@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { UrlString, TrimmedNonEmpty, StringDate } from '@/schema-primitive/index.js'
 
 export class Project extends S.Class<Project>('Project')({
 	description: S.optional(
@@ -12,7 +12,7 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	endDate: S.optional(S.Date, { exact: true }),
+	endDate: S.optional(StringDate, { exact: true }),
 
 	entity: S.optional(
 		TrimmedNonEmpty.annotations({
@@ -72,7 +72,7 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	startDate: S.optional(S.Date, { exact: true }),
+	startDate: S.optional(StringDate, { exact: true }),
 
 	type: S.optional(
 		TrimmedNonEmpty.annotations({
