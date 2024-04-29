@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Location = S.Struct({
+export class Location extends S.Class<Location>('Location')({
 	address: S.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'address',
@@ -43,6 +43,4 @@ export const Location = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Location = S.Schema.Encoded<typeof Location>
+}) {}
