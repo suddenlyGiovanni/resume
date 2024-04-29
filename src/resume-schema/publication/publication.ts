@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { UrlString, TrimmedNonEmpty, StringDate } from '@/schema-primitive/index.js'
 
-export const Publication = S.Struct({
+export class Publication extends S.Class<Publication>('Publication')({
 	name: S.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'name',
@@ -40,6 +40,4 @@ export const Publication = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Publication = S.Schema.Encoded<typeof Publication>
+}) {}
