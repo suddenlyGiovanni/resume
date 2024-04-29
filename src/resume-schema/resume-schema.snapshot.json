@@ -25,11 +25,8 @@
         "properties": {
           "awarder": {
             "type": "string",
-            "description": "The name of the award given",
-            "title": "awarder",
-            "examples": [
-              "Time Magazine"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "date": {
             "type": "string",
@@ -38,19 +35,13 @@
           },
           "summary": {
             "type": "string",
-            "description": "A brief summary of the award",
-            "title": "summary",
-            "examples": [
-              "Received for my work with Quantum Physics"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "title": {
             "type": "string",
-            "description": "Title of the award",
-            "title": "title",
-            "examples": [
-              "One of the 100 greatest minds of the century"
-            ]
+            "description": "a string",
+            "title": "string"
           }
         },
         "additionalProperties": false
