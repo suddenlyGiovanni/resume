@@ -34,8 +34,8 @@ describe('Profile', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Profile))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('profile-schema.snapshot.json')
+		expect(
+			JSON.stringify(JSONSchema.make(Profile), null, '\t'),
+		).toMatchFileSnapshot('profile-schema.snapshot.json')
 	})
 })

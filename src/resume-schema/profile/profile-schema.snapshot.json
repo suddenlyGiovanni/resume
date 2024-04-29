@@ -9,18 +9,33 @@
 	"properties": {
 		"network": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The name of the social network",
+			"title": "network",
+			"examples": [
+				"Facebook",
+				"Twitter"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"url": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The URL of the profile on the social network",
+			"title": "url",
+			"examples": [
+				"http://twitter.example.com/neutralthoughts"
+			],
+			"format": "uri"
 		},
 		"username": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The username of the profile on the social network",
+			"title": "username",
+			"examples": [
+				"neutralthoughts"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		}
 	},
 	"additionalProperties": false
