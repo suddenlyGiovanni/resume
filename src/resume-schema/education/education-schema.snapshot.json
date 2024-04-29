@@ -57,7 +57,9 @@
 			]
 		},
 		"url": {
-			"$ref": "#/$defs/UrlString"
+			"type": "string",
+			"description": "a string",
+			"title": "string"
 		},
 		"courses": {
 			"type": "array",
@@ -80,18 +82,6 @@
 			"examples": [
 				"' test string  '",
 				"'test string'"
-			]
-		},
-		"UrlString": {
-			"type": "string",
-			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-			"title": "url",
-			"examples": [
-				"https://example.com",
-				"https://example.com/#section",
-				"http://example.com:8080",
-				"http://🍌🍌🍌.ws",
-				"https://www.übercool.de"
 			]
 		}
 	}
