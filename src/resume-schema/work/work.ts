@@ -1,12 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import {
-	Email,
-	ISO8601DateString,
-	Phone,
-	UrlString,
-	nonEmptyString,
-} from '@/schema-primitive/index.js'
+import { Email, StringDate, Phone, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
 
 import { Role } from './role.js'
 
@@ -33,7 +27,7 @@ export const Work = S.Struct({
 	}),
 
 	endDate: S.optional(
-		ISO8601DateString.annotations({
+		StringDate.annotations({
 			title: 'endDate',
 			description: 'The date when you stopped working at the company',
 			examples: ['2012-01-01'],
@@ -61,7 +55,7 @@ export const Work = S.Struct({
 		description: 'The roles you had at the company, in reverse chronological order',
 	}),
 
-	startDate: ISO8601DateString.annotations({
+	startDate: StringDate.annotations({
 		title: 'startDate',
 		description: 'The date when you started working at the company',
 		examples: ['2011-01-01'],

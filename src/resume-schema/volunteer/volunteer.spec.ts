@@ -6,11 +6,11 @@ import { Volunteer } from './volunteer.js'
 
 describe('Volunteer', () => {
 	const volunteerInput = {
-		endDate: '2021-01-01T00:00:00.000Z',
+		endDate: '2021-01-01',
 		highlights: ['Saved the world from certain doom'],
 		organization: 'Facebook',
 		position: 'Software Engineer',
-		startDate: '2020-01-01T01:00:00.000Z',
+		startDate: '2020-01-01',
 		summary: 'My day-to-day activities involved designing and building web applications...',
 		url: 'https://facebook.example.com',
 	} satisfies S.Schema.Type<typeof Volunteer>

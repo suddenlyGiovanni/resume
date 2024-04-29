@@ -1,9 +1,9 @@
 import * as S from '@effect/schema/Schema'
 
-import { ISO8601DateString, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { StringDate, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
 
 export const Volunteer = S.Struct({
-	endDate: S.optional(ISO8601DateString, { exact: true }),
+	endDate: S.optional(StringDate, { exact: true }),
 
 	highlights: S.optional(
 		S.Array(
@@ -36,7 +36,7 @@ export const Volunteer = S.Struct({
 		{ exact: true },
 	),
 
-	startDate: S.optional(ISO8601DateString, { exact: true }),
+	startDate: S.optional(StringDate, { exact: true }),
 
 	summary: S.optional(
 		nonEmptyString({

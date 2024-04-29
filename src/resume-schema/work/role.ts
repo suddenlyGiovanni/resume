@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { ISO8601DateString, nonEmptyString } from '@/schema-primitive/index.js'
+import { StringDate, nonEmptyString } from '@/schema-primitive/index.js'
 
 export class Role extends S.Class<Role>('Role')({
 	title: nonEmptyString({
@@ -9,14 +9,14 @@ export class Role extends S.Class<Role>('Role')({
 		examples: ['Junior Software Developer', 'Senior Software Engineer'],
 	}),
 
-	startDate: ISO8601DateString.annotations({
+	startDate: StringDate.annotations({
 		title: 'startDate',
 		description: 'The date when you started working in this role',
 		examples: ['2011-01-01'],
 	}),
 
 	endDate: S.optional(
-		ISO8601DateString.annotations({
+		StringDate.annotations({
 			title: 'endDate',
 			description: 'The date when you stopped working in this role',
 			examples: ['2012-01-01'],

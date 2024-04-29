@@ -6,16 +6,10 @@ export const stringDate =
 	<I, R>(self: S.Schema<A, I, R>) => {
 		return self.pipe(
 			S.filter(
-				(maybeStringDate): maybeStringDate is A => {
-					if (Number.isNaN(Date.parse(maybeStringDate))) {
-						return false
-					}
-					const date = new Date(maybeStringDate)
-					const formattedDate = `${date.getFullYear()}-${
-						date.getMonth() + 1
-					}-${date.getDate()}` as const
-					return formattedDate === maybeStringDate
-				},
+				(maybeStringDate): maybeStringDate is A =>
+					Number.isNaN(Date.parse(maybeStringDate))
+						? false
+						: new Date(maybeStringDate).toISOString().slice(0, 10) === maybeStringDate,
 				{
 					description: 'a string that is a valid YYYY-MM-DD date',
 					message: issue => `expected a sting date 'YYYY-MM-DD', got '${issue.actual}'`,

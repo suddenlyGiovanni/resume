@@ -8,7 +8,7 @@ import { Work, type WorkEncoded } from './work.js'
 describe('Work', () => {
 	const workInput = {
 		description: 'Social Media Company',
-		endDate: '1989-02-01T00:00',
+		endDate: '1989-02-01',
 		location: 'Menlo Park, CA',
 		name: 'Facebook',
 		roles: [
@@ -111,18 +111,14 @@ describe('Work', () => {
 				expect(() => parse({ ...required, startDate: '' })).toThrow()
 				expect(() => parse({ ...required, startDate: ' ' })).toThrow()
 				expect(() => parse({ ...required, startDate: workInput.startDate })).not.toThrow()
-				expect(parse({ ...required, startDate: workInput.startDate }).startDate).toBe(
-					'1988-02-01T00:00:00.000Z',
-				)
+				expect(parse({ ...required, startDate: workInput.startDate }).startDate).toBe('1988-02-01')
 			})
 
 			test('endDate', () => {
 				expect(() => parse({ ...required, endDate: '' })).toThrow()
 				expect(() => parse({ ...required, endDate: ' ' })).toThrow()
 				expect(() => parse({ ...required, endDate: workInput.endDate })).not.toThrow()
-				expect(parse({ ...required, endDate: workInput.endDate }).endDate).toBe(
-					'1989-02-01T00:00:00.000Z',
-				)
+				expect(parse({ ...required, endDate: workInput.endDate }).endDate).toBe('1989-02-01')
 			})
 
 			test('start date before end date', () => {
