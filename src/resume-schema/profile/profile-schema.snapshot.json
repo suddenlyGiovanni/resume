@@ -9,12 +9,8 @@
 	"properties": {
 		"network": {
 			"type": "string",
-			"description": "The name of the social network",
-			"title": "network",
-			"examples": [
-				"Facebook",
-				"Twitter"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"url": {
 			"type": "string",
@@ -23,11 +19,8 @@
 		},
 		"username": {
 			"type": "string",
-			"description": "The username of the profile on the social network",
-			"title": "username",
-			"examples": [
-				"neutralthoughts"
-			]
+			"description": "a string",
+			"title": "string"
 		}
 	},
 	"additionalProperties": false

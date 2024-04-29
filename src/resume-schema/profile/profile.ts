@@ -1,9 +1,9 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 export const Profile = S.Struct({
-	network: nonEmptyString({
+	network: TrimmedNonEmpty.annotations({
 		title: 'network',
 		description: 'The name of the social network',
 		examples: ['Facebook', 'Twitter'],
@@ -15,7 +15,7 @@ export const Profile = S.Struct({
 		examples: ['http://twitter.example.com/neutralthoughts'],
 	}),
 
-	username: nonEmptyString({
+	username: TrimmedNonEmpty.annotations({
 		title: 'username',
 		description: 'The username of the profile on the social network',
 		examples: ['neutralthoughts'],
