@@ -8,28 +8,59 @@
 	"properties": {
 		"address": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "To add multiple address lines, use \"\\n\".",
+			"title": "address",
+			"examples": [
+				"1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"city": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "City",
+			"title": "city",
+			"examples": [
+				"Berlin",
+				"New York",
+				"San Francisco"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"countryCode": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "Country code as per ISO-3166-1 ALPHA-2",
+			"title": "countryCode",
+			"examples": [
+				"US",
+				"AU",
+				"IN"
+			],
+			"minLength": 2,
+			"maxLength": 2,
+			"pattern": "^[A-Z]{2}$"
 		},
 		"postalCode": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "European postal code",
+			"title": "postalCode",
+			"examples": [
+				"12209"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"region": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The general region where you live. Can be a US state, or a province",
+			"title": "region",
+			"examples": [
+				"California",
+				"Quebec"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		}
 	},
 	"additionalProperties": false

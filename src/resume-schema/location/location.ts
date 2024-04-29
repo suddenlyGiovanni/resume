@@ -1,6 +1,36 @@
 import * as S from '@effect/schema/Schema'
 
-import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { omit, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+
+const countryCode =
+	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
+	<I, R>(self: S.Schema<A, I, R>) => {
+		const regex = /^[A-Z]{2}$/
+		const pattern = regex.source
+		return self.pipe(
+			S.filter(
+				(a): a is A => {
+					if (a.trim().length !== 2) {
+						return false
+					}
+					return regex.test(a)
+				},
+				{
+					description: 'Country code as per ISO-3166-1 ALPHA-2',
+					examples: ['US' as A, 'AU' as A, 'IN' as A],
+					message: issue =>
+						`expected a country code as per ISO-3166-1 ALPHA-2, got "${issue.actual}"`,
+					jsonSchema: {
+						minLength: 2,
+						maxLength: 2,
+						pattern,
+						...annotations?.jsonSchema,
+					},
+					...(annotations ? omit(annotations, 'jsonSchema') : {}),
+				},
+			),
+		)
+	}
 
 export class Location extends S.Class<Location>('Location')({
 	address: S.optional(
@@ -18,11 +48,12 @@ export class Location extends S.Class<Location>('Location')({
 		examples: ['Berlin', 'New York', 'San Francisco'],
 	}),
 
-	countryCode: S.String.pipe(S.trimmed(), S.length(2), S.uppercased()).annotations({
-		title: 'countryCode',
-		description: 'Country code as per ISO-3166-1 ALPHA-2',
-		examples: ['US', 'AU', 'IN'],
-	}),
+	countryCode: S.String.pipe(
+		countryCode({
+			identifier: 'countryCode',
+			title: 'countryCode',
+		}),
+	),
 
 	postalCode: S.optional(
 		TrimmedNonEmpty.annotations({
