@@ -1,5 +1,26 @@
 # @suddenly-giovanni/resume
 
+## 10.0.2
+
+### Patch Changes
+
+- d63aad6: ## `schema-primitive`
+
+  - existing member have been refactored to enable custom annotations
+  - ne primitive have been added focusing only on type filtering, no transformations
+
+  ## `resume-schema`
+
+  - dropped all transformation schemas in favour of filtering ones
+  - switch from struct based api to class based one instead
+
+  ***
+
+  - new primitive exports have been added to both internal and public module api
+  - @effect/schema and effect have been updated
+  - @effect/schema and effect have been marked as peerDependencies. Now you need to check that they
+    are correctly installed
+
 ## 10.0.1
 
 ### Patch Changes
