@@ -8,7 +8,6 @@ import { Work } from './work.js'
 describe('Work', () => {
 	const workInput = {
 		description: 'Social Media Company',
-		endDate: '1989-02-01',
 		location: 'Menlo Park, CA',
 		name: 'Facebook',
 		roles: [
@@ -19,7 +18,6 @@ describe('Work', () => {
 				responsibilities: ['Designed and built web applications', 'Managed a team of 10 engineers'],
 			},
 		],
-		startDate: '1988-02-01',
 		summary: 'My day-to-day activities involved designing and building web applications...',
 		url: 'https://facebook.example.com',
 		contact: {
@@ -33,7 +31,6 @@ describe('Work', () => {
 		name: workInput.name,
 		roles: workInput.roles,
 		description: workInput.description,
-		startDate: workInput.startDate,
 	}
 
 	describe('decode', () => {
@@ -106,37 +103,11 @@ describe('Work', () => {
 			).not.toThrow()
 		})
 
-		describe('dates', () => {
-			test('startDate', () => {
-				expect(() => parse({ ...required, startDate: '' })).toThrow()
-				expect(() => parse({ ...required, startDate: ' ' })).toThrow()
-				expect(() => parse({ ...required, startDate: workInput.startDate })).not.toThrow()
-				expect(parse({ ...required, startDate: workInput.startDate }).startDate).toBe('1988-02-01')
-			})
-
-			test('endDate', () => {
-				expect(() => parse({ ...required, endDate: '' })).toThrow()
-				expect(() => parse({ ...required, endDate: ' ' })).toThrow()
-				expect(() => parse({ ...required, endDate: workInput.endDate })).not.toThrow()
-				expect(parse({ ...required, endDate: workInput.endDate }).endDate).toBe('1989-02-01')
-			})
-
-			test.todo('start date before end date', () => {
-				const input: S.Schema.Encoded<typeof Work> = {
-					...required,
-					endDate: '1968-02-01',
-					startDate: '1969-05-01',
-				}
-				expect(() => parse(input)).toThrow()
-			})
-		})
-
 		test('techStack', () => {
 			const workInput: S.Schema.Encoded<typeof Work> = {
 				name: required.name,
 				roles: required.roles,
 				description: required.description,
-				startDate: required.startDate,
 				techStack: ['TypeScript', 'Aws', 'SQLite'],
 			}
 			expect(() => parse(required)).not.toThrow()

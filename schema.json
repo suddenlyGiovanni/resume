@@ -578,9 +578,6 @@
 						"title": "description",
 						"type": "string"
 					},
-					"endDate": {
-						"$ref": "#/$defs/iso8601"
-					},
 					"highlights": {
 						"additionalItems": false,
 						"description": "Specify multiple accomplishments",
@@ -752,9 +749,6 @@
 						"minItems": 1,
 						"type": "array"
 					},
-					"startDate": {
-						"$ref": "#/$defs/iso8601"
-					},
 					"summary": {
 						"description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
 						"examples": [
@@ -781,7 +775,7 @@
 						"description": "e.g. http://facebook.example.com"
 					}
 				},
-				"required": ["description", "name", "startDate", "roles"],
+				"required": ["description", "name", "roles"],
 				"type": "object"
 			},
 			"type": "array"

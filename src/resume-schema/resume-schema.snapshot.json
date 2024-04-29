@@ -508,16 +508,10 @@
         "required": [
           "description",
           "name",
-          "startDate",
           "roles"
         ],
         "properties": {
           "description": {
-            "type": "string",
-            "description": "a string",
-            "title": "string"
-          },
-          "endDate": {
             "type": "string",
             "description": "a string",
             "title": "string"
@@ -528,11 +522,6 @@
             "title": "string"
           },
           "name": {
-            "type": "string",
-            "description": "a string",
-            "title": "string"
-          },
-          "startDate": {
             "type": "string",
             "description": "a string",
             "title": "string"

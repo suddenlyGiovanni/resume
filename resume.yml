@@ -31,8 +31,6 @@ work:
     location: Berlin, Germany
     description: EdTech
     url: https://bettermarks.com
-    startDate: '2021-04-01'
-    endDate: '2021-10-31'
     summary: |
       Bettermarks is a software company that has developed an adaptive learning platform for highly interactive math books to be used in schools, enabling students to learn from their mistakes through AHA moments.
     roles:
@@ -68,8 +66,6 @@ work:
     location: Berlin, Germany
     description: B2B SAAS
     url: https://www.tooltime.de/
-    startDate: '2019-09-01'
-    endDate: '2020-02-29'
     summary: |
       ToolTime's mission is to help craftsmen tackle all their administrative tasks digitally with ease.
     roles:
@@ -103,8 +99,6 @@ work:
     location: Hamburg, Germany
     description: Digital Product Design Studio
     url: https://appico.com/
-    startDate: '2019-01-01'
-    endDate: '2019-02-28'
     roles:
       - title: React Native Developer
         startDate: "2019-01-01"
@@ -158,8 +152,6 @@ work:
   - name: MadeByEnka
     location: Rijeka, Croatia
     description: Handmade Fashion e-commerce
-    startDate: '2016-10-01'
-    endDate: '2017-06-30'
     summary: Co-founded and managed a Lifestyle brand with my wife.
     roles:
       - title: Front-end Web Developer
@@ -176,8 +168,6 @@ work:
   - name: Ravalico Real Estate s.a.s
     location: Trieste, Italy
     description: Real Estate Agency
-    startDate: '2015-10-01'
-    endDate: '2016-10-30'
     summary: Helped the company in its modernization process by pivoting its business model from brick and mortar to an online-first presence.
     highlights:
       - Architected, designed, and code multiple iterations of an in-house real estate CMS web app.
