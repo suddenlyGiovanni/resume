@@ -5,7 +5,7 @@ import { Email, Phone, UrlString, TrimmedNonEmpty } from '@/schema-primitive/ind
 import { Location } from '../location/location.js'
 import { Profile } from '../profile/profile.js'
 
-export const Basics = S.Struct({
+export class Basics extends S.Class<Basics>('Basics')({
 	email: Email,
 
 	image: S.optional(
@@ -61,7 +61,4 @@ export const Basics = S.Struct({
 			exact: true,
 		},
 	),
-})
-
-export type Basics = S.Schema.Encoded<typeof Basics>
-export type BasicsType = S.Schema.Type<typeof Basics>
+}) {}
