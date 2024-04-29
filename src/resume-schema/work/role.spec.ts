@@ -47,7 +47,7 @@ describe('Role', () => {
 	})
 
 	test('toJsonSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(S.encodedSchema(Role)), null, '\t')).toMatchFileSnapshot(
+		expect(JSON.stringify(JSONSchema.make(Role), null, '\t')).toMatchFileSnapshot(
 			'role-schema.snapshot.json',
 		)
 	})

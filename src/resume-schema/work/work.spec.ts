@@ -145,9 +145,9 @@ describe('Work', () => {
 		})
 
 		test('toJsonSchema', () => {
-			const jsonSchema = JSONSchema.make(S.encodedSchema(Work))
-			const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-			expect(serializedJsonSchema).toMatchFileSnapshot('work-schema.snapshot.json')
+			expect(
+				JSON.stringify(JSONSchema.make(S.encodedSchema(Work)), null, '\t'),
+			).toMatchFileSnapshot('work-schema.snapshot.json')
 		})
 	})
 })

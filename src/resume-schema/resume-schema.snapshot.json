@@ -603,12 +603,8 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "description": "The title of your position at the company: <seniority level> <role title>",
-                    "title": "title",
-                    "examples": [
-                      "Junior Software Developer",
-                      "Senior Software Engineer"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   },
                   "startDate": {
                     "type": "string",
@@ -624,11 +620,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "description": "A specific responsibility",
-                      "title": "responsibility",
-                      "examples": [
-                        "code owner of x"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   },
                   "highlights": {
@@ -637,20 +630,14 @@
                     "items": [
                       {
                         "type": "string",
-                        "description": "A specific accomplishment",
-                        "title": "highlight",
-                        "examples": [
-                          "Increased profits by 20% from 2011-2012 through viral advertising"
-                        ]
+                        "description": "a string",
+                        "title": "string"
                       }
                     ],
                     "additionalItems": {
                       "type": "string",
-                      "description": "A specific accomplishment",
-                      "title": "highlight",
-                      "examples": [
-                        "Increased profits by 20% from 2011-2012 through viral advertising"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   },
                   "technologies": {
@@ -659,22 +646,14 @@
                     "items": [
                       {
                         "type": "string",
-                        "description": "A specific technology used",
-                        "title": "technology",
-                        "examples": [
-                          "React",
-                          "Node.js"
-                        ]
+                        "description": "a string",
+                        "title": "string"
                       }
                     ],
                     "additionalItems": {
                       "type": "string",
-                      "description": "A specific technology used",
-                      "title": "technology",
-                      "examples": [
-                        "React",
-                        "Node.js"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   }
                 },
@@ -691,12 +670,8 @@
               "properties": {
                 "title": {
                   "type": "string",
-                  "description": "The title of your position at the company: <seniority level> <role title>",
-                  "title": "title",
-                  "examples": [
-                    "Junior Software Developer",
-                    "Senior Software Engineer"
-                  ]
+                  "description": "a string",
+                  "title": "string"
                 },
                 "startDate": {
                   "type": "string",
@@ -712,11 +687,8 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "description": "A specific responsibility",
-                    "title": "responsibility",
-                    "examples": [
-                      "code owner of x"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   }
                 },
                 "highlights": {
@@ -725,20 +697,14 @@
                   "items": [
                     {
                       "type": "string",
-                      "description": "A specific accomplishment",
-                      "title": "highlight",
-                      "examples": [
-                        "Increased profits by 20% from 2011-2012 through viral advertising"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   ],
                   "additionalItems": {
                     "type": "string",
-                    "description": "A specific accomplishment",
-                    "title": "highlight",
-                    "examples": [
-                      "Increased profits by 20% from 2011-2012 through viral advertising"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   }
                 },
                 "technologies": {
@@ -747,22 +713,14 @@
                   "items": [
                     {
                       "type": "string",
-                      "description": "A specific technology used",
-                      "title": "technology",
-                      "examples": [
-                        "React",
-                        "Node.js"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   ],
                   "additionalItems": {
                     "type": "string",
-                    "description": "A specific technology used",
-                    "title": "technology",
-                    "examples": [
-                      "React",
-                      "Node.js"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   }
                 }
               },

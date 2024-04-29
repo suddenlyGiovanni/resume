@@ -14,17 +14,31 @@
 			"examples": [
 				"Junior Software Developer",
 				"Senior Software Engineer"
-			]
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"startDate": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The date when you started working in this role",
+			"title": "startDate",
+			"examples": [
+				"2011-01-01"
+			],
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
 		},
 		"endDate": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The date when you stopped working in this role",
+			"title": "endDate",
+			"examples": [
+				"2012-01-01"
+			],
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
 		},
 		"responsibilities": {
 			"type": "array",
@@ -34,8 +48,12 @@
 				"title": "responsibility",
 				"examples": [
 					"code owner of x"
-				]
-			}
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "Specify multiple responsibilities",
+			"title": "responsibilities"
 		},
 		"highlights": {
 			"type": "array",
@@ -47,7 +65,9 @@
 					"title": "highlight",
 					"examples": [
 						"Increased profits by 20% from 2011-2012 through viral advertising"
-					]
+					],
+					"minLength": 1,
+					"pattern": "^[^\\s].*[^\\s]$"
 				}
 			],
 			"additionalItems": {
@@ -56,8 +76,12 @@
 				"title": "highlight",
 				"examples": [
 					"Increased profits by 20% from 2011-2012 through viral advertising"
-				]
-			}
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "Specify multiple accomplishments",
+			"title": "highlights"
 		},
 		"technologies": {
 			"type": "array",
@@ -70,7 +94,9 @@
 					"examples": [
 						"React",
 						"Node.js"
-					]
+					],
+					"minLength": 1,
+					"pattern": "^[^\\s].*[^\\s]$"
 				}
 			],
 			"additionalItems": {
@@ -80,8 +106,12 @@
 				"examples": [
 					"React",
 					"Node.js"
-				]
-			}
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "Specify multiple technologies used",
+			"title": "technologies"
 		}
 	},
 	"additionalProperties": false
