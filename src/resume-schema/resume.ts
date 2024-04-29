@@ -13,7 +13,7 @@ import { Skill } from './skill/skill.js'
 import { Volunteer } from './volunteer/volunteer.js'
 import { Work } from './work/work.js'
 
-export const Resume = S.Struct({
+export class Resume extends S.Class<Resume>('Resume')({
 	$schema: S.String.annotations({
 		title: '$schema',
 		description: 'link to the version of the schema that can validate the resume',
@@ -82,7 +82,4 @@ export const Resume = S.Struct({
 	volunteer: S.optional(S.Array(Volunteer), { exact: true }),
 
 	work: S.Array(Work),
-})
-
-export type Resume = S.Schema.Encoded<typeof Resume>
-export type ResumeType = S.Schema.Type<typeof Resume>
+}) {}
