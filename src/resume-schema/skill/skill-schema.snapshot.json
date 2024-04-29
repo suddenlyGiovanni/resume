@@ -2,27 +2,51 @@
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"type": "object",
 	"required": [
-		"name",
-		"keywords"
+		"keywords",
+		"name"
 	],
 	"properties": {
-		"level": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"name": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
 		"keywords": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a string",
-				"title": "string"
-			}
+				"description": "a non-empty string with no leading or trailing whitespace",
+				"title": "keyword",
+				"examples": [
+					"Rust"
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "List some keywords pertaining to this skill",
+			"title": "keywords",
+			"examples": [
+				[
+					"Rust",
+					"Java"
+				]
+			]
+		},
+		"level": {
+			"type": "string",
+			"description": "Level of expertise",
+			"title": "level",
+			"examples": [
+				"Master",
+				"Intermediate"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"name": {
+			"type": "string",
+			"description": "Name of the skill",
+			"title": "name",
+			"examples": [
+				"Web Development"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		}
 	},
 	"additionalProperties": false
