@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Certificate = S.Struct({
+export class Certificate extends S.Class<Certificate>('Certificate')({
 	name: S.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'Name',
@@ -37,6 +37,4 @@ export const Certificate = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Certificate = S.Schema.Encoded<typeof Certificate>
+}) {}
