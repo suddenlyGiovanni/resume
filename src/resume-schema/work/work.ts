@@ -26,15 +26,6 @@ export class Work extends S.Class<Work>('Work')({
 		examples: ['Social Media Company', 'Educational Software Company'],
 	}),
 
-	endDate: S.optional(
-		StringDate.annotations({
-			title: 'endDate',
-			description: 'The date when you stopped working at the company',
-			examples: ['2012-01-01'],
-		}),
-		{ exact: true },
-	),
-
 	location: S.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'location',
@@ -53,12 +44,6 @@ export class Work extends S.Class<Work>('Work')({
 	roles: S.NonEmptyArray(Role).annotations({
 		title: 'roles',
 		description: 'The roles you had at the company, in reverse chronological order',
-	}),
-
-	startDate: StringDate.annotations({
-		title: 'startDate',
-		description: 'The date when you started working at the company',
-		examples: ['2011-01-01'],
 	}),
 
 	summary: S.optional(
