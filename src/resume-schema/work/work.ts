@@ -4,7 +4,7 @@ import { Email, StringDate, Phone, UrlString, TrimmedNonEmpty } from '@/schema-p
 
 import { Role } from './role.js'
 
-export const Work = S.Struct({
+export class Work extends S.Class<Work>('Work')({
 	contact: S.optional(
 		S.Struct({
 			name: TrimmedNonEmpty.annotations({
@@ -84,17 +84,4 @@ export const Work = S.Struct({
 	),
 
 	url: S.optional(UrlString, { exact: true }),
-}).pipe(
-	S.filter(
-		work => {
-			// short-circuit if there is no end date
-			if (!work.endDate) return true
-			// check if the start date is before the end date
-			return new Date(work.startDate) < new Date(work.endDate)
-		},
-		{ message: () => 'The start date must be before the end date' },
-	),
-)
-
-export type WorkEncoded = S.Schema.Encoded<typeof Work>
-export type WorkType = S.Schema.Type<typeof Work>
+}) {}

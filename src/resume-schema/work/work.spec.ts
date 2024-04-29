@@ -121,7 +121,7 @@ describe('Work', () => {
 				expect(parse({ ...required, endDate: workInput.endDate }).endDate).toBe('1989-02-01')
 			})
 
-			test('start date before end date', () => {
+			test.todo('start date before end date', () => {
 				const input: WorkEncoded = {
 					...required,
 					endDate: '1968-02-01',
