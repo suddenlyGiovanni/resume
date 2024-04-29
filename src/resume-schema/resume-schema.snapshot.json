@@ -410,19 +410,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the reference",
-            "title": "name",
-            "examples": [
-              "Timothy Cook"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "reference": {
             "type": "string",
-            "description": "The reference text",
-            "title": "reference",
-            "examples": [
-              "Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
-            ]
+            "description": "a string",
+            "title": "string"
           }
         },
         "additionalProperties": false
