@@ -5,11 +5,8 @@
 	"properties": {
 		"name": {
 			"type": "string",
-			"description": "name of the certificate",
-			"title": "Name",
-			"examples": [
-				"e.g. Certified Kubernetes Administrator"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"date": {
 			"type": "string",
@@ -23,11 +20,8 @@
 		},
 		"issuer": {
 			"type": "string",
-			"description": "issuer of the certificate",
-			"title": "issuer",
-			"examples": [
-				"e.g. CNCF"
-			]
+			"description": "a string",
+			"title": "string"
 		}
 	},
 	"additionalProperties": false

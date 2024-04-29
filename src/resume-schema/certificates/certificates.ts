@@ -1,10 +1,10 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 export const Certificate = S.Struct({
 	name: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'Name',
 			description: 'name of the certificate',
 			examples: ['e.g. Certified Kubernetes Administrator'],
@@ -30,7 +30,7 @@ export const Certificate = S.Struct({
 	),
 
 	issuer: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'issuer',
 			description: 'issuer of the certificate',
 			examples: ['e.g. CNCF'],
