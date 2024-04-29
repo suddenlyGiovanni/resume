@@ -1,9 +1,9 @@
 import * as S from '@effect/schema/Schema'
 
-import { ISO8601DateString, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { UrlString, TrimmedNonEmpty, StringDate } from '@/schema-primitive/index.js'
 
 export const Education = S.Struct({
-	area: nonEmptyString({
+	area: TrimmedNonEmpty.annotations({
 		title: 'area',
 		description: 'e.g. Arts',
 		examples: ['Arts', 'Computer Science'],
@@ -11,7 +11,7 @@ export const Education = S.Struct({
 
 	courses: S.optional(
 		S.Array(
-			nonEmptyString({
+			TrimmedNonEmpty.annotations({
 				title: 'course',
 				examples: ['H1302 - Introduction to American history'],
 			}),
@@ -24,7 +24,7 @@ export const Education = S.Struct({
 	),
 
 	endDate: S.optional(
-		ISO8601DateString.annotations({
+		StringDate.annotations({
 			title: 'endDate',
 			description: 'end date of education',
 			examples: ['2020-01-01'],
@@ -33,7 +33,7 @@ export const Education = S.Struct({
 	),
 
 	score: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'score',
 			description: 'grade point average, e.g. 3.67/4.0',
 			examples: ['3.67/4.0'],
@@ -43,21 +43,21 @@ export const Education = S.Struct({
 		},
 	),
 
-	institution: nonEmptyString({
+	institution: TrimmedNonEmpty.annotations({
 		title: 'institution',
 		description: 'name of the institution',
 		examples: ['Massachusetts Institute of Technology'],
 	}),
 
-	location: S.optional(nonEmptyString(), { exact: true }),
+	location: S.optional(TrimmedNonEmpty, { exact: true }),
 
-	startDate: ISO8601DateString.annotations({
+	startDate: StringDate.annotations({
 		title: 'startDate',
 		description: 'start date of education',
 		examples: ['1970-01-01T00:00'],
 	}),
 
-	studyType: nonEmptyString({
+	studyType: TrimmedNonEmpty.annotations({
 		title: 'studyType',
 		description: 'the type of study',
 		examples: ['Bachelor', 'Master', 'Doctorate'],

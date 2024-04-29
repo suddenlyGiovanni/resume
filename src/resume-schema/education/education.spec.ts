@@ -11,7 +11,7 @@ describe('Education', () => {
 		endDate: '2020-02-01',
 		score: '3.67/4.0',
 		institution: 'Massachusetts Institute of Technology',
-		startDate: '2008-03-01T00:00',
+		startDate: '2008-03-01',
 		studyType: 'Bachelor',
 		url: 'https://mit.com',
 		location: 'Cambridge, MA',
@@ -63,7 +63,7 @@ describe('Education', () => {
 				expect(() => parse({ ...required, startDate: '  ' })).toThrow()
 				expect(() => parse({ ...required, startDate: educationInput.startDate })).not.toThrow()
 				expect(parse({ ...required, startDate: educationInput.startDate }).startDate).toBe(
-					'2008-03-01T00:00:00.000Z',
+					'2008-03-01',
 				)
 			})
 
@@ -71,9 +71,7 @@ describe('Education', () => {
 				expect(() => parse({ ...required, endDate: '' })).toThrow()
 				expect(() => parse({ ...required, endDate: '  ' })).toThrow()
 				expect(() => parse({ ...required, endDate: educationInput.endDate })).not.toThrow()
-				expect(parse({ ...required, endDate: educationInput.endDate }).endDate).toBe(
-					'2020-02-01T00:00:00.000Z',
-				)
+				expect(parse({ ...required, endDate: educationInput.endDate }).endDate).toBe('2020-02-01')
 			})
 
 			test('start date before end date', () => {
@@ -106,8 +104,8 @@ describe('Education', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Education))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('education-schema.snapshot.json')
+		expect(
+			JSON.stringify(JSONSchema.make(S.encodedSchema(Education)), null, '\t'),
+		).toMatchFileSnapshot('education-schema.snapshot.json')
 	})
 })

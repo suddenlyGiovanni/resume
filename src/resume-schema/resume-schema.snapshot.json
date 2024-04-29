@@ -225,12 +225,8 @@
         "properties": {
           "area": {
             "type": "string",
-            "description": "e.g. Arts",
-            "title": "area",
-            "examples": [
-              "Arts",
-              "Computer Science"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "endDate": {
             "type": "string",
@@ -239,22 +235,18 @@
           },
           "score": {
             "type": "string",
-            "description": "grade point average, e.g. 3.67/4.0",
-            "title": "score",
-            "examples": [
-              "3.67/4.0"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "institution": {
             "type": "string",
-            "description": "name of the institution",
-            "title": "institution",
-            "examples": [
-              "Massachusetts Institute of Technology"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "location": {
-            "$ref": "#/$defs/NonEmptyString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           },
           "startDate": {
             "type": "string",
@@ -263,13 +255,8 @@
           },
           "studyType": {
             "type": "string",
-            "description": "the type of study",
-            "title": "studyType",
-            "examples": [
-              "Bachelor",
-              "Master",
-              "Doctorate"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
             "type": "string",
@@ -281,10 +268,7 @@
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "course",
-              "examples": [
-                "H1302 - Introduction to American history"
-              ]
+              "title": "string"
             }
           }
         },
