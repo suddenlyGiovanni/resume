@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Project = S.Struct({
+export class Project extends S.Class<Project>('Project')({
 	description: S.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'description',
@@ -91,6 +91,4 @@ export const Project = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Project = S.Schema.Encoded<typeof Project>
+}) {}
