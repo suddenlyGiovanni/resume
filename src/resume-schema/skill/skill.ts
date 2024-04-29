@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Skill = S.Struct({
+export class Skill extends S.Class<Skill>('Skill')({
 	keywords: S.Array(
 		TrimmedNonEmpty.annotations({
 			title: 'keyword',
@@ -28,7 +28,4 @@ export const Skill = S.Struct({
 		description: 'Name of the skill',
 		examples: ['Web Development'],
 	}),
-})
-
-export type Skill = S.Schema.Encoded<typeof Skill>
-export type SkillType = S.Schema.Type<typeof Skill>
+}) {}
