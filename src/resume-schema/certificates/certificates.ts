@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { UrlString, TrimmedNonEmpty, StringDate } from '@/schema-primitive/index.js'
 
 export class Certificate extends S.Class<Certificate>('Certificate')({
 	name: S.optional(
@@ -13,9 +13,8 @@ export class Certificate extends S.Class<Certificate>('Certificate')({
 	),
 
 	date: S.optional(
-		S.Date.annotations({
+		StringDate.annotations({
 			title: 'date',
-			examples: [new Date('2018-01-01')],
 		}),
 		{ exact: true },
 	),
