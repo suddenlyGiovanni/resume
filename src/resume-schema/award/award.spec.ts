@@ -8,7 +8,7 @@ describe('award', () => {
 	const awardInput = {
 		awarder: 'Time Magazine',
 		title: 'One of the 100 greatest minds of the century',
-		date: '1970-01-01T00:00:00.000Z',
+		date: '1970-01-01',
 		summary: 'Received for my work with Quantum Physics',
 	} satisfies S.Schema.Encoded<typeof Award>
 
@@ -27,7 +27,7 @@ describe('award', () => {
 
 		test('date', () => {
 			expect(() => parse({ date: '' })).toThrow()
-			expect(() => parse({ awarder: awardInput.awarder })).not.toThrow()
+			expect(() => parse({ awarder: awardInput.date })).not.toThrow()
 		})
 
 		test('title', () => {

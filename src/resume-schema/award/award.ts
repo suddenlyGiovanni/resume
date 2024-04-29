@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Award = S.Struct({
+export class Award extends S.Class<Award>('Award')({
 	awarder: S.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'awarder',
@@ -38,6 +38,4 @@ export const Award = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Award = S.Schema.Encoded<typeof Award>
+}) {}
