@@ -1,4 +1,4 @@
-name: Publish package to GitHub Packages
+name: 🎁 Publish
 on:
   workflow_dispatch:
   release:
@@ -36,6 +36,6 @@ jobs:
         run: pnpm run build
 
       - name: 📦 Publish package
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
