@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { StringDate, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 export class Award extends S.Class<Award>('Award')({
 	awarder: S.optional(
@@ -13,10 +13,9 @@ export class Award extends S.Class<Award>('Award')({
 	),
 
 	date: S.optional(
-		S.Date.annotations({
+		StringDate.annotations({
 			title: 'date',
 			description: 'Date of the award',
-			examples: [new Date('1970-01-01T00:00:00.000Z')],
 		}),
 		{ exact: true },
 	),

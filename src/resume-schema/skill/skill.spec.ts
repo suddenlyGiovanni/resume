@@ -44,8 +44,8 @@ describe('Skill', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Skill))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('skill-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Skill), null, '\t')).toMatchFileSnapshot(
+			'skill-schema.snapshot.json',
+		)
 	})
 })

@@ -5,23 +5,40 @@
 	"properties": {
 		"name": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "name of the certificate",
+			"title": "Name",
+			"examples": [
+				"e.g. Certified Kubernetes Administrator"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"date": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "a string that is a valid YYYY-MM-DD date",
+			"title": "date",
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
 		},
 		"url": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "the url of the certificate",
+			"title": "url",
+			"examples": [
+				"http://example.com/cert.pdf"
+			],
+			"format": "uri"
 		},
 		"issuer": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "issuer of the certificate",
+			"title": "issuer",
+			"examples": [
+				"e.g. CNCF"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		}
 	},
 	"additionalProperties": false

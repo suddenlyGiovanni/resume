@@ -103,9 +103,130 @@ describe('Basics', () => {
 		})
 	})
 
-	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Basics))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('basic-schema.snapshot.json')
+	describe('JSONSchema', () => {
+		test('encodedSchema', () => {
+			expect(JSONSchema.make(S.encodedSchema(Basics))).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "additionalProperties": false,
+				  "properties": {
+				    "email": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "image": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "label": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "location": {
+				      "additionalProperties": false,
+				      "properties": {
+				        "address": {
+				          "description": "a string",
+				          "title": "string",
+				          "type": "string",
+				        },
+				        "city": {
+				          "description": "a string",
+				          "title": "string",
+				          "type": "string",
+				        },
+				        "countryCode": {
+				          "description": "a string",
+				          "title": "string",
+				          "type": "string",
+				        },
+				        "postalCode": {
+				          "description": "a string",
+				          "title": "string",
+				          "type": "string",
+				        },
+				        "region": {
+				          "description": "a string",
+				          "title": "string",
+				          "type": "string",
+				        },
+				      },
+				      "required": [
+				        "city",
+				        "countryCode",
+				      ],
+				      "type": "object",
+				    },
+				    "name": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "phone": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "profiles": {
+				      "items": {
+				        "additionalProperties": false,
+				        "properties": {
+				          "network": {
+				            "description": "a string",
+				            "title": "string",
+				            "type": "string",
+				          },
+				          "url": {
+				            "description": "a string",
+				            "title": "string",
+				            "type": "string",
+				          },
+				          "username": {
+				            "description": "a string",
+				            "title": "string",
+				            "type": "string",
+				          },
+				        },
+				        "required": [
+				          "network",
+				          "url",
+				          "username",
+				        ],
+				        "type": "object",
+				      },
+				      "type": "array",
+				    },
+				    "summary": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "url": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				  },
+				  "required": [
+				    "email",
+				    "label",
+				    "name",
+				    "summary",
+				    "location",
+				    "profiles",
+				  ],
+				  "type": "object",
+				}
+			`)
+		})
+
+		test('naked', () => {
+			expect(JSON.stringify(JSONSchema.make(Basics), null, '\t')).toMatchFileSnapshot(
+				'basic-schema.snapshot.json',
+			)
+		})
 	})
 })

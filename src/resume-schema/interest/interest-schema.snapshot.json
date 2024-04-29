@@ -3,18 +3,36 @@
 	"type": "object",
 	"required": [],
 	"properties": {
-		"name": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
 		"keywords": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a string",
-				"title": "string"
-			}
+				"description": "a non-empty string with no leading or trailing whitespace",
+				"title": "keyword",
+				"examples": [
+					"philosophy"
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "List some keywords pertaining to this interest",
+			"title": "keywords",
+			"examples": [
+				[
+					"philosophy",
+					"distributed systems"
+				]
+			]
+		},
+		"name": {
+			"type": "string",
+			"description": "Interest name",
+			"title": "name",
+			"examples": [
+				"Philosophy"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		}
 	},
 	"additionalProperties": false

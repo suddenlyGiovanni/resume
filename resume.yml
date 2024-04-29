@@ -31,8 +31,7 @@ work:
     location: Berlin, Germany
     description: EdTech
     url: https://bettermarks.com
-    summary: |
-      Bettermarks is a software company that has developed an adaptive learning platform for highly interactive math books to be used in schools, enabling students to learn from their mistakes through AHA moments.
+    summary: Bettermarks is a software company that has developed an adaptive learning platform for highly interactive math books to be used in schools, enabling students to learn from their mistakes through AHA moments.
     roles:
       - title: Software Developer
         startDate: "2021-04-01"
@@ -60,14 +59,13 @@ work:
       - MongoDb
     contact:
       name: York Zalander (CTO)
-      email: york.xylander@bettermarks.com
+      email: 'york.xylander@bettermarks.com'
 
   - name: ToolTime Gmbh
     location: Berlin, Germany
     description: B2B SAAS
     url: https://www.tooltime.de/
-    summary: |
-      ToolTime's mission is to help craftsmen tackle all their administrative tasks digitally with ease.
+    summary: ToolTime's mission is to help craftsmen tackle all their administrative tasks digitally with ease.
     roles:
       - title: Senior Frontend Engineer
         startDate: "2019-09-01"
@@ -93,7 +91,7 @@ work:
       - Cypress
     contact:
       name: Slawomir Smiechura (VP of Engineering)
-      email: slawomir.smiechura@tooltime.de
+      email: 'slawomir.smiechura@tooltime.de'
 
   - name: Appico Gmbh
     location: Hamburg, Germany
@@ -147,7 +145,7 @@ work:
           - Docker
     contact:
       name: Arvid Gerstmann (CTO)
-      email: arvid.gerstmann@appico.com
+      email: 'arvid.gerstmann@appico.com'
 
   - name: MadeByEnka
     location: Rijeka, Croatia
@@ -169,8 +167,6 @@ work:
     location: Trieste, Italy
     description: Real Estate Agency
     summary: Helped the company in its modernization process by pivoting its business model from brick and mortar to an online-first presence.
-    highlights:
-      - Architected, designed, and code multiple iterations of an in-house real estate CMS web app.
     techStack:
       - WebComponents
       - Polymer

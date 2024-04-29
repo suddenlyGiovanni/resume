@@ -7,13 +7,13 @@ import { Project } from './project.js'
 describe('Project', () => {
 	const projectInput = {
 		description: 'Collated works of 2017',
-		endDate: '2017-12-01T00:00:00.000Z',
+		endDate: '2017-12-01',
 		entity: 'greenpeace',
 		highlights: ['Feature 1', 'Feature 2'],
 		keywords: ['special', 'elements'],
 		name: 'The World Wide Web',
 		roles: ['Software Engineer Lead'],
-		startDate: '1970-01-01T00:00:00.000Z',
+		startDate: '1970-01-01',
 		type: 'talk',
 		url: 'http://example.com/project',
 	} satisfies S.Schema.Encoded<typeof Project>
@@ -87,8 +87,8 @@ describe('Project', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Project))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('project-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Project), null, '\t')).toMatchFileSnapshot(
+			'project-schema.snapshot.json',
+		)
 	})
 })

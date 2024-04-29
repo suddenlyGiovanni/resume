@@ -5,62 +5,121 @@
 	"properties": {
 		"description": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "Short summary of project",
+			"title": "description",
+			"examples": [
+				"Collated works of 2017"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"endDate": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "a string that is a valid YYYY-MM-DD date",
+			"title": "StringDate",
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
 		},
 		"entity": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"name": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"startDate": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"type": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"url": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "Specify the relevant company/entity affiliations",
+			"title": "entity",
+			"examples": [
+				"Greenpeace",
+				"Microsoft"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"highlights": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a string",
-				"title": "string"
-			}
+				"description": "Specify multiple features",
+				"title": "highlight",
+				"examples": [
+					"Directs you close but not quite there"
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "Specify multiple features",
+			"title": "highlights"
 		},
 		"keywords": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a string",
-				"title": "string"
-			}
+				"description": "a non-empty string with no leading or trailing whitespace",
+				"title": "keyword",
+				"examples": [
+					"AngularJS",
+					"elements"
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "Specify special elements involved",
+			"title": "keywords"
+		},
+		"name": {
+			"type": "string",
+			"description": "Name of the project",
+			"title": "name",
+			"examples": [
+				"The World Wide Web"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"roles": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a string",
-				"title": "string"
-			}
+				"description": "a non-empty string with no leading or trailing whitespace",
+				"title": "role",
+				"examples": [
+					"Team Lead",
+					"Speaker",
+					"Writer"
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "Specify your role on this project or in company",
+			"title": "roles"
+		},
+		"startDate": {
+			"type": "string",
+			"description": "a string that is a valid YYYY-MM-DD date",
+			"title": "StringDate",
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
+		},
+		"type": {
+			"type": "string",
+			"description": "Type of project",
+			"title": "type",
+			"examples": [
+				"volunteering",
+				"presentation",
+				"talk",
+				"application",
+				"conference"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"url": {
+			"type": "string",
+			"description": "URL (as per RFC 3986) to the project page",
+			"title": "url",
+			"examples": [
+				"http://www.computer.org.csdl/mags/co/1996/10/rx069-abs.html"
+			],
+			"format": "uri"
 		}
 	},
 	"additionalProperties": false

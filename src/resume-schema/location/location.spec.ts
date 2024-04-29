@@ -61,9 +61,52 @@ describe('Location', () => {
 		})
 	})
 
-	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Location))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('location-schema.snapshot.json')
+	describe('JSONSchema', () => {
+		test('encodedSchema', () => {
+			expect(JSONSchema.make(S.encodedSchema(Location))).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "additionalProperties": false,
+				  "properties": {
+				    "address": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "city": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "countryCode": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "postalCode": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				    "region": {
+				      "description": "a string",
+				      "title": "string",
+				      "type": "string",
+				    },
+				  },
+				  "required": [
+				    "city",
+				    "countryCode",
+				  ],
+				  "type": "object",
+				}
+			`)
+		})
+
+		test('naked', () => {
+			expect(JSON.stringify(JSONSchema.make(Location), null, '\t')).toMatchFileSnapshot(
+				'location-schema.snapshot.json',
+			)
+		})
 	})
 })

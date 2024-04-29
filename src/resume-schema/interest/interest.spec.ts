@@ -32,8 +32,8 @@ describe('Interest', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Interest))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('interest-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Interest), null, '\t')).toMatchFileSnapshot(
+			'interest-schema.snapshot.json',
+		)
 	})
 })

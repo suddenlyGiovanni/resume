@@ -44,7 +44,7 @@ describe('award', () => {
 	})
 
 	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(S.encodedSchema(Award)), null, '\t')).toMatchFileSnapshot(
+		expect(JSON.stringify(JSONSchema.make(Award), null, 2)).toMatchFileSnapshot(
 			'award-schema.snapshot.json',
 		)
 	})

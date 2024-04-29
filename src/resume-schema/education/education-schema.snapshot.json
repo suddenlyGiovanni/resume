@@ -10,51 +10,105 @@
 	"properties": {
 		"area": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"endDate": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"score": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"institution": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"location": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"startDate": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"studyType": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
-		},
-		"url": {
-			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "e.g. Arts",
+			"title": "area",
+			"examples": [
+				"Arts",
+				"Computer Science"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"courses": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a string",
-				"title": "string"
-			}
+				"description": "a non-empty string with no leading or trailing whitespace",
+				"title": "course",
+				"examples": [
+					"H1302 - Introduction to American history"
+				],
+				"minLength": 1,
+				"pattern": "^[^\\s].*[^\\s]$"
+			},
+			"description": "List notable courses/subjects",
+			"title": "courses",
+			"examples": [
+				[
+					"course1",
+					"course2"
+				]
+			]
+		},
+		"endDate": {
+			"type": "string",
+			"description": "end date of education",
+			"title": "endDate",
+			"examples": [
+				"2020-01-01"
+			],
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
+		},
+		"score": {
+			"type": "string",
+			"description": "grade point average, e.g. 3.67/4.0",
+			"title": "score",
+			"examples": [
+				"3.67/4.0"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"institution": {
+			"type": "string",
+			"description": "name of the institution",
+			"title": "institution",
+			"examples": [
+				"Massachusetts Institute of Technology"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"location": {
+			"type": "string",
+			"description": "a non-empty string with no leading or trailing whitespace",
+			"title": "TrimmedNonEmpty",
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"startDate": {
+			"type": "string",
+			"description": "start date of education",
+			"title": "startDate",
+			"examples": [
+				"1970-01-01T00:00"
+			],
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
+		},
+		"studyType": {
+			"type": "string",
+			"description": "the type of study",
+			"title": "studyType",
+			"examples": [
+				"Bachelor",
+				"Master",
+				"Doctorate"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
+		},
+		"url": {
+			"type": "string",
+			"description": "URL (as per RFC 3986) of the institution",
+			"title": "url",
+			"examples": [
+				"http://mit.com"
+			],
+			"format": "uri"
 		}
 	},
 	"additionalProperties": false

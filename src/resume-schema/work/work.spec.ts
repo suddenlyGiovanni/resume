@@ -116,8 +116,10 @@ describe('Work', () => {
 		})
 
 		describe('JSONSchema', () => {
-			test.todo('naked', () => {
-				expect(JSONSchema.make(Work)).toMatchInlineSnapshot()
+			test('naked', () => {
+				expect(JSON.stringify(JSONSchema.make(Work), null, 2)).toMatchFileSnapshot(
+					'work-schema.snapshot.json',
+				)
 			})
 
 			test.todo('typeSchema', () => {
@@ -125,9 +127,224 @@ describe('Work', () => {
 			})
 
 			test('encodedSchema', () => {
-				expect(
-					JSON.stringify(JSONSchema.make(S.encodedSchema(Work)), null, '\t'),
-				).toMatchFileSnapshot('work-schema.snapshot.json')
+				expect(JSONSchema.make(S.encodedSchema(Work))).toMatchInlineSnapshot(`
+					{
+					  "$schema": "http://json-schema.org/draft-07/schema#",
+					  "additionalProperties": false,
+					  "properties": {
+					    "contact": {
+					      "additionalProperties": false,
+					      "properties": {
+					        "email": {
+					          "description": "a string",
+					          "title": "string",
+					          "type": "string",
+					        },
+					        "name": {
+					          "description": "a string",
+					          "title": "string",
+					          "type": "string",
+					        },
+					        "phone": {
+					          "description": "a string",
+					          "title": "string",
+					          "type": "string",
+					        },
+					      },
+					      "required": [
+					        "name",
+					        "email",
+					      ],
+					      "type": "object",
+					    },
+					    "description": {
+					      "description": "a string",
+					      "title": "string",
+					      "type": "string",
+					    },
+					    "location": {
+					      "description": "a string",
+					      "title": "string",
+					      "type": "string",
+					    },
+					    "name": {
+					      "description": "a string",
+					      "title": "string",
+					      "type": "string",
+					    },
+					    "roles": {
+					      "additionalItems": {
+					        "additionalProperties": false,
+					        "properties": {
+					          "endDate": {
+					            "description": "a string",
+					            "title": "string",
+					            "type": "string",
+					          },
+					          "highlights": {
+					            "additionalItems": {
+					              "description": "a string",
+					              "title": "string",
+					              "type": "string",
+					            },
+					            "items": [
+					              {
+					                "description": "a string",
+					                "title": "string",
+					                "type": "string",
+					              },
+					            ],
+					            "minItems": 1,
+					            "type": "array",
+					          },
+					          "responsibilities": {
+					            "items": {
+					              "description": "a string",
+					              "title": "string",
+					              "type": "string",
+					            },
+					            "type": "array",
+					          },
+					          "startDate": {
+					            "description": "a string",
+					            "title": "string",
+					            "type": "string",
+					          },
+					          "technologies": {
+					            "additionalItems": {
+					              "description": "a string",
+					              "title": "string",
+					              "type": "string",
+					            },
+					            "items": [
+					              {
+					                "description": "a string",
+					                "title": "string",
+					                "type": "string",
+					              },
+					            ],
+					            "minItems": 1,
+					            "type": "array",
+					          },
+					          "title": {
+					            "description": "a string",
+					            "title": "string",
+					            "type": "string",
+					          },
+					        },
+					        "required": [
+					          "title",
+					          "startDate",
+					          "responsibilities",
+					        ],
+					        "type": "object",
+					      },
+					      "items": [
+					        {
+					          "additionalProperties": false,
+					          "properties": {
+					            "endDate": {
+					              "description": "a string",
+					              "title": "string",
+					              "type": "string",
+					            },
+					            "highlights": {
+					              "additionalItems": {
+					                "description": "a string",
+					                "title": "string",
+					                "type": "string",
+					              },
+					              "items": [
+					                {
+					                  "description": "a string",
+					                  "title": "string",
+					                  "type": "string",
+					                },
+					              ],
+					              "minItems": 1,
+					              "type": "array",
+					            },
+					            "responsibilities": {
+					              "items": {
+					                "description": "a string",
+					                "title": "string",
+					                "type": "string",
+					              },
+					              "type": "array",
+					            },
+					            "startDate": {
+					              "description": "a string",
+					              "title": "string",
+					              "type": "string",
+					            },
+					            "technologies": {
+					              "additionalItems": {
+					                "description": "a string",
+					                "title": "string",
+					                "type": "string",
+					              },
+					              "items": [
+					                {
+					                  "description": "a string",
+					                  "title": "string",
+					                  "type": "string",
+					                },
+					              ],
+					              "minItems": 1,
+					              "type": "array",
+					            },
+					            "title": {
+					              "description": "a string",
+					              "title": "string",
+					              "type": "string",
+					            },
+					          },
+					          "required": [
+					            "title",
+					            "startDate",
+					            "responsibilities",
+					          ],
+					          "type": "object",
+					        },
+					      ],
+					      "minItems": 1,
+					      "type": "array",
+					    },
+					    "summary": {
+					      "description": "a string",
+					      "title": "string",
+					      "type": "string",
+					    },
+					    "techStack": {
+					      "additionalItems": {
+					        "description": "a string",
+					        "title": "string",
+					        "type": "string",
+					      },
+					      "items": [
+					        {
+					          "description": "a string",
+					          "title": "string",
+					          "type": "string",
+					        },
+					      ],
+					      "minItems": 1,
+					      "type": "array",
+					    },
+					    "url": {
+					      "description": "a string",
+					      "title": "string",
+					      "type": "string",
+					    },
+					  },
+					  "required": [
+					    "description",
+					    "name",
+					    "roles",
+					  ],
+					  "type": "object",
+					}
+				`)
 			})
 		})
 	})
