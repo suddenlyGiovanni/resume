@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 10.1.1
+
+### Patch Changes
+
+- 6da7139: Derive `schema.json` for resume.yml directly from code
+
 ## 10.1.0
 
 ### Minor Changes
