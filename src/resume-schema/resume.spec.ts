@@ -117,6 +117,8 @@ describe('Resume', () => {
 	})
 
 	it('jsonSchema match its snapshot', () => {
-		expect(JSON.stringify(JSONSchema.make(ResumeSchema), null, 2)).toMatchFileSnapshot('resume-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(ResumeSchema), null, 2)).toMatchFileSnapshot(
+			'../../schema.json',
+		)
 	})
 })
