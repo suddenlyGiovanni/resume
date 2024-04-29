@@ -3,7 +3,7 @@ import * as S from '@effect/schema/Schema'
 
 import { describe, expect, test } from 'vitest'
 
-import { Work, type WorkEncoded } from './work.js'
+import { Work } from './work.js'
 
 describe('Work', () => {
 	const workInput = {
@@ -122,7 +122,7 @@ describe('Work', () => {
 			})
 
 			test.todo('start date before end date', () => {
-				const input: WorkEncoded = {
+				const input: S.Schema.Encoded<typeof Work> = {
 					...required,
 					endDate: '1968-02-01',
 					startDate: '1969-05-01',
