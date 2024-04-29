@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { StringDate, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Volunteer = S.Struct({
+export class Volunteer extends S.Class<Volunteer>('Volunteer')({
 	endDate: S.optional(StringDate, { exact: true }),
 
 	highlights: S.optional(
@@ -55,6 +55,4 @@ export const Volunteer = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Volunteer = S.Schema.Encoded<typeof Volunteer>
+}) {}
