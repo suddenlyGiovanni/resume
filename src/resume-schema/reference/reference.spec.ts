@@ -30,8 +30,8 @@ describe('Reference', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Reference))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('reference-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Reference), null, '\t')).toMatchFileSnapshot(
+			'reference-schema.snapshot.json',
+		)
 	})
 })
