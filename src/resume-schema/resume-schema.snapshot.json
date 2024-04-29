@@ -373,20 +373,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the publication",
-            "title": "name",
-            "examples": [
-              "The World Wide Web"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "publisher": {
             "type": "string",
-            "description": "The publisher of the publication",
-            "title": "publisher",
-            "examples": [
-              "IEEE",
-              "Computer Magazine"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "releaseDate": {
             "type": "string",
@@ -395,11 +388,8 @@
           },
           "summary": {
             "type": "string",
-            "description": "Short summary of publication",
-            "title": "summary",
-            "examples": [
-              "Discussion of the World Wide Web, HTTP, HTML"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
             "type": "string",
