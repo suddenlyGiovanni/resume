@@ -433,30 +433,20 @@
         "properties": {
           "level": {
             "type": "string",
-            "description": "Level of expertise",
-            "title": "level",
-            "examples": [
-              "Master",
-              "Intermediate"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "name": {
             "type": "string",
-            "description": "Name of the skill",
-            "title": "name",
-            "examples": [
-              "Web Development"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "keywords": {
             "type": "array",
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "keyword",
-              "examples": [
-                "Rust"
-              ]
+              "title": "string"
             }
           }
         },
