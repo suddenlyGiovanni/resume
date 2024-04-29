@@ -5,11 +5,8 @@
 	"properties": {
 		"description": {
 			"type": "string",
-			"description": "Short summary of project",
-			"title": "description",
-			"examples": [
-				"Collated works of 2017"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"endDate": {
 			"type": "string",
@@ -18,20 +15,13 @@
 		},
 		"entity": {
 			"type": "string",
-			"description": "Specify the relevant company/entity affiliations",
-			"title": "entity",
-			"examples": [
-				"Greenpeace",
-				"Microsoft"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"name": {
 			"type": "string",
-			"description": "Name of the project",
-			"title": "name",
-			"examples": [
-				"The World Wide Web"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"startDate": {
 			"type": "string",
@@ -40,15 +30,8 @@
 		},
 		"type": {
 			"type": "string",
-			"description": "Type of project",
-			"title": "type",
-			"examples": [
-				"volunteering",
-				"presentation",
-				"talk",
-				"application",
-				"conference"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"url": {
 			"type": "string",
@@ -59,11 +42,8 @@
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "Specify multiple features",
-				"title": "highlight",
-				"examples": [
-					"Directs you close but not quite there"
-				]
+				"description": "a string",
+				"title": "string"
 			}
 		},
 		"keywords": {
@@ -71,11 +51,7 @@
 			"items": {
 				"type": "string",
 				"description": "a string",
-				"title": "keyword",
-				"examples": [
-					"AngularJS",
-					"elements"
-				]
+				"title": "string"
 			}
 		},
 		"roles": {
@@ -83,12 +59,7 @@
 			"items": {
 				"type": "string",
 				"description": "a string",
-				"title": "role",
-				"examples": [
-					"Team Lead",
-					"Speaker",
-					"Writer"
-				]
+				"title": "string"
 			}
 		}
 	},

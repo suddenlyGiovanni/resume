@@ -1,10 +1,10 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 export const Project = S.Struct({
 	description: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'description',
 			description: 'Short summary of project',
 			examples: ['Collated works of 2017'],
@@ -15,7 +15,7 @@ export const Project = S.Struct({
 	endDate: S.optional(S.Date, { exact: true }),
 
 	entity: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'entity',
 			description: 'Specify the relevant company/entity affiliations',
 			examples: ['Greenpeace', 'Microsoft'],
@@ -25,7 +25,7 @@ export const Project = S.Struct({
 
 	highlights: S.optional(
 		S.Array(
-			nonEmptyString({
+			TrimmedNonEmpty.annotations({
 				title: 'highlight',
 				description: 'Specify multiple features',
 				examples: ['Directs you close but not quite there'],
@@ -39,7 +39,7 @@ export const Project = S.Struct({
 
 	keywords: S.optional(
 		S.Array(
-			nonEmptyString({
+			TrimmedNonEmpty.annotations({
 				title: 'keyword',
 				examples: ['AngularJS', 'elements'],
 			}),
@@ -51,7 +51,7 @@ export const Project = S.Struct({
 	),
 
 	name: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'name',
 			description: 'Name of the project',
 			examples: ['The World Wide Web'],
@@ -61,7 +61,7 @@ export const Project = S.Struct({
 
 	roles: S.optional(
 		S.Array(
-			nonEmptyString({
+			TrimmedNonEmpty.annotations({
 				title: 'role',
 				examples: ['Team Lead', 'Speaker', 'Writer'],
 			}),
@@ -75,7 +75,7 @@ export const Project = S.Struct({
 	startDate: S.optional(S.Date, { exact: true }),
 
 	type: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'type',
 			description: 'Type of project',
 			examples: ['volunteering', 'presentation', 'talk', 'application', 'conference'],
