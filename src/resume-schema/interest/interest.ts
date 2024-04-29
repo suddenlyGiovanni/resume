@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Interest = S.Struct({
+export class Interest extends S.Class<Interest>('Interest')({
 	keywords: S.optional(
 		S.Array(
 			TrimmedNonEmpty.annotations({
@@ -25,6 +25,4 @@ export const Interest = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Interest = S.Schema.Encoded<typeof Interest>
+}) {}
