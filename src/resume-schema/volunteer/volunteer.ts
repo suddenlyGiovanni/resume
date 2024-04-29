@@ -1,13 +1,13 @@
 import * as S from '@effect/schema/Schema'
 
-import { StringDate, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { StringDate, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 export const Volunteer = S.Struct({
 	endDate: S.optional(StringDate, { exact: true }),
 
 	highlights: S.optional(
 		S.Array(
-			nonEmptyString({
+			TrimmedNonEmpty.annotations({
 				title: 'highlight',
 				examples: ['Increased profits by 20% from 2011-2012 through viral advertising'],
 			}),
@@ -19,7 +19,7 @@ export const Volunteer = S.Struct({
 	),
 
 	organization: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'organization',
 			description: 'Name of the organization',
 			examples: ['Facebook'],
@@ -28,7 +28,7 @@ export const Volunteer = S.Struct({
 	),
 
 	position: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'position',
 			description: 'The title of your position at the company',
 			examples: ['Software Engineer'],
@@ -39,7 +39,7 @@ export const Volunteer = S.Struct({
 	startDate: S.optional(StringDate, { exact: true }),
 
 	summary: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description: 'Give an overview of your responsibilities at the company',
 			examples: ['My day-to-day activities involved designing and building web applications...'],
