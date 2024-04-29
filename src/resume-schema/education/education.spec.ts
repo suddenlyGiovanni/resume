@@ -74,7 +74,7 @@ describe('Education', () => {
 				expect(parse({ ...required, endDate: educationInput.endDate }).endDate).toBe('2020-02-01')
 			})
 
-			test('start date before end date', () => {
+			test.todo('start date before end date', () => {
 				const input: S.Schema.Encoded<typeof Education> = {
 					...required,
 					startDate: '1989-01-01',

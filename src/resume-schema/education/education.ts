@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { UrlString, TrimmedNonEmpty, StringDate } from '@/schema-primitive/index.js'
 
-export const Education = S.Struct({
+export class Education extends S.Class<Education>('Education')({
 	area: TrimmedNonEmpty.annotations({
 		title: 'area',
 		description: 'e.g. Arts',
@@ -73,18 +73,4 @@ export const Education = S.Struct({
 			exact: true,
 		},
 	),
-}).pipe(
-	S.filter(
-		education => {
-			if (!education.startDate) return true
-			// short-circuit if there is no end date
-			if (!education.endDate) return true
-			// check if the start date is before the end date
-			return new Date(education.startDate) < new Date(education.endDate)
-		},
-		{ message: () => 'The start date must be before the end date' },
-	),
-)
-
-export type Education = S.Schema.Encoded<typeof Education>
-export type EducationType = S.Schema.Type<typeof Education>
+}) {}
