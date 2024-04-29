@@ -54,21 +54,13 @@
 			"properties": {
 				"address": {
 					"type": "string",
-					"description": "To add multiple address lines, use \"\\n\".",
-					"title": "address",
-					"examples": [
-						"1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
-					]
+					"description": "a string",
+					"title": "string"
 				},
 				"city": {
 					"type": "string",
-					"description": "City",
-					"title": "city",
-					"examples": [
-						"Berlin",
-						"New York",
-						"San Francisco"
-					]
+					"description": "a string",
+					"title": "string"
 				},
 				"countryCode": {
 					"type": "string",
@@ -77,20 +69,13 @@
 				},
 				"postalCode": {
 					"type": "string",
-					"description": "European postal code",
-					"title": "postalCode",
-					"examples": [
-						"12209"
-					]
+					"description": "a string",
+					"title": "string"
 				},
 				"region": {
 					"type": "string",
-					"description": "The general region where you live. Can be a US state, or a province",
-					"title": "region",
-					"examples": [
-						"California",
-						"Quebec"
-					]
+					"description": "a string",
+					"title": "string"
 				}
 			},
 			"additionalProperties": false
