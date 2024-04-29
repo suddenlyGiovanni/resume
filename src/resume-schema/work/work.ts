@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { Email, StringDate, Phone, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { Email, Phone, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 import { Role } from './role.js'
 
