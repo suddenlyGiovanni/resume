@@ -1,10 +1,10 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { UrlString, TrimmedNonEmpty, StringDate } from '@/schema-primitive/index.js'
 
-export const Publication = S.Struct({
+export class Publication extends S.Class<Publication>('Publication')({
 	name: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'name',
 			description: 'The name of the publication',
 			examples: ['The World Wide Web'],
@@ -13,7 +13,7 @@ export const Publication = S.Struct({
 	),
 
 	publisher: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'publisher',
 			description: 'The publisher of the publication',
 			examples: ['IEEE', 'Computer Magazine'],
@@ -21,17 +21,10 @@ export const Publication = S.Struct({
 		{ exact: true },
 	),
 
-	releaseDate: S.optional(
-		S.Date.annotations({
-			title: 'releaseDate',
-			description: 'Using ISO 8601 with YYYY-MM-DDThh:mm:ss',
-			examples: [new Date('2012-04-05'), new Date('2012-04-05T10:00:00.000Z')],
-		}),
-		{ exact: true },
-	),
+	releaseDate: S.optional(StringDate, { exact: true }),
 
 	summary: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description: 'Short summary of publication',
 			examples: ['Discussion of the World Wide Web, HTTP, HTML'],
@@ -47,6 +40,4 @@ export const Publication = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Publication = S.Schema.Encoded<typeof Publication>
+}) {}

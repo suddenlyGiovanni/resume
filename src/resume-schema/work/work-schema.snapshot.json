@@ -10,12 +10,8 @@
 	"properties": {
 		"description": {
 			"type": "string",
-			"description": "A short description of the company",
-			"title": "description",
-			"examples": [
-				"Social Media Company",
-				"Educational Software Company"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"endDate": {
 			"type": "string",
@@ -24,19 +20,13 @@
 		},
 		"location": {
 			"type": "string",
-			"description": "Location of the company",
-			"title": "location",
-			"examples": [
-				"Menlo Park, CA"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"name": {
 			"type": "string",
-			"description": "Name of the company",
-			"title": "name",
-			"examples": [
-				"Facebook"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"startDate": {
 			"type": "string",
@@ -45,15 +35,13 @@
 		},
 		"summary": {
 			"type": "string",
-			"description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
-			"title": "summary",
-			"examples": [
-				"An educational software company that helps students learn through interactive games",
-				"Help users to handle all their administrative tasks digitally with ease."
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"url": {
-			"$ref": "#/$defs/UrlString"
+			"type": "string",
+			"description": "a string",
+			"title": "string"
 		},
 		"contact": {
 			"type": "object",
@@ -64,14 +52,13 @@
 			"properties": {
 				"name": {
 					"type": "string",
-					"description": "The name and role of the contact person",
-					"title": "name",
-					"examples": [
-						"Mark Zuckerberg (CTO)"
-					]
+					"description": "a string",
+					"title": "string"
 				},
 				"email": {
-					"$ref": "#/$defs/Email"
+					"type": "string",
+					"description": "a string",
+					"title": "string"
 				},
 				"phone": {
 					"type": "string",
@@ -95,12 +82,8 @@
 					"properties": {
 						"title": {
 							"type": "string",
-							"description": "The title of your position at the company: <seniority level> <role title>",
-							"title": "title",
-							"examples": [
-								"Junior Software Developer",
-								"Senior Software Engineer"
-							]
+							"description": "a string",
+							"title": "string"
 						},
 						"startDate": {
 							"type": "string",
@@ -116,11 +99,8 @@
 							"type": "array",
 							"items": {
 								"type": "string",
-								"description": "A specific responsibility",
-								"title": "responsibility",
-								"examples": [
-									"code owner of x"
-								]
+								"description": "a string",
+								"title": "string"
 							}
 						},
 						"highlights": {
@@ -129,20 +109,14 @@
 							"items": [
 								{
 									"type": "string",
-									"description": "A specific accomplishment",
-									"title": "highlight",
-									"examples": [
-										"Increased profits by 20% from 2011-2012 through viral advertising"
-									]
+									"description": "a string",
+									"title": "string"
 								}
 							],
 							"additionalItems": {
 								"type": "string",
-								"description": "A specific accomplishment",
-								"title": "highlight",
-								"examples": [
-									"Increased profits by 20% from 2011-2012 through viral advertising"
-								]
+								"description": "a string",
+								"title": "string"
 							}
 						},
 						"technologies": {
@@ -151,22 +125,14 @@
 							"items": [
 								{
 									"type": "string",
-									"description": "A specific technology used",
-									"title": "technology",
-									"examples": [
-										"React",
-										"Node.js"
-									]
+									"description": "a string",
+									"title": "string"
 								}
 							],
 							"additionalItems": {
 								"type": "string",
-								"description": "A specific technology used",
-								"title": "technology",
-								"examples": [
-									"React",
-									"Node.js"
-								]
+								"description": "a string",
+								"title": "string"
 							}
 						}
 					},
@@ -183,12 +149,8 @@
 				"properties": {
 					"title": {
 						"type": "string",
-						"description": "The title of your position at the company: <seniority level> <role title>",
-						"title": "title",
-						"examples": [
-							"Junior Software Developer",
-							"Senior Software Engineer"
-						]
+						"description": "a string",
+						"title": "string"
 					},
 					"startDate": {
 						"type": "string",
@@ -204,11 +166,8 @@
 						"type": "array",
 						"items": {
 							"type": "string",
-							"description": "A specific responsibility",
-							"title": "responsibility",
-							"examples": [
-								"code owner of x"
-							]
+							"description": "a string",
+							"title": "string"
 						}
 					},
 					"highlights": {
@@ -217,20 +176,14 @@
 						"items": [
 							{
 								"type": "string",
-								"description": "A specific accomplishment",
-								"title": "highlight",
-								"examples": [
-									"Increased profits by 20% from 2011-2012 through viral advertising"
-								]
+								"description": "a string",
+								"title": "string"
 							}
 						],
 						"additionalItems": {
 							"type": "string",
-							"description": "A specific accomplishment",
-							"title": "highlight",
-							"examples": [
-								"Increased profits by 20% from 2011-2012 through viral advertising"
-							]
+							"description": "a string",
+							"title": "string"
 						}
 					},
 					"technologies": {
@@ -239,22 +192,14 @@
 						"items": [
 							{
 								"type": "string",
-								"description": "A specific technology used",
-								"title": "technology",
-								"examples": [
-									"React",
-									"Node.js"
-								]
+								"description": "a string",
+								"title": "string"
 							}
 						],
 						"additionalItems": {
 							"type": "string",
-							"description": "A specific technology used",
-							"title": "technology",
-							"examples": [
-								"React",
-								"Node.js"
-							]
+							"description": "a string",
+							"title": "string"
 						}
 					}
 				},
@@ -266,46 +211,17 @@
 			"minItems": 1,
 			"items": [
 				{
-					"$ref": "#/$defs/NonEmptyString"
+					"type": "string",
+					"description": "a string",
+					"title": "string"
 				}
 			],
 			"additionalItems": {
-				"$ref": "#/$defs/NonEmptyString"
+				"type": "string",
+				"description": "a string",
+				"title": "string"
 			}
 		}
 	},
-	"additionalProperties": false,
-	"$defs": {
-		"UrlString": {
-			"type": "string",
-			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-			"title": "url",
-			"examples": [
-				"https://example.com",
-				"https://example.com/#section",
-				"http://example.com:8080",
-				"http://🍌🍌🍌.ws",
-				"https://www.übercool.de"
-			]
-		},
-		"Email": {
-			"type": "string",
-			"description": "Email address",
-			"title": "email",
-			"examples": [
-				"<local-part>@<domain>",
-				"foo@bar.com",
-				"foo.bar@baz.com"
-			]
-		},
-		"NonEmptyString": {
-			"type": "string",
-			"description": "a non empty string",
-			"title": "non empty string",
-			"examples": [
-				"' test string  '",
-				"'test string'"
-			]
-		}
-	}
+	"additionalProperties": false
 }

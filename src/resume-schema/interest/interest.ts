@@ -1,11 +1,11 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/index.js'
+import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Interest = S.Struct({
+export class Interest extends S.Class<Interest>('Interest')({
 	keywords: S.optional(
 		S.Array(
-			nonEmptyString({
+			TrimmedNonEmpty.annotations({
 				title: 'keyword',
 				examples: ['philosophy'],
 			}),
@@ -18,13 +18,11 @@ export const Interest = S.Struct({
 	),
 
 	name: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'name',
 			description: 'Interest name',
 			examples: ['Philosophy'],
 		}),
 		{ exact: true },
 	),
-})
-
-export type Interest = S.Schema.Encoded<typeof Interest>
+}) {}

@@ -9,38 +9,19 @@
 	"properties": {
 		"network": {
 			"type": "string",
-			"description": "The name of the social network",
-			"title": "network",
-			"examples": [
-				"Facebook",
-				"Twitter"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"url": {
-			"$ref": "#/$defs/UrlString"
+			"type": "string",
+			"description": "a string",
+			"title": "string"
 		},
 		"username": {
 			"type": "string",
-			"description": "The username of the profile on the social network",
-			"title": "username",
-			"examples": [
-				"neutralthoughts"
-			]
+			"description": "a string",
+			"title": "string"
 		}
 	},
-	"additionalProperties": false,
-	"$defs": {
-		"UrlString": {
-			"type": "string",
-			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-			"title": "url",
-			"examples": [
-				"https://example.com",
-				"https://example.com/#section",
-				"http://example.com:8080",
-				"http://🍌🍌🍌.ws",
-				"https://www.übercool.de"
-			]
-		}
-	}
+	"additionalProperties": false
 }

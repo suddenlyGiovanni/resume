@@ -6,11 +6,11 @@ import { Volunteer } from './volunteer.js'
 
 describe('Volunteer', () => {
 	const volunteerInput = {
-		endDate: '2021-01-01T00:00:00.000Z',
+		endDate: '2021-01-01',
 		highlights: ['Saved the world from certain doom'],
 		organization: 'Facebook',
 		position: 'Software Engineer',
-		startDate: '2020-01-01T01:00:00.000Z',
+		startDate: '2020-01-01',
 		summary: 'My day-to-day activities involved designing and building web applications...',
 		url: 'https://facebook.example.com',
 	} satisfies S.Schema.Type<typeof Volunteer>
@@ -68,21 +68,175 @@ describe('Volunteer', () => {
 
 	describe('JSONSchema', () => {
 		test('naked', () => {
-			expect(() => JSON.stringify(JSONSchema.make(Volunteer), null, '\t')).toThrow(
-				'cannot build a JSON Schema for a refinement without a JSON Schema annotation',
-			)
+			expect(JSONSchema.make(Volunteer)).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "additionalProperties": false,
+				  "properties": {
+				    "endDate": {
+				      "description": "a string that is a valid YYYY-MM-DD date",
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "StringDate",
+				      "type": "string",
+				    },
+				    "highlights": {
+				      "description": "Specify accomplishments and achievements",
+				      "items": {
+				        "description": "a non-empty string with no leading or trailing whitespace",
+				        "examples": [
+				          "Increased profits by 20% from 2011-2012 through viral advertising",
+				        ],
+				        "minLength": 1,
+				        "pattern": "^[^\\s].*[^\\s]$",
+				        "title": "highlight",
+				        "type": "string",
+				      },
+				      "title": "highlights",
+				      "type": "array",
+				    },
+				    "organization": {
+				      "description": "Name of the organization",
+				      "examples": [
+				        "Facebook",
+				      ],
+				      "minLength": 1,
+				      "pattern": "^[^\\s].*[^\\s]$",
+				      "title": "organization",
+				      "type": "string",
+				    },
+				    "position": {
+				      "description": "The title of your position at the company",
+				      "examples": [
+				        "Software Engineer",
+				      ],
+				      "minLength": 1,
+				      "pattern": "^[^\\s].*[^\\s]$",
+				      "title": "position",
+				      "type": "string",
+				    },
+				    "startDate": {
+				      "description": "a string that is a valid YYYY-MM-DD date",
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "StringDate",
+				      "type": "string",
+				    },
+				    "summary": {
+				      "description": "Give an overview of your responsibilities at the company",
+				      "examples": [
+				        "My day-to-day activities involved designing and building web applications...",
+				      ],
+				      "minLength": 1,
+				      "pattern": "^[^\\s].*[^\\s]$",
+				      "title": "summary",
+				      "type": "string",
+				    },
+				    "url": {
+				      "description": "URL (as per RFC 3986) of the company",
+				      "examples": [
+				        "https://facebook.example.com",
+				      ],
+				      "format": "uri",
+				      "title": "url",
+				      "type": "string",
+				    },
+				  },
+				  "required": [],
+				  "type": "object",
+				}
+			`)
 		})
 
 		test('encodedSchema', () => {
-			const jsonSchema = JSONSchema.make(S.encodedSchema(Volunteer))
-			const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-			expect(serializedJsonSchema).toMatchFileSnapshot('volunteer-schema.snapshot.json')
+			expect(
+				JSON.stringify(JSONSchema.make(S.encodedSchema(Volunteer)), null, '\t'),
+			).toMatchFileSnapshot('volunteer-schema.snapshot.json')
 		})
 
 		test('typeSchema', () => {
-			expect(() => JSON.stringify(JSONSchema.make(S.typeSchema(Volunteer)), null, '\t')).toThrow(
-				'cannot build a JSON Schema for a refinement without a JSON Schema annotation',
-			)
+			expect(JSONSchema.make(S.typeSchema(Volunteer))).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "additionalProperties": false,
+				  "properties": {
+				    "endDate": {
+				      "description": "a string that is a valid YYYY-MM-DD date",
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "StringDate",
+				      "type": "string",
+				    },
+				    "highlights": {
+				      "description": "Specify accomplishments and achievements",
+				      "items": {
+				        "description": "a non-empty string with no leading or trailing whitespace",
+				        "examples": [
+				          "Increased profits by 20% from 2011-2012 through viral advertising",
+				        ],
+				        "minLength": 1,
+				        "pattern": "^[^\\s].*[^\\s]$",
+				        "title": "highlight",
+				        "type": "string",
+				      },
+				      "title": "highlights",
+				      "type": "array",
+				    },
+				    "organization": {
+				      "description": "Name of the organization",
+				      "examples": [
+				        "Facebook",
+				      ],
+				      "minLength": 1,
+				      "pattern": "^[^\\s].*[^\\s]$",
+				      "title": "organization",
+				      "type": "string",
+				    },
+				    "position": {
+				      "description": "The title of your position at the company",
+				      "examples": [
+				        "Software Engineer",
+				      ],
+				      "minLength": 1,
+				      "pattern": "^[^\\s].*[^\\s]$",
+				      "title": "position",
+				      "type": "string",
+				    },
+				    "startDate": {
+				      "description": "a string that is a valid YYYY-MM-DD date",
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "StringDate",
+				      "type": "string",
+				    },
+				    "summary": {
+				      "description": "Give an overview of your responsibilities at the company",
+				      "examples": [
+				        "My day-to-day activities involved designing and building web applications...",
+				      ],
+				      "minLength": 1,
+				      "pattern": "^[^\\s].*[^\\s]$",
+				      "title": "summary",
+				      "type": "string",
+				    },
+				    "url": {
+				      "description": "URL (as per RFC 3986) of the company",
+				      "examples": [
+				        "https://facebook.example.com",
+				      ],
+				      "format": "uri",
+				      "title": "url",
+				      "type": "string",
+				    },
+				  },
+				  "required": [],
+				  "type": "object",
+				}
+			`)
 		})
 	})
 })

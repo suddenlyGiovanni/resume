@@ -25,11 +25,8 @@
         "properties": {
           "awarder": {
             "type": "string",
-            "description": "The name of the award given",
-            "title": "awarder",
-            "examples": [
-              "Time Magazine"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "date": {
             "type": "string",
@@ -38,19 +35,13 @@
           },
           "summary": {
             "type": "string",
-            "description": "A brief summary of the award",
-            "title": "summary",
-            "examples": [
-              "Received for my work with Quantum Physics"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "title": {
             "type": "string",
-            "description": "Title of the award",
-            "title": "title",
-            "examples": [
-              "One of the 100 greatest minds of the century"
-            ]
+            "description": "a string",
+            "title": "string"
           }
         },
         "additionalProperties": false
@@ -68,26 +59,24 @@
       ],
       "properties": {
         "email": {
-          "$ref": "#/$defs/Email"
+          "type": "string",
+          "description": "a string",
+          "title": "string"
         },
         "image": {
-          "$ref": "#/$defs/UrlString"
+          "type": "string",
+          "description": "a string",
+          "title": "string"
         },
         "label": {
           "type": "string",
-          "description": "Label",
-          "title": "label",
-          "examples": [
-            "Web Developer"
-          ]
+          "description": "a string",
+          "title": "string"
         },
         "name": {
           "type": "string",
-          "description": "Your full name",
-          "title": "name",
-          "examples": [
-            "Thomas Anderson"
-          ]
+          "description": "a string",
+          "title": "string"
         },
         "phone": {
           "type": "string",
@@ -96,14 +85,13 @@
         },
         "summary": {
           "type": "string",
-          "description": "Write a short 2-3 sentence biography about yourself",
-          "title": "summary",
-          "examples": [
-            "Web Developer with a passion for web-based applications"
-          ]
+          "description": "a string",
+          "title": "string"
         },
         "url": {
-          "$ref": "#/$defs/UrlString"
+          "type": "string",
+          "description": "a string",
+          "title": "string"
         },
         "location": {
           "type": "object",
@@ -114,21 +102,13 @@
           "properties": {
             "address": {
               "type": "string",
-              "description": "To add multiple address lines, use \"\\n\".",
-              "title": "address",
-              "examples": [
-                "1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
-              ]
+              "description": "a string",
+              "title": "string"
             },
             "city": {
               "type": "string",
-              "description": "City",
-              "title": "city",
-              "examples": [
-                "Berlin",
-                "New York",
-                "San Francisco"
-              ]
+              "description": "a string",
+              "title": "string"
             },
             "countryCode": {
               "type": "string",
@@ -137,20 +117,13 @@
             },
             "postalCode": {
               "type": "string",
-              "description": "European postal code",
-              "title": "postalCode",
-              "examples": [
-                "12209"
-              ]
+              "description": "a string",
+              "title": "string"
             },
             "region": {
               "type": "string",
-              "description": "The general region where you live. Can be a US state, or a province",
-              "title": "region",
-              "examples": [
-                "California",
-                "Quebec"
-              ]
+              "description": "a string",
+              "title": "string"
             }
           },
           "additionalProperties": false
@@ -167,23 +140,18 @@
             "properties": {
               "network": {
                 "type": "string",
-                "description": "The name of the social network",
-                "title": "network",
-                "examples": [
-                  "Facebook",
-                  "Twitter"
-                ]
+                "description": "a string",
+                "title": "string"
               },
               "url": {
-                "$ref": "#/$defs/UrlString"
+                "type": "string",
+                "description": "a string",
+                "title": "string"
               },
               "username": {
                 "type": "string",
-                "description": "The username of the profile on the social network",
-                "title": "username",
-                "examples": [
-                  "neutralthoughts"
-                ]
+                "description": "a string",
+                "title": "string"
               }
             },
             "additionalProperties": false
@@ -200,11 +168,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "name of the certificate",
-            "title": "Name",
-            "examples": [
-              "e.g. Certified Kubernetes Administrator"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "date": {
             "type": "string",
@@ -212,15 +177,14 @@
             "title": "string"
           },
           "url": {
-            "$ref": "#/$defs/UrlString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           },
           "issuer": {
             "type": "string",
-            "description": "issuer of the certificate",
-            "title": "issuer",
-            "examples": [
-              "e.g. CNCF"
-            ]
+            "description": "a string",
+            "title": "string"
           }
         },
         "additionalProperties": false
@@ -239,12 +203,8 @@
         "properties": {
           "area": {
             "type": "string",
-            "description": "e.g. Arts",
-            "title": "area",
-            "examples": [
-              "Arts",
-              "Computer Science"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "endDate": {
             "type": "string",
@@ -253,22 +213,18 @@
           },
           "score": {
             "type": "string",
-            "description": "grade point average, e.g. 3.67/4.0",
-            "title": "score",
-            "examples": [
-              "3.67/4.0"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "institution": {
             "type": "string",
-            "description": "name of the institution",
-            "title": "institution",
-            "examples": [
-              "Massachusetts Institute of Technology"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "location": {
-            "$ref": "#/$defs/NonEmptyString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           },
           "startDate": {
             "type": "string",
@@ -277,26 +233,20 @@
           },
           "studyType": {
             "type": "string",
-            "description": "the type of study",
-            "title": "studyType",
-            "examples": [
-              "Bachelor",
-              "Master",
-              "Doctorate"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
-            "$ref": "#/$defs/UrlString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           },
           "courses": {
             "type": "array",
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "course",
-              "examples": [
-                "H1302 - Introduction to American history"
-              ]
+              "title": "string"
             }
           }
         },
@@ -311,21 +261,15 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Interest name",
-            "title": "name",
-            "examples": [
-              "Philosophy"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "keywords": {
             "type": "array",
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "keyword",
-              "examples": [
-                "philosophy"
-              ]
+              "title": "string"
             }
           }
         },
@@ -340,24 +284,13 @@
         "properties": {
           "fluency": {
             "type": "string",
-            "description": "e.g. Fluent, Beginner",
-            "title": "fluency",
-            "examples": [
-              "Fluent",
-              "Beginner",
-              "Intermediate",
-              "Advanced",
-              "Native"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "language": {
             "type": "string",
-            "description": "e.g. English, Spanish",
-            "title": "language",
-            "examples": [
-              "English",
-              "Spanish"
-            ]
+            "description": "a string",
+            "title": "string"
           }
         },
         "additionalProperties": false
@@ -371,11 +304,8 @@
         "properties": {
           "description": {
             "type": "string",
-            "description": "Short summary of project",
-            "title": "description",
-            "examples": [
-              "Collated works of 2017"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "endDate": {
             "type": "string",
@@ -384,20 +314,13 @@
           },
           "entity": {
             "type": "string",
-            "description": "Specify the relevant company/entity affiliations",
-            "title": "entity",
-            "examples": [
-              "Greenpeace",
-              "Microsoft"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "name": {
             "type": "string",
-            "description": "Name of the project",
-            "title": "name",
-            "examples": [
-              "The World Wide Web"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "startDate": {
             "type": "string",
@@ -406,28 +329,20 @@
           },
           "type": {
             "type": "string",
-            "description": "Type of project",
-            "title": "type",
-            "examples": [
-              "volunteering",
-              "presentation",
-              "talk",
-              "application",
-              "conference"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
-            "$ref": "#/$defs/UrlString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           },
           "highlights": {
             "type": "array",
             "items": {
               "type": "string",
-              "description": "Specify multiple features",
-              "title": "highlight",
-              "examples": [
-                "Directs you close but not quite there"
-              ]
+              "description": "a string",
+              "title": "string"
             }
           },
           "keywords": {
@@ -435,11 +350,7 @@
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "keyword",
-              "examples": [
-                "AngularJS",
-                "elements"
-              ]
+              "title": "string"
             }
           },
           "roles": {
@@ -447,12 +358,7 @@
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "role",
-              "examples": [
-                "Team Lead",
-                "Speaker",
-                "Writer"
-              ]
+              "title": "string"
             }
           }
         },
@@ -467,20 +373,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the publication",
-            "title": "name",
-            "examples": [
-              "The World Wide Web"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "publisher": {
             "type": "string",
-            "description": "The publisher of the publication",
-            "title": "publisher",
-            "examples": [
-              "IEEE",
-              "Computer Magazine"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "releaseDate": {
             "type": "string",
@@ -489,14 +388,13 @@
           },
           "summary": {
             "type": "string",
-            "description": "Short summary of publication",
-            "title": "summary",
-            "examples": [
-              "Discussion of the World Wide Web, HTTP, HTML"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
-            "$ref": "#/$defs/UrlString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           }
         },
         "additionalProperties": false
@@ -512,19 +410,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the reference",
-            "title": "name",
-            "examples": [
-              "Timothy Cook"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "reference": {
             "type": "string",
-            "description": "The reference text",
-            "title": "reference",
-            "examples": [
-              "Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
-            ]
+            "description": "a string",
+            "title": "string"
           }
         },
         "additionalProperties": false
@@ -541,30 +433,20 @@
         "properties": {
           "level": {
             "type": "string",
-            "description": "Level of expertise",
-            "title": "level",
-            "examples": [
-              "Master",
-              "Intermediate"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "name": {
             "type": "string",
-            "description": "Name of the skill",
-            "title": "name",
-            "examples": [
-              "Web Development"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "keywords": {
             "type": "array",
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "keyword",
-              "examples": [
-                "Rust"
-              ]
+              "title": "string"
             }
           }
         },
@@ -584,19 +466,13 @@
           },
           "organization": {
             "type": "string",
-            "description": "Name of the organization",
-            "title": "organization",
-            "examples": [
-              "Facebook"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "position": {
             "type": "string",
-            "description": "The title of your position at the company",
-            "title": "position",
-            "examples": [
-              "Software Engineer"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "startDate": {
             "type": "string",
@@ -605,24 +481,20 @@
           },
           "summary": {
             "type": "string",
-            "description": "Give an overview of your responsibilities at the company",
-            "title": "summary",
-            "examples": [
-              "My day-to-day activities involved designing and building web applications..."
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
-            "$ref": "#/$defs/UrlString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           },
           "highlights": {
             "type": "array",
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "highlight",
-              "examples": [
-                "Increased profits by 20% from 2011-2012 through viral advertising"
-              ]
+              "title": "string"
             }
           }
         },
@@ -642,12 +514,8 @@
         "properties": {
           "description": {
             "type": "string",
-            "description": "A short description of the company",
-            "title": "description",
-            "examples": [
-              "Social Media Company",
-              "Educational Software Company"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "endDate": {
             "type": "string",
@@ -656,19 +524,13 @@
           },
           "location": {
             "type": "string",
-            "description": "Location of the company",
-            "title": "location",
-            "examples": [
-              "Menlo Park, CA"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "name": {
             "type": "string",
-            "description": "Name of the company",
-            "title": "name",
-            "examples": [
-              "Facebook"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "startDate": {
             "type": "string",
@@ -677,15 +539,13 @@
           },
           "summary": {
             "type": "string",
-            "description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
-            "title": "summary",
-            "examples": [
-              "An educational software company that helps students learn through interactive games",
-              "Help users to handle all their administrative tasks digitally with ease."
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
-            "$ref": "#/$defs/UrlString"
+            "type": "string",
+            "description": "a string",
+            "title": "string"
           },
           "contact": {
             "type": "object",
@@ -696,14 +556,13 @@
             "properties": {
               "name": {
                 "type": "string",
-                "description": "The name and role of the contact person",
-                "title": "name",
-                "examples": [
-                  "Mark Zuckerberg (CTO)"
-                ]
+                "description": "a string",
+                "title": "string"
               },
               "email": {
-                "$ref": "#/$defs/Email"
+                "type": "string",
+                "description": "a string",
+                "title": "string"
               },
               "phone": {
                 "type": "string",
@@ -727,12 +586,8 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "description": "The title of your position at the company: <seniority level> <role title>",
-                    "title": "title",
-                    "examples": [
-                      "Junior Software Developer",
-                      "Senior Software Engineer"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   },
                   "startDate": {
                     "type": "string",
@@ -748,11 +603,8 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "description": "A specific responsibility",
-                      "title": "responsibility",
-                      "examples": [
-                        "code owner of x"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   },
                   "highlights": {
@@ -761,20 +613,14 @@
                     "items": [
                       {
                         "type": "string",
-                        "description": "A specific accomplishment",
-                        "title": "highlight",
-                        "examples": [
-                          "Increased profits by 20% from 2011-2012 through viral advertising"
-                        ]
+                        "description": "a string",
+                        "title": "string"
                       }
                     ],
                     "additionalItems": {
                       "type": "string",
-                      "description": "A specific accomplishment",
-                      "title": "highlight",
-                      "examples": [
-                        "Increased profits by 20% from 2011-2012 through viral advertising"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   },
                   "technologies": {
@@ -783,22 +629,14 @@
                     "items": [
                       {
                         "type": "string",
-                        "description": "A specific technology used",
-                        "title": "technology",
-                        "examples": [
-                          "React",
-                          "Node.js"
-                        ]
+                        "description": "a string",
+                        "title": "string"
                       }
                     ],
                     "additionalItems": {
                       "type": "string",
-                      "description": "A specific technology used",
-                      "title": "technology",
-                      "examples": [
-                        "React",
-                        "Node.js"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   }
                 },
@@ -815,12 +653,8 @@
               "properties": {
                 "title": {
                   "type": "string",
-                  "description": "The title of your position at the company: <seniority level> <role title>",
-                  "title": "title",
-                  "examples": [
-                    "Junior Software Developer",
-                    "Senior Software Engineer"
-                  ]
+                  "description": "a string",
+                  "title": "string"
                 },
                 "startDate": {
                   "type": "string",
@@ -836,11 +670,8 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "description": "A specific responsibility",
-                    "title": "responsibility",
-                    "examples": [
-                      "code owner of x"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   }
                 },
                 "highlights": {
@@ -849,20 +680,14 @@
                   "items": [
                     {
                       "type": "string",
-                      "description": "A specific accomplishment",
-                      "title": "highlight",
-                      "examples": [
-                        "Increased profits by 20% from 2011-2012 through viral advertising"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   ],
                   "additionalItems": {
                     "type": "string",
-                    "description": "A specific accomplishment",
-                    "title": "highlight",
-                    "examples": [
-                      "Increased profits by 20% from 2011-2012 through viral advertising"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   }
                 },
                 "technologies": {
@@ -871,22 +696,14 @@
                   "items": [
                     {
                       "type": "string",
-                      "description": "A specific technology used",
-                      "title": "technology",
-                      "examples": [
-                        "React",
-                        "Node.js"
-                      ]
+                      "description": "a string",
+                      "title": "string"
                     }
                   ],
                   "additionalItems": {
                     "type": "string",
-                    "description": "A specific technology used",
-                    "title": "technology",
-                    "examples": [
-                      "React",
-                      "Node.js"
-                    ]
+                    "description": "a string",
+                    "title": "string"
                   }
                 }
               },
@@ -898,11 +715,15 @@
             "minItems": 1,
             "items": [
               {
-                "$ref": "#/$defs/NonEmptyString"
+                "type": "string",
+                "description": "a string",
+                "title": "string"
               }
             ],
             "additionalItems": {
-              "$ref": "#/$defs/NonEmptyString"
+              "type": "string",
+              "description": "a string",
+              "title": "string"
             }
           }
         },
@@ -910,38 +731,5 @@
       }
     }
   },
-  "additionalProperties": false,
-  "$defs": {
-    "Email": {
-      "type": "string",
-      "description": "Email address",
-      "title": "email",
-      "examples": [
-        "<local-part>@<domain>",
-        "foo@bar.com",
-        "foo.bar@baz.com"
-      ]
-    },
-    "UrlString": {
-      "type": "string",
-      "description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-      "title": "url",
-      "examples": [
-        "https://example.com",
-        "https://example.com/#section",
-        "http://example.com:8080",
-        "http://🍌🍌🍌.ws",
-        "https://www.übercool.de"
-      ]
-    },
-    "NonEmptyString": {
-      "type": "string",
-      "description": "a non empty string",
-      "title": "non empty string",
-      "examples": [
-        "' test string  '",
-        "'test string'"
-      ]
-    }
-  }
+  "additionalProperties": false
 }

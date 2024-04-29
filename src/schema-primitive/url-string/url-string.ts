@@ -1,5 +1,7 @@
 import * as S from '@effect/schema/Schema'
 
+import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
+
 /**
  * Verifies that a string is a valid URL (as per RFC 3986).
  * Note. This combinator does not make any transformations, it only validates.
@@ -21,24 +23,25 @@ const validUrlString =
 				},
 				{
 					description: 'a string that fulfills the URL requirements (as per RFC 3986)',
-					message: () => 'Invalid URL string',
-					jsonSchema: { format: 'uri' },
-					...annotations,
+					message: issue => `Invalid URL string; got: '${issue.actual}'`,
+					examples: [
+						'https://example.com' as A,
+						'https://example.com/#section' as A,
+						'http://example.com:8080' as A,
+						'http://🍌🍌🍌.ws' as A,
+						'https://www.übercool.de' as A,
+					],
+					jsonSchema: { format: 'uri', ...annotations?.jsonSchema },
+					...(annotations ? omit(annotations, 'jsonSchema') : {}),
 				},
 			),
 		)
 
 export interface UrlString extends S.Annotable<UrlString, string> {}
 
-export const UrlString: UrlString = S.String.annotations({
-	identifier: 'UrlString',
-	title: 'url',
-	description: 'URL string that fulfills the URL requirements (as per RFC 3986)',
-	examples: [
-		'https://example.com',
-		'https://example.com/#section',
-		'http://example.com:8080',
-		'http://🍌🍌🍌.ws',
-		'https://www.übercool.de',
-	],
-}).pipe(validUrlString())
+export const UrlString: UrlString = S.String.pipe(
+	validUrlString({
+		identifier: 'UrlString',
+		title: 'UrlString',
+	}),
+)

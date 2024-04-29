@@ -1,19 +1,13 @@
 import * as S from '@effect/schema/Schema'
 
-import {
-	Email,
-	ISO8601DateString,
-	Phone,
-	UrlString,
-	nonEmptyString,
-} from '@/schema-primitive/index.js'
+import { Email, StringDate, Phone, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 import { Role } from './role.js'
 
-export const Work = S.Struct({
+export class Work extends S.Class<Work>('Work')({
 	contact: S.optional(
 		S.Struct({
-			name: nonEmptyString({
+			name: TrimmedNonEmpty.annotations({
 				title: 'name',
 				description: 'The name and role of the contact person',
 				examples: ['Mark Zuckerberg (CTO)'],
@@ -26,14 +20,14 @@ export const Work = S.Struct({
 		{ exact: true },
 	),
 
-	description: nonEmptyString({
+	description: TrimmedNonEmpty.annotations({
 		title: 'description',
 		description: 'A short description of the company',
 		examples: ['Social Media Company', 'Educational Software Company'],
 	}),
 
 	endDate: S.optional(
-		ISO8601DateString.annotations({
+		StringDate.annotations({
 			title: 'endDate',
 			description: 'The date when you stopped working at the company',
 			examples: ['2012-01-01'],
@@ -42,7 +36,7 @@ export const Work = S.Struct({
 	),
 
 	location: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'location',
 			description: 'Location of the company',
 			examples: ['Menlo Park, CA'],
@@ -50,7 +44,7 @@ export const Work = S.Struct({
 		{ exact: true },
 	),
 
-	name: nonEmptyString({
+	name: TrimmedNonEmpty.annotations({
 		title: 'name',
 		description: 'Name of the company',
 		examples: ['Facebook'],
@@ -61,14 +55,14 @@ export const Work = S.Struct({
 		description: 'The roles you had at the company, in reverse chronological order',
 	}),
 
-	startDate: ISO8601DateString.annotations({
+	startDate: StringDate.annotations({
 		title: 'startDate',
 		description: 'The date when you started working at the company',
 		examples: ['2011-01-01'],
 	}),
 
 	summary: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description:
 				'A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words',
@@ -81,7 +75,7 @@ export const Work = S.Struct({
 	),
 
 	techStack: S.optional(
-		S.NonEmptyArray(nonEmptyString()).annotations({
+		S.NonEmptyArray(TrimmedNonEmpty).annotations({
 			title: 'technology stack',
 			description:
 				"the technologies that are powering the company's product; it is optional as it can also be expressed in the roles section",
@@ -90,17 +84,4 @@ export const Work = S.Struct({
 	),
 
 	url: S.optional(UrlString, { exact: true }),
-}).pipe(
-	S.filter(
-		work => {
-			// short-circuit if there is no end date
-			if (!work.endDate) return true
-			// check if the start date is before the end date
-			return new Date(work.startDate) < new Date(work.endDate)
-		},
-		{ message: () => 'The start date must be before the end date' },
-	),
-)
-
-export type WorkEncoded = S.Schema.Encoded<typeof Work>
-export type WorkType = S.Schema.Type<typeof Work>
+}) {}

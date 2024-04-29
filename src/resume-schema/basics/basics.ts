@@ -1,11 +1,11 @@
 import * as S from '@effect/schema/Schema'
 
-import { Email, Phone, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { Email, Phone, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 import { Location } from '../location/location.js'
 import { Profile } from '../profile/profile.js'
 
-export const Basics = S.Struct({
+export class Basics extends S.Class<Basics>('Basics')({
 	email: Email,
 
 	image: S.optional(
@@ -16,7 +16,7 @@ export const Basics = S.Struct({
 		{ exact: true },
 	),
 
-	label: nonEmptyString({
+	label: TrimmedNonEmpty.annotations({
 		title: 'label',
 		description: 'Label',
 		examples: ['Web Developer'],
@@ -24,7 +24,7 @@ export const Basics = S.Struct({
 
 	location: Location,
 
-	name: nonEmptyString({
+	name: TrimmedNonEmpty.annotations({
 		title: 'name',
 		description: 'Your full name',
 		examples: ['Thomas Anderson'],
@@ -45,7 +45,7 @@ export const Basics = S.Struct({
 		description: 'Specify any number of social networks that you participate in',
 	}),
 
-	summary: nonEmptyString({
+	summary: TrimmedNonEmpty.annotations({
 		title: 'summary',
 		description: 'Write a short 2-3 sentence biography about yourself',
 		examples: ['Web Developer with a passion for web-based applications'],
@@ -61,7 +61,4 @@ export const Basics = S.Struct({
 			exact: true,
 		},
 	),
-})
-
-export type Basics = S.Schema.Encoded<typeof Basics>
-export type BasicsType = S.Schema.Type<typeof Basics>
+}) {}

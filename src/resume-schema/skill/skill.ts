@@ -1,10 +1,10 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/index.js'
+import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Skill = S.Struct({
+export class Skill extends S.Class<Skill>('Skill')({
 	keywords: S.Array(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'keyword',
 			examples: ['Rust'],
 		}),
@@ -15,7 +15,7 @@ export const Skill = S.Struct({
 	}),
 
 	level: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'level',
 			description: 'Level of expertise',
 			examples: ['Master', 'Intermediate'],
@@ -23,12 +23,9 @@ export const Skill = S.Struct({
 		{ exact: true },
 	),
 
-	name: nonEmptyString({
+	name: TrimmedNonEmpty.annotations({
 		title: 'name',
 		description: 'Name of the skill',
 		examples: ['Web Development'],
 	}),
-})
-
-export type Skill = S.Schema.Encoded<typeof Skill>
-export type SkillType = S.Schema.Type<typeof Skill>
+}) {}

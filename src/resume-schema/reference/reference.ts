@@ -1,16 +1,16 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/index.js'
+import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Reference = S.Struct({
-	name: nonEmptyString({
+export class Reference extends S.Class<Reference>('Reference')({
+	name: TrimmedNonEmpty.annotations({
 		title: 'name',
 		description: 'The name of the reference',
 		examples: ['Timothy Cook'],
 	}),
 
 	reference: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'reference',
 			description: 'The reference text',
 			examples: [
@@ -19,6 +19,4 @@ export const Reference = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Reference = S.Schema.Encoded<typeof Reference>
+}) {}

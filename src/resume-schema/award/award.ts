@@ -1,10 +1,10 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/index.js'
+import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Award = S.Struct({
+export class Award extends S.Class<Award>('Award')({
 	awarder: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'awarder',
 			description: 'The name of the award given',
 			examples: ['Time Magazine'],
@@ -22,7 +22,7 @@ export const Award = S.Struct({
 	),
 
 	summary: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description: 'A brief summary of the award',
 			examples: ['Received for my work with Quantum Physics'],
@@ -31,13 +31,11 @@ export const Award = S.Struct({
 	),
 
 	title: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'title',
 			description: 'Title of the award',
 			examples: ['One of the 100 greatest minds of the century'],
 		}),
 		{ exact: true },
 	),
-})
-
-export type Award = S.Schema.Encoded<typeof Award>
+}) {}

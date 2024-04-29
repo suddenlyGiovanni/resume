@@ -43,7 +43,7 @@ describe('Location', () => {
 			expect(() => parse({ ...required, countryCode: '  ' })).toThrow()
 			expect(() => parse({ ...required, countryCode: 'D' })).toThrow()
 			expect(() => parse({ ...required, countryCode: 'DEUTSCHLAND' })).toThrow()
-			expect(() => parse({ ...required, countryCode: 'de' })).not.toThrow()
+			expect(() => parse({ ...required, countryCode: 'de' })).toThrow()
 			expect(() => parse({ ...required, countryCode: 'AU' })).not.toThrow()
 		})
 

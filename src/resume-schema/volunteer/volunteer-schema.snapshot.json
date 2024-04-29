@@ -10,19 +10,13 @@
 		},
 		"organization": {
 			"type": "string",
-			"description": "Name of the organization",
-			"title": "organization",
-			"examples": [
-				"Facebook"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"position": {
 			"type": "string",
-			"description": "The title of your position at the company",
-			"title": "position",
-			"examples": [
-				"Software Engineer"
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"startDate": {
 			"type": "string",
@@ -31,40 +25,22 @@
 		},
 		"summary": {
 			"type": "string",
-			"description": "Give an overview of your responsibilities at the company",
-			"title": "summary",
-			"examples": [
-				"My day-to-day activities involved designing and building web applications..."
-			]
+			"description": "a string",
+			"title": "string"
 		},
 		"url": {
-			"$ref": "#/$defs/UrlString"
+			"type": "string",
+			"description": "a string",
+			"title": "string"
 		},
 		"highlights": {
 			"type": "array",
 			"items": {
 				"type": "string",
 				"description": "a string",
-				"title": "highlight",
-				"examples": [
-					"Increased profits by 20% from 2011-2012 through viral advertising"
-				]
+				"title": "string"
 			}
 		}
 	},
-	"additionalProperties": false,
-	"$defs": {
-		"UrlString": {
-			"type": "string",
-			"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-			"title": "url",
-			"examples": [
-				"https://example.com",
-				"https://example.com/#section",
-				"http://example.com:8080",
-				"http://🍌🍌🍌.ws",
-				"https://www.übercool.de"
-			]
-		}
-	}
+	"additionalProperties": false
 }

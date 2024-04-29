@@ -1,51 +1,46 @@
 import * as S from '@effect/schema/Schema'
-import { pipe } from 'effect/Function'
 
-// Function to convert the human-readable phone number into its E.164 format
-function toE164<A extends string>(phone: A): string {
-	// Replace '00' with '+' at the beginning
-	const e164Phone = phone.startsWith('00') ? `+${phone.slice(2)}` : phone
-	// Remove all non-digit characters except the '+' at the beginning
-	return e164Phone.replace(/(?!^\+)\D/g, '')
-}
+import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
-const E164Regex = /^\+[1-9]\d{1,14}$/
+const phone =
+	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
+	<I, R>(self: S.Schema<A, I, R>) => {
+		const E164Regex = /^\+[1-9]\d{1,14}$/
 
-// Function to validate the E.164 formatted number
-function isValidE164<A extends string>(phone: A): boolean {
-	// E.164 format: up to 15 digits, starting with '+'
-
-	return E164Regex.test(phone)
-}
-
-const phonePredicate = <A extends string>(phone: A): phone is A => pipe(phone, toE164, isValidE164)
+		return self.pipe(
+			S.filter(
+				// E.164 format: up to 15 digits, starting with '+'a
+				(maybePhone): maybePhone is A =>
+					E164Regex.test(
+						// Replace '00' with '+' at the beginning
+						(maybePhone.startsWith('00') ? `+${maybePhone.slice(2)}` : maybePhone)
+							// Remove all non-digit characters except the '+' at the beginning
+							.replace(/(?!^\+)\D/g, ''),
+					),
+				{
+					examples: [
+						'+4907121172923' as A,
+						'+441632960961' as A,
+						'+353861234567' as A,
+						'00353861234567' as A,
+						'+39 02 1234567' as A,
+						'+1-800-123-4567' as A,
+						'+1 800 123 4567' as A,
+						'+49 (0) 216 554 1036' as A,
+					],
+					description: 'a phone number conforming to the E.164 format standard',
+					message: issue => `Invalid E.164 phone number: "${String(issue.actual)}"`,
+					jsonSchema: { pattern: E164Regex.source, ...annotations?.jsonSchema },
+					...(annotations ? omit(annotations, 'jsonSchema') : {}),
+				},
+			),
+		)
+	}
 
 export interface Phone extends S.Annotable<Phone, string> {}
-
-export const Phone: Phone = S.compose(
-	// The phone number should be a non-empty string
-	S.Trim,
-	S.NonEmpty,
+export const Phone: Phone = S.String.pipe(
+	phone({
+		title: 'PhoneString',
+		identifier: 'PhoneString',
+	}),
 )
-	.pipe(
-		// Convert the phone number to E.164 format and validate it
-		S.filter(phonePredicate, {
-			message: ({ actual }) => `Invalid E.164 phone number: "${String(actual)}"`,
-			jsonSchema: { pattern: E164Regex.source },
-		}),
-	)
-	.annotations({
-		identifier: 'Phone',
-		title: 'Phone',
-		description: 'Phone number that can be coveted to a valid E.164 format',
-		examples: [
-			'+4907121172923',
-			'+441632960961',
-			'+353861234567',
-			'00353861234567',
-			'+39 02 1234567',
-			'+1-800-123-4567',
-			'+1 800 123 4567',
-			'+49 (0) 216 554 1036',
-		],
-	})

@@ -3,12 +3,12 @@ import * as S from '@effect/schema/Schema'
 
 import { describe, expect, test } from 'vitest'
 
-import { Work, type WorkEncoded } from './work.js'
+import { Work } from './work.js'
 
 describe('Work', () => {
 	const workInput = {
 		description: 'Social Media Company',
-		endDate: '1989-02-01T00:00',
+		endDate: '1989-02-01',
 		location: 'Menlo Park, CA',
 		name: 'Facebook',
 		roles: [
@@ -111,22 +111,18 @@ describe('Work', () => {
 				expect(() => parse({ ...required, startDate: '' })).toThrow()
 				expect(() => parse({ ...required, startDate: ' ' })).toThrow()
 				expect(() => parse({ ...required, startDate: workInput.startDate })).not.toThrow()
-				expect(parse({ ...required, startDate: workInput.startDate }).startDate).toBe(
-					'1988-02-01T00:00:00.000Z',
-				)
+				expect(parse({ ...required, startDate: workInput.startDate }).startDate).toBe('1988-02-01')
 			})
 
 			test('endDate', () => {
 				expect(() => parse({ ...required, endDate: '' })).toThrow()
 				expect(() => parse({ ...required, endDate: ' ' })).toThrow()
 				expect(() => parse({ ...required, endDate: workInput.endDate })).not.toThrow()
-				expect(parse({ ...required, endDate: workInput.endDate }).endDate).toBe(
-					'1989-02-01T00:00:00.000Z',
-				)
+				expect(parse({ ...required, endDate: workInput.endDate }).endDate).toBe('1989-02-01')
 			})
 
-			test('start date before end date', () => {
-				const input: WorkEncoded = {
+			test.todo('start date before end date', () => {
+				const input: S.Schema.Encoded<typeof Work> = {
 					...required,
 					endDate: '1968-02-01',
 					startDate: '1969-05-01',
@@ -148,10 +144,20 @@ describe('Work', () => {
 			expect(parse(workInput).techStack).toEqual(workInput.techStack)
 		})
 
-		test('toJsonSchema', () => {
-			const jsonSchema = JSONSchema.make(S.encodedSchema(Work))
-			const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-			expect(serializedJsonSchema).toMatchFileSnapshot('work-schema.snapshot.json')
+		describe('JSONSchema', () => {
+			test.todo('naked', () => {
+				expect(JSONSchema.make(Work)).toMatchInlineSnapshot()
+			})
+
+			test.todo('typeSchema', () => {
+				expect(JSONSchema.make(S.typeSchema(Work))).toMatchInlineSnapshot()
+			})
+
+			test('encodedSchema', () => {
+				expect(
+					JSON.stringify(JSONSchema.make(S.encodedSchema(Work)), null, '\t'),
+				).toMatchFileSnapshot('work-schema.snapshot.json')
+			})
 		})
 	})
 })

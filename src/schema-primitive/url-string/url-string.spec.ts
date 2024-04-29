@@ -58,56 +58,49 @@ describe('UrlString', () => {
 		})
 
 		test('naked', () => {
-			expect(JSON.stringify(jsonSchema.make(UrlString), null, '\t')).toMatchInlineSnapshot(`
-				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/UrlString",
-					"description": "a string that fulfills the URL requirements (as per RFC 3986)",
-					"format": "uri",
-					"$defs": {
-						"UrlString": {
-							"type": "string",
-							"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-							"title": "url",
-							"examples": [
-								"https://example.com",
-								"https://example.com/#section",
-								"http://example.com:8080",
-								"http://🍌🍌🍌.ws",
-								"https://www.übercool.de"
-							]
-						}
-					}
-				}"
+			expect(
+				jsonSchema.make(UrlString.pipe(S.maxLength(100), S.minLength(1))),
+			).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "description": "a string at least 1 character(s) long",
+				  "examples": [
+				    "https://example.com",
+				    "https://example.com/#section",
+				    "http://example.com:8080",
+				    "http://🍌🍌🍌.ws",
+				    "https://www.übercool.de",
+				  ],
+				  "format": "uri",
+				  "maxLength": 100,
+				  "minLength": 1,
+				  "title": "UrlString",
+				  "type": "string",
+				}
 			`)
 
 			expect(
-				JSON.stringify(jsonSchema.make(AnnotatedUrlString), null, '\t'),
+				jsonSchema.make(
+					UrlString.pipe(S.maxLength(100), S.minLength(1)).annotations({
+						identifier: 'URL_IDENTIFIER', // todo: this should be present in the jsonSchema 🤔
+						title: 'URL TITLE',
+						description: 'URL DESCRIPTION',
+						examples: ['URL EXAMPLE'],
+					}),
+				),
 			).toMatchInlineSnapshot(`
-				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/UrlString",
-					"description": "URL DESCRIPTION",
-					"title": "URL TITLE",
-					"examples": [
-						"URL EXAMPLE"
-					],
-					"format": "uri",
-					"$defs": {
-						"UrlString": {
-							"type": "string",
-							"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-							"title": "url",
-							"examples": [
-								"https://example.com",
-								"https://example.com/#section",
-								"http://example.com:8080",
-								"http://🍌🍌🍌.ws",
-								"https://www.übercool.de"
-							]
-						}
-					}
-				}"
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "description": "URL DESCRIPTION",
+				  "examples": [
+				    "URL EXAMPLE",
+				  ],
+				  "format": "uri",
+				  "maxLength": 100,
+				  "minLength": 1,
+				  "title": "URL TITLE",
+				  "type": "string",
+				}
 			`)
 		})
 
@@ -117,101 +110,51 @@ describe('UrlString', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/UrlString",
-					"$defs": {
-						"UrlString": {
-							"type": "string",
-							"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-							"title": "url",
-							"examples": [
-								"https://example.com",
-								"https://example.com/#section",
-								"http://example.com:8080",
-								"http://🍌🍌🍌.ws",
-								"https://www.übercool.de"
-							]
-						}
-					}
+					"type": "string",
+					"description": "a string",
+					"title": "string"
 				}"
 			`)
 
-			expect(
-				JSON.stringify(jsonSchema.make(S.encodedSchema(AnnotatedUrlString)), null, '\t'),
-			).toMatchInlineSnapshot(`
-				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/UrlString",
-					"$defs": {
-						"UrlString": {
-							"type": "string",
-							"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-							"title": "url",
-							"examples": [
-								"https://example.com",
-								"https://example.com/#section",
-								"http://example.com:8080",
-								"http://🍌🍌🍌.ws",
-								"https://www.übercool.de"
-							]
-						}
-					}
-				}"
+			expect(jsonSchema.make(S.encodedSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "description": "a string",
+				  "title": "string",
+				  "type": "string",
+				}
 			`)
 		})
 
 		test('with typeSchema', () => {
-			expect(
-				JSON.stringify(jsonSchema.make(S.typeSchema(UrlString)), null, '\t'),
-			).toMatchInlineSnapshot(`
-				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/UrlString",
-					"description": "a string that fulfills the URL requirements (as per RFC 3986)",
-					"format": "uri",
-					"$defs": {
-						"UrlString": {
-							"type": "string",
-							"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-							"title": "url",
-							"examples": [
-								"https://example.com",
-								"https://example.com/#section",
-								"http://example.com:8080",
-								"http://🍌🍌🍌.ws",
-								"https://www.übercool.de"
-							]
-						}
-					}
-				}"
+			expect(jsonSchema.make(S.typeSchema(UrlString))).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "description": "a string that fulfills the URL requirements (as per RFC 3986)",
+				  "examples": [
+				    "https://example.com",
+				    "https://example.com/#section",
+				    "http://example.com:8080",
+				    "http://🍌🍌🍌.ws",
+				    "https://www.übercool.de",
+				  ],
+				  "format": "uri",
+				  "title": "UrlString",
+				  "type": "string",
+				}
 			`)
 
-			expect(
-				JSON.stringify(jsonSchema.make(S.typeSchema(AnnotatedUrlString)), null, '\t'),
-			).toMatchInlineSnapshot(`
-				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/UrlString",
-					"description": "URL DESCRIPTION",
-					"title": "URL TITLE",
-					"examples": [
-						"URL EXAMPLE"
-					],
-					"format": "uri",
-					"$defs": {
-						"UrlString": {
-							"type": "string",
-							"description": "URL string that fulfills the URL requirements (as per RFC 3986)",
-							"title": "url",
-							"examples": [
-								"https://example.com",
-								"https://example.com/#section",
-								"http://example.com:8080",
-								"http://🍌🍌🍌.ws",
-								"https://www.übercool.de"
-							]
-						}
-					}
-				}"
+			expect(jsonSchema.make(S.typeSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
+				{
+				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "description": "URL DESCRIPTION",
+				  "examples": [
+				    "URL EXAMPLE",
+				  ],
+				  "format": "uri",
+				  "title": "URL TITLE",
+				  "type": "string",
+				}
 			`)
 		})
 	})

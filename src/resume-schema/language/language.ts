@@ -1,10 +1,10 @@
 import * as S from '@effect/schema/Schema'
 
-import { nonEmptyString } from '@/schema-primitive/index.js'
+import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Language = S.Struct({
+export class Language extends S.Class<Language>('Language')({
 	fluency: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'fluency',
 			description: 'e.g. Fluent, Beginner',
 			examples: ['Fluent', 'Beginner', 'Intermediate', 'Advanced', 'Native'],
@@ -13,13 +13,11 @@ export const Language = S.Struct({
 	),
 
 	language: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'language',
 			description: 'e.g. English, Spanish',
 			examples: ['English', 'Spanish'],
 		}),
 		{ exact: true },
 	),
-})
-
-export type Language = S.Schema.Encoded<typeof Language>
+}) {}

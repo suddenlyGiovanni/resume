@@ -38,8 +38,8 @@ describe('Certificate', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Certificate))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('certificate-schema.snapshot.json')
+		expect(
+			JSON.stringify(JSONSchema.make(S.encodedSchema(Certificate)), null, '\t'),
+		).toMatchFileSnapshot('certificate-schema.snapshot.json')
 	})
 })
