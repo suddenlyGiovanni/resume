@@ -117,8 +117,9 @@ describe('Work', () => {
 
 		describe('JSONSchema', () => {
 			test('naked', () => {
-				expect(JSON.stringify(JSONSchema.make(Work), null, 2)).toMatchFileSnapshot('work-schema.snapshot.json')
-
+				expect(JSON.stringify(JSONSchema.make(Work), null, 2)).toMatchFileSnapshot(
+					'work-schema.snapshot.json',
+				)
 			})
 
 			test.todo('typeSchema', () => {
@@ -126,9 +127,7 @@ describe('Work', () => {
 			})
 
 			test('encodedSchema', () => {
-				expect(
-					JSONSchema.make(S.encodedSchema(Work))
-				).toMatchInlineSnapshot(`
+				expect(JSONSchema.make(S.encodedSchema(Work))).toMatchInlineSnapshot(`
 					{
 					  "$schema": "http://json-schema.org/draft-07/schema#",
 					  "additionalProperties": false,

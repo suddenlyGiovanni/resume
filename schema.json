@@ -549,234 +549,388 @@
 		"work": {
 			"additionalItems": false,
 			"items": {
-				"additionalProperties": false,
+				"type": "object",
+				"required": [
+					"description",
+					"name",
+					"roles"
+				],
 				"properties": {
 					"contact": {
-						"additionalProperties": false,
+						"type": "object",
+						"required": [
+							"name",
+							"email"
+						],
 						"properties": {
-							"email": {
-								"$ref": "#/$defs/Email"
-							},
 							"name": {
+								"type": "string",
 								"description": "The name and role of the contact person",
-								"examples": ["Mark Zuckerberg (CTO)"],
 								"title": "name",
-								"type": "string"
+								"examples": [
+									"Mark Zuckerberg (CTO)"
+								],
+								"minLength": 1,
+								"pattern": "^[^\\s].*[^\\s]$"
+							},
+							"email": {
+								"type": "string",
+								"description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+								"title": "Email",
+								"examples": [
+									"<local-part>@<domain>",
+									"foo@bar.com",
+									"foo.bar@baz.com"
+								],
+								"format": "email",
+								"pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$"
 							},
 							"phone": {
-								"description": "a string",
-								"title": "string",
-								"type": "string"
+								"type": "string",
+								"description": "a phone number conforming to the E.164 format standard",
+								"title": "PhoneString",
+								"examples": [
+									"+4907121172923",
+									"+441632960961",
+									"+353861234567",
+									"00353861234567",
+									"+39 02 1234567",
+									"+1-800-123-4567",
+									"+1 800 123 4567",
+									"+49 (0) 216 554 1036"
+								],
+								"pattern": "^\\+[1-9]\\d{1,14}$"
 							}
 						},
-						"required": ["name", "email"],
-						"type": "object"
+						"additionalProperties": false
 					},
 					"description": {
+						"type": "string",
 						"description": "A short description of the company",
-						"examples": ["Social Media Company", "Educational Software Company"],
 						"title": "description",
-						"type": "string"
-					},
-					"highlights": {
-						"additionalItems": false,
-						"description": "Specify multiple accomplishments",
-						"items": {
-							"description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising",
-							"type": "string"
-						},
-						"type": "array"
+						"examples": [
+							"Social Media Company",
+							"Educational Software Company"
+						],
+						"minLength": 1,
+						"pattern": "^[^\\s].*[^\\s]$"
 					},
 					"location": {
+						"type": "string",
 						"description": "Location of the company",
-						"examples": ["Menlo Park, CA"],
 						"title": "location",
-						"type": "string"
+						"examples": [
+							"Menlo Park, CA"
+						],
+						"minLength": 1,
+						"pattern": "^[^\\s].*[^\\s]$"
 					},
 					"name": {
+						"type": "string",
 						"description": "Name of the company",
-						"examples": ["Facebook"],
 						"title": "name",
-						"type": "string"
+						"examples": [
+							"Facebook"
+						],
+						"minLength": 1,
+						"pattern": "^[^\\s].*[^\\s]$"
 					},
 					"roles": {
-						"additionalItems": {
-							"additionalProperties": false,
-							"properties": {
-								"endDate": {
-									"type": "string",
-									"description": "a string",
-									"title": "string"
-								},
-								"highlights": {
-									"additionalItems": {
-										"description": "A specific accomplishment",
-										"examples": [
-											"Increased profits by 20% from 2011-2012 through viral advertising"
-										],
-										"title": "highlight",
-										"type": "string"
-									},
-									"items": [
-										{
-											"description": "A specific accomplishment",
-											"examples": [
-												"Increased profits by 20% from 2011-2012 through viral advertising"
-											],
-											"title": "highlight",
-											"type": "string"
-										}
-									],
-									"minItems": 1,
-									"type": "array"
-								},
-								"responsibilities": {
-									"items": {
-										"description": "A specific responsibility",
-										"examples": ["code owner of x"],
-										"title": "responsibility",
-										"type": "string"
-									},
-									"type": "array"
-								},
-								"startDate": {
-									"description": "a string",
-									"title": "string",
-									"type": "string"
-								},
-								"technologies": {
-									"additionalItems": {
-										"description": "A specific technology used",
-										"examples": ["React", "Node.js"],
-										"title": "technology",
-										"type": "string"
-									},
-									"items": [
-										{
-											"description": "A specific technology used",
-											"examples": ["React", "Node.js"],
-											"title": "technology",
-											"type": "string"
-										}
-									],
-									"minItems": 1,
-									"type": "array"
-								},
-								"title": {
-									"description": "The title of your position at the company: <seniority level> <role title>",
-									"examples": ["Junior Software Developer", "Senior Software Engineer"],
-									"title": "title",
-									"type": "string"
-								}
-							},
-							"required": ["title", "startDate", "responsibilities"],
-							"type": "object"
-						},
+						"type": "array",
+						"minItems": 1,
 						"items": [
 							{
-								"additionalProperties": false,
+								"type": "object",
+								"required": [
+									"title",
+									"startDate",
+									"responsibilities"
+								],
 								"properties": {
-									"endDate": {
-										"description": "a string",
-										"title": "string",
-										"type": "string"
-									},
-									"highlights": {
-										"additionalItems": {
-											"description": "A specific accomplishment",
-											"examples": [
-												"Increased profits by 20% from 2011-2012 through viral advertising"
-											],
-											"title": "highlight",
-											"type": "string"
-										},
-										"items": [
-											{
-												"description": "A specific accomplishment",
-												"examples": [
-													"Increased profits by 20% from 2011-2012 through viral advertising"
-												],
-												"title": "highlight",
-												"type": "string"
-											}
+									"title": {
+										"type": "string",
+										"description": "The title of your position at the company: <seniority level> <role title>",
+										"title": "title",
+										"examples": [
+											"Junior Software Developer",
+											"Senior Software Engineer"
 										],
-										"minItems": 1,
-										"type": "array"
+										"minLength": 1,
+										"pattern": "^[^\\s].*[^\\s]$"
+									},
+									"startDate": {
+										"type": "string",
+										"description": "The date when you started working in this role",
+										"title": "startDate",
+										"examples": [
+											"2011-01-01"
+										],
+										"minLength": 10,
+										"maxLength": 10,
+										"format": "date"
+									},
+									"endDate": {
+										"type": "string",
+										"description": "The date when you stopped working in this role",
+										"title": "endDate",
+										"examples": [
+											"2012-01-01"
+										],
+										"minLength": 10,
+										"maxLength": 10,
+										"format": "date"
 									},
 									"responsibilities": {
 										"type": "array",
 										"items": {
+											"type": "string",
 											"description": "A specific responsibility",
-											"examples": ["code owner of x"],
 											"title": "responsibility",
-											"type": "string"
-										}
-									},
-									"startDate": {
-										"description": "a string",
-										"title": "string",
-										"type": "string"
-									},
-									"technologies": {
-										"additionalItems": {
-											"description": "A specific technology used",
-											"examples": ["React", "Node.js"],
-											"title": "technology",
-											"type": "string"
+											"examples": [
+												"code owner of x"
+											],
+											"minLength": 1,
+											"pattern": "^[^\\s].*[^\\s]$"
 										},
+										"description": "Specify multiple responsibilities",
+										"title": "responsibilities"
+									},
+									"highlights": {
+										"type": "array",
+										"minItems": 1,
 										"items": [
 											{
-												"description": "A specific technology used",
-												"examples": ["React", "Node.js"],
-												"title": "technology",
-												"type": "string"
+												"type": "string",
+												"description": "A specific accomplishment",
+												"title": "highlight",
+												"examples": [
+													"Increased profits by 20% from 2011-2012 through viral advertising"
+												],
+												"minLength": 1,
+												"pattern": "^[^\\s].*[^\\s]$"
 											}
 										],
-										"minItems": 1,
-										"type": "array"
+										"additionalItems": {
+											"type": "string",
+											"description": "A specific accomplishment",
+											"title": "highlight",
+											"examples": [
+												"Increased profits by 20% from 2011-2012 through viral advertising"
+											],
+											"minLength": 1,
+											"pattern": "^[^\\s].*[^\\s]$"
+										},
+										"description": "Specify multiple accomplishments",
+										"title": "highlights"
 									},
-									"title": {
-										"description": "The title of your position at the company: <seniority level> <role title>",
-										"examples": ["Junior Software Developer", "Senior Software Engineer"],
-										"title": "title",
-										"type": "string"
+									"technologies": {
+										"type": "array",
+										"minItems": 1,
+										"items": [
+											{
+												"type": "string",
+												"description": "A specific technology used",
+												"title": "technology",
+												"examples": [
+													"React",
+													"Node.js"
+												],
+												"minLength": 1,
+												"pattern": "^[^\\s].*[^\\s]$"
+											}
+										],
+										"additionalItems": {
+											"type": "string",
+											"description": "A specific technology used",
+											"title": "technology",
+											"examples": [
+												"React",
+												"Node.js"
+											],
+											"minLength": 1,
+											"pattern": "^[^\\s].*[^\\s]$"
+										},
+										"description": "Specify multiple technologies used",
+										"title": "technologies"
 									}
 								},
-								"required": ["title", "startDate", "responsibilities"],
-								"type": "object"
+								"additionalProperties": false
 							}
 						],
-						"minItems": 1,
-						"type": "array"
+						"additionalItems": {
+							"type": "object",
+							"required": [
+								"title",
+								"startDate",
+								"responsibilities"
+							],
+							"properties": {
+								"title": {
+									"type": "string",
+									"description": "The title of your position at the company: <seniority level> <role title>",
+									"title": "title",
+									"examples": [
+										"Junior Software Developer",
+										"Senior Software Engineer"
+									],
+									"minLength": 1,
+									"pattern": "^[^\\s].*[^\\s]$"
+								},
+								"startDate": {
+									"type": "string",
+									"description": "The date when you started working in this role",
+									"title": "startDate",
+									"examples": [
+										"2011-01-01"
+									],
+									"minLength": 10,
+									"maxLength": 10,
+									"format": "date"
+								},
+								"endDate": {
+									"type": "string",
+									"description": "The date when you stopped working in this role",
+									"title": "endDate",
+									"examples": [
+										"2012-01-01"
+									],
+									"minLength": 10,
+									"maxLength": 10,
+									"format": "date"
+								},
+								"responsibilities": {
+									"type": "array",
+									"items": {
+										"type": "string",
+										"description": "A specific responsibility",
+										"title": "responsibility",
+										"examples": [
+											"code owner of x"
+										],
+										"minLength": 1,
+										"pattern": "^[^\\s].*[^\\s]$"
+									},
+									"description": "Specify multiple responsibilities",
+									"title": "responsibilities"
+								},
+								"highlights": {
+									"type": "array",
+									"minItems": 1,
+									"items": [
+										{
+											"type": "string",
+											"description": "A specific accomplishment",
+											"title": "highlight",
+											"examples": [
+												"Increased profits by 20% from 2011-2012 through viral advertising"
+											],
+											"minLength": 1,
+											"pattern": "^[^\\s].*[^\\s]$"
+										}
+									],
+									"additionalItems": {
+										"type": "string",
+										"description": "A specific accomplishment",
+										"title": "highlight",
+										"examples": [
+											"Increased profits by 20% from 2011-2012 through viral advertising"
+										],
+										"minLength": 1,
+										"pattern": "^[^\\s].*[^\\s]$"
+									},
+									"description": "Specify multiple accomplishments",
+									"title": "highlights"
+								},
+								"technologies": {
+									"type": "array",
+									"minItems": 1,
+									"items": [
+										{
+											"type": "string",
+											"description": "A specific technology used",
+											"title": "technology",
+											"examples": [
+												"React",
+												"Node.js"
+											],
+											"minLength": 1,
+											"pattern": "^[^\\s].*[^\\s]$"
+										}
+									],
+									"additionalItems": {
+										"type": "string",
+										"description": "A specific technology used",
+										"title": "technology",
+										"examples": [
+											"React",
+											"Node.js"
+										],
+										"minLength": 1,
+										"pattern": "^[^\\s].*[^\\s]$"
+									},
+									"description": "Specify multiple technologies used",
+									"title": "technologies"
+								}
+							},
+							"additionalProperties": false
+						},
+						"description": "The roles you had at the company, in reverse chronological order",
+						"title": "roles"
 					},
 					"summary": {
+						"type": "string",
 						"description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
+						"title": "summary",
 						"examples": [
 							"An educational software company that helps students learn through interactive games",
 							"Help users to handle all their administrative tasks digitally with ease."
 						],
-						"title": "summary",
-						"type": "string"
+						"minLength": 1,
+						"pattern": "^[^\\s].*[^\\s]$"
 					},
 					"techStack": {
-						"additionalItems": {
-							"$ref": "#/$defs/NonEmptyString"
-						},
+						"type": "array",
+						"minItems": 1,
 						"items": [
 							{
-								"$ref": "#/$defs/NonEmptyString"
+								"type": "string",
+								"description": "a non-empty string with no leading or trailing whitespace",
+								"title": "TrimmedNonEmpty",
+								"minLength": 1,
+								"pattern": "^[^\\s].*[^\\s]$"
 							}
 						],
-						"minItems": 1,
-						"type": "array"
+						"additionalItems": {
+							"type": "string",
+							"description": "a non-empty string with no leading or trailing whitespace",
+							"title": "TrimmedNonEmpty",
+							"minLength": 1,
+							"pattern": "^[^\\s].*[^\\s]$"
+						},
+						"description": "the technologies that are powering the company's product; it is optional as it can also be expressed in the roles section",
+						"title": "technology stack",
+						"examples": [
+							[
+								"React",
+								"Node.js"
+							]
+						]
 					},
 					"url": {
-						"$ref": "#/$defs/UrlString",
-						"description": "e.g. http://facebook.example.com"
+						"type": "string",
+						"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+						"title": "UrlString",
+						"examples": [
+							"https://example.com",
+							"https://example.com/#section",
+							"http://example.com:8080",
+							"http://🍌🍌🍌.ws",
+							"https://www.übercool.de"
+						],
+						"format": "uri"
 					}
 				},
-				"required": ["description", "name", "roles"],
-				"type": "object"
+				"additionalProperties": false
 			},
 			"type": "array"
 		}
