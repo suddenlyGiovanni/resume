@@ -2,7 +2,7 @@ import * as S from '@effect/schema/Schema'
 
 import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
-export const Language = S.Struct({
+export class Language extends S.Class<Language>('Language')({
 	fluency: S.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'fluency',
@@ -20,6 +20,4 @@ export const Language = S.Struct({
 		}),
 		{ exact: true },
 	),
-})
-
-export type Language = S.Schema.Encoded<typeof Language>
+}) {}
