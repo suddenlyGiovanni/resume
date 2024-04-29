@@ -18,6 +18,8 @@ const email =
 					...annotations?.jsonSchema,
 				},
 				examples: ['<local-part>@<domain>' as A, 'foo@bar.com' as A, 'foo.bar@baz.com' as A],
+
+				// biome-ignore lint/suspicious/noExplicitAny: this is needed.
 				arbitrary: () => fc => fc.stringMatching(regex) as any,
 				...(annotations ? omit(annotations, 'jsonSchema') : {}),
 			}),
