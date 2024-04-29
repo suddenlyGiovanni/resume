@@ -53,8 +53,8 @@ describe('Publication', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Publication))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('publication-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Publication), null, '\t')).toMatchFileSnapshot(
+			'publication-schema.snapshot.json',
+		)
 	})
 })

@@ -5,28 +5,51 @@
 	"properties": {
 		"name": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The name of the publication",
+			"title": "name",
+			"examples": [
+				"The World Wide Web"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"publisher": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "The publisher of the publication",
+			"title": "publisher",
+			"examples": [
+				"IEEE",
+				"Computer Magazine"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"releaseDate": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "a string that is a valid YYYY-MM-DD date",
+			"title": "StringDate",
+			"minLength": 10,
+			"maxLength": 10,
+			"format": "date"
 		},
 		"summary": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "Short summary of publication",
+			"title": "summary",
+			"examples": [
+				"Discussion of the World Wide Web, HTTP, HTML"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"url": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "URL (as per RFC 3986) to the publication",
+			"title": "url",
+			"examples": [
+				"http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
+			],
+			"format": "uri"
 		}
 	},
 	"additionalProperties": false
