@@ -283,21 +283,15 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Interest name",
-            "title": "name",
-            "examples": [
-              "Philosophy"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "keywords": {
             "type": "array",
             "items": {
               "type": "string",
               "description": "a string",
-              "title": "keyword",
-              "examples": [
-                "philosophy"
-              ]
+              "title": "string"
             }
           }
         },
