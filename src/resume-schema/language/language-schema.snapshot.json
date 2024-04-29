@@ -5,13 +5,28 @@
 	"properties": {
 		"fluency": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "e.g. Fluent, Beginner",
+			"title": "fluency",
+			"examples": [
+				"Fluent",
+				"Beginner",
+				"Intermediate",
+				"Advanced",
+				"Native"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		},
 		"language": {
 			"type": "string",
-			"description": "a string",
-			"title": "string"
+			"description": "e.g. English, Spanish",
+			"title": "language",
+			"examples": [
+				"English",
+				"Spanish"
+			],
+			"minLength": 1,
+			"pattern": "^[^\\s].*[^\\s]$"
 		}
 	},
 	"additionalProperties": false

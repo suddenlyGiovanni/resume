@@ -32,8 +32,6 @@ describe('Language', () => {
 	})
 
 	test('JSONSchema', () => {
-		const jsonSchema = JSONSchema.make(S.encodedSchema(Language))
-		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
-		expect(serializedJsonSchema).toMatchFileSnapshot('language-schema.snapshot.json')
+		expect(JSON.stringify(JSONSchema.make(Language), null, '\t')).toMatchFileSnapshot('language-schema.snapshot.json')
 	})
 })
