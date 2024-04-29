@@ -105,7 +105,7 @@ describe('Education', () => {
 
 	test('JSONSchema', () => {
 		expect(
-			JSON.stringify(JSONSchema.make(S.encodedSchema(Education)), null, '\t'),
+			JSON.stringify(JSONSchema.make(Education), null, '\t'),
 		).toMatchFileSnapshot('education-schema.snapshot.json')
 	})
 })
