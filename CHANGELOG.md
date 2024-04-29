@@ -1,5 +1,13 @@
 # @suddenly-giovanni/resume
 
+## 10.1.0
+
+### Minor Changes
+
+- 56b6fd6: Remove start and end date from work schema.
+  - the same information can now be derived from the Role schema.
+  - the changes in schema have also been reflected in the `resume.yml`
+
 ## 10.0.2
 
 ### Patch Changes
