@@ -514,12 +514,8 @@
         "properties": {
           "description": {
             "type": "string",
-            "description": "A short description of the company",
-            "title": "description",
-            "examples": [
-              "Social Media Company",
-              "Educational Software Company"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "endDate": {
             "type": "string",
@@ -528,19 +524,13 @@
           },
           "location": {
             "type": "string",
-            "description": "Location of the company",
-            "title": "location",
-            "examples": [
-              "Menlo Park, CA"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "name": {
             "type": "string",
-            "description": "Name of the company",
-            "title": "name",
-            "examples": [
-              "Facebook"
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "startDate": {
             "type": "string",
@@ -549,12 +539,8 @@
           },
           "summary": {
             "type": "string",
-            "description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
-            "title": "summary",
-            "examples": [
-              "An educational software company that helps students learn through interactive games",
-              "Help users to handle all their administrative tasks digitally with ease."
-            ]
+            "description": "a string",
+            "title": "string"
           },
           "url": {
             "type": "string",
@@ -570,11 +556,8 @@
             "properties": {
               "name": {
                 "type": "string",
-                "description": "The name and role of the contact person",
-                "title": "name",
-                "examples": [
-                  "Mark Zuckerberg (CTO)"
-                ]
+                "description": "a string",
+                "title": "string"
               },
               "email": {
                 "type": "string",
@@ -732,11 +715,15 @@
             "minItems": 1,
             "items": [
               {
-                "$ref": "#/$defs/NonEmptyString"
+                "type": "string",
+                "description": "a string",
+                "title": "string"
               }
             ],
             "additionalItems": {
-              "$ref": "#/$defs/NonEmptyString"
+              "type": "string",
+              "description": "a string",
+              "title": "string"
             }
           }
         },
@@ -744,16 +731,5 @@
       }
     }
   },
-  "additionalProperties": false,
-  "$defs": {
-    "NonEmptyString": {
-      "type": "string",
-      "description": "a non empty string",
-      "title": "non empty string",
-      "examples": [
-        "' test string  '",
-        "'test string'"
-      ]
-    }
-  }
+  "additionalProperties": false
 }

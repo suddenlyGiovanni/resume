@@ -1,13 +1,13 @@
 import * as S from '@effect/schema/Schema'
 
-import { Email, StringDate, Phone, UrlString, nonEmptyString } from '@/schema-primitive/index.js'
+import { Email, StringDate, Phone, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
 
 import { Role } from './role.js'
 
 export const Work = S.Struct({
 	contact: S.optional(
 		S.Struct({
-			name: nonEmptyString({
+			name: TrimmedNonEmpty.annotations({
 				title: 'name',
 				description: 'The name and role of the contact person',
 				examples: ['Mark Zuckerberg (CTO)'],
@@ -20,7 +20,7 @@ export const Work = S.Struct({
 		{ exact: true },
 	),
 
-	description: nonEmptyString({
+	description: TrimmedNonEmpty.annotations({
 		title: 'description',
 		description: 'A short description of the company',
 		examples: ['Social Media Company', 'Educational Software Company'],
@@ -36,7 +36,7 @@ export const Work = S.Struct({
 	),
 
 	location: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'location',
 			description: 'Location of the company',
 			examples: ['Menlo Park, CA'],
@@ -44,7 +44,7 @@ export const Work = S.Struct({
 		{ exact: true },
 	),
 
-	name: nonEmptyString({
+	name: TrimmedNonEmpty.annotations({
 		title: 'name',
 		description: 'Name of the company',
 		examples: ['Facebook'],
@@ -62,7 +62,7 @@ export const Work = S.Struct({
 	}),
 
 	summary: S.optional(
-		nonEmptyString({
+		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description:
 				'A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words',
@@ -75,7 +75,7 @@ export const Work = S.Struct({
 	),
 
 	techStack: S.optional(
-		S.NonEmptyArray(nonEmptyString()).annotations({
+		S.NonEmptyArray(TrimmedNonEmpty).annotations({
 			title: 'technology stack',
 			description:
 				"the technologies that are powering the company's product; it is optional as it can also be expressed in the roles section",

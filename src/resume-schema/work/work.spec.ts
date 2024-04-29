@@ -144,10 +144,20 @@ describe('Work', () => {
 			expect(parse(workInput).techStack).toEqual(workInput.techStack)
 		})
 
-		test('toJsonSchema', () => {
-			expect(
-				JSON.stringify(JSONSchema.make(S.encodedSchema(Work)), null, '\t'),
-			).toMatchFileSnapshot('work-schema.snapshot.json')
+		describe('JSONSchema', () => {
+			test.todo('naked', () => {
+				expect(JSONSchema.make(Work)).toMatchInlineSnapshot()
+			})
+
+			test.todo('typeSchema', () => {
+				expect(JSONSchema.make(S.typeSchema(Work))).toMatchInlineSnapshot()
+			})
+
+			test('encodedSchema', () => {
+				expect(
+					JSON.stringify(JSONSchema.make(S.encodedSchema(Work)), null, '\t'),
+				).toMatchFileSnapshot('work-schema.snapshot.json')
+			})
 		})
 	})
 })
