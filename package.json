@@ -45,7 +45,7 @@
 		"@effect/schema": "~0.66.10"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.7.1",
+		"@biomejs/biome": "1.7.2",
 		"@changesets/cli": "2.27.1",
 		"@effect/schema": "0.66.10",
 		"@std/yaml": "npm:@jsr/std__yaml@0.224.0",
