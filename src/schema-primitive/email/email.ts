@@ -13,7 +13,7 @@ const email =
 				typeId: { id: Schema.PatternTypeId, annotation: { regex } },
 				description: `an Email address string matching the pattern ${pattern}`,
 				message: issue =>
-					`expected an Email address string matching the pattern ${pattern}, got "${issue.actual}"`,
+					`expected an Email address string matching the pattern '${pattern}', got '${issue.actual}'`,
 				jsonSchema: {
 					format: 'email',
 					pattern,
