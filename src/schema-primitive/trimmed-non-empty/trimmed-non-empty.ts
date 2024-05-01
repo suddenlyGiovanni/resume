@@ -32,7 +32,7 @@ export const trimmedNonEmpty =
 			Schema.filter((a): a is A => a.trim().length >= 1, {
 				description: 'a non-empty string with no leading or trailing whitespace',
 				message: issue =>
-					`expected a non-empty string with no leading or trailing whitespace, got "${issue.actual}"`,
+					`expected a non-empty string with no leading or trailing whitespace, got '${issue.actual}'`,
 				jsonSchema: { minLength: 1, pattern, ...annotations?.jsonSchema } satisfies JSONSchema7,
 				...(annotations ? omit(annotations, 'jsonSchema') : {}),
 			}),

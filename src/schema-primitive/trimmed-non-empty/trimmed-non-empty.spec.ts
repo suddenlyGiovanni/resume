@@ -38,7 +38,7 @@ describe('trimmedNonEmpty', () => {
 		const emptyString = '   '
 		expectEitherLeft(
 			decode(emptyString),
-			`expected a non-empty string with no leading or trailing whitespace, got "${emptyString}"`,
+			`expected a non-empty string with no leading or trailing whitespace, got '${emptyString}'`,
 		)
 	})
 
