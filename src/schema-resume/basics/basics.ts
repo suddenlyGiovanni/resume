@@ -60,4 +60,7 @@ export class Basics extends Schema.Class<Basics>('Basics')({
 			exact: true,
 		},
 	),
-}) {}
+}) {
+	static decode = S.decode(this)
+	static encode = S.encode(this)
+}

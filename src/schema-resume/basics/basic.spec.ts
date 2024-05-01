@@ -1,3 +1,4 @@
+import { expectEffectFailure, expectEffectSuccess } from '@/test/test-utils.js'
 import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
@@ -48,58 +49,290 @@ describe('Basics', () => {
 			expect(() => parse(input)).not.toThrow()
 		})
 
-		test('name', () => {
-			expect(() => parse({ ...required, name: '' })).toThrow()
-			expect(() => parse({ ...required, name: '  ' })).toThrow()
-			expect(() => parse({ ...required, name: basicsInput.name })).not.toThrow()
+		test('name', async () => {
+			await expectEffectFailure(
+				Basics.decode({ ...required, name: '' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["name"]
+         └─ expected a non-empty string with no leading or trailing whitespace, got ''`,
+			)
+
+			await expectEffectFailure(
+				Basics.decode({ ...required, name: '  ' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["name"]
+         └─ expected a non-empty string with no leading or trailing whitespace, got '  '`,
+			)
+
+			await expectEffectSuccess(Basics.decode({ ...required, name: basicsInput.name }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('label', () => {
-			expect(() => parse({ ...required, label: '' })).toThrow()
-			expect(() => parse({ ...required, label: '  ' })).toThrow()
-			expect(() => parse({ ...required, label: basicsInput.label })).not.toThrow()
+		test('label', async () => {
+			await expectEffectFailure(
+				Basics.decode({ ...required, label: '' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["label"]
+         └─ expected a non-empty string with no leading or trailing whitespace, got ''`,
+			)
+
+			await expectEffectFailure(
+				Basics.decode({ ...required, label: '  ' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["label"]
+         └─ expected a non-empty string with no leading or trailing whitespace, got '  '`,
+			)
+
+			await expectEffectSuccess(Basics.decode({ ...required, label: basicsInput.label }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('email', () => {
-			expect(() => parse({ ...required, email: '' })).toThrow()
-			expect(() => parse({ ...required, email: '  ' })).toThrow()
-			expect(() => parse({ ...required, email: basicsInput.email })).not.toThrow()
+		test('email', async () => {
+			await expectEffectFailure(
+				Basics.decode({ ...required, email: '' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["email"]
+         └─ expected an Email address string matching the pattern '^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$', got ''`,
+			)
+			await expectEffectFailure(
+				Basics.decode({ ...required, email: '  ' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["email"]
+         └─ expected an Email address string matching the pattern '^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$', got '  '`,
+			)
+			await expectEffectSuccess(Basics.decode({ ...required, email: basicsInput.email }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('image', () => {
-			expect(() => parse({ ...required, image: '' })).toThrow()
-			expect(() => parse({ ...required, image: '  ' })).toThrow()
-			expect(() => parse({ ...required, image: basicsInput.image })).not.toThrow()
+		test('image', async () => {
+			await expectEffectFailure(
+				Basics.decode({ ...required, image: '' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["image"]
+         └─ Invalid URL string; got: ''`,
+			)
+
+			await expectEffectFailure(
+				Basics.decode({ ...required, image: '  ' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["image"]
+         └─ Invalid URL string; got: '  '`,
+			)
+
+			await expectEffectSuccess(Basics.decode({ ...required, image: basicsInput.image }), {
+				email: 'thomas@gmail.com',
+				image: 'http://example.com/image.jpg',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('location', () => {
+		test('location', async () => {
 			expect(() => parse({ ...required, location: {} })).toThrow()
-			expect(() => parse({ ...required, location: basicsInput.location })).not.toThrow()
+			await expectEffectSuccess(Basics.decode({ ...required, location: basicsInput.location }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					address: '1234 Glücklichkeit Straße Hinterhaus 5. Etage li.',
+					city: 'Berlin',
+					countryCode: 'DE',
+					postalCode: '10999',
+					region: 'California',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('phone', () => {
-			expect(() => parse({ ...required, phone: '' })).toThrow()
-			expect(() => parse({ ...required, phone: '  ' })).toThrow()
-			expect(() => parse({ ...required, phone: ' abcdefghijk' })).toThrow()
-			expect(() => parse({ ...required, phone: basicsInput.phone })).not.toThrow()
+		test('phone', async () => {
+			await expectEffectFailure(
+				Basics.decode({ ...required, phone: '' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["phone"]
+         └─ Invalid E.164 phone number: ''`,
+			)
+
+			await expectEffectFailure(
+				Basics.decode({ ...required, phone: '  ' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["phone"]
+         └─ Invalid E.164 phone number: '  '`,
+			)
+
+			await expectEffectFailure(
+				Basics.decode({ ...required, phone: ' abcdefghijk' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["phone"]
+         └─ Invalid E.164 phone number: ' abcdefghijk'`,
+			)
+			await expectEffectSuccess(Basics.decode({ ...required, phone: basicsInput.phone }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				phone: '+4907121172923',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('profiles', () => {
-			expect(() => parse({ ...required, profiles: [] })).not.toThrow()
-			expect(() => parse({ ...required, profiles: basicsInput.profiles })).not.toThrow()
+		test('profiles', async () => {
+			await expectEffectSuccess(Basics.decode({ ...required, profiles: [] }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
+			await expectEffectSuccess(Basics.decode({ ...required, profiles: basicsInput.profiles }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [
+					{
+						network: 'Facebook',
+						url: 'http://twitter.example.com/neutralthoughts',
+						username: 'neutralthoughts',
+					},
+				],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('summary', () => {
-			expect(() => parse({ ...required, summary: '' })).toThrow()
-			expect(() => parse({ ...required, summary: '  ' })).toThrow()
-			expect(() => parse({ ...required, summary: basicsInput.summary })).not.toThrow()
+		test('summary', async () => {
+			await expectEffectFailure(
+				Basics.decode({ ...required, summary: '' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["summary"]
+         └─ expected a non-empty string with no leading or trailing whitespace, got ''`,
+			)
+
+			await expectEffectFailure(
+				Basics.decode({ ...required, summary: '  ' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["summary"]
+         └─ expected a non-empty string with no leading or trailing whitespace, got '  '`,
+			)
+
+			await expectEffectSuccess(Basics.decode({ ...required, summary: basicsInput.summary }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+			})
 		})
 
-		test('url', () => {
-			expect(() => parse({ ...required, url: '' })).toThrow()
-			expect(() => parse({ ...required, url: '  ' })).toThrow()
-			expect(() => parse({ ...required, url: basicsInput.url })).not.toThrow()
+		test('url', async () => {
+			await expectEffectFailure(
+				Basics.decode({ ...required, url: '' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["url"]
+         └─ Invalid URL string; got: ''`,
+			)
+			await expectEffectFailure(
+				Basics.decode({ ...required, url: '  ' }),
+				`(Basics (Encoded side) <-> Basics)
+└─ Encoded side transformation failure
+   └─ Basics (Encoded side)
+      └─ ["url"]
+         └─ Invalid URL string; got: '  '`,
+			)
+
+			await expectEffectSuccess(Basics.decode({ ...required, url: basicsInput.url }), {
+				email: 'thomas@gmail.com',
+				label: 'Software Engineer',
+				location: {
+					city: 'Berlin',
+					countryCode: 'DE',
+				},
+				name: 'Thomas Anderson',
+				profiles: [],
+				summary: 'Web Developer with a passion for web-based applications',
+				url: 'http://thomasanderson.com',
+			})
 		})
+	})
+
+	test('encode == decode', () => {
+		expect(Basics.decode(basicsInput)).toEqual(Basics.encode(basicsInput))
 	})
 
 	describe('JSONSchema', () => {
