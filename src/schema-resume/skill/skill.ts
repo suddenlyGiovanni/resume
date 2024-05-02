@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Skill extends S.Class<Skill>('Skill')({
 	keywords: S.Array(

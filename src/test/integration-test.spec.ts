@@ -3,7 +3,7 @@ import * as S from '@effect/schema/Schema'
 import * as yaml from '@std/yaml'
 import { describe, expect, it } from 'vitest'
 
-import { Resume } from '@/schema-resume/resume.js'
+import { Resume } from '../schema-resume/resume.js'
 
 describe('integration test', () => {
 	it('resume.yml should fulfill Resume schema constraints', async () => {

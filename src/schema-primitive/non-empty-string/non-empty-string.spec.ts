@@ -3,8 +3,8 @@ import * as S from '@effect/schema/Schema'
 import { identity } from 'effect/Function'
 import { describe, expect, test } from 'vitest'
 
-import { nonEmptyString } from '@/schema-primitive/non-empty-string/non-empty-string.js'
-import { expectEitherRight } from '@/test/test-utils.js'
+import { expectEitherRight } from '../../test/test-utils.js'
+import { nonEmptyString } from './non-empty-string.js'
 
 describe('nonEmptyString', () => {
 	const NonEmptyString = nonEmptyString()

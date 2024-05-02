@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { StringDate, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Award extends S.Class<Award>('Award')({
 	awarder: S.optional(

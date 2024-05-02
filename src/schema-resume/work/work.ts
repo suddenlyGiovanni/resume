@@ -1,7 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { Email, Phone, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
-
+import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 import { Role } from './role.js'
 
 export class Work extends S.Class<Work>('Work')({
