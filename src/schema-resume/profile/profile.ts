@@ -1,6 +1,5 @@
 import * as S from '@effect/schema/Schema'
-
-import { UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
 export class Profile extends S.Class<Profile>('Profile')({
 	network: TrimmedNonEmpty.annotations({

@@ -3,8 +3,8 @@ import * as jsonSchema from '@effect/schema/JSONSchema'
 import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
-import { expectEitherRight, expectEitherLeft } from '@/test/test-utils.js'
-import { trimmedNonEmpty, TrimmedNonEmpty } from './trimmed-non-empty.js'
+import { expectEitherLeft, expectEitherRight } from '../../test/test-utils.js'
+import { TrimmedNonEmpty, trimmedNonEmpty } from './trimmed-non-empty.js'
 
 describe('trimmedNonEmpty', () => {
 	describe('Regex Pattern', () => {

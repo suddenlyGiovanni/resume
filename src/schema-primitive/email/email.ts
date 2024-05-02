@@ -1,5 +1,5 @@
-import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 import * as S from '@effect/schema/Schema'
+import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
 const email =
 	<A extends string>(annotations?: S.Annotations.Filter<A>) =>

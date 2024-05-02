@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { StringDate, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Role extends S.Class<Role>('Role')({
 	title: TrimmedNonEmpty.annotations({

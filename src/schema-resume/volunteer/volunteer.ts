@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { StringDate, UrlString, TrimmedNonEmpty } from '@/schema-primitive/index.js'
+import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
 export class Volunteer extends S.Class<Volunteer>('Volunteer')({
 	endDate: S.optional(StringDate, { exact: true }),

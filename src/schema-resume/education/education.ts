@@ -1,6 +1,6 @@
 import * as S from '@effect/schema/Schema'
 
-import { UrlString, TrimmedNonEmpty, StringDate } from '@/schema-primitive/index.js'
+import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
 export class Education extends S.Class<Education>('Education')({
 	area: TrimmedNonEmpty.annotations({
