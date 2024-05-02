@@ -47,14 +47,14 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.7.2",
 		"@changesets/cli": "2.27.1",
-		"@effect/schema": "0.66.12",
+		"@effect/schema": "0.66.13",
 		"@std/yaml": "npm:@jsr/std__yaml@0.224.0",
 		"@tsconfig/node21": "21.0.3",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/node": "20.12.7",
 		"@vitest/coverage-v8": "1.5.3",
 		"@vitest/ui": "1.5.3",
-		"effect": "3.1.0",
+		"effect": "3.1.1",
 		"typescript": "5.5.0-beta",
 		"vite-tsconfig-paths": "4.3.2",
 		"vitest": "1.5.3"
