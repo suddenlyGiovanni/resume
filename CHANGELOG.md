@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 11.0.4
+
+### Patch Changes
+
+- 15d635b: update effect schema and peers to v0.66.16
+
 ## 11.0.3
 
 ### Patch Changes
