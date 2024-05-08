@@ -16,20 +16,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📦 Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-          run_install: false
-
-      - name: 🛠️ Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: "pnpm"
-
-      - name: 🧩 Install dependencies
-        run: pnpm install --frozen-lockfile --prod=false
+      - name: 🧬 Setup Biome
+        uses: biomejs/setup-biome@v2
 
       - name: 👣 Retrieve Git REF
         run: echo "GIT_REF=$(git rev-parse origin/main)" >> $GITHUB_ENV
@@ -40,7 +28,7 @@ jobs:
       - name: 💅 Format code (with Biome)
         continue-on-error: true
         run: |
-          pnpm exec biome check               \
+          biome check                         \
             --apply                           \
             --changed                         \
             --since=${{ env.GIT_REF }}        \
