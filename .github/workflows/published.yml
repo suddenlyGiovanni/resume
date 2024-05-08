@@ -16,21 +16,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📦 Install pnpm
-        uses: pnpm/action-setup@v3
+      - name: 📦 Setup Node, Pnpm and install deps
+        uses: ./.github/actions/setup
         with:
-          version: 9
-          run_install: false
-
-      - name: 🛠️ Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: "pnpm"
-          registry-url: 'https://npm.pkg.github.com'
-
-      - name: 🧩 Install dependencies
-        run: pnpm install --frozen-lockfile --prod=false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🏗️Run Build
         run: pnpm run build
