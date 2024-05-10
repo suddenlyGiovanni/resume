@@ -1,5 +1,4 @@
 import { JSONSchema, Schema } from '@effect/schema'
-
 import { describe, expect, test } from 'vitest'
 
 import { Project } from './project.js'

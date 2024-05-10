@@ -1,4 +1,5 @@
 import { Schema } from '@effect/schema'
+
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
 export class Project extends Schema.Class<Project>('Project')({
