@@ -1,6 +1,4 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
-
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Work } from './work.js'
@@ -25,16 +23,16 @@ describe('Work', () => {
 			email: 'zuckerberg@mark.cto',
 			name: 'Mark Zuckerberg (CTO)',
 		},
-	} satisfies S.Schema.Encoded<typeof Work>
+	} satisfies typeof Work.Type
 
-	const required: S.Schema.Encoded<typeof Work> = {
+	const required: typeof Work.Type = {
 		name: workInput.name,
 		roles: workInput.roles,
 		description: workInput.description,
 	}
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Work)
+		const parse = Schema.decodeUnknownSync(Work)
 
 		test('handle missing partial properties', () => {
 			expect(() => parse({ ...required })).not.toThrow()
@@ -111,11 +109,11 @@ describe('Work', () => {
 			})
 
 			test.todo('typeSchema', () => {
-				expect(JSONSchema.make(S.typeSchema(Work))).toMatchInlineSnapshot()
+				expect(JSONSchema.make(Schema.typeSchema(Work))).toMatchInlineSnapshot()
 			})
 
 			test('encodedSchema', () => {
-				expect(JSONSchema.make(S.encodedSchema(Work))).toMatchInlineSnapshot(`
+				expect(JSONSchema.make(Schema.encodedSchema(Work))).toMatchInlineSnapshot(`
 					{
 					  "$schema": "http://json-schema.org/draft-07/schema#",
 					  "additionalProperties": false,

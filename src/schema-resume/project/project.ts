@@ -1,8 +1,9 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
+
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
-export class Project extends S.Class<Project>('Project')({
-	description: S.optional(
+export class Project extends Schema.Class<Project>('Project')({
+	description: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'description',
 			description: 'Short summary of project',
@@ -11,9 +12,9 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	endDate: S.optional(StringDate, { exact: true }),
+	endDate: Schema.optional(StringDate, { exact: true }),
 
-	entity: S.optional(
+	entity: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'entity',
 			description: 'Specify the relevant company/entity affiliations',
@@ -22,8 +23,8 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	highlights: S.optional(
-		S.Array(
+	highlights: Schema.optional(
+		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'highlight',
 				description: 'Specify multiple features',
@@ -36,8 +37,8 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	keywords: S.optional(
-		S.Array(
+	keywords: Schema.optional(
+		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'keyword',
 				examples: ['AngularJS', 'elements'],
@@ -49,7 +50,7 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	name: S.optional(
+	name: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'name',
 			description: 'Name of the project',
@@ -58,8 +59,8 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	roles: S.optional(
-		S.Array(
+	roles: Schema.optional(
+		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'role',
 				examples: ['Team Lead', 'Speaker', 'Writer'],
@@ -71,9 +72,9 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	startDate: S.optional(StringDate, { exact: true }),
+	startDate: Schema.optional(StringDate, { exact: true }),
 
-	type: S.optional(
+	type: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'type',
 			description: 'Type of project',
@@ -82,7 +83,7 @@ export class Project extends S.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	url: S.optional(
+	url: Schema.optional(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) to the project page',

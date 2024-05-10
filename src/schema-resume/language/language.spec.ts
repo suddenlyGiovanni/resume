@@ -1,5 +1,4 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Language } from './language.js'
@@ -8,10 +7,10 @@ describe('Language', () => {
 	const languageInput = {
 		fluency: 'Fluent',
 		language: 'English',
-	} satisfies S.Schema.Type<typeof Language>
+	} satisfies typeof Language.Type
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Language)
+		const parse = Schema.decodeUnknownSync(Language)
 
 		test('handle all missing property', () => {
 			const input: unknown = {}

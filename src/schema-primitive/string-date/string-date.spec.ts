@@ -1,12 +1,11 @@
-import * as jsonSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
-import * as Either from 'effect/Either'
+import { JSONSchema, Schema } from '@effect/schema'
+import { Either } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { StringDate } from './string-date.js'
 
 describe('StringDate', () => {
-	const decode = S.decodeEither(StringDate)
+	const decode = Schema.decodeEither(StringDate)
 	test('YYYY-MM-DD', () => {
 		expect(Either.getOrThrow(decode('1969-12-31'))).toBe('1969-12-31')
 		expect(decode('1969-13-31')).toMatchInlineSnapshot(`
@@ -49,7 +48,7 @@ describe('StringDate', () => {
 		})
 
 		test('naked', () => {
-			expect(jsonSchema.make(StringDate)).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(StringDate)).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string that is a valid YYYY-MM-DD date",
@@ -61,7 +60,7 @@ describe('StringDate', () => {
 				}
 			`)
 
-			expect(jsonSchema.make(annotatedStringDate)).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(annotatedStringDate)).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "DESCRIPTION",
@@ -78,7 +77,7 @@ describe('StringDate', () => {
 		})
 
 		test('encodedSchema', () => {
-			expect(jsonSchema.make(S.encodedSchema(StringDate))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.encodedSchema(StringDate))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string",
@@ -87,7 +86,7 @@ describe('StringDate', () => {
 				}
 			`)
 
-			expect(jsonSchema.make(S.encodedSchema(StringDate))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.encodedSchema(StringDate))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string",
@@ -98,7 +97,7 @@ describe('StringDate', () => {
 		})
 
 		test('typeSchema', () => {
-			expect(jsonSchema.make(S.typeSchema(StringDate))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.typeSchema(StringDate))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string that is a valid YYYY-MM-DD date",
@@ -110,7 +109,7 @@ describe('StringDate', () => {
 				}
 			`)
 
-			expect(jsonSchema.make(S.typeSchema(annotatedStringDate))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.typeSchema(annotatedStringDate))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "DESCRIPTION",

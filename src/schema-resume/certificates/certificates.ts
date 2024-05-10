@@ -1,9 +1,9 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
-export class Certificate extends S.Class<Certificate>('Certificate')({
-	name: S.optional(
+export class Certificate extends Schema.Class<Certificate>('Certificate')({
+	name: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'Name',
 			description: 'name of the certificate',
@@ -12,14 +12,14 @@ export class Certificate extends S.Class<Certificate>('Certificate')({
 		{ exact: true },
 	),
 
-	date: S.optional(
+	date: Schema.optional(
 		StringDate.annotations({
 			title: 'date',
 		}),
 		{ exact: true },
 	),
 
-	url: S.optional(
+	url: Schema.optional(
 		UrlString.annotations({
 			title: 'url',
 			description: 'the url of the certificate',
@@ -28,7 +28,7 @@ export class Certificate extends S.Class<Certificate>('Certificate')({
 		{ exact: true },
 	),
 
-	issuer: S.optional(
+	issuer: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'issuer',
 			description: 'issuer of the certificate',

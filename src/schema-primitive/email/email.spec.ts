@@ -1,12 +1,11 @@
-import * as jsonSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Email } from './email.js'
 
 describe('Email', () => {
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Email)
+		const parse = Schema.decodeUnknownSync(Email)
 
 		test('empty string', () => {
 			expect(() => parse('')).toThrow()
@@ -47,7 +46,7 @@ describe('Email', () => {
 		})
 
 		test('naked', () => {
-			expect(jsonSchema.make(Email)).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Email)).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
@@ -63,7 +62,7 @@ describe('Email', () => {
 				}
 			`)
 
-			expect(jsonSchema.make(AnnotatedEmail)).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(AnnotatedEmail)).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "EMAIL DESCRIPTION",
@@ -80,7 +79,7 @@ describe('Email', () => {
 
 		test('with encodedSchema', () => {
 			expect(
-				JSON.stringify(jsonSchema.make(S.encodedSchema(Email)), null, '\t'),
+				JSON.stringify(JSONSchema.make(Schema.encodedSchema(Email)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
@@ -90,7 +89,7 @@ describe('Email', () => {
 				}"
 			`)
 
-			expect(jsonSchema.make(S.encodedSchema(AnnotatedEmail))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.encodedSchema(AnnotatedEmail))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string",
@@ -101,7 +100,7 @@ describe('Email', () => {
 		})
 
 		test('with typeSchema', () => {
-			expect(jsonSchema.make(S.typeSchema(Email))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.typeSchema(Email))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
@@ -117,7 +116,7 @@ describe('Email', () => {
 				}
 			`)
 
-			expect(jsonSchema.make(S.typeSchema(AnnotatedEmail))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.typeSchema(AnnotatedEmail))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "EMAIL DESCRIPTION",

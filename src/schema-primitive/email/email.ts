@@ -1,16 +1,16 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
 const email =
-	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
-	<I, R>(self: S.Schema<A, I, R>) => {
+	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
+	<I, R>(self: Schema.Schema<A, I, R>) => {
 		const regex = /^(?!\.)(?!.*\.\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\.)+[A-Z]{2,}$/i
 		const pattern = regex.source
 		return self.pipe(
-			S.filter((maybeEmail): maybeEmail is A => regex.test(maybeEmail), {
-				typeId: { id: S.PatternTypeId, annotation: { regex } },
+			Schema.filter((maybeEmail): maybeEmail is A => regex.test(maybeEmail), {
+				typeId: { id: Schema.PatternTypeId, annotation: { regex } },
 				description: `an Email address string matching the pattern ${pattern}`,
 				message: issue =>
 					`expected an Email address string matching the pattern ${pattern}, got "${issue.actual}"`,
@@ -28,9 +28,9 @@ const email =
 		)
 	}
 
-export interface Email extends S.Annotable<Email, string> {}
+export interface Email extends Schema.Annotable<Email, string> {}
 
-export const Email: Email = S.String.pipe(
+export const Email: Email = Schema.String.pipe(
 	email({
 		identifier: 'Email',
 		title: 'Email',

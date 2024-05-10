@@ -1,11 +1,10 @@
-import * as jsonSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Phone } from './phone.js'
 
 describe('PhoneString', () => {
-	const parse = S.decodeUnknownSync(Phone)
+	const parse = Schema.decodeUnknownSync(Phone)
 
 	const validNumbers = [
 		{ phone: '+4907121172923', description: 'German number (standard format)' },
@@ -53,7 +52,7 @@ describe('PhoneString', () => {
 	describe('JSONSchema', () => {
 		describe('naked', () => {
 			test('with no annotations', () => {
-				expect(jsonSchema.make(Phone)).toMatchInlineSnapshot(`
+				expect(JSONSchema.make(Phone)).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a phone number conforming to the E.164 format standard",
@@ -76,7 +75,7 @@ describe('PhoneString', () => {
 
 			test('with custom annotations', () => {
 				expect(
-					jsonSchema.make(
+					JSONSchema.make(
 						Phone.annotations({
 							title: 'TITLE',
 							description: 'DESCRIPTION',
@@ -105,7 +104,7 @@ describe('PhoneString', () => {
 		})
 
 		test('encodedSchema', () => {
-			expect(jsonSchema.make(S.encodedSchema(Phone))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.encodedSchema(Phone))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string",
@@ -116,7 +115,7 @@ describe('PhoneString', () => {
 		})
 
 		test('typedSchema', () => {
-			expect(jsonSchema.make(S.typeSchema(Phone))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.typeSchema(Phone))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a phone number conforming to the E.164 format standard",

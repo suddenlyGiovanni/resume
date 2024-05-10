@@ -1,15 +1,15 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
 const phone =
-	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
-	<I, R>(self: S.Schema<A, I, R>) => {
+	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
+	<I, R>(self: Schema.Schema<A, I, R>) => {
 		const E164Regex = /^\+[1-9]\d{1,14}$/
 
 		return self.pipe(
-			S.filter(
+			Schema.filter(
 				// E.164 format: up to 15 digits, starting with '+'a
 				(maybePhone): maybePhone is A =>
 					E164Regex.test(
@@ -41,8 +41,8 @@ const phone =
 		)
 	}
 
-export interface Phone extends S.Annotable<Phone, string> {}
-export const Phone: Phone = S.String.pipe(
+export interface Phone extends Schema.Annotable<Phone, string> {}
+export const Phone: Phone = Schema.String.pipe(
 	phone({
 		title: 'PhoneString',
 		identifier: 'PhoneString',

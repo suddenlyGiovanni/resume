@@ -1,5 +1,4 @@
-import * as jsonSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { UrlString } from './url-string.js'
@@ -9,7 +8,7 @@ type UrlDescriptionTupleArray = readonly UrlDescriptionTuple[]
 
 describe('UrlString', () => {
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(UrlString)
+		const parse = Schema.decodeUnknownSync(UrlString)
 
 		test('empty string', () => {
 			expect(() => parse('')).toThrow('Invalid URL string')
@@ -59,7 +58,7 @@ describe('UrlString', () => {
 
 		test('naked', () => {
 			expect(
-				jsonSchema.make(UrlString.pipe(S.maxLength(100), S.minLength(1))),
+				JSONSchema.make(UrlString.pipe(Schema.maxLength(100), Schema.minLength(1))),
 			).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
@@ -80,8 +79,8 @@ describe('UrlString', () => {
 			`)
 
 			expect(
-				jsonSchema.make(
-					UrlString.pipe(S.maxLength(100), S.minLength(1)).annotations({
+				JSONSchema.make(
+					UrlString.pipe(Schema.maxLength(100), Schema.minLength(1)).annotations({
 						identifier: 'URL_IDENTIFIER', // todo: this should be present in the jsonSchema 🤔
 						title: 'URL TITLE',
 						description: 'URL DESCRIPTION',
@@ -106,7 +105,7 @@ describe('UrlString', () => {
 
 		test('with encodedSchema', () => {
 			expect(
-				JSON.stringify(jsonSchema.make(S.encodedSchema(UrlString)), null, '\t'),
+				JSON.stringify(JSONSchema.make(Schema.encodedSchema(UrlString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
@@ -116,7 +115,7 @@ describe('UrlString', () => {
 				}"
 			`)
 
-			expect(jsonSchema.make(S.encodedSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.encodedSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string",
@@ -127,7 +126,7 @@ describe('UrlString', () => {
 		})
 
 		test('with typeSchema', () => {
-			expect(jsonSchema.make(S.typeSchema(UrlString))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.typeSchema(UrlString))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string that fulfills the URL requirements (as per RFC 3986)",
@@ -144,7 +143,7 @@ describe('UrlString', () => {
 				}
 			`)
 
-			expect(jsonSchema.make(S.typeSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.typeSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "URL DESCRIPTION",

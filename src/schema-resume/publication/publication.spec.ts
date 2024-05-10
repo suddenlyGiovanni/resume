@@ -1,5 +1,4 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Publication } from './publication.js'
@@ -11,10 +10,10 @@ describe('Publication', () => {
 		releaseDate: '2022-04-05',
 		summary: 'Discussion of the World Wide Web, HTTP, HTML',
 		url: 'http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html',
-	} satisfies S.Schema.Encoded<typeof Publication>
+	} satisfies typeof Publication.Type
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Publication)
+		const parse = Schema.decodeUnknownSync(Publication)
 
 		test('handle all missing property', () => {
 			const input: unknown = {}

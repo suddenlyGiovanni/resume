@@ -1,13 +1,13 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
 export const stringDate =
-	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
-	<I, R>(self: S.Schema<A, I, R>) => {
+	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
+	<I, R>(self: Schema.Schema<A, I, R>) => {
 		return self.pipe(
-			S.filter(
+			Schema.filter(
 				(maybeStringDate): maybeStringDate is A =>
 					Number.isNaN(Date.parse(maybeStringDate))
 						? false
@@ -27,13 +27,13 @@ export const stringDate =
 		)
 	}
 
-export interface StringDate extends S.Annotable<StringDate, string> {}
+export interface StringDate extends Schema.Annotable<StringDate, string> {}
 
 /**
  * String constructor that validates that given string date fulfils the YYYY-MM-DD specification
  * @categroy string constructor
  */
-export const StringDate: StringDate = S.String.pipe(
+export const StringDate: StringDate = Schema.String.pipe(
 	stringDate({
 		identifier: 'StringDate',
 		title: 'StringDate',

@@ -1,15 +1,15 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
-export class Reference extends S.Class<Reference>('Reference')({
+export class Reference extends Schema.Class<Reference>('Reference')({
 	name: TrimmedNonEmpty.annotations({
 		title: 'name',
 		description: 'The name of the reference',
 		examples: ['Timothy Cook'],
 	}),
 
-	reference: S.optional(
+	reference: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'reference',
 			description: 'The reference text',

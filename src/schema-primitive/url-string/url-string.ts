@@ -1,4 +1,4 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
@@ -10,10 +10,10 @@ import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
  * @category string filters
  */
 const validUrlString =
-	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
-	<I, R>(self: S.Schema<A, I, R>): S.Schema<A, I, R> =>
+	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
+	<I, R>(self: Schema.Schema<A, I, R>): Schema.Schema<A, I, R> =>
 		self.pipe(
-			S.filter(
+			Schema.filter(
 				(maybeUrl): maybeUrl is A => {
 					try {
 						new URL(maybeUrl)
@@ -38,9 +38,9 @@ const validUrlString =
 			),
 		)
 
-export interface UrlString extends S.Annotable<UrlString, string> {}
+export interface UrlString extends Schema.Annotable<UrlString, string> {}
 
-export const UrlString: UrlString = S.String.pipe(
+export const UrlString: UrlString = Schema.String.pipe(
 	validUrlString({
 		identifier: 'UrlString',
 		title: 'UrlString',

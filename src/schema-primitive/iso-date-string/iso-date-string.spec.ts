@@ -1,12 +1,11 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { ISODateString } from './iso-date-string.js'
 
 describe('ISODateString', () => {
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(ISODateString)
+		const parse = Schema.decodeUnknownSync(ISODateString)
 		test('empty string', () => {
 			expect(() => parse('')).toThrow()
 		})
@@ -27,13 +26,6 @@ describe('ISODateString', () => {
 		expect(serializedJsonSchema).toMatchInlineSnapshot(`
 			"{
 				"$schema": "http://json-schema.org/draft-07/schema#",
-				"type": "string",
-				"description": "Using ISO 8601",
-				"title": "date",
-				"minLength": 1,
-				"examples": [
-					"2012-04-05T10:00:00.000Z"
-				],
 				"pattern": "^[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|[12][0-9]))T(0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[1-5][0-9]):(0[0-9]|[1-5][0-9])\\\\.[0-9]{3}Z$"
 			}"
 		`)

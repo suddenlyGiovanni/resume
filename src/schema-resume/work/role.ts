@@ -1,8 +1,8 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
-export class Role extends S.Class<Role>('Role')({
+export class Role extends Schema.Class<Role>('Role')({
 	title: TrimmedNonEmpty.annotations({
 		title: 'title',
 		description: 'The title of your position at the company: <seniority level> <role title>',
@@ -15,7 +15,7 @@ export class Role extends S.Class<Role>('Role')({
 		examples: ['2011-01-01'],
 	}),
 
-	endDate: S.optional(
+	endDate: Schema.optional(
 		StringDate.annotations({
 			title: 'endDate',
 			description: 'The date when you stopped working in this role',
@@ -24,7 +24,7 @@ export class Role extends S.Class<Role>('Role')({
 		{ exact: true },
 	),
 
-	responsibilities: S.Array(
+	responsibilities: Schema.Array(
 		TrimmedNonEmpty.annotations({
 			title: 'responsibility',
 			description: 'A specific responsibility',
@@ -35,8 +35,8 @@ export class Role extends S.Class<Role>('Role')({
 		description: 'Specify multiple responsibilities',
 	}),
 
-	highlights: S.optional(
-		S.NonEmptyArray(
+	highlights: Schema.optional(
+		Schema.NonEmptyArray(
 			TrimmedNonEmpty.annotations({
 				title: 'highlight',
 				description: 'A specific accomplishment',
@@ -49,8 +49,8 @@ export class Role extends S.Class<Role>('Role')({
 		{ exact: true },
 	),
 
-	technologies: S.optional(
-		S.NonEmptyArray(
+	technologies: Schema.optional(
+		Schema.NonEmptyArray(
 			TrimmedNonEmpty.annotations({
 				title: 'technology',
 				description: 'A specific technology used',

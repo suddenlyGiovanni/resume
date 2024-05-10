@@ -1,18 +1,17 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Profile } from './profile.js'
 
 describe('Profile', () => {
-	const profileInput: S.Schema.Encoded<typeof Profile> = {
+	const profileInput: typeof Profile.Type = {
 		network: 'Facebook',
 		url: 'http://twitter.example.com/neutralthoughts',
 		username: 'neutralthoughts',
 	}
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Profile)
+		const parse = Schema.decodeUnknownSync(Profile)
 
 		test('network', () => {
 			expect(() => parse({ ...profileInput, network: '' })).toThrow()

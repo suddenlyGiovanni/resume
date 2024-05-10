@@ -1,5 +1,4 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Skill } from './skill.js'
@@ -9,7 +8,7 @@ describe('Skill', () => {
 		keywords: ['Rust', 'Java', 'Scala'],
 		level: 'Wizard',
 		name: 'Web Development',
-	} satisfies S.Schema.Type<typeof Skill>
+	} satisfies typeof Skill.Type
 
 	const required = {
 		keywords: skillInput.keywords,
@@ -17,7 +16,7 @@ describe('Skill', () => {
 	}
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Skill)
+		const parse = Schema.decodeUnknownSync(Skill)
 
 		test('handle missing partial properties', () => {
 			expect(() => parse({ ...required })).not.toThrow()

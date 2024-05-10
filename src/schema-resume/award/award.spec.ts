@@ -1,5 +1,4 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { Award } from './award.js'
@@ -10,10 +9,10 @@ describe('award', () => {
 		title: 'One of the 100 greatest minds of the century',
 		date: '1970-01-01',
 		summary: 'Received for my work with Quantum Physics',
-	} satisfies S.Schema.Encoded<typeof Award>
+	} satisfies typeof Award.Encoded
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Award)
+		const parse = Schema.decodeUnknownSync(Award)
 		test('handle all missing property', () => {
 			const input: unknown = {}
 			expect(() => parse(input)).not.toThrow()
