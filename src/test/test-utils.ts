@@ -1,4 +1,4 @@
-import { AST, ParseResult, Schema, TreeFormatter } from '@effect/schema'
+import { type AST, type ParseResult, Schema, TreeFormatter } from '@effect/schema'
 import { Effect, Either, Option } from 'effect'
 
 import { expect } from 'vitest'

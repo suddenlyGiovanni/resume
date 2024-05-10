@@ -1,5 +1,4 @@
 import { ParseResult, Schema } from '@effect/schema'
-import { Annotations } from '@effect/schema/Schema'
 import type { JSONSchema7 } from 'json-schema'
 
 export interface ISO8601DateString extends Schema.Annotable<ISO8601DateString, string> {}
@@ -19,7 +18,7 @@ const annotations = {
 		'YYYY-MM-DDThh:mm:ss.sss±[hh]:[mm] -> YYYY-MM-DDThh:mm:ss.sssZ',
 		'YYYY-MM-DDThh:mm:ss.sss±[hh][mm] -> YYYY-MM-DDThh:mm:ss.sssZ',
 	],
-} satisfies Annotations.Schema<string>
+} satisfies Schema.Annotations.Schema<string>
 /**
  * A string ISO 8601 date Schema.
  * Given any string date, it validates it to be a valid input for the Date constructor,
