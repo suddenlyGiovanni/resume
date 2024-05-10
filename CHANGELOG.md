@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 11.1.0
+
+### Minor Changes
+
+- 4cf5f7f: Removed the `techStack` field from the Work schema and adjusted the relevant JSON schema and tests to support this change.
+
 ## 11.0.4
 
 ### Patch Changes
