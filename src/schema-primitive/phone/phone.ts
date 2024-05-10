@@ -1,4 +1,5 @@
 import * as S from '@effect/schema/Schema'
+import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
@@ -30,7 +31,10 @@ const phone =
 					],
 					description: 'a phone number conforming to the E.164 format standard',
 					message: issue => `Invalid E.164 phone number: "${String(issue.actual)}"`,
-					jsonSchema: { pattern: E164Regex.source, ...annotations?.jsonSchema },
+					jsonSchema: {
+						pattern: E164Regex.source,
+						...annotations?.jsonSchema,
+					} satisfies JSONSchema7,
 					...(annotations ? omit(annotations, 'jsonSchema') : {}),
 				},
 			),

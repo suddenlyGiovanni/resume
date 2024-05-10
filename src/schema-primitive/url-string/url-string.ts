@@ -1,4 +1,5 @@
 import * as S from '@effect/schema/Schema'
+import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
@@ -31,7 +32,7 @@ const validUrlString =
 						'http://🍌🍌🍌.ws' as A,
 						'https://www.übercool.de' as A,
 					],
-					jsonSchema: { format: 'uri', ...annotations?.jsonSchema },
+					jsonSchema: { format: 'uri', ...annotations?.jsonSchema } satisfies JSONSchema7,
 					...(annotations ? omit(annotations, 'jsonSchema') : {}),
 				},
 			),
