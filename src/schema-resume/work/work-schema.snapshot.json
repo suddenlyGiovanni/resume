@@ -339,34 +339,6 @@
       "minLength": 1,
       "pattern": "^[^\\s].*[^\\s]$"
     },
-    "techStack": {
-      "type": "array",
-      "minItems": 1,
-      "items": [
-        {
-          "type": "string",
-          "description": "a non-empty string with no leading or trailing whitespace",
-          "title": "TrimmedNonEmpty",
-          "minLength": 1,
-          "pattern": "^[^\\s].*[^\\s]$"
-        }
-      ],
-      "additionalItems": {
-        "type": "string",
-        "description": "a non-empty string with no leading or trailing whitespace",
-        "title": "TrimmedNonEmpty",
-        "minLength": 1,
-        "pattern": "^[^\\s].*[^\\s]$"
-      },
-      "description": "the technologies that are powering the company's product; it is optional as it can also be expressed in the roles section",
-      "title": "technology stack",
-      "examples": [
-        [
-          "React",
-          "Node.js"
-        ]
-      ]
-    },
     "url": {
       "type": "string",
       "description": "a string that fulfills the URL requirements (as per RFC 3986)",
