@@ -1,9 +1,9 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
-export class Publication extends S.Class<Publication>('Publication')({
-	name: S.optional(
+export class Publication extends Schema.Class<Publication>('Publication')({
+	name: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'name',
 			description: 'The name of the publication',
@@ -12,7 +12,7 @@ export class Publication extends S.Class<Publication>('Publication')({
 		{ exact: true },
 	),
 
-	publisher: S.optional(
+	publisher: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'publisher',
 			description: 'The publisher of the publication',
@@ -21,9 +21,9 @@ export class Publication extends S.Class<Publication>('Publication')({
 		{ exact: true },
 	),
 
-	releaseDate: S.optional(StringDate, { exact: true }),
+	releaseDate: Schema.optional(StringDate, { exact: true }),
 
-	summary: S.optional(
+	summary: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description: 'Short summary of publication',
@@ -32,7 +32,7 @@ export class Publication extends S.Class<Publication>('Publication')({
 		{ exact: true },
 	),
 
-	url: S.optional(
+	url: Schema.optional(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) to the publication',

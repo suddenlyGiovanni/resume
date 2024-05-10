@@ -1,5 +1,5 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
 import { Reference } from './reference.js'
@@ -9,10 +9,10 @@ describe('Reference', () => {
 		name: 'Timothy Cook',
 		reference:
 			'Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing.',
-	} satisfies S.Schema.Type<typeof Reference>
+	} satisfies typeof Reference.Type
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Reference)
+		const parse = Schema.decodeUnknownSync(Reference)
 
 		test('name', () => {
 			expect(() => parse({ name: '' })).toThrow()

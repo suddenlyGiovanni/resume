@@ -1,5 +1,5 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
 import { Volunteer } from './volunteer.js'
@@ -13,10 +13,10 @@ describe('Volunteer', () => {
 		startDate: '2020-01-01',
 		summary: 'My day-to-day activities involved designing and building web applications...',
 		url: 'https://facebook.example.com',
-	} satisfies S.Schema.Type<typeof Volunteer>
+	} satisfies typeof Volunteer.Type
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Volunteer)
+		const parse = Schema.decodeUnknownSync(Volunteer)
 
 		test('handle missing partial properties', () => {
 			expect(() => parse({})).not.toThrow()

@@ -1,12 +1,12 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
 import { Certificate } from './certificates.js'
 
 describe('Certificate', () => {
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Certificate)
+		const parse = Schema.decodeUnknownSync(Certificate)
 
 		test('handle all missing property', () => {
 			const input: unknown = {}

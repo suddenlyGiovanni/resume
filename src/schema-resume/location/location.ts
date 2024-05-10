@@ -1,14 +1,14 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
-import { TrimmedNonEmpty, omit } from '../../schema-primitive/index.js'
+import { omit, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 const countryCode =
-	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
-	<I, R>(self: S.Schema<A, I, R>) => {
+	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
+	<I, R>(self: Schema.Schema<A, I, R>) => {
 		const regex = /^[A-Z]{2}$/
 		const pattern = regex.source
 		return self.pipe(
-			S.filter(
+			Schema.filter(
 				(a): a is A => {
 					if (a.trim().length !== 2) {
 						return false
@@ -32,8 +32,8 @@ const countryCode =
 		)
 	}
 
-export class Location extends S.Class<Location>('Location')({
-	address: S.optional(
+export class Location extends Schema.Class<Location>('Location')({
+	address: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'address',
 			description: 'To add multiple address lines, use "\\n".',
@@ -48,14 +48,14 @@ export class Location extends S.Class<Location>('Location')({
 		examples: ['Berlin', 'New York', 'San Francisco'],
 	}),
 
-	countryCode: S.String.pipe(
+	countryCode: Schema.String.pipe(
 		countryCode({
 			identifier: 'countryCode',
 			title: 'countryCode',
 		}),
 	),
 
-	postalCode: S.optional(
+	postalCode: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'postalCode',
 			description: 'European postal code',
@@ -66,7 +66,7 @@ export class Location extends S.Class<Location>('Location')({
 		},
 	),
 
-	region: S.optional(
+	region: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'region',
 			description: 'The general region where you live. Can be a US state, or a province',

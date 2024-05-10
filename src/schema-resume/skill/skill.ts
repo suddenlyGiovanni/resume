@@ -1,9 +1,9 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
-export class Skill extends S.Class<Skill>('Skill')({
-	keywords: S.Array(
+export class Skill extends Schema.Class<Skill>('Skill')({
+	keywords: Schema.Array(
 		TrimmedNonEmpty.annotations({
 			title: 'keyword',
 			examples: ['Rust'],
@@ -14,7 +14,7 @@ export class Skill extends S.Class<Skill>('Skill')({
 		examples: [['Rust', 'Java']],
 	}),
 
-	level: S.optional(
+	level: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'level',
 			description: 'Level of expertise',

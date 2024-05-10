@@ -1,13 +1,13 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 import { Location } from '../location/location.js'
 import { Profile } from '../profile/profile.js'
 
-export class Basics extends S.Class<Basics>('Basics')({
+export class Basics extends Schema.Class<Basics>('Basics')({
 	email: Email,
 
-	image: S.optional(
+	image: Schema.optional(
 		UrlString.annotations({
 			title: 'image',
 			description: 'URL to a image in JPEG or PNG format (as per RFC 3986)',
@@ -29,7 +29,7 @@ export class Basics extends S.Class<Basics>('Basics')({
 		examples: ['Thomas Anderson'],
 	}),
 
-	phone: S.optional(
+	phone: Schema.optional(
 		Phone.annotations({
 			title: 'phone',
 			description:
@@ -39,7 +39,7 @@ export class Basics extends S.Class<Basics>('Basics')({
 		{ exact: true },
 	),
 
-	profiles: S.Array(Profile).annotations({
+	profiles: Schema.Array(Profile).annotations({
 		title: 'profiles',
 		description: 'Specify any number of social networks that you participate in',
 	}),
@@ -50,7 +50,7 @@ export class Basics extends S.Class<Basics>('Basics')({
 		examples: ['Web Developer with a passion for web-based applications'],
 	}),
 
-	url: S.optional(
+	url: Schema.optional(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) to your website, e.g. personal homepage',

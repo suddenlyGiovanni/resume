@@ -1,5 +1,5 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
 import { Basics } from './basics.js'
@@ -27,9 +27,9 @@ describe('Basics', () => {
 		],
 		summary: 'Web Developer with a passion for web-based applications',
 		url: 'http://thomasanderson.com',
-	} satisfies S.Schema.Encoded<typeof Basics>
+	} satisfies typeof Basics.Encoded
 
-	const required: S.Schema.Encoded<typeof Basics> = {
+	const required: typeof Basics.Encoded = {
 		name: basicsInput.name,
 		label: basicsInput.label,
 		email: basicsInput.email,
@@ -42,7 +42,7 @@ describe('Basics', () => {
 	}
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Basics)
+		const parse = Schema.decodeUnknownSync(Basics)
 
 		test('handle all missing property', () => {
 			const input: unknown = required
@@ -105,7 +105,7 @@ describe('Basics', () => {
 
 	describe('JSONSchema', () => {
 		test('encodedSchema', () => {
-			expect(JSONSchema.make(S.encodedSchema(Basics))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.encodedSchema(Basics))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "additionalProperties": false,

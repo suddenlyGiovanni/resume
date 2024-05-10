@@ -1,7 +1,7 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 import { TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
-export class Profile extends S.Class<Profile>('Profile')({
+export class Profile extends Schema.Class<Profile>('Profile')({
 	network: TrimmedNonEmpty.annotations({
 		title: 'network',
 		description: 'The name of the social network',

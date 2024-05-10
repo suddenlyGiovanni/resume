@@ -1,9 +1,9 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
-export class Language extends S.Class<Language>('Language')({
-	fluency: S.optional(
+export class Language extends Schema.Class<Language>('Language')({
+	fluency: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'fluency',
 			description: 'e.g. Fluent, Beginner',
@@ -12,7 +12,7 @@ export class Language extends S.Class<Language>('Language')({
 		{ exact: true },
 	),
 
-	language: S.optional(
+	language: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'language',
 			description: 'e.g. English, Spanish',

@@ -1,5 +1,5 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
 import { Project } from './project.js'
@@ -16,10 +16,10 @@ describe('Project', () => {
 		startDate: '1970-01-01',
 		type: 'talk',
 		url: 'http://example.com/project',
-	} satisfies S.Schema.Encoded<typeof Project>
+	} satisfies typeof Project.Type
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Project, { errors: 'all' })
+		const parse = Schema.decodeUnknownSync(Project, { errors: 'all' })
 		test('handle all missing property', () => {
 			const input: unknown = {}
 			expect(() => parse(input)).not.toThrow()

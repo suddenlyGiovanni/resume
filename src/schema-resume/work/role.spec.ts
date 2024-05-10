@@ -1,24 +1,24 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 
 import { describe, expect, test } from 'vitest'
 
 import { Role } from './role.js'
 
 describe('Role', () => {
-	const role: S.Schema.Encoded<typeof Role> = {
+	const role: typeof Role.Type = {
 		startDate: '1988-02-01',
 		title: 'Junior Web Developer',
 		responsibilities: ['code owner of front end app'],
 	}
 
 	test('required role attributes', () => {
-		expect(() => S.decodeUnknownSync(Role)(role)).not.toThrow()
+		expect(() => Schema.decodeUnknownSync(Role)(role)).not.toThrow()
 	})
 
 	test('all role attributes', () => {
-		const decodeRole = S.decodeUnknownSync(Role)
-		const roleInput: S.Schema.Encoded<typeof Role> = {
+		const decodeRole = Schema.decodeUnknownSync(Role)
+		const roleInput: typeof Role.Type = {
 			...role,
 			endDate: '1989-02-01',
 			responsibilities: ['Managed a team of 10 engineers'],

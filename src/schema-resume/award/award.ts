@@ -1,9 +1,9 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
-export class Award extends S.Class<Award>('Award')({
-	awarder: S.optional(
+export class Award extends Schema.Class<Award>('Award')({
+	awarder: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'awarder',
 			description: 'The name of the award given',
@@ -12,7 +12,7 @@ export class Award extends S.Class<Award>('Award')({
 		{ exact: true },
 	),
 
-	date: S.optional(
+	date: Schema.optional(
 		StringDate.annotations({
 			title: 'date',
 			description: 'Date of the award',
@@ -20,7 +20,7 @@ export class Award extends S.Class<Award>('Award')({
 		{ exact: true },
 	),
 
-	summary: S.optional(
+	summary: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description: 'A brief summary of the award',
@@ -29,7 +29,7 @@ export class Award extends S.Class<Award>('Award')({
 		{ exact: true },
 	),
 
-	title: S.optional(
+	title: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'title',
 			description: 'Title of the award',

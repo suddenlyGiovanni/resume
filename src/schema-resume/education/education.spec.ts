@@ -1,5 +1,5 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
 import { Education } from './education.js'
@@ -15,9 +15,9 @@ describe('Education', () => {
 		studyType: 'Bachelor',
 		url: 'https://mit.com',
 		location: 'Cambridge, MA',
-	} satisfies S.Schema.Encoded<typeof Education>
+	} satisfies typeof Education.Type
 
-	const required: S.Schema.Encoded<typeof Education> = {
+	const required: typeof Education.Type = {
 		area: educationInput.area,
 		institution: educationInput.institution,
 		startDate: educationInput.startDate,
@@ -25,7 +25,7 @@ describe('Education', () => {
 	}
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Education)
+		const parse = Schema.decodeUnknownSync(Education)
 
 		test('handle all missing property', () => {
 			const input: unknown = { ...required }
@@ -75,7 +75,7 @@ describe('Education', () => {
 			})
 
 			test.todo('start date before end date', () => {
-				const input: S.Schema.Encoded<typeof Education> = {
+				const input: Schema.Schema.Encoded<typeof Education> = {
 					...required,
 					startDate: '1989-01-01',
 					endDate: '1988-01-01',

@@ -1,11 +1,11 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 import { Role } from './role.js'
 
-export class Work extends S.Class<Work>('Work')({
-	contact: S.optional(
-		S.Struct({
+export class Work extends Schema.Class<Work>('Work')({
+	contact: Schema.optional(
+		Schema.Struct({
 			name: TrimmedNonEmpty.annotations({
 				title: 'name',
 				description: 'The name and role of the contact person',
@@ -14,7 +14,7 @@ export class Work extends S.Class<Work>('Work')({
 
 			email: Email,
 
-			phone: S.optional(Phone, { exact: true }),
+			phone: Schema.optional(Phone, { exact: true }),
 		}),
 		{ exact: true },
 	),
@@ -25,7 +25,7 @@ export class Work extends S.Class<Work>('Work')({
 		examples: ['Social Media Company', 'Educational Software Company'],
 	}),
 
-	location: S.optional(
+	location: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'location',
 			description: 'Location of the company',
@@ -40,12 +40,12 @@ export class Work extends S.Class<Work>('Work')({
 		examples: ['Facebook'],
 	}),
 
-	roles: S.NonEmptyArray(Role).annotations({
+	roles: Schema.NonEmptyArray(Role).annotations({
 		title: 'roles',
 		description: 'The roles you had at the company, in reverse chronological order',
 	}),
 
-	summary: S.optional(
+	summary: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description:
@@ -58,5 +58,5 @@ export class Work extends S.Class<Work>('Work')({
 		{ exact: true },
 	),
 
-	url: S.optional(UrlString, { exact: true }),
+	url: Schema.optional(UrlString, { exact: true }),
 }) {}

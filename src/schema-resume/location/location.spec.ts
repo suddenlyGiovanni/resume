@@ -1,5 +1,5 @@
+import { Schema } from '@effect/schema'
 import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
 import { describe, expect, test } from 'vitest'
 
 import { Location } from './location.js'
@@ -11,15 +11,15 @@ describe('Location', () => {
 		countryCode: 'DE',
 		postalCode: '10999',
 		region: 'California',
-	} satisfies S.Schema.Encoded<typeof Location>
+	} satisfies typeof Location.Type
 
-	const required: S.Schema.Encoded<typeof Location> = {
+	const required: typeof Location.Type = {
 		countryCode: locationInput.countryCode,
 		city: locationInput.city,
 	}
 
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(Location)
+		const parse = Schema.decodeUnknownSync(Location)
 
 		test('handle all missing property', () => {
 			const input: unknown = { ...required }
@@ -63,7 +63,7 @@ describe('Location', () => {
 
 	describe('JSONSchema', () => {
 		test('encodedSchema', () => {
-			expect(JSONSchema.make(S.encodedSchema(Location))).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(Schema.encodedSchema(Location))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "additionalProperties": false,

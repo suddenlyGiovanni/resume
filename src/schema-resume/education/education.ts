@@ -1,16 +1,16 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
-export class Education extends S.Class<Education>('Education')({
+export class Education extends Schema.Class<Education>('Education')({
 	area: TrimmedNonEmpty.annotations({
 		title: 'area',
 		description: 'e.g. Arts',
 		examples: ['Arts', 'Computer Science'],
 	}),
 
-	courses: S.optional(
-		S.Array(
+	courses: Schema.optional(
+		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'course',
 				examples: ['H1302 - Introduction to American history'],
@@ -23,7 +23,7 @@ export class Education extends S.Class<Education>('Education')({
 		{ exact: true },
 	),
 
-	endDate: S.optional(
+	endDate: Schema.optional(
 		StringDate.annotations({
 			title: 'endDate',
 			description: 'end date of education',
@@ -32,7 +32,7 @@ export class Education extends S.Class<Education>('Education')({
 		{ exact: true },
 	),
 
-	score: S.optional(
+	score: Schema.optional(
 		TrimmedNonEmpty.annotations({
 			title: 'score',
 			description: 'grade point average, e.g. 3.67/4.0',
@@ -49,7 +49,7 @@ export class Education extends S.Class<Education>('Education')({
 		examples: ['Massachusetts Institute of Technology'],
 	}),
 
-	location: S.optional(TrimmedNonEmpty, { exact: true }),
+	location: Schema.optional(TrimmedNonEmpty, { exact: true }),
 
 	startDate: StringDate.annotations({
 		title: 'startDate',
@@ -63,7 +63,7 @@ export class Education extends S.Class<Education>('Education')({
 		examples: ['Bachelor', 'Master', 'Doctorate'],
 	}),
 
-	url: S.optional(
+	url: Schema.optional(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) of the institution',
