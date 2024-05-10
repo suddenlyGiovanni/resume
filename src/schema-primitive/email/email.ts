@@ -1,4 +1,6 @@
 import * as S from '@effect/schema/Schema'
+import type { JSONSchema7 } from 'json-schema'
+
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
 const email =
@@ -16,7 +18,7 @@ const email =
 					format: 'email',
 					pattern,
 					...annotations?.jsonSchema,
-				},
+				} satisfies JSONSchema7,
 				examples: ['<local-part>@<domain>' as A, 'foo@bar.com' as A, 'foo.bar@baz.com' as A],
 
 				// biome-ignore lint/suspicious/noExplicitAny: this is needed.

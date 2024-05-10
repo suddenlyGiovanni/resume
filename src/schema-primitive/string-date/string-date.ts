@@ -1,4 +1,6 @@
 import * as S from '@effect/schema/Schema'
+import type { JSONSchema7 } from 'json-schema'
+
 import { omit } from '../trimmed-non-empty/trimmed-non-empty.js'
 
 export const stringDate =
@@ -13,7 +15,12 @@ export const stringDate =
 				{
 					description: 'a string that is a valid YYYY-MM-DD date',
 					message: issue => `expected a sting date 'YYYY-MM-DD', got '${issue.actual}'`,
-					jsonSchema: { minLength: 10, maxLength: 10, format: 'date', ...annotations?.jsonSchema },
+					jsonSchema: {
+						minLength: 10,
+						maxLength: 10,
+						format: 'date',
+						...annotations?.jsonSchema,
+					} satisfies JSONSchema7,
 					...(annotations ? omit(annotations, 'jsonSchema') : {}),
 				},
 			),

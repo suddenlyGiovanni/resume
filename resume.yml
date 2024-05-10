@@ -49,14 +49,16 @@ work:
           - Pragmatically tackle the technical debt while working within legacy systems.
           - Tackle the constant influx of bugs.
           - Maintain and improve code quality.
-    techStack:
-      - Typescript
-      - Kotlin
-      - React
-      - Redux
-      - Jest
-      - Cypress
-      - MongoDb
+        technologies:
+          - Typescript
+          - CoffeeScript
+          - Kotlin
+          - React
+          - Redux
+          - Jest
+          - Cypress
+          - MongoDb
+
     contact:
       name: York Zalander (CTO)
       email: 'york.xylander@bettermarks.com'
@@ -78,17 +80,17 @@ work:
         highlights:
           - Help to grow and develop the front-end team, playing a role in hiring new team members.
           - Foster a culture of continuous delivery, pair programming, and test-driven development.
-    techStack:
-      - Typescript
-      - React
-      - React Native
-      - CSS-in-JS
-      - GraphQL
-      - Redux
-      - RxJs
-      - Apollo
-      - Jest
-      - Cypress
+        technologies:
+          - Typescript
+          - React
+          - React Native
+          - CSS-in-JS
+          - GraphQL
+          - Redux
+          - RxJs
+          - Apollo
+          - Jest
+          - Cypress
     contact:
       name: Slawomir Smiechura (VP of Engineering)
       email: 'slawomir.smiechura@tooltime.de'
@@ -98,23 +100,6 @@ work:
     description: Digital Product Design Studio
     url: https://appico.com/
     roles:
-      - title: React Native Developer
-        startDate: "2019-01-01"
-        endDate: "2019-02-28"
-        highlights:
-          - Reduce the time needed to go from idea to prototype by developing a boilerplate project setup based on best practices and company requirements.
-        responsibilities:
-          - Enable a new service offering to our customers by researching and studying mobile app development with React Native.
-          - Organize the knowledge transfer to the rest of the team. Build several in house prototypes to illustrate commonalities and differences with regular web development.
-        technologies:
-          - TypeScript
-          - React Native
-          - Redux
-          - Storybook
-          - Apollo
-          - GraphQL
-          - Lottie
-          - Jest
       - title: Full Stack Web Developer
         startDate: "2018-01-01"
         endDate: "2018-12-31"
@@ -143,6 +128,23 @@ work:
           - Node
           - AWS Lambda
           - Docker
+      - title: React Native Developer
+        startDate: "2019-01-01"
+        endDate: "2019-02-28"
+        highlights:
+          - Reduce the time needed to go from idea to prototype by developing a boilerplate project setup based on best practices and company requirements.
+        responsibilities:
+          - Enable a new service offering to our customers by researching and studying mobile app development with React Native.
+          - Organize the knowledge transfer to the rest of the team. Build several in house prototypes to illustrate commonalities and differences with regular web development.
+        technologies:
+          - TypeScript
+          - React Native
+          - Redux
+          - Storybook
+          - Apollo
+          - GraphQL
+          - Lottie
+          - Jest
     contact:
       name: Arvid Gerstmann (CTO)
       email: 'arvid.gerstmann@appico.com'
@@ -167,11 +169,6 @@ work:
     location: Trieste, Italy
     description: Real Estate Agency
     summary: Helped the company in its modernization process by pivoting its business model from brick and mortar to an online-first presence.
-    techStack:
-      - WebComponents
-      - Polymer
-      - Firebase
-      - Sails.js
     roles:
       - title: Front-end Web Developer
         endDate: "2016-10-30"
@@ -181,6 +178,11 @@ work:
           - Developed and maintained the company's website.
           - Developed and maintained the company's in-house CMS.
         startDate: "2015-10-01"
+        technologies:
+          - WebComponents
+          - Polymer
+          - Firebase
+          - Sails.js
 volunteer: [ ]
 
 education:
@@ -192,8 +194,7 @@ education:
     endDate: '2017-09-30'
     courses:
       - Work with responsive design using HTML, CSS, and JavaScript.
-      - Create exciting, interactive web apps and animations using native browser APIs
-        as well as the jQuery library.
+      - Create exciting, interactive web apps and animations using native browser APIs as well as the jQuery library.
       - Build server-side JavaScript applications using Node.js and learned to use third-party APIs to create exciting dynamic web pages.
       - Create powerful single-page web applications with front-end frameworks such as React and Backbone.
       - 'Tech: [ Semantic HTML, CSS, JavaScript, Node, SQL, PostgreSQL, React, Redux, Express, Backbone, WebSockets ].'
@@ -205,8 +206,7 @@ education:
     endDate: '2015-05-30'
     courses:
       - Learned how to transform innovative business ideas into real products and services.
-      - Applied innovation-driven entrepreneurship process to develop a B2B startup in
-        the real estate industry.
+      - Applied innovation-driven entrepreneurship process to develop a B2B startup in the real estate industry.
     location: Trieste, Italy
   - institution: Università degli studi di Trieste
     url: https://www.units.it/

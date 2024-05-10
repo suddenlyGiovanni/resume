@@ -58,14 +58,5 @@ export class Work extends S.Class<Work>('Work')({
 		{ exact: true },
 	),
 
-	techStack: S.optional(
-		S.NonEmptyArray(TrimmedNonEmpty).annotations({
-			title: 'technology stack',
-			description:
-				"the technologies that are powering the company's product; it is optional as it can also be expressed in the roles section",
-			examples: [['React', 'Node.js']],
-		}),
-	),
-
 	url: S.optional(UrlString, { exact: true }),
 }) {}

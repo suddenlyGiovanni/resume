@@ -103,18 +103,6 @@ describe('Work', () => {
 			).not.toThrow()
 		})
 
-		test('techStack', () => {
-			const workInput: S.Schema.Encoded<typeof Work> = {
-				name: required.name,
-				roles: required.roles,
-				description: required.description,
-				techStack: ['TypeScript', 'Aws', 'SQLite'],
-			}
-			expect(() => parse(required)).not.toThrow()
-			expect(() => parse(workInput)).not.toThrow()
-			expect(parse(workInput).techStack).toEqual(workInput.techStack)
-		})
-
 		describe('JSONSchema', () => {
 			test('naked', () => {
 				expect(JSON.stringify(JSONSchema.make(Work), null, 2)).toMatchFileSnapshot(
@@ -314,22 +302,6 @@ describe('Work', () => {
 					      "description": "a string",
 					      "title": "string",
 					      "type": "string",
-					    },
-					    "techStack": {
-					      "additionalItems": {
-					        "description": "a string",
-					        "title": "string",
-					        "type": "string",
-					      },
-					      "items": [
-					        {
-					          "description": "a string",
-					          "title": "string",
-					          "type": "string",
-					        },
-					      ],
-					      "minItems": 1,
-					      "type": "array",
 					    },
 					    "url": {
 					      "description": "a string",
