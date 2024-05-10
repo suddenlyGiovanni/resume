@@ -127,11 +127,11 @@ describe('nonEmptyString', () => {
 
 		test('typeSchema', () => {
 			expect(() => JSONSchema.make(Schema.typeSchema(NonEmptyString))).toMatchInlineSnapshot(
-				`[Function]`,
+				'[Function]',
 			)
 			expect(() =>
 				JSONSchema.make(Schema.typeSchema(NonEmptyStringAnnotated)),
-			).toMatchInlineSnapshot(`[Function]`)
+			).toMatchInlineSnapshot('[Function]')
 		})
 	})
 })
