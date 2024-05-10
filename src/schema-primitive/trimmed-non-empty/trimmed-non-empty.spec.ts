@@ -1,6 +1,4 @@
-import * as AST from '@effect/schema/AST'
-import * as jsonSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { AST, JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { expectEitherLeft, expectEitherRight } from '../../test/test-utils.js'
@@ -8,7 +6,7 @@ import { TrimmedNonEmpty, trimmedNonEmpty } from './trimmed-non-empty.js'
 
 describe('trimmedNonEmpty', () => {
 	describe('Regex Pattern', () => {
-		const regex = /^[^\s].*[^\s]$/
+		const regex = /^\S.*\S$/
 		test('should validate trimmed non-empty strings with random tokens', () => {
 			const validString = 'valid123$%^&*'
 			expect(regex.test(validString)).toBe(true)
@@ -31,12 +29,12 @@ describe('trimmedNonEmpty', () => {
 	})
 
 	test('does not transform non-empty-strings', () => {
-		const decode = S.decodeEither(TrimmedNonEmpty)
+		const decode = Schema.decodeEither(TrimmedNonEmpty)
 		expectEitherRight(decode('test string'), 'test string')
 	})
 
 	test('throws error when empty string is passed', () => {
-		const decode = S.decodeEither(TrimmedNonEmpty)
+		const decode = Schema.decodeEither(TrimmedNonEmpty)
 		const emptyString = '   '
 		expectEitherLeft(
 			decode(emptyString),
@@ -45,14 +43,14 @@ describe('trimmedNonEmpty', () => {
 	})
 
 	test('does not modify the string, only validates against the def rules', () => {
-		const decode = S.decodeEither(TrimmedNonEmpty)
+		const decode = Schema.decodeEither(TrimmedNonEmpty)
 		const testString = '   test string   ' as const
 		expectEitherRight(decode(testString), testString)
 	})
 
 	test('should preserve `annotations.jsonSchema`', () => {
 		expect(
-			S.String.pipe(trimmedNonEmpty()).ast.annotations[AST.JSONSchemaAnnotationId],
+			Schema.String.pipe(trimmedNonEmpty()).ast.annotations[AST.JSONSchemaAnnotationId],
 		).toMatchInlineSnapshot(`
 			{
 			  "minLength": 1,
@@ -61,7 +59,7 @@ describe('trimmedNonEmpty', () => {
 		`)
 
 		expect(
-			S.String.pipe(trimmedNonEmpty({ jsonSchema: {} })).ast.annotations[
+			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: {} })).ast.annotations[
 				AST.JSONSchemaAnnotationId
 			],
 		).toMatchInlineSnapshot(`
@@ -72,9 +70,8 @@ describe('trimmedNonEmpty', () => {
 		`)
 
 		expect(
-			S.String.pipe(trimmedNonEmpty({ jsonSchema: { foo: 'bar', baz: 'zebra' } })).ast.annotations[
-				AST.JSONSchemaAnnotationId
-			],
+			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: { foo: 'bar', baz: 'zebra' } })).ast
+				.annotations[AST.JSONSchemaAnnotationId],
 		).toMatchInlineSnapshot(`
 				{
 				  "baz": "zebra",
@@ -88,7 +85,7 @@ describe('trimmedNonEmpty', () => {
 	describe('JsonSchema', () => {
 		describe('naked', () => {
 			test('no annotations', () => {
-				expect(jsonSchema.make(TrimmedNonEmpty)).toMatchInlineSnapshot(
+				expect(JSONSchema.make(TrimmedNonEmpty)).toMatchInlineSnapshot(
 					`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
@@ -104,7 +101,7 @@ describe('trimmedNonEmpty', () => {
 
 			test('with annotations', () => {
 				expect(
-					jsonSchema.make(
+					JSONSchema.make(
 						TrimmedNonEmpty.annotations({
 							title: 'title',
 							description: 'description',
@@ -128,9 +125,9 @@ describe('trimmedNonEmpty', () => {
 
 			test('when composing with other filters ', () => {
 				expect(
-					jsonSchema.make(
+					JSONSchema.make(
 						TrimmedNonEmpty.pipe(
-							S.lowercased({
+							Schema.lowercased({
 								jsonSchema: {
 									pattern: new RegExp(/^[a-z]+$/).source,
 								},
@@ -149,15 +146,15 @@ describe('trimmedNonEmpty', () => {
 				`)
 
 				expect(
-					jsonSchema.make(
+					JSONSchema.make(
 						TrimmedNonEmpty.pipe(
-							S.lowercased({
+							Schema.lowercased({
 								jsonSchema: {
 									pattern: new RegExp(/^[a-z]+$/).source,
 								},
 							}),
-							S.maxLength(10),
-							S.minLength(2),
+							Schema.maxLength(10),
+							Schema.minLength(2),
 						).annotations({
 							title: 'TITLE',
 							description: 'DESCRIPTION',

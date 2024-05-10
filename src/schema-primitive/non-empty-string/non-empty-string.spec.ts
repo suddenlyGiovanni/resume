@@ -1,6 +1,5 @@
-import * as jsonSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
-import { identity } from 'effect/Function'
+import { JSONSchema, Schema } from '@effect/schema'
+import { identity } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { expectEitherRight } from '../../test/test-utils.js'
@@ -10,12 +9,12 @@ describe('nonEmptyString', () => {
 	const NonEmptyString = nonEmptyString()
 
 	test('does not transform non-empty-strings', () => {
-		const decode = S.decodeEither(NonEmptyString)
+		const decode = Schema.decodeEither(NonEmptyString)
 		expectEitherRight(decode('test string'), 'test string')
 	})
 
 	test('throws error when empty string is passed', () => {
-		const decode = S.decodeEither(NonEmptyString)
+		const decode = Schema.decodeEither(NonEmptyString)
 		expect(decode('   ')).toMatchInlineSnapshot(`
 			{
 			  "_id": "Either",
@@ -31,7 +30,7 @@ describe('nonEmptyString', () => {
 	})
 
 	test('trims leading and trailing white spaces', () => {
-		const decode = S.decodeEither(NonEmptyString)
+		const decode = Schema.decodeEither(NonEmptyString)
 		expectEitherRight(decode('   test string   ' as const), 'test string' as const)
 	})
 
@@ -44,7 +43,7 @@ describe('nonEmptyString', () => {
 		})
 
 		test('naked', () => {
-			expect(JSON.stringify(jsonSchema.make(NonEmptyString), null, '\t')).toMatchInlineSnapshot(`
+			expect(JSON.stringify(JSONSchema.make(NonEmptyString), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"minLength": 1
@@ -52,7 +51,7 @@ describe('nonEmptyString', () => {
 			`)
 
 			expect(
-				JSON.stringify(jsonSchema.make(NonEmptyStringAnnotated), null, '\t'),
+				JSON.stringify(JSONSchema.make(NonEmptyStringAnnotated), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
@@ -63,7 +62,7 @@ describe('nonEmptyString', () => {
 
 		test('encodedSchema', () => {
 			expect(
-				JSON.stringify(jsonSchema.make(S.encodedSchema(NonEmptyString)), null, '\t'),
+				JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
@@ -83,7 +82,7 @@ describe('nonEmptyString', () => {
 			`)
 
 			expect(
-				JSON.stringify(jsonSchema.make(S.encodedSchema(NonEmptyStringAnnotated)), null, '\t'),
+				JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyStringAnnotated)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
@@ -103,8 +102,8 @@ describe('nonEmptyString', () => {
 
 			expect(
 				JSON.stringify(
-					jsonSchema.make(
-						S.encodedSchema(
+					JSONSchema.make(
+						Schema.encodedSchema(
 							nonEmptyString({
 								title: '__TITLE__',
 								description: '__DESCRIPTION__',
@@ -127,19 +126,19 @@ describe('nonEmptyString', () => {
 		})
 
 		test('typeSchema', () => {
-			expect(() => jsonSchema.make(S.typeSchema(NonEmptyString))).toMatchInlineSnapshot(
+			expect(() => JSONSchema.make(Schema.typeSchema(NonEmptyString))).toMatchInlineSnapshot(
 				`[Function]`,
 			)
-			expect(() => jsonSchema.make(S.typeSchema(NonEmptyStringAnnotated))).toMatchInlineSnapshot(
-				`[Function]`,
-			)
+			expect(() =>
+				JSONSchema.make(Schema.typeSchema(NonEmptyStringAnnotated)),
+			).toMatchInlineSnapshot(`[Function]`)
 		})
 	})
 })
 
 describe('Annotation', () => {
 	test('on naked String', () => {
-		expect(jsonSchema.make(S.String)).toMatchInlineSnapshot(`
+		expect(JSONSchema.make(Schema.String)).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
 			  "description": "a string",
@@ -149,8 +148,8 @@ describe('Annotation', () => {
 		`)
 
 		expect(
-			jsonSchema.make(
-				S.String.annotations({
+			JSONSchema.make(
+				Schema.String.annotations({
 					title: 'title',
 					description: 'description',
 					examples: ['example'],
@@ -171,11 +170,11 @@ describe('Annotation', () => {
 
 	test('on a refinement such as NonEmpty', () => {
 		const minLength =
-			<A extends string>(minLength: number, annotations?: S.Annotations.Filter<A>) =>
-			<I, R>(self: S.Schema<A, I, R>): S.Schema<A, I, R> =>
+			<A extends string>(minLength: number, annotations?: Schema.Annotations.Filter<A>) =>
+			<I, R>(self: Schema.Schema<A, I, R>): Schema.Schema<A, I, R> =>
 				self.pipe(
-					S.filter((a): a is A => a.length >= minLength, {
-						typeId: S.MinLengthTypeId,
+					Schema.filter((a): a is A => a.length >= minLength, {
+						typeId: Schema.MinLengthTypeId,
 						description: `a string at least ${minLength} character(s) long`,
 						jsonSchema: {
 							...annotations?.jsonSchema,
@@ -186,14 +185,14 @@ describe('Annotation', () => {
 				)
 
 		const nonEmpty = <A extends string>(
-			annotations?: S.Annotations.Filter<A>,
-		): (<I, R>(self: S.Schema<A, I, R>) => S.Schema<A, I, R>) =>
+			annotations?: Schema.Annotations.Filter<A>,
+		): (<I, R>(self: Schema.Schema<A, I, R>) => Schema.Schema<A, I, R>) =>
 			minLength(1, {
 				description: 'a non empty string',
 				...annotations,
 			})
 
-		const NonEmpty = S.String.pipe(
+		const NonEmpty = Schema.String.pipe(
 			// is is a refinement that only checks if the string is not empty
 			nonEmpty({
 				identifier: 'NonEmpty',
@@ -202,7 +201,7 @@ describe('Annotation', () => {
 		)
 
 		// default annotations
-		expect(jsonSchema.make(NonEmpty)).toMatchInlineSnapshot(`
+		expect(JSONSchema.make(NonEmpty)).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
 			  "description": "a non empty string",
@@ -212,14 +211,14 @@ describe('Annotation', () => {
 			}
 		`)
 
-		expect(jsonSchema.make(NonEmpty.pipe(S.jsonSchema({ foo: 'bar' })))).not.toEqual(
-			jsonSchema.make(NonEmpty),
+		expect(JSONSchema.make(NonEmpty.pipe(Schema.jsonSchema({ foo: 'bar' })))).not.toEqual(
+			JSONSchema.make(NonEmpty),
 		)
 
 		// custom annotations
 
 		expect(
-			jsonSchema.make(
+			JSONSchema.make(
 				NonEmpty.annotations({
 					title: 'custom title',
 					description: 'custom description',
@@ -254,11 +253,11 @@ describe('Annotation', () => {
 		 * @since 1.0.0
 		 */
 		const trimmed =
-			<A extends string>(annotations?: S.Annotations.Filter<A>) =>
-			<I, R>(self: S.Schema<A, I, R>): S.Schema<A, I, R> =>
+			<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
+			<I, R>(self: Schema.Schema<A, I, R>): Schema.Schema<A, I, R> =>
 				self.pipe(
-					S.filter((a): a is A => a === a.trim(), {
-						typeId: S.TrimmedTypeId,
+					Schema.filter((a): a is A => a === a.trim(), {
+						typeId: Schema.TrimmedTypeId,
 						description: 'a string with no leading or trailing whitespace',
 						...annotations,
 					}),
@@ -268,7 +267,7 @@ describe('Annotation', () => {
 		 * @category string constructors
 		 * @since 1.0.0
 		 */
-		const Trimmed = S.String.pipe(
+		const Trimmed = Schema.String.pipe(
 			trimmed({
 				identifier: 'Trimmed',
 				title: 'Trimmed',
@@ -276,7 +275,7 @@ describe('Annotation', () => {
 		)
 
 		// default annotations
-		expect(jsonSchema.make(S.encodedSchema(Trimmed))).toMatchInlineSnapshot(`
+		expect(JSONSchema.make(Schema.encodedSchema(Trimmed))).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
 			  "description": "a string",
@@ -287,8 +286,8 @@ describe('Annotation', () => {
 
 		// custom annotations
 		expect(
-			jsonSchema.make(
-				S.encodedSchema(
+			JSONSchema.make(
+				Schema.encodedSchema(
 					Trimmed.annotations({
 						title: 'custom title',
 						description: 'custom description',
@@ -305,13 +304,13 @@ describe('Annotation', () => {
 			}
 		`)
 
-		const Trim = S.transform(S.String, Trimmed, {
+		const Trim = Schema.transform(Schema.String, Trimmed, {
 			decode: s => s.trim(),
 			encode: identity,
 		}).annotations({ identifier: 'Trim' })
 
 		// default annotations
-		expect(jsonSchema.make(S.encodedSchema(Trim))).toMatchInlineSnapshot(`
+		expect(JSONSchema.make(Schema.encodedSchema(Trim))).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
 			  "description": "a string",

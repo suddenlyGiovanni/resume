@@ -1,12 +1,11 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import * as S from '@effect/schema/Schema'
+import { JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
 import { ISODateString } from './iso-date-string.js'
 
 describe('ISODateString', () => {
 	describe('decode', () => {
-		const parse = S.decodeUnknownSync(ISODateString)
+		const parse = Schema.decodeUnknownSync(ISODateString)
 		test('empty string', () => {
 			expect(() => parse('')).toThrow()
 		})

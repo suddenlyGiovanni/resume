@@ -1,4 +1,4 @@
-import * as S from '@effect/schema/Schema'
+import { Schema } from '@effect/schema'
 import type { JSONSchema7 } from 'json-schema'
 
 /**
@@ -23,13 +23,13 @@ export const omit = <O extends object, K extends keyof O>(o: O, k: K): Omit<O, K
  * @category string filter
  */
 export const trimmedNonEmpty =
-	<A extends string>(annotations?: S.Annotations.Filter<A>) =>
-	<I, R>(self: S.Schema<A, I, R>) => {
+	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
+	<I, R>(self: Schema.Schema<A, I, R>) => {
 		const regex = /^[^\s].*[^\s]$/
 		const pattern = regex.source
 
 		return self.pipe(
-			S.filter((a): a is A => a.trim().length >= 1, {
+			Schema.filter((a): a is A => a.trim().length >= 1, {
 				description: 'a non-empty string with no leading or trailing whitespace',
 				message: issue =>
 					`expected a non-empty string with no leading or trailing whitespace, got "${issue.actual}"`,
@@ -39,13 +39,13 @@ export const trimmedNonEmpty =
 		)
 	}
 
-export interface TrimmedNonEmpty extends S.Annotable<TrimmedNonEmpty, string> {}
+export interface TrimmedNonEmpty extends Schema.Annotable<TrimmedNonEmpty, string> {}
 
 /**
  * String constructor that validates that given string, after the removal of leading and trailing whitespaces, has a minimum length of 1
  * @categroy string constructor
  */
-export const TrimmedNonEmpty: TrimmedNonEmpty = S.String.pipe(
+export const TrimmedNonEmpty: TrimmedNonEmpty = Schema.String.pipe(
 	trimmedNonEmpty({
 		identifier: 'TrimmedNonEmpty',
 		title: 'TrimmedNonEmpty',
