@@ -44,12 +44,21 @@ describe('nonEmptyString', () => {
 		})
 
 		test('naked', () => {
-			expect(() => JSON.stringify(jsonSchema.make(NonEmptyString), null, '\t')).toThrow(
-				'cannot build a JSON Schema for a refinement without a JSON Schema annotation',
-			)
-			expect(() => JSON.stringify(jsonSchema.make(NonEmptyStringAnnotated), null, '\t')).toThrow(
-				'cannot build a JSON Schema for a refinement without a JSON Schema annotation',
-			)
+			expect(JSON.stringify(jsonSchema.make(NonEmptyString), null, '\t')).toMatchInlineSnapshot(`
+				"{
+					"$schema": "http://json-schema.org/draft-07/schema#",
+					"minLength": 1
+				}"
+			`)
+
+			expect(
+				JSON.stringify(jsonSchema.make(NonEmptyStringAnnotated), null, '\t'),
+			).toMatchInlineSnapshot(`
+				"{
+					"$schema": "http://json-schema.org/draft-07/schema#",
+					"minLength": 1
+				}"
+			`)
 		})
 
 		test('encodedSchema', () => {
@@ -118,12 +127,12 @@ describe('nonEmptyString', () => {
 		})
 
 		test('typeSchema', () => {
-			expect(() =>
-				JSON.stringify(jsonSchema.make(S.typeSchema(NonEmptyString)), null, '\t'),
-			).toThrow('cannot build a JSON Schema for a refinement without a JSON Schema annotation')
-			expect(() =>
-				JSON.stringify(jsonSchema.make(S.typeSchema(NonEmptyStringAnnotated)), null, '\t'),
-			).toThrow('cannot build a JSON Schema for a refinement without a JSON Schema annotation')
+			expect(() => jsonSchema.make(S.typeSchema(NonEmptyString))).toMatchInlineSnapshot(
+				`[Function]`,
+			)
+			expect(() => jsonSchema.make(S.typeSchema(NonEmptyStringAnnotated))).toMatchInlineSnapshot(
+				`[Function]`,
+			)
 		})
 	})
 })

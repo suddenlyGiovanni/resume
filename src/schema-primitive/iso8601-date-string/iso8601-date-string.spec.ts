@@ -34,7 +34,7 @@ describe('ISO8601Date', () => {
 				  "_tag": "Left",
 				  "left": {
 				    "_id": "ParseError",
-				    "message": "(Date <-> ISO8601DateString)
+				    "message": "ISO8601DateString
 				└─ Encoded side transformation failure
 				   └─ Date
 				      └─ Predicate refinement failure
@@ -163,24 +163,10 @@ describe('ISO8601Date', () => {
 			expect(JSON.stringify(jsonSchema.make(ISO8601DateString), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/ISO8601DateString",
-					"$defs": {
-						"ISO8601DateString": {
-							"type": "string",
-							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
-							"title": "ISO 8601 Date string",
-							"examples": [
-								"YYYY -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sssZ -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh]:[mm] -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh][mm] -> YYYY-MM-DDThh:mm:ss.sssZ"
-							]
-						}
-					}
+					"title": "ISO 8601 Date string",
+					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
+					"format": "date-time",
+					"type": "string"
 				}"
 			`)
 
@@ -189,24 +175,10 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/ISO8601DateString",
-					"$defs": {
-						"ISO8601DateString": {
-							"type": "string",
-							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
-							"title": "ISO 8601 Date string",
-							"examples": [
-								"YYYY -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sssZ -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh]:[mm] -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh][mm] -> YYYY-MM-DDThh:mm:ss.sssZ"
-							]
-						}
-					}
+					"title": "ISO 8601 Date string",
+					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
+					"format": "date-time",
+					"type": "string"
 				}"
 			`)
 		})
@@ -241,24 +213,9 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/ISO8601DateString",
-					"$defs": {
-						"ISO8601DateString": {
-							"type": "string",
-							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
-							"title": "ISO 8601 Date string",
-							"examples": [
-								"YYYY -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sssZ -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh]:[mm] -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh][mm] -> YYYY-MM-DDThh:mm:ss.sssZ"
-							]
-						}
-					}
+					"type": "string",
+					"description": "a string",
+					"title": "string"
 				}"
 			`)
 
@@ -267,24 +224,9 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"$ref": "#/$defs/ISO8601DateString",
-					"$defs": {
-						"ISO8601DateString": {
-							"type": "string",
-							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
-							"title": "ISO 8601 Date string",
-							"examples": [
-								"YYYY -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DD -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sssZ -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh]:[mm] -> YYYY-MM-DDThh:mm:ss.sssZ",
-								"YYYY-MM-DDThh:mm:ss.sss±[hh][mm] -> YYYY-MM-DDThh:mm:ss.sssZ"
-							]
-						}
-					}
+					"type": "string",
+					"description": "a string",
+					"title": "string"
 				}"
 			`)
 		})
