@@ -1,7 +1,5 @@
-import * as JSONSchema from '@effect/schema/JSONSchema'
-import { ParseError } from '@effect/schema/ParseResult'
-import * as Schema from '@effect/schema/Schema'
-import * as Either from 'effect/Either'
+import { JSONSchema, ParseResult, Schema } from '@effect/schema'
+import { Either } from 'effect'
 import { describe, expect, it } from 'vitest'
 
 import type { Basics } from './basics/basics.js'
@@ -47,7 +45,7 @@ describe('Resume', () => {
 			)
 			expect(Either.isLeft(mockResult)).toBe(true)
 			Either.mapLeft(mockResult, parseError => {
-				expect(parseError).toBeInstanceOf(ParseError)
+				expect(parseError).toBeInstanceOf(ParseResult.ParseError)
 			})
 		})
 
