@@ -6,26 +6,26 @@
 		':pinDevDependencies',
 		'group:monorepos',
 		'group:recommended',
-		"regexManagers:biomeVersions",
+		'customManagers:biomeVersions',
 		'replacements:all',
 		'workarounds:all',
 		':followTag(typescript, rc)',
-		'schedule:earlyMondays'
+		'schedule:earlyMondays',
 	],
 	labels: [
-		'dependencies'
+		'dependencies',
 	],
 	npmrcMerge: true,
 	dockerfile: {
-		enabled: true
+		enabled: true,
 	},
 	packageRules: [
 		{
 			matchPackagePatterns: [
 				'^effect$',
-				'^@effect/'
+				'^@effect/',
 			],
-			groupName: 'effect packages'
-		}
-	]
+			groupName: 'effect packages',
+		},
+	],
 }
