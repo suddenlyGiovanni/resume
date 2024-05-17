@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 11.3.0
+
+### Minor Changes
+
+- 9531367: update `@effect/schema` to v0.67.5
+
 ## 11.2.0
 
 ### Minor Changes
