@@ -26,7 +26,75 @@ basics:
     - network: LinkedIn
       username: giovanni-ravalico
       url: https://www.linkedin.com/in/giovanni-ravalico
+
 work:
+  - name: Caya Gmbh
+    location: Berlin, Germany
+    url: https://www.caya.com/en/home
+    description: Documents collaboration platform
+    contact:
+      name: Arnaud Seilles (CTO)
+      email: arnaud.seilles@getcaya.com
+    roles:
+      - title: Backend Engineer
+        startDate: "2023-02-01"
+        endDate: "2024-04-30"
+        responsibilities:
+          - Design, build, scale, and maintain Caya’s backend applications.
+          - Served as the code owner of the GraphQL API layer, where I designed, maintained, and improved robust and scalable GraphQL APIs.
+          - Acted as the code owner of Continuous Integration (CI) and Continuous Deployment (CD) processes.
+        highlights:
+          - |
+            Made significant contributions to a system re-architecture effort, aimed at improving its reliability and maintainability.
+            - Utilized "Domain-Driven Design" (DDD) analysis tools to identify and isolate each responsibility into its own context, resulting in a more maintainable and comprehensible system architecture.
+            - Incorporated the "Layered Architecture" approach within each delineated bounded context, further partitioning responsibilities. This improved the system's modularity and accelerated the development of new features.
+          - |
+            Championed and implemented RFC (Request For Comments) and ADR (Architecture Decision Records) processes for structured technical decision-making. This initiative led to:
+            - Improved productivity: Minimized time spent revisiting past decisions, enhancing focus on core tasks.
+            - Better Decision-Making: Leveraged past records for informed future decisions.
+            - Enhanced Knowledge Management: Expedited onboarding of new team members with accessible project history.
+            - Reduced Risk: Mitigated project risks by learning from documented experiences.
+        technologies:
+          - Typescript
+          - Node
+          - GraphQL
+          - Jest
+          - Cucumber.js
+          - Express.js
+          - Apollo Server
+          - Prisma
+          - MySQL
+          - MikroORM
+          - AWS Lambda
+
+      - title: Senior Frontend Engineer
+        startDate: "2022-02-01"
+        endDate: "2023-01-31"
+        technologies:
+          - Typescript
+          - React
+          - Cypress
+          - Jest
+          - Testing Library
+          - Storybook
+          - GraphQL
+          - Apollo Client
+          - styled-components
+        responsibilities:
+          - Orchestrated the front-end development process for multiple product domains, encompassing both product management (discovery phase) and implementation (delivery phase).
+          - Translated product ideas into technical requirements and user stories.
+          - Collaborated with designers and back-end engineers to ensure seamless integration.
+          - Mentored junior developers in Test Driven Development (TDD), Behavior Driven Development (BDD), and design patterns.
+          - Championed the "boy scout rule" to improve codebase maintainability and reduce technical debt.
+          - Acted as the team's TypeScript "Wizard," providing support and ensuring code correctness.
+          - Focused on accessibility and performance considerations throughout development for a user-centric experience.
+          - Communicated and collaborated with other front-end engineers across teams to define front-end standards and best practices.
+        highlights:
+          - Championed a collaborative, cross-functional team structure that successfully pioneered a vertically integrated development model. This innovative approach delivered full-stack features (product concept to implementation) and was adopted by the company as a new standard.
+          - Improved team happiness and code quality through fostering a positive and collaborative work environment.
+          - Mentored a junior developer who grew to take full ownership of the company's design library, a critical codebase used throughout the application.
+          - Effectively integrated accessibility and performance considerations throughout development, leading to a more user-friendly and performant application.
+
   - name: Bettermarks Gmbh
     location: Berlin, Germany
     description: EdTech
