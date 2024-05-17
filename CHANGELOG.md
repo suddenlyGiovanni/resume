@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 12.0.0
+
+### Major Changes
+
+- 990290f: Add work experience at `Caya Gmbh`
+
 ## 11.3.0
 
 ### Minor Changes
