@@ -40,20 +40,24 @@ work:
         startDate: "2023-02-01"
         endDate: "2024-04-30"
         responsibilities:
-          - Design, build, scale, and maintain Caya’s backend applications.
-          - Served as the code owner of the GraphQL API layer, where I designed, maintained, and improved robust and scalable GraphQL APIs.
-          - Acted as the code owner of Continuous Integration (CI) and Continuous Deployment (CD) processes.
+          - Owned and maintained the customer-facing GraphQL API ("customer-api") as a Node.js server deployed in a container on AWS ECS. This API served as the primary entry point for client requests, performing authentication, authorization, and resolving queries, mutations, and subscriptions.
+          - Collaborated with colleagues who owned other subdomain APIs within Caya's hybrid backend architecture (serverless functions and containerized microservices), ensuring efficient handling of business logic for various functionalities.
+          - Owned and maintained Caya's CI/CD pipelines using GitHub Actions, automating builds, tests, and deployments, ensuring efficient and reliable delivery of software updates.
+          - Reviewed and provided feedback on code changes across various backend systems, fostering code quality and maintainability.
         highlights:
           - |
-            Made significant contributions to a system re-architecture effort, aimed at improving its reliability and maintainability.
-            - Utilized "Domain-Driven Design" (DDD) analysis tools to identify and isolate each responsibility into its own context, resulting in a more maintainable and comprehensible system architecture.
-            - Incorporated the "Layered Architecture" approach within each delineated bounded context, further partitioning responsibilities. This improved the system's modularity and accelerated the development of new features.
+            Supported the re-architecture of Caya's backend system using Domain-Driven Design (DDD) principles.
+            This initiative aimed to improve code maintainability, enhance scalability, and reduce complexity.
           - |
-            Championed and implemented RFC (Request For Comments) and ADR (Architecture Decision Records) processes for structured technical decision-making. This initiative led to:
+            Implemented code within the newly defined bounded contexts and applied layered architecture within each context.
+            This approach fostered modularity and a clear separation of concerns, ultimately contributing to a more maintainable and scalable backend system.
+          - |
+            Championed and implemented RFC (Request for Comments) and ADR (Architecture Decision Records) processes, improving team decision-making, knowledge sharing, and reducing project risks. This initiative resulted in:
             - Improved productivity: Minimized time spent revisiting past decisions, enhancing focus on core tasks.
             - Better Decision-Making: Leveraged past records for informed future decisions.
             - Enhanced Knowledge Management: Expedited onboarding of new team members with accessible project history.
             - Reduced Risk: Mitigated project risks by learning from documented experiences.
+            - Adept at working within hybrid architectures, leveraging both serverless functions and containerized microservices to achieve optimal performance and scalability for Caya's backend systems.
         technologies:
           - Typescript
           - Node
@@ -83,7 +87,7 @@ work:
         responsibilities:
           - Orchestrated the front-end development process for multiple product domains, encompassing both product management (discovery phase) and implementation (delivery phase).
           - Translated product ideas into technical requirements and user stories.
-          - Collaborated with designers and back-end engineers to ensure seamless integration.
+          - Collaborated with designers and backend engineers to ensure seamless integration.
           - Mentored junior developers in Test Driven Development (TDD), Behavior Driven Development (BDD), and design patterns.
           - Championed the "boy scout rule" to improve codebase maintainability and reduce technical debt.
           - Acted as the team's TypeScript "Wizard," providing support and ensuring code correctness.
@@ -119,7 +123,7 @@ work:
           - Maintain and improve code quality.
         technologies:
           - Typescript
-          - CoffeeScript
+          - ActionScript
           - Kotlin
           - React
           - Redux
