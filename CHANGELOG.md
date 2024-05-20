@@ -1,5 +1,12 @@
 # @suddenly-giovanni/resume
 
+## 12.1.0
+
+### Minor Changes
+
+- 3cf2b2f: update `@effect/schema` to v0.67.5
+- 3cf2b2f: chore(deps): update effect packages v0.67.9
+
 ## 12.0.0
 
 ### Major Changes
