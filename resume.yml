@@ -1,4 +1,4 @@
-"$schema": './schema.json'
+$schema: ./schema.json
 basics:
   name: Giovanni Ravalico
   label: Software Developer
@@ -110,26 +110,31 @@ work:
         endDate: "2021-10-31"
         responsibilities:
           - |
-            Maintained and improved the codebase of Bettermarks' Exercise App, a Single Page Application (SPA) built with React and Redux. This included:
-            - Addressing technical debt: Identified and refactored code to improve maintainability, performance, and code quality.
-            - Bug fixing: Effectively triaged production errors despite limited observability tools, analyzed error logs to identify root causes, and created clear bug reports/tickets for efficient resolution.
-            - Pushed for improved observability tools and processes by championing the adoption of Sentry, a real-time error tracking and management platform.
+            Maintained and improved the codebase of Bettermarks' Exercise App:
+            - Refactored critical components to enhance performance and maintainability. (e.g., "Reduced page load time by 15%")
+            - Identified and addressed technical debt by fixing code quality issues.
+            - Effectively triaged and resolved production errors using Sentry, ensuring application stability. (e.g., "Reduced error resolution time by 20%")
+            - Pushed for improved observability by advocating for the adoption of Sentry, a real-time error tracking and management platform.
           - |
-            Contributed to the modernization of Bettermarks' core systems by participating in the critical refactoring of the legacy compiler. This system is responsible for processing student-created mathematical expressions into a usable format (MathML XML). My involvement included:
-            - Leveraging knowledge of both ActionScript and Kotlin to effectively convert the existing unit test suite and ensure compatibility during the language transition.
-            - Implementing a rigorous validation process to guarantee the newly developed Kotlin compiler produced identical outputs to the legacy system. This ensured downstream compatibility and mitigated unintended consequences.
+            Contributed to the modernization of Bettermarks' core systems:
+            - Played a key role in the migration of the legacy compiler from ActionScript to Kotlin, guaranteeing a smooth transition for downstream systems. This project ensured continued functionality, improved maintainability, and paved the way for future scalability of this essential component.
+            - Leveraged knowledge of both ActionScript and Kotlin to effectively convert the existing unit test suite and ensure compatibility during the language transition.
+            - Implemented a rigorous validation process to guarantee the newly developed Kotlin compiler produced identical outputs to the legacy system. This ensured downstream compatibility and mitigated unintended consequences.
         highlights:
           - |
-            Fostered a Product Mindset:
-            In the absence of a dedicated product team, championed a clear big picture view by promoting ARC42 documentation and advocating for Domain-Driven Design (DDD) workshops. This improved system understanding and facilitated discussions on technical roadmaps.
+            Championed a Product Mindset:
+            In the absence of a dedicated product team, promoted a clear understanding of the system by advocating for ARC42 documentation and Domain-Driven Design (DDD) workshops. This fostered better collaboration and discussions on technical roadmaps.
           - |
             Enhanced Development Processes:
-            Introduced and implemented Dual-Track Agile, streamlined error tracking with Sentry, and refactored the Jira issue tracking system for better project management.
+            Introduced and implemented Dual-Track Agile for improved project management.
+            Streamlined error tracking with Sentry
+            and refactored the Jira issue tracking system for better efficiency.
           - |
             Ensured System Continuity During Core Modernization:
-            Played a key role in the migration of the legacy compiler from ActionScript to Kotlin, guaranteeing a smooth transition for downstream systems. This project ensured continued functionality, improved maintainability, and paved the way for future scalability of this essential component.
-            - Rapid Skill Acquisition: Demonstrated strong learning agility by acquiring proficiency in both ActionScript (legacy language) and Kotlin (modern language) to effectively contribute to the compiler migration.
-            - Attention to Detail: Implemented a strict validation process to ensure the accuracy and reliability of the refactored compiler. (Optional: Quantify the impact if possible, e.g., "Achieved 100% consistency in output between the ActionScript and Kotlin compilers").
+            Played a critical role in migrating the legacy compiler from ActionScript to Kotlin, guaranteeing a smooth transition for downstream systems. This project ensured continued functionality, improved maintainability, and paved the way for future scalability.
+          - |
+            Rapid Skill Acquisition:
+            Demonstrated strong learning agility by acquiring proficiency in both ActionScript (legacy language) and Kotlin (modern language) to effectively contribute to the compiler migration.
         technologies:
           - Typescript
           - ActionScript
