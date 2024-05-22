@@ -115,9 +115,9 @@ work:
             - Bug fixing: Effectively triaged production errors despite limited observability tools, analyzed error logs to identify root causes, and created clear bug reports/tickets for efficient resolution.
             - Pushed for improved observability tools and processes by championing the adoption of Sentry, a real-time error tracking and management platform.
           - |
-            Contributed to the refactoring of the compiler, a core system responsible for processing content created in a custom Domain Specific Language (DSL) into a usable format (MathML XML).
-            - Converted unit test suites from ActionScript to Kotlin to ensure seamless migration and maintain consistent behavior.
-            - Implemented a strict validation process to guarantee identical outputs between the legacy and new compiler versions.
+            Contributed to the modernization of Bettermarks' core systems by participating in the critical refactoring of the legacy compiler. This system is responsible for processing student-created mathematical expressions into a usable format (MathML XML). My involvement included:
+            - Leveraging knowledge of both ActionScript and Kotlin to effectively convert the existing unit test suite and ensure compatibility during the language transition.
+            - Implementing a rigorous validation process to guarantee the newly developed Kotlin compiler produced identical outputs to the legacy system. This ensured downstream compatibility and mitigated unintended consequences.
         highlights:
           - |
             Fostered a Product Mindset:
@@ -126,8 +126,10 @@ work:
             Enhanced Development Processes:
             Introduced and implemented Dual-Track Agile, streamlined error tracking with Sentry, and refactored the Jira issue tracking system for better project management.
           - |
-            Modernized Core Systems:
-            Played a key role in the migration of the legacy compiler from ActionScript to Kotlin, ensuring seamless compatibility and long-term maintainability.
+            Ensured System Continuity During Core Modernization:
+            Played a key role in the migration of the legacy compiler from ActionScript to Kotlin, guaranteeing a smooth transition for downstream systems. This project ensured continued functionality, improved maintainability, and paved the way for future scalability of this essential component.
+            - Rapid Skill Acquisition: Demonstrated strong learning agility by acquiring proficiency in both ActionScript (legacy language) and Kotlin (modern language) to effectively contribute to the compiler migration.
+            - Attention to Detail: Implemented a strict validation process to ensure the accuracy and reliability of the refactored compiler. (Optional: Quantify the impact if possible, e.g., "Achieved 100% consistency in output between the ActionScript and Kotlin compilers").
         technologies:
           - Typescript
           - ActionScript
