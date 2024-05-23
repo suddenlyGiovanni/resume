@@ -110,14 +110,13 @@ work:
         endDate: "2021-10-31"
         responsibilities:
           - |
-            Optimized the performance and maintainability of Bettermarks' Exercise App (TypeScript, React, Redux).
-            - Identified and addressed technical debt, improving code quality.
-            - Effectively triaged and resolved production errors using Sentry.
+            Maintained and improved Bettermarks' Exercise Web App (built with TypeScript, React, Redux) by:
+              - Addressing technical debt through code refactoring.
+              - Fixing bugs by analyzing production logs, triaging errors, and creating clear bug reports.
           - |
-            Contributed to the modernization of Bettermarks' core systems:
-            - Played a key role in migrating the legacy compiler from ActionScript to Kotlin, guaranteeing a smooth transition for downstream systems and future scalability.
-            - Leveraged knowledge of both ActionScript and Kotlin to ensure compatibility during the language transition, preserving the functionality of existing unit tests.
-            - Implemented a rigorous validation process to guarantee the new Kotlin compiler produced identical outputs to the legacy system, mitigating unintended consequences for downstream applications.
+            Contributed to the rewrite of the legacy compiler from ActionScript to Kotlin, the cornerstone of Bettermarks's system. This involved:
+              - Leveraging knowledge of both ActionScript and Kotlin to convert the unit test suite and ensure compatibility during the language transition.
+              - Implementing a rigorous validation process to guarantee identical outputs between the legacy and new compiler versions, mitigating unintended consequences for the downstream consuming applications.
         highlights:
           - |
             Championed a Product Mindset:
