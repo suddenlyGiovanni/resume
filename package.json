@@ -41,12 +41,12 @@
 	},
 	"license": "UNLICENSED",
 	"peerDependencies": {
-		"@effect/schema": "~0.67.9"
+		"@effect/schema": "~0.67.12"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.3",
 		"@changesets/cli": "2.27.3",
-		"@effect/schema": "0.67.9",
+		"@effect/schema": "0.67.12",
 		"@std/yaml": "npm:@jsr/std__yaml@0.224.0",
 		"@tsconfig/node21": "21.0.3",
 		"@tsconfig/strictest": "2.0.5",
@@ -54,7 +54,7 @@
 		"@types/node": "20.12.12",
 		"@vitest/coverage-v8": "1.6.0",
 		"@vitest/ui": "1.6.0",
-		"effect": "3.2.1",
+		"effect": "3.2.4",
 		"typescript": "5.5.0-beta",
 		"vite-tsconfig-paths": "4.3.2",
 		"vitest": "1.6.0"
