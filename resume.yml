@@ -119,12 +119,12 @@ work:
               - Implementing a rigorous validation process to guarantee identical outputs between the legacy and new compiler versions, mitigating unintended consequences for the downstream consuming applications.
         highlights:
           - |
-            Championed a Product Mindset:
-            In the absence of a dedicated product team, promoted a clear understanding of the system by advocating for ARC42 documentation and Domain-Driven Design (DDD) workshops. This fostered better collaboration and discussions on technical roadmaps, ultimately contributing to a more user-centric product development process.
+            Fostered a Product Mindset:
+            In the absence of a dedicated product team, Introduced and implemented Dual-Track Agile and refactored the Jira issue tracking system for better project management.
           - |
             Enhanced Development Processes:
-            Introduced and implemented Dual-Track Agile for improved project management.
-            Streamlined error tracking with Sentry and refactored the Jira issue tracking system for better efficiency.
+            Improved observability tools and processes by championing the adoption of Sentry, a real-time error tracking and management platform. This resulted in streamlined error tracking and improved efficiency in resolving bugs.
+            Promoted a clear understanding of the systems by advocating for ARC42 documentation and Domain-Driven Design (DDD) workshops. This improved system understanding and facilitated discussions on technical roadmaps.
           - |
             Ensured System Continuity During Core Modernization:
             Played a key role in migrating the legacy compiler from ActionScript to Kotlin, guaranteeing a smooth transition for downstream systems. This project ensured continued functionality, improved maintainability, and paved the way for future scalability.
