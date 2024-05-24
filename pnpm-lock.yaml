@@ -15,8 +15,8 @@ importers:
         specifier: 2.27.3
         version: 2.27.3
       '@effect/schema':
-        specifier: 0.67.12
-        version: 0.67.12(effect@3.2.4)
+        specifier: 0.67.13
+        version: 0.67.13(effect@3.2.5)
       '@std/yaml':
         specifier: npm:@jsr/std__yaml@0.224.0
         version: '@jsr/std__yaml@0.224.0'
@@ -39,8 +39,8 @@ importers:
         specifier: 1.6.0
         version: 1.6.0(vitest@1.6.0)
       effect:
-        specifier: 3.2.4
-        version: 3.2.4
+        specifier: 3.2.5
+        version: 3.2.5
       typescript:
         specifier: 5.5.0-beta
         version: 5.5.0-beta
@@ -194,10 +194,10 @@ packages:
   '@changesets/write@0.3.1':
     resolution: {integrity: sha512-SyGtMXzH3qFqlHKcvFY2eX+6b0NGiFcNav8AFsYwy5l8hejOeoeTDemu5Yjmke2V5jpzY+pBvM0vCCQ3gdZpfw==}
 
-  '@effect/schema@0.67.12':
-    resolution: {integrity: sha512-kQ+VJi/oAqfV+R/UU8KbA/2NRhjOsqfIhVFQ4H4Xo7vgWxJ8w284OT9ujJ66/HpjGdooXrSemv3HHjATtJbzPg==}
+  '@effect/schema@0.67.13':
+    resolution: {integrity: sha512-MVd/50CKM18vpOA1dF9fMUdwP0HKH3hISFzS0LB7gsBZ+381V1PmxIJia/1VLmh4S6RKf4pFaQz27VtRUbh1Zg==}
     peerDependencies:
-      effect: ^3.2.4
+      effect: ^3.2.5
 
   '@esbuild/aix-ppc64@0.20.2':
     resolution: {integrity: sha512-D+EBOJHXdNZcLJRBkhENNG8Wji2kgc9AZ9KiPr1JuZjsNtyHzrsfLRrY0tk2H2aoFu6RANO1y1iPPUCDYWkb5g==}
@@ -742,8 +742,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  effect@3.2.4:
-    resolution: {integrity: sha512-w7MvlKBKs0oHeoe+S+xyXVzFpR+g3abY5KmjZksTAMgTTpJx8XZ0Tz0Pv+LWlGyD9R1dJNAsSc+RE0+NMl9JSw==}
+  effect@3.2.5:
+    resolution: {integrity: sha512-Qs/NAX2s/ClRATbiImc4IuzzAs+1RaFzZm7zRx9NKmLFnIeCC+h2LwkrOuprG3PsDM+g1IfPEFWvVbTSDKPnFA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -982,6 +982,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -2047,9 +2048,9 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@effect/schema@0.67.12(effect@3.2.4)':
+  '@effect/schema@0.67.13(effect@3.2.5)':
     dependencies:
-      effect: 3.2.4
+      effect: 3.2.5
       fast-check: 3.18.0
 
   '@esbuild/aix-ppc64@0.20.2':
@@ -2538,7 +2539,7 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  effect@3.2.4: {}
+  effect@3.2.5: {}
 
   emoji-regex@8.0.0: {}
 
