@@ -1,4 +1,4 @@
-"$schema": './schema.json'
+$schema: ./schema.json
 basics:
   name: Giovanni Ravalico
   label: Software Developer
@@ -108,19 +108,26 @@ work:
       - title: Software Developer
         startDate: "2021-04-01"
         endDate: "2021-10-31"
-        highlights:
-          - The 30 thousand feet view of the systems architecture is of an event-driven modular monolithic Python backend, currently migrating to an event-driven microservices architecture. Content Developers author the content in the internal DSL, this is then compiled by the Compiler/Generator that outputs an intermediary XML representation. The students can explore the interactive content and solve exercises with the Exercise App, a SPA web app that sources the appropriate XLM content, parses, renders, execute, validates while emitting the proper events to the backend. I was the code owner of the Exercise App.
-          - I assist with the translation of the ActionScript Generator unit tests to Kotlin.
-          - Pushed for a clear Big Picture view of the systems that make up Bettermarks => settled for ARC42 approach and contributed to documentation.
-          - Drive the conversation on the necessity and benefits of the Domain-Driven-Design (DDD) approach in light of the new architectural non-functional requirements. => Obtain budget and time for a series of DDD workshops to understand the 'Problem Space' better and identify an appropriate 'Solution Space'.
-          - Drove the discussion around a formalization of a Technical Roadmap => identifying the 'Problem Space' and proposed a matching 'Solution Space'.
-          - Pushed for a better runtime error tracking/management solution => commit to integrating Sentry as a solution.
-          - Refactor issue tracking system (Jira) from a 'big ball of mud' to a multi-project-centric approach.
-          - Introduced and implemented Dual-Track Agile as a process (discovery track -> delivery track) => previously, there was no distinction.
         responsibilities:
-          - Pragmatically tackle the technical debt while working within legacy systems.
-          - Tackle the constant influx of bugs.
-          - Maintain and improve code quality.
+          - |
+            Maintained and improved Bettermarks' Exercise Web App (built with TypeScript, React, Redux) by:
+              - Addressing technical debt through code refactoring.
+              - Fixing bugs by analyzing production logs, triaging errors, and creating clear bug reports.
+          - |
+            Contributed to the rewrite of the legacy compiler from ActionScript to Kotlin, the cornerstone of Bettermarks's system. This involved:
+              - Leveraging knowledge of both ActionScript and Kotlin to convert the unit test suite and ensure compatibility during the language transition.
+              - Implementing a rigorous validation process to guarantee identical outputs between the legacy and new compiler versions, mitigating unintended consequences for the downstream consuming applications.
+        highlights:
+          - |
+            Fostered a Product Mindset:
+            In the absence of a dedicated product team, Introduced and implemented Dual-Track Agile and refactored the Jira issue tracking system for better project management.
+          - |
+            Enhanced Development Processes:
+            Improved observability tools and processes by championing the adoption of Sentry, a real-time error tracking and management platform. This resulted in streamlined error tracking and improved efficiency in resolving bugs.
+            Promoted a clear understanding of the systems by advocating for ARC42 documentation and Domain-Driven Design (DDD) workshops. This improved system understanding and facilitated discussions on technical roadmaps.
+          - |
+            Rapid Skill Acquisition:
+            Demonstrated strong learning agility by acquiring proficiency in both ActionScript (legacy language) and Kotlin (modern language) to effectively contribute to the compiler migration.
         technologies:
           - Typescript
           - ActionScript
@@ -130,7 +137,6 @@ work:
           - Jest
           - Cypress
           - MongoDb
-
     contact:
       name: York Zalander (CTO)
       email: 'york.xylander@bettermarks.com'
