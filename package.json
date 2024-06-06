@@ -51,7 +51,7 @@
 		"@tsconfig/node21": "21.0.3",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/json-schema": "7.0.15",
-		"@types/node": "20.12.12",
+		"@types/node": "20.14.2",
 		"@vitest/coverage-v8": "1.6.0",
 		"@vitest/ui": "1.6.0",
 		"effect": "3.2.5",
