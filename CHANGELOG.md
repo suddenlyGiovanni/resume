@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 12.1.5
+
+### Patch Changes
+
+- 8c4a28b: update effect packages to v0.67.21
+
 ## 12.1.4
 
 ### Patch Changes
