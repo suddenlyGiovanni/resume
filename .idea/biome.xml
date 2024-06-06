@@ -4,7 +4,7 @@
     <option name="applySafeFixesOnSave" value="true" />
     <option name="configPath" value="$PROJECT_DIR$" />
     <option name="configurationMode" value="MANUAL" />
-    <option name="executablePath" value="$PROJECT_DIR$/.pnpm/@biomejs+biome@1.7.3/node_modules/@biomejs/biome/bin/biome" />
+    <option name="executablePath" value="/opt/homebrew/bin/biome" />
     <option name="formatOnSave" value="true" />
   </component>
 </project>

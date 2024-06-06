@@ -52,7 +52,7 @@
 			"quoteProperties": "asNeeded",
 			"semicolons": "asNeeded",
 			"quoteStyle": "single",
-			"trailingComma": "all",
+			"trailingCommas": "all",
 			"attributePosition": "multiline"
 		}
 	},
