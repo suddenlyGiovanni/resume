@@ -47,7 +47,7 @@
 		"@biomejs/biome": "1.8.0",
 		"@changesets/cli": "2.27.5",
 		"@effect/schema": "0.67.21",
-		"@std/yaml": "npm:@jsr/std__yaml@0.224.1",
+		"@std/yaml": "npm:@jsr/std__yaml@0.224.3",
 		"@tsconfig/node21": "21.0.3",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/json-schema": "7.0.15",
