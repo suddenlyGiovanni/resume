@@ -21,11 +21,11 @@
 	},
 	packageRules: [
 		{
-			matchPackagePatterns: [
-				'^effect$',
-				'^@effect/',
-			],
 			groupName: 'effect packages',
+			matchPackageNames: [
+				'/^effect$/',
+				'/^@effect//',
+			],
 		},
 	],
 }
