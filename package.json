@@ -45,7 +45,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
-		"@changesets/cli": "2.27.5",
+		"@changesets/cli": "2.27.7",
 		"@effect/schema": "0.67.21",
 		"@std/yaml": "npm:@jsr/std__yaml@0.224.1",
 		"@tsconfig/node21": "21.0.3",
