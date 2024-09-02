@@ -18,8 +18,8 @@ importers:
         specifier: 0.67.21
         version: 0.67.21(effect@3.3.0)
       '@std/yaml':
-        specifier: npm:@jsr/std__yaml@0.224.1
-        version: '@jsr/std__yaml@0.224.1'
+        specifier: npm:@jsr/std__yaml@1.0.4
+        version: '@jsr/std__yaml@1.0.4'
       '@tsconfig/node21':
         specifier: 21.0.3
         version: 21.0.3
@@ -358,8 +358,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@jsr/std__yaml@0.224.1':
-    resolution: {integrity: sha512-G0GB/nFmK2PXq++7ufjIBY5u9KNpt5fgcpcS017TJKwS1jHzKv+f3U29JUXOfC1mGdU3tmFk4z9K7mqVQyWLkQ==, tarball: https://npm.jsr.io/~/11/@jsr/std__yaml/0.224.1.tgz}
+  '@jsr/std__yaml@1.0.4':
+    resolution: {integrity: sha512-bz7d+QT657jyRQtYdpoYZgp53cOpXWyKPCY2SKE1NaPASIJqSYe7EQaZDLQu9BEE/bgw+WSLg62b5Ps1ytVyhg==, tarball: https://npm.jsr.io/~/11/@jsr/std__yaml/1.0.4.tgz}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -1614,7 +1614,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@jsr/std__yaml@0.224.1': {}
+  '@jsr/std__yaml@1.0.4': {}
 
   '@manypkg/find-root@1.1.0':
     dependencies:
