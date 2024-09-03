@@ -33,7 +33,7 @@ const countryCode =
 	}
 
 export class Location extends Schema.Class<Location>('Location')({
-	address: Schema.optional(
+	address: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'address',
 			description: 'To add multiple address lines, use "\\n".',
@@ -42,7 +42,7 @@ export class Location extends Schema.Class<Location>('Location')({
 		{ exact: true },
 	),
 
-	city: TrimmedNonEmpty.annotations({
+	city: Schema.NonEmptyTrimmedString.annotations({
 		title: 'city',
 		description: 'City',
 		examples: ['Berlin', 'New York', 'San Francisco'],
@@ -55,8 +55,8 @@ export class Location extends Schema.Class<Location>('Location')({
 		}),
 	),
 
-	postalCode: Schema.optional(
-		TrimmedNonEmpty.annotations({
+	postalCode: Schema.optionalWith(
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'postalCode',
 			description: 'European postal code',
 			examples: ['12209'],
@@ -66,8 +66,8 @@ export class Location extends Schema.Class<Location>('Location')({
 		},
 	),
 
-	region: Schema.optional(
-		TrimmedNonEmpty.annotations({
+	region: Schema.optionalWith(
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'region',
 			description: 'The general region where you live. Can be a US state, or a province',
 			examples: ['California', 'Quebec'],

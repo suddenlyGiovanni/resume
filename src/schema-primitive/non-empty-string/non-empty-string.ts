@@ -16,4 +16,4 @@ export const nonEmptyString = (annotations?: Schema.Annotations.Schema<string>):
 			description: 'a non empty string',
 			examples: ["' test string  '", "'test string'"],
 		},
-	).pipe(Schema.compose(Schema.Trim), Schema.nonEmpty())
+	).pipe(Schema.compose(Schema.Trim), Schema.nonEmptyString())

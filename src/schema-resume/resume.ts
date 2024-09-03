@@ -20,7 +20,7 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 		examples: ['http://jsonresume.org/schema'],
 	}),
 
-	awards: Schema.optional(
+	awards: Schema.optionalWith(
 		Schema.Array(Award).annotations({
 			title: 'awards',
 			description: 'Specify any awards you have received throughout your professional career',
@@ -30,7 +30,7 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 
 	basics: Basics,
 
-	certificates: Schema.optional(
+	certificates: Schema.optionalWith(
 		Schema.Array(Certificate).annotations({
 			title: 'certificates',
 			description: 'Specify any certificates you have received throughout your professional career',
@@ -40,9 +40,9 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 
 	education: Schema.Array(Education),
 
-	interests: Schema.optional(Schema.Array(Interest), { exact: true }),
+	interests: Schema.optionalWith(Schema.Array(Interest), { exact: true }),
 
-	languages: Schema.optional(
+	languages: Schema.optionalWith(
 		Schema.Array(Language).annotations({
 			title: 'languages',
 			description: 'List any other languages you speak',
@@ -50,7 +50,7 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 		{ exact: true },
 	),
 
-	projects: Schema.optional(
+	projects: Schema.optionalWith(
 		Schema.Array(Project).annotations({
 			title: 'projects',
 			description: 'Specify career projects',
@@ -58,7 +58,7 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 		{ exact: true },
 	),
 
-	publications: Schema.optional(
+	publications: Schema.optionalWith(
 		Schema.Array(Publication).annotations({
 			title: 'publications',
 			description: 'Specify your publications through your career',
@@ -66,7 +66,7 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 		{ exact: true },
 	),
 
-	references: Schema.optional(
+	references: Schema.optionalWith(
 		Schema.Array(Reference).annotations({
 			title: 'references',
 			description: 'List references you have received',
@@ -79,7 +79,7 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 		description: 'List out your professional skill-set',
 	}),
 
-	volunteer: Schema.optional(Schema.Array(Volunteer), { exact: true }),
+	volunteer: Schema.optionalWith(Schema.Array(Volunteer), { exact: true }),
 
 	work: Schema.Array(Work),
 }) {}

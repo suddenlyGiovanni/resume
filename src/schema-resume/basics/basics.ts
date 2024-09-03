@@ -7,7 +7,7 @@ import { Profile } from '../profile/profile.js'
 export class Basics extends Schema.Class<Basics>('Basics')({
 	email: Email,
 
-	image: Schema.optional(
+	image: Schema.optionalWith(
 		UrlString.annotations({
 			title: 'image',
 			description: 'URL to a image in JPEG or PNG format (as per RFC 3986)',
@@ -15,7 +15,7 @@ export class Basics extends Schema.Class<Basics>('Basics')({
 		{ exact: true },
 	),
 
-	label: TrimmedNonEmpty.annotations({
+	label: Schema.NonEmptyTrimmedString.annotations({
 		title: 'label',
 		description: 'Label',
 		examples: ['Web Developer'],
@@ -23,13 +23,13 @@ export class Basics extends Schema.Class<Basics>('Basics')({
 
 	location: Location,
 
-	name: TrimmedNonEmpty.annotations({
+	name: Schema.NonEmptyTrimmedString.annotations({
 		title: 'name',
 		description: 'Your full name',
 		examples: ['Thomas Anderson'],
 	}),
 
-	phone: Schema.optional(
+	phone: Schema.optionalWith(
 		Phone.annotations({
 			title: 'phone',
 			description:
@@ -50,7 +50,7 @@ export class Basics extends Schema.Class<Basics>('Basics')({
 		examples: ['Web Developer with a passion for web-based applications'],
 	}),
 
-	url: Schema.optional(
+	url: Schema.optionalWith(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) to your website, e.g. personal homepage',

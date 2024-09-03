@@ -4,9 +4,9 @@ import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive
 import { Role } from './role.js'
 
 export class Work extends Schema.Class<Work>('Work')({
-	contact: Schema.optional(
+	contact: Schema.optionalWith(
 		Schema.Struct({
-			name: TrimmedNonEmpty.annotations({
+			name: Schema.NonEmptyTrimmedString.annotations({
 				title: 'name',
 				description: 'The name and role of the contact person',
 				examples: ['Mark Zuckerberg (CTO)'],
@@ -14,7 +14,7 @@ export class Work extends Schema.Class<Work>('Work')({
 
 			email: Email,
 
-			phone: Schema.optional(Phone, { exact: true }),
+			phone: Schema.optionalWith(Phone, { exact: true }),
 		}),
 		{ exact: true },
 	),
@@ -25,8 +25,8 @@ export class Work extends Schema.Class<Work>('Work')({
 		examples: ['Social Media Company', 'Educational Software Company'],
 	}),
 
-	location: Schema.optional(
-		TrimmedNonEmpty.annotations({
+	location: Schema.optionalWith(
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'location',
 			description: 'Location of the company',
 			examples: ['Menlo Park, CA'],
@@ -34,7 +34,7 @@ export class Work extends Schema.Class<Work>('Work')({
 		{ exact: true },
 	),
 
-	name: TrimmedNonEmpty.annotations({
+	name: Schema.NonEmptyTrimmedString.annotations({
 		title: 'name',
 		description: 'Name of the company',
 		examples: ['Facebook'],
@@ -45,7 +45,7 @@ export class Work extends Schema.Class<Work>('Work')({
 		description: 'The roles you had at the company, in reverse chronological order',
 	}),
 
-	summary: Schema.optional(
+	summary: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description:
@@ -58,5 +58,5 @@ export class Work extends Schema.Class<Work>('Work')({
 		{ exact: true },
 	),
 
-	url: Schema.optional(UrlString, { exact: true }),
+	url: Schema.optionalWith(UrlString, { exact: true }),
 }) {}

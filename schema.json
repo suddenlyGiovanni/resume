@@ -27,11 +27,11 @@
             "type": "string",
             "description": "The name of the award given",
             "title": "awarder",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Time Magazine"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "date": {
             "type": "string",
@@ -55,11 +55,11 @@
             "type": "string",
             "description": "Title of the award",
             "title": "title",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "One of the 100 greatest minds of the century"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -107,11 +107,11 @@
           "type": "string",
           "description": "Label",
           "title": "label",
+          "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
           "examples": [
             "Web Developer"
           ],
-          "minLength": 1,
-          "pattern": "^[^\\s].*[^\\s]$"
+          "minLength": 1
         },
         "location": {
           "type": "object",
@@ -134,13 +134,13 @@
               "type": "string",
               "description": "City",
               "title": "city",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "Berlin",
                 "New York",
                 "San Francisco"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             },
             "countryCode": {
               "type": "string",
@@ -159,22 +159,22 @@
               "type": "string",
               "description": "European postal code",
               "title": "postalCode",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "12209"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             },
             "region": {
               "type": "string",
               "description": "The general region where you live. Can be a US state, or a province",
               "title": "region",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "California",
                 "Quebec"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             }
           },
           "additionalProperties": false
@@ -183,11 +183,11 @@
           "type": "string",
           "description": "Your full name",
           "title": "name",
+          "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
           "examples": [
             "Thomas Anderson"
           ],
-          "minLength": 1,
-          "pattern": "^[^\\s].*[^\\s]$"
+          "minLength": 1
         },
         "phone": {
           "type": "string",
@@ -212,12 +212,12 @@
                 "type": "string",
                 "description": "The name of the social network",
                 "title": "network",
+                "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
                 "examples": [
                   "Facebook",
                   "Twitter"
                 ],
-                "minLength": 1,
-                "pattern": "^[^\\s].*[^\\s]$"
+                "minLength": 1
               },
               "url": {
                 "type": "string",
@@ -232,11 +232,11 @@
                 "type": "string",
                 "description": "The username of the profile on the social network",
                 "title": "username",
+                "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
                 "examples": [
                   "neutralthoughts"
                 ],
-                "minLength": 1,
-                "pattern": "^[^\\s].*[^\\s]$"
+                "minLength": 1
               }
             },
             "additionalProperties": false
@@ -276,11 +276,11 @@
             "type": "string",
             "description": "name of the certificate",
             "title": "Name",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "e.g. Certified Kubernetes Administrator"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "date": {
             "type": "string",
@@ -303,11 +303,11 @@
             "type": "string",
             "description": "issuer of the certificate",
             "title": "issuer",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "e.g. CNCF"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -330,24 +330,24 @@
             "type": "string",
             "description": "e.g. Arts",
             "title": "area",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Arts",
               "Computer Science"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "courses": {
             "type": "array",
             "items": {
               "type": "string",
-              "description": "a non-empty string with no leading or trailing whitespace",
+              "description": "a non empty string",
               "title": "course",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "H1302 - Introduction to American history"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             },
             "description": "List notable courses/subjects",
             "title": "courses",
@@ -373,21 +373,21 @@
             "type": "string",
             "description": "grade point average, e.g. 3.67/4.0",
             "title": "score",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "3.67/4.0"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "institution": {
             "type": "string",
             "description": "name of the institution",
             "title": "institution",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Massachusetts Institute of Technology"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "location": {
             "type": "string",
@@ -411,13 +411,13 @@
             "type": "string",
             "description": "the type of study",
             "title": "studyType",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Bachelor",
               "Master",
               "Doctorate"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "url": {
             "type": "string",
@@ -442,13 +442,13 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "a non-empty string with no leading or trailing whitespace",
+              "description": "a non empty string",
               "title": "keyword",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "philosophy"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             },
             "description": "List some keywords pertaining to this interest",
             "title": "keywords",
@@ -463,11 +463,11 @@
             "type": "string",
             "description": "Interest name",
             "title": "name",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Philosophy"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -483,6 +483,7 @@
             "type": "string",
             "description": "e.g. Fluent, Beginner",
             "title": "fluency",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Fluent",
               "Beginner",
@@ -490,19 +491,18 @@
               "Advanced",
               "Native"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "language": {
             "type": "string",
             "description": "e.g. English, Spanish",
             "title": "language",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "English",
               "Spanish"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -538,12 +538,12 @@
             "type": "string",
             "description": "Specify the relevant company/entity affiliations",
             "title": "entity",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Greenpeace",
               "Microsoft"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "highlights": {
             "type": "array",
@@ -564,14 +564,14 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "a non-empty string with no leading or trailing whitespace",
+              "description": "a non empty string",
               "title": "keyword",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "AngularJS",
                 "elements"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             },
             "description": "Specify special elements involved",
             "title": "keywords"
@@ -580,25 +580,25 @@
             "type": "string",
             "description": "Name of the project",
             "title": "name",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "The World Wide Web"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "roles": {
             "type": "array",
             "items": {
               "type": "string",
-              "description": "a non-empty string with no leading or trailing whitespace",
+              "description": "a non empty string",
               "title": "role",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "Team Lead",
                 "Speaker",
                 "Writer"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             },
             "description": "Specify your role on this project or in company",
             "title": "roles"
@@ -615,6 +615,7 @@
             "type": "string",
             "description": "Type of project",
             "title": "type",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "volunteering",
               "presentation",
@@ -622,8 +623,7 @@
               "application",
               "conference"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "url": {
             "type": "string",
@@ -650,22 +650,22 @@
             "type": "string",
             "description": "The name of the publication",
             "title": "name",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "The World Wide Web"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "publisher": {
             "type": "string",
             "description": "The publisher of the publication",
             "title": "publisher",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "IEEE",
               "Computer Magazine"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "releaseDate": {
             "type": "string",
@@ -712,11 +712,11 @@
             "type": "string",
             "description": "The name of the reference",
             "title": "name",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Timothy Cook"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "reference": {
             "type": "string",
@@ -747,13 +747,13 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "a non-empty string with no leading or trailing whitespace",
+              "description": "a non empty string",
               "title": "keyword",
+              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
               "examples": [
                 "Rust"
               ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+              "minLength": 1
             },
             "description": "List some keywords pertaining to this skill",
             "title": "keywords",
@@ -768,22 +768,22 @@
             "type": "string",
             "description": "Level of expertise",
             "title": "level",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Master",
               "Intermediate"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "name": {
             "type": "string",
             "description": "Name of the skill",
             "title": "name",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Web Development"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -824,21 +824,21 @@
             "type": "string",
             "description": "Name of the organization",
             "title": "organization",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Facebook"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "position": {
             "type": "string",
             "description": "The title of your position at the company",
             "title": "position",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Software Engineer"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "startDate": {
             "type": "string",
@@ -892,11 +892,11 @@
                 "type": "string",
                 "description": "The name and role of the contact person",
                 "title": "name",
+                "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
                 "examples": [
                   "Mark Zuckerberg (CTO)"
                 ],
-                "minLength": 1,
-                "pattern": "^[^\\s].*[^\\s]$"
+                "minLength": 1
               },
               "email": {
                 "type": "string",
@@ -944,21 +944,21 @@
             "type": "string",
             "description": "Location of the company",
             "title": "location",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Menlo Park, CA"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "name": {
             "type": "string",
             "description": "Name of the company",
             "title": "name",
+            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
             "examples": [
               "Facebook"
             ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
+            "minLength": 1
           },
           "roles": {
             "type": "array",
@@ -976,12 +976,12 @@
                     "type": "string",
                     "description": "The title of your position at the company: <seniority level> <role title>",
                     "title": "title",
+                    "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
                     "examples": [
                       "Junior Software Developer",
                       "Senior Software Engineer"
                     ],
-                    "minLength": 1,
-                    "pattern": "^[^\\s].*[^\\s]$"
+                    "minLength": 1
                   },
                   "startDate": {
                     "type": "string",
@@ -1043,12 +1043,12 @@
                       "type": "string",
                       "description": "A specific technology used",
                       "title": "technology",
+                      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
                       "examples": [
                         "React",
                         "Node.js"
                       ],
-                      "minLength": 1,
-                      "pattern": "^[^\\s].*[^\\s]$"
+                      "minLength": 1
                     },
                     "description": "Specify multiple technologies used",
                     "title": "technologies"
@@ -1069,12 +1069,12 @@
                   "type": "string",
                   "description": "The title of your position at the company: <seniority level> <role title>",
                   "title": "title",
+                  "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
                   "examples": [
                     "Junior Software Developer",
                     "Senior Software Engineer"
                   ],
-                  "minLength": 1,
-                  "pattern": "^[^\\s].*[^\\s]$"
+                  "minLength": 1
                 },
                 "startDate": {
                   "type": "string",
@@ -1136,12 +1136,12 @@
                     "type": "string",
                     "description": "A specific technology used",
                     "title": "technology",
+                    "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
                     "examples": [
                       "React",
                       "Node.js"
                     ],
-                    "minLength": 1,
-                    "pattern": "^[^\\s].*[^\\s]$"
+                    "minLength": 1
                   },
                   "description": "Specify multiple technologies used",
                   "title": "technologies"

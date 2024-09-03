@@ -11,12 +11,12 @@
 			"type": "string",
 			"description": "The name of the social network",
 			"title": "network",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Facebook",
 				"Twitter"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"url": {
 			"type": "string",
@@ -31,11 +31,11 @@
 			"type": "string",
 			"description": "The username of the profile on the social network",
 			"title": "username",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"neutralthoughts"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		}
 	},
 	"additionalProperties": false

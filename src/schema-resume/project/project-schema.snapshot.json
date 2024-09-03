@@ -25,12 +25,12 @@
 			"type": "string",
 			"description": "Specify the relevant company/entity affiliations",
 			"title": "entity",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Greenpeace",
 				"Microsoft"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"highlights": {
 			"type": "array",
@@ -51,14 +51,14 @@
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a non-empty string with no leading or trailing whitespace",
+				"description": "a non empty string",
 				"title": "keyword",
+				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 				"examples": [
 					"AngularJS",
 					"elements"
 				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
+				"minLength": 1
 			},
 			"description": "Specify special elements involved",
 			"title": "keywords"
@@ -67,25 +67,25 @@
 			"type": "string",
 			"description": "Name of the project",
 			"title": "name",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"The World Wide Web"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"roles": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a non-empty string with no leading or trailing whitespace",
+				"description": "a non empty string",
 				"title": "role",
+				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 				"examples": [
 					"Team Lead",
 					"Speaker",
 					"Writer"
 				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
+				"minLength": 1
 			},
 			"description": "Specify your role on this project or in company",
 			"title": "roles"
@@ -102,6 +102,7 @@
 			"type": "string",
 			"description": "Type of project",
 			"title": "type",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"volunteering",
 				"presentation",
@@ -109,8 +110,7 @@
 				"application",
 				"conference"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"url": {
 			"type": "string",

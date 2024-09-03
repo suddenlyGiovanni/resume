@@ -3,15 +3,15 @@ import { Schema } from '@effect/schema'
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
 export class Education extends Schema.Class<Education>('Education')({
-	area: TrimmedNonEmpty.annotations({
+	area: Schema.NonEmptyTrimmedString.annotations({
 		title: 'area',
 		description: 'e.g. Arts',
 		examples: ['Arts', 'Computer Science'],
 	}),
 
-	courses: Schema.optional(
+	courses: Schema.optionalWith(
 		Schema.Array(
-			TrimmedNonEmpty.annotations({
+			Schema.NonEmptyTrimmedString.annotations({
 				title: 'course',
 				examples: ['H1302 - Introduction to American history'],
 			}),
@@ -23,7 +23,7 @@ export class Education extends Schema.Class<Education>('Education')({
 		{ exact: true },
 	),
 
-	endDate: Schema.optional(
+	endDate: Schema.optionalWith(
 		StringDate.annotations({
 			title: 'endDate',
 			description: 'end date of education',
@@ -32,8 +32,8 @@ export class Education extends Schema.Class<Education>('Education')({
 		{ exact: true },
 	),
 
-	score: Schema.optional(
-		TrimmedNonEmpty.annotations({
+	score: Schema.optionalWith(
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'score',
 			description: 'grade point average, e.g. 3.67/4.0',
 			examples: ['3.67/4.0'],
@@ -43,13 +43,13 @@ export class Education extends Schema.Class<Education>('Education')({
 		},
 	),
 
-	institution: TrimmedNonEmpty.annotations({
+	institution: Schema.NonEmptyTrimmedString.annotations({
 		title: 'institution',
 		description: 'name of the institution',
 		examples: ['Massachusetts Institute of Technology'],
 	}),
 
-	location: Schema.optional(TrimmedNonEmpty, { exact: true }),
+	location: Schema.optionalWith(TrimmedNonEmpty, { exact: true }),
 
 	startDate: StringDate.annotations({
 		title: 'startDate',
@@ -57,13 +57,13 @@ export class Education extends Schema.Class<Education>('Education')({
 		examples: ['1970-01-01T00:00'],
 	}),
 
-	studyType: TrimmedNonEmpty.annotations({
+	studyType: Schema.NonEmptyTrimmedString.annotations({
 		title: 'studyType',
 		description: 'the type of study',
 		examples: ['Bachelor', 'Master', 'Doctorate'],
 	}),
 
-	url: Schema.optional(
+	url: Schema.optionalWith(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) of the institution',

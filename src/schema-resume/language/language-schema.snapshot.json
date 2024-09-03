@@ -7,6 +7,7 @@
 			"type": "string",
 			"description": "e.g. Fluent, Beginner",
 			"title": "fluency",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Fluent",
 				"Beginner",
@@ -14,19 +15,18 @@
 				"Advanced",
 				"Native"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"language": {
 			"type": "string",
 			"description": "e.g. English, Spanish",
 			"title": "language",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"English",
 				"Spanish"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		}
 	},
 	"additionalProperties": false

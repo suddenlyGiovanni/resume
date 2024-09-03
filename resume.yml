@@ -3,7 +3,7 @@ basics:
   name: Giovanni Ravalico
   label: Software Developer
   image: https://avatars.githubusercontent.com/u/15946771?v=4
-  email: ravalico.giovanni@gmail.com
+  email: 'ravalico.giovanni@gmail.com'
   phone: '+49 (0) 162 455 6031'
   url: https://wwww.suddenlyGiovanni.dev
   summary: |
@@ -34,7 +34,7 @@ work:
     description: Documents collaboration platform
     contact:
       name: Arnaud Seilles (CTO)
-      email: arnaud.seilles@getcaya.com
+      email: 'arnaud.seilles@getcaya.com'
     roles:
       - title: Backend Engineer
         startDate: "2023-02-01"

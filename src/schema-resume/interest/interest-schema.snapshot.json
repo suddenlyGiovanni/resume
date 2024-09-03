@@ -7,13 +7,13 @@
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a non-empty string with no leading or trailing whitespace",
+				"description": "a non empty string",
 				"title": "keyword",
+				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 				"examples": [
 					"philosophy"
 				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
+				"minLength": 1
 			},
 			"description": "List some keywords pertaining to this interest",
 			"title": "keywords",
@@ -28,11 +28,11 @@
 			"type": "string",
 			"description": "Interest name",
 			"title": "name",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Philosophy"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		}
 	},
 	"additionalProperties": false
