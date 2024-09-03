@@ -15,8 +15,8 @@ importers:
         specifier: 2.27.7
         version: 2.27.7
       '@effect/schema':
-        specifier: 0.68.9
-        version: 0.68.9(effect@3.4.2)
+        specifier: 0.68.10
+        version: 0.68.10(effect@3.4.3)
       '@std/yaml':
         specifier: npm:@jsr/std__yaml@1.0.4
         version: '@jsr/std__yaml@1.0.4'
@@ -39,8 +39,8 @@ importers:
         specifier: 2.0.5
         version: 2.0.5(vitest@2.0.5)
       effect:
-        specifier: 3.4.2
-        version: 3.4.2
+        specifier: 3.4.3
+        version: 3.4.3
       typescript:
         specifier: 5.6.1-rc
         version: 5.6.1-rc
@@ -189,10 +189,10 @@ packages:
   '@changesets/write@0.3.1':
     resolution: {integrity: sha512-SyGtMXzH3qFqlHKcvFY2eX+6b0NGiFcNav8AFsYwy5l8hejOeoeTDemu5Yjmke2V5jpzY+pBvM0vCCQ3gdZpfw==}
 
-  '@effect/schema@0.68.9':
-    resolution: {integrity: sha512-5LgCBjGHEphteGxh0Eid7dJUlSs89yvZfJFSSKNDrBhC7c0YCrrzzKYlvmqyUJzvxx+q4yBakZNUQWcjOTGsKA==}
+  '@effect/schema@0.68.10':
+    resolution: {integrity: sha512-bZREWmMv3nxPEq17bgHh6Zmw+RQKtW/raphDZ9q/5m/CJxWqHw/AYsOOclhZFV2OEC9Pfqv3EbO323Wo4Mw+4Q==}
     peerDependencies:
-      effect: ^3.4.2
+      effect: ^3.4.3
 
   '@esbuild/aix-ppc64@0.20.2':
     resolution: {integrity: sha512-D+EBOJHXdNZcLJRBkhENNG8Wji2kgc9AZ9KiPr1JuZjsNtyHzrsfLRrY0tk2H2aoFu6RANO1y1iPPUCDYWkb5g==}
@@ -640,8 +640,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  effect@3.4.2:
-    resolution: {integrity: sha512-y20gL/fMqm4mUL71Tcuu3pYQ7Phm8RMX/hUt6vVfkg4Iac/RvMjP5DrJxT6RI0j0VNRLhTgb6pyL3oXeqxTeRg==}
+  effect@3.4.3:
+    resolution: {integrity: sha512-9fYhTSZfEpyZthJl2yngoKVxyUeirteutGT5EJIRahhKLaePRIv5Bv6mcb/tiJTHMGMeYNIgIXmC8/xRKDLI4Q==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -681,8 +681,8 @@ packages:
     resolution: {integrity: sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew==}
     engines: {node: '>=4'}
 
-  fast-check@3.18.0:
-    resolution: {integrity: sha512-/951xaT0kA40w0GXRsZXEwSTE7LugjZtSA/8vPgFkiPQ8wNp8tRvqWuNDHBgLxJYXtsK11e/7Q4ObkKW5BdTFQ==}
+  fast-check@3.22.0:
+    resolution: {integrity: sha512-8HKz3qXqnHYp/VCNn2qfjHdAdcI8zcSqOyX64GOMukp7SL2bfzfeDKjSd+UyECtejccaZv3LcvZTm9YDD22iCQ==}
     engines: {node: '>=8.0.0'}
 
   fast-glob@3.3.2:
@@ -1512,10 +1512,10 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@effect/schema@0.68.9(effect@3.4.2)':
+  '@effect/schema@0.68.10(effect@3.4.3)':
     dependencies:
-      effect: 3.4.2
-      fast-check: 3.18.0
+      effect: 3.4.3
+      fast-check: 3.22.0
 
   '@esbuild/aix-ppc64@0.20.2':
     optional: true
@@ -1877,7 +1877,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.4.2: {}
+  effect@3.4.3: {}
 
   emoji-regex@8.0.0: {}
 
@@ -1942,7 +1942,7 @@ snapshots:
       iconv-lite: 0.4.24
       tmp: 0.0.33
 
-  fast-check@3.18.0:
+  fast-check@3.22.0:
     dependencies:
       pure-rand: 6.1.0
 
