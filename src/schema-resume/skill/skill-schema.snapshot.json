@@ -10,13 +10,13 @@
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a non-empty string with no leading or trailing whitespace",
+				"description": "a non empty string",
 				"title": "keyword",
+				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 				"examples": [
 					"Rust"
 				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
+				"minLength": 1
 			},
 			"description": "List some keywords pertaining to this skill",
 			"title": "keywords",
@@ -31,22 +31,22 @@
 			"type": "string",
 			"description": "Level of expertise",
 			"title": "level",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Master",
 				"Intermediate"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"name": {
 			"type": "string",
 			"description": "Name of the skill",
 			"title": "name",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Web Development"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		}
 	},
 	"additionalProperties": false

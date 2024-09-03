@@ -15,7 +15,7 @@ export class Project extends Schema.Class<Project>('Project')({
 	endDate: Schema.optionalWith(StringDate, { exact: true }),
 
 	entity: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'entity',
 			description: 'Specify the relevant company/entity affiliations',
 			examples: ['Greenpeace', 'Microsoft'],
@@ -39,7 +39,7 @@ export class Project extends Schema.Class<Project>('Project')({
 
 	keywords: Schema.optionalWith(
 		Schema.Array(
-			TrimmedNonEmpty.annotations({
+			Schema.NonEmptyTrimmedString.annotations({
 				title: 'keyword',
 				examples: ['AngularJS', 'elements'],
 			}),
@@ -51,7 +51,7 @@ export class Project extends Schema.Class<Project>('Project')({
 	),
 
 	name: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'name',
 			description: 'Name of the project',
 			examples: ['The World Wide Web'],
@@ -61,7 +61,7 @@ export class Project extends Schema.Class<Project>('Project')({
 
 	roles: Schema.optionalWith(
 		Schema.Array(
-			TrimmedNonEmpty.annotations({
+			Schema.NonEmptyTrimmedString.annotations({
 				title: 'role',
 				examples: ['Team Lead', 'Speaker', 'Writer'],
 			}),
@@ -75,7 +75,7 @@ export class Project extends Schema.Class<Project>('Project')({
 	startDate: Schema.optionalWith(StringDate, { exact: true }),
 
 	type: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'type',
 			description: 'Type of project',
 			examples: ['volunteering', 'presentation', 'talk', 'application', 'conference'],

@@ -11,12 +11,12 @@
 			"type": "string",
 			"description": "The title of your position at the company: <seniority level> <role title>",
 			"title": "title",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Junior Software Developer",
 				"Senior Software Engineer"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"startDate": {
 			"type": "string",
@@ -78,12 +78,12 @@
 				"type": "string",
 				"description": "A specific technology used",
 				"title": "technology",
+				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 				"examples": [
 					"React",
 					"Node.js"
 				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
+				"minLength": 1
 			},
 			"description": "Specify multiple technologies used",
 			"title": "technologies"

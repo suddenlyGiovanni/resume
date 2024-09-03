@@ -4,7 +4,7 @@ import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Award extends Schema.Class<Award>('Award')({
 	awarder: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'awarder',
 			description: 'The name of the award given',
 			examples: ['Time Magazine'],
@@ -30,7 +30,7 @@ export class Award extends Schema.Class<Award>('Award')({
 	),
 
 	title: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'title',
 			description: 'Title of the award',
 			examples: ['One of the 100 greatest minds of the century'],

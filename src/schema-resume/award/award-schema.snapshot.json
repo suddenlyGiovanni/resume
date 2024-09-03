@@ -7,11 +7,11 @@
       "type": "string",
       "description": "The name of the award given",
       "title": "awarder",
+      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
       "examples": [
         "Time Magazine"
       ],
-      "minLength": 1,
-      "pattern": "^[^\\s].*[^\\s]$"
+      "minLength": 1
     },
     "date": {
       "type": "string",
@@ -35,11 +35,11 @@
       "type": "string",
       "description": "Title of the award",
       "title": "title",
+      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
       "examples": [
         "One of the 100 greatest minds of the century"
       ],
-      "minLength": 1,
-      "pattern": "^[^\\s].*[^\\s]$"
+      "minLength": 1
     }
   },
   "additionalProperties": false

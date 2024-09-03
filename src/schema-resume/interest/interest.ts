@@ -1,11 +1,9 @@
 import { Schema } from '@effect/schema'
 
-import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
-
 export class Interest extends Schema.Class<Interest>('Interest')({
 	keywords: Schema.optionalWith(
 		Schema.Array(
-			TrimmedNonEmpty.annotations({
+			Schema.NonEmptyTrimmedString.annotations({
 				title: 'keyword',
 				examples: ['philosophy'],
 			}),
@@ -18,7 +16,7 @@ export class Interest extends Schema.Class<Interest>('Interest')({
 	),
 
 	name: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'name',
 			description: 'Interest name',
 			examples: ['Philosophy'],

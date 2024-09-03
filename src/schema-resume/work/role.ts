@@ -3,7 +3,7 @@ import { Schema } from '@effect/schema'
 import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Role extends Schema.Class<Role>('Role')({
-	title: TrimmedNonEmpty.annotations({
+	title: Schema.NonEmptyTrimmedString.annotations({
 		title: 'title',
 		description: 'The title of your position at the company: <seniority level> <role title>',
 		examples: ['Junior Software Developer', 'Senior Software Engineer'],
@@ -51,7 +51,7 @@ export class Role extends Schema.Class<Role>('Role')({
 
 	technologies: Schema.optionalWith(
 		Schema.NonEmptyArray(
-			TrimmedNonEmpty.annotations({
+			Schema.NonEmptyTrimmedString.annotations({
 				title: 'technology',
 				description: 'A specific technology used',
 				examples: ['React', 'Node.js'],

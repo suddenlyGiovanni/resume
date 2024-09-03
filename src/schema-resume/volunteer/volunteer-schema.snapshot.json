@@ -30,21 +30,21 @@
 			"type": "string",
 			"description": "Name of the organization",
 			"title": "organization",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Facebook"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"position": {
 			"type": "string",
 			"description": "The title of your position at the company",
 			"title": "position",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Software Engineer"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"startDate": {
 			"type": "string",

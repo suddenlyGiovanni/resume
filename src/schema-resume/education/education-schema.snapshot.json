@@ -12,24 +12,24 @@
 			"type": "string",
 			"description": "e.g. Arts",
 			"title": "area",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Arts",
 				"Computer Science"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"courses": {
 			"type": "array",
 			"items": {
 				"type": "string",
-				"description": "a non-empty string with no leading or trailing whitespace",
+				"description": "a non empty string",
 				"title": "course",
+				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 				"examples": [
 					"H1302 - Introduction to American history"
 				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
+				"minLength": 1
 			},
 			"description": "List notable courses/subjects",
 			"title": "courses",
@@ -55,21 +55,21 @@
 			"type": "string",
 			"description": "grade point average, e.g. 3.67/4.0",
 			"title": "score",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"3.67/4.0"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"institution": {
 			"type": "string",
 			"description": "name of the institution",
 			"title": "institution",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Massachusetts Institute of Technology"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"location": {
 			"type": "string",
@@ -93,13 +93,13 @@
 			"type": "string",
 			"description": "the type of study",
 			"title": "studyType",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Bachelor",
 				"Master",
 				"Doctorate"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"url": {
 			"type": "string",

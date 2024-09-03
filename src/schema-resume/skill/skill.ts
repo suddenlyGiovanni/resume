@@ -1,10 +1,8 @@
 import { Schema } from '@effect/schema'
 
-import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
-
 export class Skill extends Schema.Class<Skill>('Skill')({
 	keywords: Schema.Array(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'keyword',
 			examples: ['Rust'],
 		}),
@@ -15,7 +13,7 @@ export class Skill extends Schema.Class<Skill>('Skill')({
 	}),
 
 	level: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'level',
 			description: 'Level of expertise',
 			examples: ['Master', 'Intermediate'],
@@ -23,7 +21,7 @@ export class Skill extends Schema.Class<Skill>('Skill')({
 		{ exact: true },
 	),
 
-	name: TrimmedNonEmpty.annotations({
+	name: Schema.NonEmptyTrimmedString.annotations({
 		title: 'name',
 		description: 'Name of the skill',
 		examples: ['Web Development'],

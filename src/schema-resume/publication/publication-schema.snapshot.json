@@ -7,22 +7,22 @@
 			"type": "string",
 			"description": "The name of the publication",
 			"title": "name",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"The World Wide Web"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"publisher": {
 			"type": "string",
 			"description": "The publisher of the publication",
 			"title": "publisher",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"IEEE",
 				"Computer Magazine"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"releaseDate": {
 			"type": "string",

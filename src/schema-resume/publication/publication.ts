@@ -4,7 +4,7 @@ import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/i
 
 export class Publication extends Schema.Class<Publication>('Publication')({
 	name: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'name',
 			description: 'The name of the publication',
 			examples: ['The World Wide Web'],
@@ -13,7 +13,7 @@ export class Publication extends Schema.Class<Publication>('Publication')({
 	),
 
 	publisher: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'publisher',
 			description: 'The publisher of the publication',
 			examples: ['IEEE', 'Computer Magazine'],

@@ -42,7 +42,7 @@ export class Location extends Schema.Class<Location>('Location')({
 		{ exact: true },
 	),
 
-	city: TrimmedNonEmpty.annotations({
+	city: Schema.NonEmptyTrimmedString.annotations({
 		title: 'city',
 		description: 'City',
 		examples: ['Berlin', 'New York', 'San Francisco'],
@@ -56,7 +56,7 @@ export class Location extends Schema.Class<Location>('Location')({
 	),
 
 	postalCode: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'postalCode',
 			description: 'European postal code',
 			examples: ['12209'],
@@ -67,7 +67,7 @@ export class Location extends Schema.Class<Location>('Location')({
 	),
 
 	region: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'region',
 			description: 'The general region where you live. Can be a US state, or a province',
 			examples: ['California', 'Quebec'],

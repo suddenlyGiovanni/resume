@@ -1,10 +1,10 @@
 import { Schema } from '@effect/schema'
 
-import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
+import { StringDate, UrlString } from '../../schema-primitive/index.js'
 
 export class Certificate extends Schema.Class<Certificate>('Certificate')({
 	name: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'Name',
 			description: 'name of the certificate',
 			examples: ['e.g. Certified Kubernetes Administrator'],
@@ -29,7 +29,7 @@ export class Certificate extends Schema.Class<Certificate>('Certificate')({
 	),
 
 	issuer: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'issuer',
 			description: 'issuer of the certificate',
 			examples: ['e.g. CNCF'],

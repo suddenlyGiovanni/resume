@@ -15,7 +15,7 @@ export class Basics extends Schema.Class<Basics>('Basics')({
 		{ exact: true },
 	),
 
-	label: TrimmedNonEmpty.annotations({
+	label: Schema.NonEmptyTrimmedString.annotations({
 		title: 'label',
 		description: 'Label',
 		examples: ['Web Developer'],
@@ -23,7 +23,7 @@ export class Basics extends Schema.Class<Basics>('Basics')({
 
 	location: Location,
 
-	name: TrimmedNonEmpty.annotations({
+	name: Schema.NonEmptyTrimmedString.annotations({
 		title: 'name',
 		description: 'Your full name',
 		examples: ['Thomas Anderson'],

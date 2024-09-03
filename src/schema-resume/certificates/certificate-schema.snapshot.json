@@ -7,11 +7,11 @@
 			"type": "string",
 			"description": "name of the certificate",
 			"title": "Name",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"e.g. Certified Kubernetes Administrator"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"date": {
 			"type": "string",
@@ -34,11 +34,11 @@
 			"type": "string",
 			"description": "issuer of the certificate",
 			"title": "issuer",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"e.g. CNCF"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		}
 	},
 	"additionalProperties": false

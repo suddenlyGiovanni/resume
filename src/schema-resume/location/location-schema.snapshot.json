@@ -20,13 +20,13 @@
 			"type": "string",
 			"description": "City",
 			"title": "city",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"Berlin",
 				"New York",
 				"San Francisco"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"countryCode": {
 			"type": "string",
@@ -45,22 +45,22 @@
 			"type": "string",
 			"description": "European postal code",
 			"title": "postalCode",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"12209"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		},
 		"region": {
 			"type": "string",
 			"description": "The general region where you live. Can be a US state, or a province",
 			"title": "region",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"examples": [
 				"California",
 				"Quebec"
 			],
-			"minLength": 1,
-			"pattern": "^[^\\s].*[^\\s]$"
+			"minLength": 1
 		}
 	},
 	"additionalProperties": false

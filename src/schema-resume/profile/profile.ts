@@ -1,8 +1,8 @@
 import { Schema } from '@effect/schema'
-import { TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
+import { UrlString } from '../../schema-primitive/index.js'
 
 export class Profile extends Schema.Class<Profile>('Profile')({
-	network: TrimmedNonEmpty.annotations({
+	network: Schema.NonEmptyTrimmedString.annotations({
 		title: 'network',
 		description: 'The name of the social network',
 		examples: ['Facebook', 'Twitter'],
@@ -14,7 +14,7 @@ export class Profile extends Schema.Class<Profile>('Profile')({
 		examples: ['http://twitter.example.com/neutralthoughts'],
 	}),
 
-	username: TrimmedNonEmpty.annotations({
+	username: Schema.NonEmptyTrimmedString.annotations({
 		title: 'username',
 		description: 'The username of the profile on the social network',
 		examples: ['neutralthoughts'],

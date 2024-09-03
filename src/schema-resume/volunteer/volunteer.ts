@@ -19,7 +19,7 @@ export class Volunteer extends Schema.Class<Volunteer>('Volunteer')({
 	),
 
 	organization: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'organization',
 			description: 'Name of the organization',
 			examples: ['Facebook'],
@@ -28,7 +28,7 @@ export class Volunteer extends Schema.Class<Volunteer>('Volunteer')({
 	),
 
 	position: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
+		Schema.NonEmptyTrimmedString.annotations({
 			title: 'position',
 			description: 'The title of your position at the company',
 			examples: ['Software Engineer'],
