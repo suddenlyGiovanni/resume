@@ -110,46 +110,30 @@ describe('Basics', () => {
 				  "additionalProperties": false,
 				  "properties": {
 				    "email": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "image": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "label": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "location": {
 				      "additionalProperties": false,
 				      "properties": {
 				        "address": {
-				          "description": "a string",
-				          "title": "string",
 				          "type": "string",
 				        },
 				        "city": {
-				          "description": "a string",
-				          "title": "string",
 				          "type": "string",
 				        },
 				        "countryCode": {
-				          "description": "a string",
-				          "title": "string",
 				          "type": "string",
 				        },
 				        "postalCode": {
-				          "description": "a string",
-				          "title": "string",
 				          "type": "string",
 				        },
 				        "region": {
-				          "description": "a string",
-				          "title": "string",
 				          "type": "string",
 				        },
 				      },
@@ -160,13 +144,9 @@ describe('Basics', () => {
 				      "type": "object",
 				    },
 				    "name": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "phone": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "profiles": {
@@ -174,18 +154,12 @@ describe('Basics', () => {
 				        "additionalProperties": false,
 				        "properties": {
 				          "network": {
-				            "description": "a string",
-				            "title": "string",
 				            "type": "string",
 				          },
 				          "url": {
-				            "description": "a string",
-				            "title": "string",
 				            "type": "string",
 				          },
 				          "username": {
-				            "description": "a string",
-				            "title": "string",
 				            "type": "string",
 				          },
 				        },
@@ -199,13 +173,9 @@ describe('Basics', () => {
 				      "type": "array",
 				    },
 				    "summary": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "url": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				  },

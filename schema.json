@@ -1023,19 +1023,7 @@
                   "highlights": {
                     "type": "array",
                     "minItems": 1,
-                    "items": [
-                      {
-                        "type": "string",
-                        "description": "A specific accomplishment",
-                        "title": "highlight",
-                        "examples": [
-                          "Increased profits by 20% from 2011-2012 through viral advertising"
-                        ],
-                        "minLength": 1,
-                        "pattern": "^[^\\s].*[^\\s]$"
-                      }
-                    ],
-                    "additionalItems": {
+                    "items": {
                       "type": "string",
                       "description": "A specific accomplishment",
                       "title": "highlight",
@@ -1051,20 +1039,7 @@
                   "technologies": {
                     "type": "array",
                     "minItems": 1,
-                    "items": [
-                      {
-                        "type": "string",
-                        "description": "A specific technology used",
-                        "title": "technology",
-                        "examples": [
-                          "React",
-                          "Node.js"
-                        ],
-                        "minLength": 1,
-                        "pattern": "^[^\\s].*[^\\s]$"
-                      }
-                    ],
-                    "additionalItems": {
+                    "items": {
                       "type": "string",
                       "description": "A specific technology used",
                       "title": "technology",
@@ -1141,19 +1116,7 @@
                 "highlights": {
                   "type": "array",
                   "minItems": 1,
-                  "items": [
-                    {
-                      "type": "string",
-                      "description": "A specific accomplishment",
-                      "title": "highlight",
-                      "examples": [
-                        "Increased profits by 20% from 2011-2012 through viral advertising"
-                      ],
-                      "minLength": 1,
-                      "pattern": "^[^\\s].*[^\\s]$"
-                    }
-                  ],
-                  "additionalItems": {
+                  "items": {
                     "type": "string",
                     "description": "A specific accomplishment",
                     "title": "highlight",
@@ -1169,20 +1132,7 @@
                 "technologies": {
                   "type": "array",
                   "minItems": 1,
-                  "items": [
-                    {
-                      "type": "string",
-                      "description": "A specific technology used",
-                      "title": "technology",
-                      "examples": [
-                        "React",
-                        "Node.js"
-                      ],
-                      "minLength": 1,
-                      "pattern": "^[^\\s].*[^\\s]$"
-                    }
-                  ],
-                  "additionalItems": {
+                  "items": {
                     "type": "string",
                     "description": "A specific technology used",
                     "title": "technology",

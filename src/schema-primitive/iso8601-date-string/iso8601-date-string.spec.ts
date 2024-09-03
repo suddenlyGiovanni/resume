@@ -188,9 +188,7 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"type": "string"
 				}"
 			`)
 
@@ -203,9 +201,7 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"type": "string"
 				}"
 			`)
 		})
@@ -216,9 +212,7 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"type": "string"
 				}"
 			`)
 
@@ -227,9 +221,7 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"type": "string"
 				}"
 			`)
 		})

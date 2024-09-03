@@ -68,28 +68,18 @@ describe('Location', () => {
 				  "additionalProperties": false,
 				  "properties": {
 				    "address": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "city": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "countryCode": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "postalCode": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				    "region": {
-				      "description": "a string",
-				      "title": "string",
 				      "type": "string",
 				    },
 				  },

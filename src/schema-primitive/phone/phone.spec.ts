@@ -107,8 +107,6 @@ describe('PhoneString', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(Phone))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a string",
-				  "title": "string",
 				  "type": "string",
 				}
 			`)
