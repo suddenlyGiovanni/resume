@@ -4,10 +4,10 @@
 
 ### Patch Changes
 
+- ea624d4: update `@effect/schema` package to v0.67.22
 - ea624d4: update `@effect/schema` package to v0.67.23
 - ea624d4: update `@effect/schema` package to v0.67.24
 - ea624d4: update `@effect/schema` package to v0.68.0
-- ea624d4: update `@effect/schema` package to v0.67.22
 
 ## 12.1.5
 
