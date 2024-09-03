@@ -1,5 +1,14 @@
 # @suddenly-giovanni/resume
 
+## 12.1.8
+
+### Patch Changes
+
+- 4137875: update `@effect/schema` package to v0.69.3
+- 4137875: update `@effect/schema` package to v0.69.1
+- 4137875: update `@effect/schema` package to v0.69.2
+- 4137875: update `@effect/schema` package to v0.69.0
+
 ## 12.1.7
 
 ### Patch Changes
