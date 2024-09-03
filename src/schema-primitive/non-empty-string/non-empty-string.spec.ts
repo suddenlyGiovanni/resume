@@ -46,7 +46,18 @@ describe('nonEmptyString', () => {
 			expect(JSON.stringify(JSONSchema.make(NonEmptyString), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"minLength": 1
+					"$ref": "#/$defs/NonEmptyString",
+					"$defs": {
+						"NonEmptyString": {
+							"type": "string",
+							"description": "a non empty string",
+							"title": "non empty string",
+							"examples": [
+								"' test string  '",
+								"'test string'"
+							]
+						}
+					}
 				}"
 			`)
 
@@ -55,7 +66,17 @@ describe('nonEmptyString', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"minLength": 1
+					"$ref": "#/$defs/NonEmptyString",
+					"$defs": {
+						"NonEmptyString": {
+							"type": "string",
+							"description": "DESCRIPTION",
+							"title": "TITLE",
+							"examples": [
+								"EXAMPLES"
+							]
+						}
+					}
 				}"
 			`)
 		})
