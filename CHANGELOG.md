@@ -1,5 +1,36 @@
 # @suddenly-giovanni/resume
 
+## 12.1.7
+
+### Patch Changes
+
+- 29202b5: update `@effect/schema` package to v0.68.8
+- 29202b5: update `@effect/schema` package to v0.68.20
+- 29202b5: update `@effect/schema` package to v0.68.9
+- 29202b5: update `@effect/schema` package to v0.68.4
+- 29202b5: chore(package): update @effect/schema to 0.68.14
+- 29202b5: chore(package): update @effect/schema to 0.68.10
+- 29202b5: update `@effect/schema` package to v0.68.25
+- 29202b5: chore(package): update @effect/schema to 0.68.23
+- 29202b5: update `@effect/schema` package to v0.68.27
+- 29202b5: chore(package): update @effect/schema to 0.68.12
+- 29202b5: update `@effect/schema` package to v0.68.18
+- 29202b5: chore(package): update @effect/schema to 0.68.13
+- 29202b5: update `@effect/schema` package to v0.68.5
+- 29202b5: update `@effect/schema` package to v0.68.7
+- 29202b5: chore(package): update @effect/schema to 0.68.15
+- 29202b5: update `@effect/schema` package to v0.68.26
+- 29202b5: update `@effect/schema` package to v0.68.6
+- 29202b5: update `@effect/schema` package to v0.68.17
+- 29202b5: update `@effect/schema` package to v0.68.22
+- 29202b5: update `@effect/schema` package to v0.68.1
+- 29202b5: update `@effect/schema` package to v0.68.2
+- 29202b5: update `@effect/schema` package to v0.68.19
+- 29202b5: update `@effect/schema` package to v0.68.24
+- 29202b5: chore(package): update @effect/schema to 0.68.11
+- 29202b5: update `@effect/schema` package to v0.68.3
+- 29202b5: update `@effect/schema` package to v0.68.21
+
 ## 12.1.6
 
 ### Patch Changes
