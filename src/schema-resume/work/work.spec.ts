@@ -154,14 +154,9 @@ describe('Work', () => {
 					            "type": "string",
 					          },
 					          "highlights": {
-					            "additionalItems": {
+					            "items": {
 					              "type": "string",
 					            },
-					            "items": [
-					              {
-					                "type": "string",
-					              },
-					            ],
 					            "minItems": 1,
 					            "type": "array",
 					          },
@@ -175,14 +170,9 @@ describe('Work', () => {
 					            "type": "string",
 					          },
 					          "technologies": {
-					            "additionalItems": {
+					            "items": {
 					              "type": "string",
 					            },
-					            "items": [
-					              {
-					                "type": "string",
-					              },
-					            ],
 					            "minItems": 1,
 					            "type": "array",
 					          },
@@ -205,14 +195,9 @@ describe('Work', () => {
 					              "type": "string",
 					            },
 					            "highlights": {
-					              "additionalItems": {
+					              "items": {
 					                "type": "string",
 					              },
-					              "items": [
-					                {
-					                  "type": "string",
-					                },
-					              ],
 					              "minItems": 1,
 					              "type": "array",
 					            },
@@ -226,14 +211,9 @@ describe('Work', () => {
 					              "type": "string",
 					            },
 					            "technologies": {
-					              "additionalItems": {
+					              "items": {
 					                "type": "string",
 					              },
-					              "items": [
-					                {
-					                  "type": "string",
-					                },
-					              ],
 					              "minItems": 1,
 					              "type": "array",
 					            },
