@@ -1,5 +1,14 @@
 # @suddenly-giovanni/resume
 
+## 12.1.6
+
+### Patch Changes
+
+- ea624d4: update `@effect/schema` package to v0.67.22
+- ea624d4: update `@effect/schema` package to v0.67.23
+- ea624d4: update `@effect/schema` package to v0.67.24
+- ea624d4: update `@effect/schema` package to v0.68.0
+
 ## 12.1.5
 
 ### Patch Changes
