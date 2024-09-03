@@ -15,8 +15,8 @@ importers:
         specifier: 2.27.7
         version: 2.27.7
       '@effect/schema':
-        specifier: 0.69.0
-        version: 0.69.0(effect@3.5.7)
+        specifier: 0.69.1
+        version: 0.69.1(effect@3.5.7)
       '@std/yaml':
         specifier: npm:@jsr/std__yaml@1.0.4
         version: '@jsr/std__yaml@1.0.4'
@@ -189,8 +189,8 @@ packages:
   '@changesets/write@0.3.1':
     resolution: {integrity: sha512-SyGtMXzH3qFqlHKcvFY2eX+6b0NGiFcNav8AFsYwy5l8hejOeoeTDemu5Yjmke2V5jpzY+pBvM0vCCQ3gdZpfw==}
 
-  '@effect/schema@0.69.0':
-    resolution: {integrity: sha512-dqVnriWqM8TT8d+5vgg1pH4ZOXfs7tQBVAY5N7PALzIOlZamsBKQCdwvMMqremjSkKITckF8/cIj1eQZHQeg7Q==}
+  '@effect/schema@0.69.1':
+    resolution: {integrity: sha512-+Gq3KrQh02B8nxUnha9Df8lCwKwWnK2XgEk7JDY+67/BrJSbGxVf0TjBRRJdlsH8xsqJ+HkCApSngGKPXbWDVQ==}
     peerDependencies:
       effect: ^3.5.7
 
@@ -1512,7 +1512,7 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@effect/schema@0.69.0(effect@3.5.7)':
+  '@effect/schema@0.69.1(effect@3.5.7)':
     dependencies:
       effect: 3.5.7
       fast-check: 3.22.0
