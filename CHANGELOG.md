@@ -1,5 +1,15 @@
 # @suddenly-giovanni/resume
 
+## 12.1.10
+
+### Patch Changes
+
+- d2dcc7c: update `@effect/schema` package to v0.71.4
+- d2dcc7c: update `@effect/schema` package to v0.71.2
+- d2dcc7c: update `@effect/schema` package to v0.71.0
+- d2dcc7c: update `@effect/schema` package to v0.71.3
+- d2dcc7c: update `@effect/schema` package to v0.71.1
+
 ## 12.1.9
 
 ### Patch Changes

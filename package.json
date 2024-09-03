@@ -1,6 +1,6 @@
 {
 	"name": "@suddenlygiovanni/resume",
-	"version": "12.1.9",
+	"version": "12.1.10",
 	"type": "module",
 	"exports": {
 		"./resume.yml": "./resume.yml",
