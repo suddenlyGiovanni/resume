@@ -37,7 +37,7 @@ describe('ISO8601Date', () => {
 				└─ Encoded side transformation failure
 				   └─ Date
 				      └─ Predicate refinement failure
-				         └─ Expected Date (a valid Date), actual Invalid Date",
+				         └─ Expected Date, actual Invalid Date",
 				  },
 				}
 			`)
