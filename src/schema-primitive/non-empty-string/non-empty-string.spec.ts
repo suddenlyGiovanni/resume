@@ -211,7 +211,7 @@ describe('Annotation', () => {
 			}
 		`)
 
-		expect(JSONSchema.make(NonEmpty.pipe(Schema.jsonSchema({ foo: 'bar' })))).not.toEqual(
+		expect(JSONSchema.make(NonEmpty.annotations({ jsonSchema: { foo: 'bar' } }))).not.toEqual(
 			JSONSchema.make(NonEmpty),
 		)
 
