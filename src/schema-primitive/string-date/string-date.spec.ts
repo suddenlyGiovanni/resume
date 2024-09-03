@@ -80,8 +80,6 @@ describe('StringDate', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(StringDate))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a string",
-				  "title": "string",
 				  "type": "string",
 				}
 			`)
@@ -89,8 +87,6 @@ describe('StringDate', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(StringDate))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a string",
-				  "title": "string",
 				  "type": "string",
 				}
 			`)

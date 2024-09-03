@@ -83,17 +83,13 @@ describe('Email', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string",
-					"description": "a string",
-					"title": "string"
+					"type": "string"
 				}"
 			`)
 
 			expect(JSONSchema.make(Schema.encodedSchema(AnnotatedEmail))).toMatchInlineSnapshot(`
 				{
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a string",
-				  "title": "string",
 				  "type": "string",
 				}
 			`)

@@ -122,18 +122,12 @@ describe('Work', () => {
 					      "additionalProperties": false,
 					      "properties": {
 					        "email": {
-					          "description": "a string",
-					          "title": "string",
 					          "type": "string",
 					        },
 					        "name": {
-					          "description": "a string",
-					          "title": "string",
 					          "type": "string",
 					        },
 					        "phone": {
-					          "description": "a string",
-					          "title": "string",
 					          "type": "string",
 					        },
 					      },
@@ -144,18 +138,12 @@ describe('Work', () => {
 					      "type": "object",
 					    },
 					    "description": {
-					      "description": "a string",
-					      "title": "string",
 					      "type": "string",
 					    },
 					    "location": {
-					      "description": "a string",
-					      "title": "string",
 					      "type": "string",
 					    },
 					    "name": {
-					      "description": "a string",
-					      "title": "string",
 					      "type": "string",
 					    },
 					    "roles": {
@@ -163,20 +151,14 @@ describe('Work', () => {
 					        "additionalProperties": false,
 					        "properties": {
 					          "endDate": {
-					            "description": "a string",
-					            "title": "string",
 					            "type": "string",
 					          },
 					          "highlights": {
 					            "additionalItems": {
-					              "description": "a string",
-					              "title": "string",
 					              "type": "string",
 					            },
 					            "items": [
 					              {
-					                "description": "a string",
-					                "title": "string",
 					                "type": "string",
 					              },
 					            ],
@@ -185,27 +167,19 @@ describe('Work', () => {
 					          },
 					          "responsibilities": {
 					            "items": {
-					              "description": "a string",
-					              "title": "string",
 					              "type": "string",
 					            },
 					            "type": "array",
 					          },
 					          "startDate": {
-					            "description": "a string",
-					            "title": "string",
 					            "type": "string",
 					          },
 					          "technologies": {
 					            "additionalItems": {
-					              "description": "a string",
-					              "title": "string",
 					              "type": "string",
 					            },
 					            "items": [
 					              {
-					                "description": "a string",
-					                "title": "string",
 					                "type": "string",
 					              },
 					            ],
@@ -213,8 +187,6 @@ describe('Work', () => {
 					            "type": "array",
 					          },
 					          "title": {
-					            "description": "a string",
-					            "title": "string",
 					            "type": "string",
 					          },
 					        },
@@ -230,20 +202,14 @@ describe('Work', () => {
 					          "additionalProperties": false,
 					          "properties": {
 					            "endDate": {
-					              "description": "a string",
-					              "title": "string",
 					              "type": "string",
 					            },
 					            "highlights": {
 					              "additionalItems": {
-					                "description": "a string",
-					                "title": "string",
 					                "type": "string",
 					              },
 					              "items": [
 					                {
-					                  "description": "a string",
-					                  "title": "string",
 					                  "type": "string",
 					                },
 					              ],
@@ -252,27 +218,19 @@ describe('Work', () => {
 					            },
 					            "responsibilities": {
 					              "items": {
-					                "description": "a string",
-					                "title": "string",
 					                "type": "string",
 					              },
 					              "type": "array",
 					            },
 					            "startDate": {
-					              "description": "a string",
-					              "title": "string",
 					              "type": "string",
 					            },
 					            "technologies": {
 					              "additionalItems": {
-					                "description": "a string",
-					                "title": "string",
 					                "type": "string",
 					              },
 					              "items": [
 					                {
-					                  "description": "a string",
-					                  "title": "string",
 					                  "type": "string",
 					                },
 					              ],
@@ -280,8 +238,6 @@ describe('Work', () => {
 					              "type": "array",
 					            },
 					            "title": {
-					              "description": "a string",
-					              "title": "string",
 					              "type": "string",
 					            },
 					          },
@@ -297,13 +253,9 @@ describe('Work', () => {
 					      "type": "array",
 					    },
 					    "summary": {
-					      "description": "a string",
-					      "title": "string",
 					      "type": "string",
 					    },
 					    "url": {
-					      "description": "a string",
-					      "title": "string",
 					      "type": "string",
 					    },
 					  },

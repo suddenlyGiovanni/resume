@@ -141,8 +141,6 @@ describe('Annotation', () => {
 		expect(JSONSchema.make(Schema.String)).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "description": "a string",
-			  "title": "string",
 			  "type": "string",
 			}
 		`)
@@ -278,8 +276,6 @@ describe('Annotation', () => {
 		expect(JSONSchema.make(Schema.encodedSchema(Trimmed))).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "description": "a string",
-			  "title": "string",
 			  "type": "string",
 			}
 		`)
@@ -298,8 +294,6 @@ describe('Annotation', () => {
 		).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "description": "a string",
-			  "title": "string",
 			  "type": "string",
 			}
 		`)
@@ -313,8 +307,6 @@ describe('Annotation', () => {
 		expect(JSONSchema.make(Schema.encodedSchema(Trim))).toMatchInlineSnapshot(`
 			{
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "description": "a string",
-			  "title": "string",
 			  "type": "string",
 			}
 		`)
