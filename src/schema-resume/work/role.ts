@@ -15,7 +15,7 @@ export class Role extends Schema.Class<Role>('Role')({
 		examples: ['2011-01-01'],
 	}),
 
-	endDate: Schema.optional(
+	endDate: Schema.optionalWith(
 		StringDate.annotations({
 			title: 'endDate',
 			description: 'The date when you stopped working in this role',
@@ -35,7 +35,7 @@ export class Role extends Schema.Class<Role>('Role')({
 		description: 'Specify multiple responsibilities',
 	}),
 
-	highlights: Schema.optional(
+	highlights: Schema.optionalWith(
 		Schema.NonEmptyArray(
 			TrimmedNonEmpty.annotations({
 				title: 'highlight',
@@ -49,7 +49,7 @@ export class Role extends Schema.Class<Role>('Role')({
 		{ exact: true },
 	),
 
-	technologies: Schema.optional(
+	technologies: Schema.optionalWith(
 		Schema.NonEmptyArray(
 			TrimmedNonEmpty.annotations({
 				title: 'technology',

@@ -4,7 +4,7 @@ import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive
 import { Role } from './role.js'
 
 export class Work extends Schema.Class<Work>('Work')({
-	contact: Schema.optional(
+	contact: Schema.optionalWith(
 		Schema.Struct({
 			name: TrimmedNonEmpty.annotations({
 				title: 'name',
@@ -14,7 +14,7 @@ export class Work extends Schema.Class<Work>('Work')({
 
 			email: Email,
 
-			phone: Schema.optional(Phone, { exact: true }),
+			phone: Schema.optionalWith(Phone, { exact: true }),
 		}),
 		{ exact: true },
 	),
@@ -25,7 +25,7 @@ export class Work extends Schema.Class<Work>('Work')({
 		examples: ['Social Media Company', 'Educational Software Company'],
 	}),
 
-	location: Schema.optional(
+	location: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'location',
 			description: 'Location of the company',
@@ -45,7 +45,7 @@ export class Work extends Schema.Class<Work>('Work')({
 		description: 'The roles you had at the company, in reverse chronological order',
 	}),
 
-	summary: Schema.optional(
+	summary: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description:
@@ -58,5 +58,5 @@ export class Work extends Schema.Class<Work>('Work')({
 		{ exact: true },
 	),
 
-	url: Schema.optional(UrlString, { exact: true }),
+	url: Schema.optionalWith(UrlString, { exact: true }),
 }) {}

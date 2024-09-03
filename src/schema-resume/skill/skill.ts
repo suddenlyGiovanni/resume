@@ -14,7 +14,7 @@ export class Skill extends Schema.Class<Skill>('Skill')({
 		examples: [['Rust', 'Java']],
 	}),
 
-	level: Schema.optional(
+	level: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'level',
 			description: 'Level of expertise',

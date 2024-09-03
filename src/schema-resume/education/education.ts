@@ -9,7 +9,7 @@ export class Education extends Schema.Class<Education>('Education')({
 		examples: ['Arts', 'Computer Science'],
 	}),
 
-	courses: Schema.optional(
+	courses: Schema.optionalWith(
 		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'course',
@@ -23,7 +23,7 @@ export class Education extends Schema.Class<Education>('Education')({
 		{ exact: true },
 	),
 
-	endDate: Schema.optional(
+	endDate: Schema.optionalWith(
 		StringDate.annotations({
 			title: 'endDate',
 			description: 'end date of education',
@@ -32,7 +32,7 @@ export class Education extends Schema.Class<Education>('Education')({
 		{ exact: true },
 	),
 
-	score: Schema.optional(
+	score: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'score',
 			description: 'grade point average, e.g. 3.67/4.0',
@@ -49,7 +49,7 @@ export class Education extends Schema.Class<Education>('Education')({
 		examples: ['Massachusetts Institute of Technology'],
 	}),
 
-	location: Schema.optional(TrimmedNonEmpty, { exact: true }),
+	location: Schema.optionalWith(TrimmedNonEmpty, { exact: true }),
 
 	startDate: StringDate.annotations({
 		title: 'startDate',
@@ -63,7 +63,7 @@ export class Education extends Schema.Class<Education>('Education')({
 		examples: ['Bachelor', 'Master', 'Doctorate'],
 	}),
 
-	url: Schema.optional(
+	url: Schema.optionalWith(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) of the institution',

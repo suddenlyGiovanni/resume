@@ -3,7 +3,7 @@ import { Schema } from '@effect/schema'
 import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Interest extends Schema.Class<Interest>('Interest')({
-	keywords: Schema.optional(
+	keywords: Schema.optionalWith(
 		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'keyword',
@@ -17,7 +17,7 @@ export class Interest extends Schema.Class<Interest>('Interest')({
 		{ exact: true },
 	),
 
-	name: Schema.optional(
+	name: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'name',
 			description: 'Interest name',

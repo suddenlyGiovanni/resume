@@ -3,7 +3,7 @@ import { Schema } from '@effect/schema'
 import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Language extends Schema.Class<Language>('Language')({
-	fluency: Schema.optional(
+	fluency: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'fluency',
 			description: 'e.g. Fluent, Beginner',
@@ -12,7 +12,7 @@ export class Language extends Schema.Class<Language>('Language')({
 		{ exact: true },
 	),
 
-	language: Schema.optional(
+	language: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'language',
 			description: 'e.g. English, Spanish',

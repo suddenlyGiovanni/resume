@@ -3,7 +3,7 @@ import { Schema } from '@effect/schema'
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
 export class Project extends Schema.Class<Project>('Project')({
-	description: Schema.optional(
+	description: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'description',
 			description: 'Short summary of project',
@@ -12,9 +12,9 @@ export class Project extends Schema.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	endDate: Schema.optional(StringDate, { exact: true }),
+	endDate: Schema.optionalWith(StringDate, { exact: true }),
 
-	entity: Schema.optional(
+	entity: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'entity',
 			description: 'Specify the relevant company/entity affiliations',
@@ -23,7 +23,7 @@ export class Project extends Schema.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	highlights: Schema.optional(
+	highlights: Schema.optionalWith(
 		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'highlight',
@@ -37,7 +37,7 @@ export class Project extends Schema.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	keywords: Schema.optional(
+	keywords: Schema.optionalWith(
 		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'keyword',
@@ -50,7 +50,7 @@ export class Project extends Schema.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	name: Schema.optional(
+	name: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'name',
 			description: 'Name of the project',
@@ -59,7 +59,7 @@ export class Project extends Schema.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	roles: Schema.optional(
+	roles: Schema.optionalWith(
 		Schema.Array(
 			TrimmedNonEmpty.annotations({
 				title: 'role',
@@ -72,9 +72,9 @@ export class Project extends Schema.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	startDate: Schema.optional(StringDate, { exact: true }),
+	startDate: Schema.optionalWith(StringDate, { exact: true }),
 
-	type: Schema.optional(
+	type: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'type',
 			description: 'Type of project',
@@ -83,7 +83,7 @@ export class Project extends Schema.Class<Project>('Project')({
 		{ exact: true },
 	),
 
-	url: Schema.optional(
+	url: Schema.optionalWith(
 		UrlString.annotations({
 			title: 'url',
 			description: 'URL (as per RFC 3986) to the project page',

@@ -9,7 +9,7 @@ export class Reference extends Schema.Class<Reference>('Reference')({
 		examples: ['Timothy Cook'],
 	}),
 
-	reference: Schema.optional(
+	reference: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'reference',
 			description: 'The reference text',

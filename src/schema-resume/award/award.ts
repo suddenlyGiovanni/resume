@@ -3,7 +3,7 @@ import { Schema } from '@effect/schema'
 import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
 
 export class Award extends Schema.Class<Award>('Award')({
-	awarder: Schema.optional(
+	awarder: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'awarder',
 			description: 'The name of the award given',
@@ -12,7 +12,7 @@ export class Award extends Schema.Class<Award>('Award')({
 		{ exact: true },
 	),
 
-	date: Schema.optional(
+	date: Schema.optionalWith(
 		StringDate.annotations({
 			title: 'date',
 			description: 'Date of the award',
@@ -20,7 +20,7 @@ export class Award extends Schema.Class<Award>('Award')({
 		{ exact: true },
 	),
 
-	summary: Schema.optional(
+	summary: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'summary',
 			description: 'A brief summary of the award',
@@ -29,7 +29,7 @@ export class Award extends Schema.Class<Award>('Award')({
 		{ exact: true },
 	),
 
-	title: Schema.optional(
+	title: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'title',
 			description: 'Title of the award',

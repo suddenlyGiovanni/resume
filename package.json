@@ -41,12 +41,12 @@
 	},
 	"license": "UNLICENSED",
 	"peerDependencies": {
-		"@effect/schema": "~0.68.27"
+		"@effect/schema": "~0.69.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
 		"@changesets/cli": "2.27.7",
-		"@effect/schema": "0.68.27",
+		"@effect/schema": "0.69.0",
 		"@std/yaml": "npm:@jsr/std__yaml@1.0.4",
 		"@tsconfig/node21": "21.0.3",
 		"@tsconfig/strictest": "2.0.5",

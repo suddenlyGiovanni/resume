@@ -3,7 +3,7 @@ import { Schema } from '@effect/schema'
 import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 
 export class Certificate extends Schema.Class<Certificate>('Certificate')({
-	name: Schema.optional(
+	name: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'Name',
 			description: 'name of the certificate',
@@ -12,14 +12,14 @@ export class Certificate extends Schema.Class<Certificate>('Certificate')({
 		{ exact: true },
 	),
 
-	date: Schema.optional(
+	date: Schema.optionalWith(
 		StringDate.annotations({
 			title: 'date',
 		}),
 		{ exact: true },
 	),
 
-	url: Schema.optional(
+	url: Schema.optionalWith(
 		UrlString.annotations({
 			title: 'url',
 			description: 'the url of the certificate',
@@ -28,7 +28,7 @@ export class Certificate extends Schema.Class<Certificate>('Certificate')({
 		{ exact: true },
 	),
 
-	issuer: Schema.optional(
+	issuer: Schema.optionalWith(
 		TrimmedNonEmpty.annotations({
 			title: 'issuer',
 			description: 'issuer of the certificate',
