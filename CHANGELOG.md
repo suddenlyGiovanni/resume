@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 12.1.12
+
+### Patch Changes
+
+- a7db9d7: update `@effect/schema` package to v0.72.2
+
 ## 12.1.11
 
 ### Patch Changes
