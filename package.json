@@ -44,11 +44,11 @@
 		"@effect/schema": "~0.72.2"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
+		"@biomejs/biome": "1.9.3",
 		"@changesets/cli": "2.27.8",
 		"@effect/schema": "0.72.2",
 		"@std/yaml": "npm:@jsr/std__yaml@1.0.5",
-		"@tsconfig/node21": "21.0.3",
+		"@tsconfig/node22": "22.0.0",
 		"@tsconfig/strictest": "2.0.5",
 		"@types/json-schema": "7.0.15",
 		"@types/node": "22.5.4",
