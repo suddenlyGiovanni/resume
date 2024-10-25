@@ -188,7 +188,8 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string"
+					"type": "string",
+					"description": "a string that will be parsed into a Date"
 				}"
 			`)
 
@@ -201,7 +202,8 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string"
+					"type": "string",
+					"description": "a string that will be parsed into a Date"
 				}"
 			`)
 		})
