@@ -15,8 +15,8 @@ importers:
         specifier: 2.27.9
         version: 2.27.9
       '@effect/schema':
-        specifier: 0.73.0
-        version: 0.73.0(effect@3.8.0)
+        specifier: 0.73.1
+        version: 0.73.1(effect@3.8.1)
       '@std/yaml':
         specifier: npm:@jsr/std__yaml@1.0.5
         version: '@jsr/std__yaml@1.0.5'
@@ -39,8 +39,8 @@ importers:
         specifier: 2.1.3
         version: 2.1.3(vitest@2.1.3)
       effect:
-        specifier: 3.8.0
-        version: 3.8.0
+        specifier: 3.8.1
+        version: 3.8.1
       typescript:
         specifier: 5.6.3
         version: 5.6.3
@@ -189,10 +189,10 @@ packages:
   '@changesets/write@0.3.2':
     resolution: {integrity: sha512-kDxDrPNpUgsjDbWBvUo27PzKX4gqeKOlhibaOXDJA6kuBisGqNHv/HwGJrAu8U/dSf8ZEFIeHIPtvSlZI1kULw==}
 
-  '@effect/schema@0.73.0':
-    resolution: {integrity: sha512-y/TSwJcv4N6sAuJIHY5siGS+cNteiwryf4CBJaGib01ypgg+7/CUl3AwXTW1AI3oaYWmccAjww5zurHiVaooBw==}
+  '@effect/schema@0.73.1':
+    resolution: {integrity: sha512-1poln6ZSPlkZuKFDfdW2+iRFIht+JOX9TPtmjQgXxsBJNqRQsoe2RLgBNLlA3lhum6gQtJDF9PcSz9+miGwquA==}
     peerDependencies:
-      effect: ^3.8.0
+      effect: ^3.8.1
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -639,8 +639,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  effect@3.8.0:
-    resolution: {integrity: sha512-9ouAF51iUYMhbWOSQjWayfoyDDMziQCr2Y8VfhnUmRdfi44n+91VplTA5qqV2mWvFNM3ZV4R6bcfW2js9fK7IA==}
+  effect@3.8.1:
+    resolution: {integrity: sha512-FjzM1brevTD9aONWVBwWDY6+K5FR5JXJJuWoZlJM2OcnfjRRyrbbzi+wjRGw8QbRIIL44P6bEhMeBo9IGZyXiQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -1435,9 +1435,9 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@effect/schema@0.73.0(effect@3.8.0)':
+  '@effect/schema@0.73.1(effect@3.8.1)':
     dependencies:
-      effect: 3.8.0
+      effect: 3.8.1
       fast-check: 3.22.0
 
   '@esbuild/aix-ppc64@0.21.5':
@@ -1789,7 +1789,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.8.0: {}
+  effect@3.8.1: {}
 
   emoji-regex@8.0.0: {}
 
