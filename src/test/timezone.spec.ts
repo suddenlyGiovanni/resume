@@ -1,3 +1,4 @@
+// biome-ignore lint/correctness/noNodejsModules: necessary for testing purpose
 import process from 'node:process'
 import { describe, it } from 'vitest'
 

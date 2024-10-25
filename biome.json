@@ -1,7 +1,7 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
-		"include": ["./src"],
+		"include": ["./src/*"],
 		"ignore": ["node_modules", ".pnpm", "./~"]
 	},
 	"vcs": {
@@ -24,19 +24,25 @@
 		"rules": {
 			"all": true,
 			"nursery": {
-				"all": true
+				"all": true,
+				"noSecrets": "off",
+				"useExplicitType": {
+					"level": "off"
+				}
 			},
 			"style": {
+				"all": true,
 				"noNamespaceImport": {
 					"level": "off"
 				}
 			},
 			"performance": {
+				"all": true,
 				"noBarrelFile": {
-					"level": "warn"
+					"level": "off"
 				},
 				"noReExportAll": {
-					"level": "warn"
+					"level": "off"
 				}
 			}
 		}

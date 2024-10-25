@@ -1,6 +1,7 @@
 import { ParseResult, Schema } from '@effect/schema'
 import type { JSONSchema7 } from 'json-schema'
 
+// biome-ignore lint/style/useNamingConvention: this case is correct
 export interface ISO8601DateString extends Schema.Annotable<ISO8601DateString, string> {}
 
 const annotations = {
@@ -23,6 +24,8 @@ const annotations = {
  * A string ISO 8601 date Schema.
  * Given any string date, it validates it to be a valid input for the Date constructor,
  * and then it converts it to a string in the ISO 8601 format.
+ *
+ * biome-ignore lint/style/useNamingConvention: this case is correct
  */
 export const ISO8601DateString: ISO8601DateString = Schema.transformOrFail(
 	Schema.Date,
