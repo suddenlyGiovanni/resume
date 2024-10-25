@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 
 export class Skill extends Schema.Class<Skill>('Skill')({
 	keywords: Schema.Array(

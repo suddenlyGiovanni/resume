@@ -1,4 +1,4 @@
-import { JSONSchema, ParseResult, Schema } from '@effect/schema'
+import { JSONSchema, ParseResult, Schema } from 'effect'
 import { Either } from 'effect'
 import { describe, expect, it } from 'vitest'
 

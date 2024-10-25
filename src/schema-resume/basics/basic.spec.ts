@@ -1,4 +1,4 @@
-import { JSONSchema, Schema } from '@effect/schema'
+import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { Basics } from './basics.js'
@@ -182,10 +182,10 @@ describe('Basics', () => {
 				  "required": [
 				    "email",
 				    "label",
-				    "name",
-				    "summary",
 				    "location",
+				    "name",
 				    "profiles",
+				    "summary",
 				  ],
 				  "type": "object",
 				}

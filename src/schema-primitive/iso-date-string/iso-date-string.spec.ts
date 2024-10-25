@@ -1,4 +1,4 @@
-import { JSONSchema, Schema } from '@effect/schema'
+import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { ISODateString } from './iso-date-string.js'
@@ -26,7 +26,8 @@ describe('ISODateString', () => {
 		expect(serializedJsonSchema).toMatchInlineSnapshot(`
 			"{
 				"$schema": "http://json-schema.org/draft-07/schema#",
-				"type": "string"
+				"type": "string",
+				"description": "a string that will be trimmed"
 			}"
 		`)
 	})

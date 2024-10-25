@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 
 import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
 

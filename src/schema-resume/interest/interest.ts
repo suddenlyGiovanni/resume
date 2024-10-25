@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 
 export class Interest extends Schema.Class<Interest>('Interest')({
 	keywords: Schema.optionalWith(

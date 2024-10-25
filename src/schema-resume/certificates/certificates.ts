@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 
 import { StringDate, UrlString } from '../../schema-primitive/index.js'
 

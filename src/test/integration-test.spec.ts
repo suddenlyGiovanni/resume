@@ -1,6 +1,6 @@
-import { Schema } from '@effect/schema'
-import * as yaml from '@std/yaml'
 import * as fs from 'node:fs/promises'
+import * as yaml from '@std/yaml'
+import { Schema } from 'effect'
 import { describe, expect, it } from 'vitest'
 
 import { Resume } from '../schema-resume/resume.js'

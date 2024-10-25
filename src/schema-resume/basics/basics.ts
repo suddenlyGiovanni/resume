@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 
 import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
 import { Location } from '../location/location.js'

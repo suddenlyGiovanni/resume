@@ -1,4 +1,4 @@
-import { AST, JSONSchema, Schema } from '@effect/schema'
+import { JSONSchema, Schema, SchemaAST } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { expectEitherLeft, expectEitherRight } from '../../test/index.js'
@@ -50,7 +50,7 @@ describe('trimmedNonEmpty', () => {
 
 	test('should preserve `annotations.jsonSchema`', () => {
 		expect(
-			Schema.String.pipe(trimmedNonEmpty()).ast.annotations[AST.JSONSchemaAnnotationId],
+			Schema.String.pipe(trimmedNonEmpty()).ast.annotations[SchemaAST.JSONSchemaAnnotationId],
 		).toMatchInlineSnapshot(`
 			{
 			  "minLength": 1,
@@ -60,7 +60,7 @@ describe('trimmedNonEmpty', () => {
 
 		expect(
 			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: {} })).ast.annotations[
-				AST.JSONSchemaAnnotationId
+				SchemaAST.JSONSchemaAnnotationId
 			],
 		).toMatchInlineSnapshot(`
 			{
@@ -71,7 +71,7 @@ describe('trimmedNonEmpty', () => {
 
 		expect(
 			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: { foo: 'bar', baz: 'zebra' } })).ast
-				.annotations[AST.JSONSchemaAnnotationId],
+				.annotations[SchemaAST.JSONSchemaAnnotationId],
 		).toMatchInlineSnapshot(`
 				{
 				  "baz": "zebra",
