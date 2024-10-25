@@ -1,5 +1,32 @@
 # @suddenly-giovanni/resume
 
+## 13.0.0
+
+### Major Changes
+
+- b0b60b4: - chore(package): bump `effect` dependency to 3.10.4
+  - chore(dependencies): update `effect` to 3.10.3
+  - chore(dependencies): update `effect` to 3.10.2
+  - chore(dependencies): update `effect` to 3.10.1
+  - refactor(schema): replace `@effect/schema` with `effect`
+  - chore(dependencies): update @effect/schema to 0.75.4
+  - chore(dependencies): update @effect/schema to v0.75.3
+  - chore(deps): update @effect/schema to v0.75.2
+  - chore(deps): update effect and @effect/schema dependencies
+  - chore(dependencies): update @effect/schema and effect versions
+  - chore(dependencies): update @effect/schema to 0.74.2
+  - chore(dependencies): update @effect/schema and effect
+  - chore(package): bump @effect/schema to 0.74.0
+  - chore(dependencies): update @effect/schema and effect versions
+  - chore(dependencies): update @effect/schema to 0.73.3
+  - chore(dependencies): update `@effect/schema` and `effect`
+  - chore(dependencies): bump @effect/schema and effect versions
+  - chore(dependencies): update `@effect/schema` to version `0.73.0`
+  - chore(dependencies): update effect to 3.8.0
+  - chore(dependencies): update @effect/schema and effect versions
+  - chore(dependencies): update @effect/schema to 0.72.4
+  - chore(dependencies): update @effect/schema to 0.72.3
+
 ## 12.1.12
 
 ### Patch Changes
