@@ -182,10 +182,10 @@ describe('Basics', () => {
 				  "required": [
 				    "email",
 				    "label",
-				    "name",
-				    "summary",
 				    "location",
+				    "name",
 				    "profiles",
+				    "summary",
 				  ],
 				  "type": "object",
 				}
