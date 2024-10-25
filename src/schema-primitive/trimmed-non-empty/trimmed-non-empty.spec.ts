@@ -1,7 +1,7 @@
 import { AST, JSONSchema, Schema } from '@effect/schema'
 import { describe, expect, test } from 'vitest'
 
-import { expectEitherLeft, expectEitherRight } from '../../test/test-utils.js'
+import { expectEitherLeft, expectEitherRight } from '../../test/index.js'
 import { TrimmedNonEmpty, trimmedNonEmpty } from './trimmed-non-empty.js'
 
 describe('trimmedNonEmpty', () => {

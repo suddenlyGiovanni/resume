@@ -1,5 +1,6 @@
 import { Schema } from '@effect/schema'
 
+// biome-ignore lint/style/useNamingConvention: this case is correct
 export const ISODateString = Schema.compose(Schema.Trim, Schema.NonEmptyString)
 	.pipe(
 		Schema.pattern(
