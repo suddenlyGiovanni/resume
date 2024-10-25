@@ -1,17 +1,17 @@
-import { type AST, type ParseResult, Schema, TreeFormatter } from '@effect/schema'
-import { Effect, Either, Option } from 'effect'
+import { Effect, Either, Option, type ParseResult, Schema, type SchemaAST } from 'effect'
+import { TreeFormatter } from 'effect/ParseResult'
 
 import { expect } from 'vitest'
 
-export const onExcessPropertyError: AST.ParseOptions = {
+export const onExcessPropertyError: SchemaAST.ParseOptions = {
 	onExcessProperty: 'error',
 }
 
-export const onExcessPropertyPreserve: AST.ParseOptions = {
+export const onExcessPropertyPreserve: SchemaAST.ParseOptions = {
 	onExcessProperty: 'preserve',
 }
 
-export const allErrors: AST.ParseOptions = {
+export const allErrors: SchemaAST.ParseOptions = {
 	errors: 'all',
 }
 
@@ -19,28 +19,28 @@ export const expectDecodeUnknownSuccess = async <A, I>(
 	schema: Schema.Schema<A, I, never>,
 	input: unknown,
 	expected: A = input as any,
-	options?: AST.ParseOptions,
+	options?: SchemaAST.ParseOptions,
 ) => expectSuccess(Schema.decodeUnknown(schema)(input, options), expected)
 
 export const expectDecodeUnknownFailure = async <A, I>(
 	schema: Schema.Schema<A, I, never>,
 	input: unknown,
 	message: string,
-	options?: AST.ParseOptions,
+	options?: SchemaAST.ParseOptions,
 ) => expectFailure(Schema.decodeUnknown(schema)(input, options), message)
 
 export const expectEncodeSuccess = async <A, I>(
 	schema: Schema.Schema<A, I, never>,
 	a: A,
 	expected: unknown,
-	options?: AST.ParseOptions,
+	options?: SchemaAST.ParseOptions,
 ) => expectSuccess(Schema.encode(schema)(a, options), expected)
 
 export const expectEncodeFailure = async <A, I>(
 	schema: Schema.Schema<A, I, never>,
 	a: A,
 	message: string,
-	options?: AST.ParseOptions,
+	options?: SchemaAST.ParseOptions,
 ) => expectFailure(Schema.encode(schema)(a, options), message)
 
 export const printAST = <A, I, R>(schema: Schema.Schema<A, I, R>) => {

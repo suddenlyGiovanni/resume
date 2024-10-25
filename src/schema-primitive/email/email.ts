@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/index.js'
@@ -10,7 +10,7 @@ const email =
 		const pattern = regex.source
 		return self.pipe(
 			Schema.filter((maybeEmail): maybeEmail is A => regex.test(maybeEmail), {
-				typeId: { id: Schema.PatternTypeId, annotation: { regex } },
+				typeId: { id: Schema.PatternSchemaId, annotation: { regex } },
 				description: `an Email address string matching the pattern ${pattern}`,
 				message: issue =>
 					`expected an Email address string matching the pattern ${pattern}, got "${issue.actual}"`,

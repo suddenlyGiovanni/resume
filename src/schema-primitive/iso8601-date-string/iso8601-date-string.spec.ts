@@ -1,4 +1,4 @@
-import { JSONSchema, Schema } from '@effect/schema'
+import { JSONSchema, Schema } from 'effect'
 
 import { Either, pipe } from 'effect'
 import { describe, expect, test } from 'vitest'

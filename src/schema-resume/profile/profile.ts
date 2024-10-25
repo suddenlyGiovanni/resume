@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 import { UrlString } from '../../schema-primitive/index.js'
 
 export class Profile extends Schema.Class<Profile>('Profile')({

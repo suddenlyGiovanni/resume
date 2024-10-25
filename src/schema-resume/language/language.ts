@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 
 export class Language extends Schema.Class<Language>('Language')({
 	fluency: Schema.optionalWith(

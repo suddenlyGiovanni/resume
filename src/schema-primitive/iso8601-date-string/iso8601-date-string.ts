@@ -1,4 +1,4 @@
-import { ParseResult, Schema } from '@effect/schema'
+import { ParseResult, Schema } from 'effect'
 import type { JSONSchema7 } from 'json-schema'
 
 // biome-ignore lint/style/useNamingConvention: this case is correct

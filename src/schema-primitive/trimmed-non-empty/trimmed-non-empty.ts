@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 import type { JSONSchema7 } from 'json-schema'
 
 /**

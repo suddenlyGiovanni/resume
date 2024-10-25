@@ -1,4 +1,4 @@
-import { JSONSchema, Schema } from '@effect/schema'
+import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { Basics } from './basics.js'

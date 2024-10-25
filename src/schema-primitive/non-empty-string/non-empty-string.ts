@@ -1,4 +1,4 @@
-import { Schema } from '@effect/schema'
+import { Schema } from 'effect'
 
 export interface NonEmptyString extends Schema.Annotable<NonEmptyString, string> {}
 /**

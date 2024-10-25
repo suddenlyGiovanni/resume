@@ -1,8 +1,7 @@
-import { JSONSchema, Schema } from '@effect/schema'
-import { identity } from 'effect'
+import { JSONSchema, Schema, identity } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { expectEitherRight } from '../../test/test-utils.js'
+import { expectEitherRight } from '../../test/index.js'
 import { nonEmptyString } from './non-empty-string.js'
 
 describe('nonEmptyString', () => {
@@ -193,7 +192,7 @@ describe('Annotation', () => {
 			<I, R>(self: Schema.Schema<A, I, R>): Schema.Schema<A, I, R> =>
 				self.pipe(
 					Schema.filter((a): a is A => a.length >= minLength, {
-						typeId: Schema.MinLengthTypeId,
+						typeId: Schema.MinLengthSchemaId,
 						description: `a string at least ${minLength} character(s) long`,
 						jsonSchema: {
 							...annotations?.jsonSchema,
@@ -276,7 +275,7 @@ describe('Annotation', () => {
 			<I, R>(self: Schema.Schema<A, I, R>): Schema.Schema<A, I, R> =>
 				self.pipe(
 					Schema.filter((a): a is A => a === a.trim(), {
-						typeId: Schema.TrimmedTypeId,
+						typeId: Schema.TrimmedSchemaId,
 						description: 'a string with no leading or trailing whitespace',
 						...annotations,
 					}),
