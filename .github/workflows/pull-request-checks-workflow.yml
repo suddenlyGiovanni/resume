@@ -26,7 +26,6 @@ jobs:
             --vcs-enabled=true  \
             --vcs-use-ignore-file=true  \
             --no-errors-on-unmatched  \
-            --diagnostic-level=error  \
             --reporter=github \
             .
 
@@ -38,8 +37,8 @@ jobs:
       - name: 🧪 Run unit tests
         run: pnpm run test -- --coverage
 
-      - name: 🛫Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+      - name: 🛫 Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
         with:
           directory: ./coverage/reports/
           fail_ci_if_error: false
