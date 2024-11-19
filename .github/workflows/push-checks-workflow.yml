@@ -38,8 +38,8 @@ jobs:
             --vcs-enabled=true                \
             --vcs-use-ignore-file=true        \
             --no-errors-on-unmatched          \
-            --diagnostic-level=info           \
             --log-level=warn                  \
+            --reporter=github                 \
             .
 
       - name: 🚦 Git Auto Commit Lint fixes (with Biome)
