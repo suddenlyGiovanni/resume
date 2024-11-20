@@ -41,7 +41,7 @@
 	},
 	"license": "UNLICENSED",
 	"peerDependencieqs": {
-		"effect": "~3.10.4"
+		"effect": "~3.10.15"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
