@@ -39,11 +39,11 @@ importers:
         specifier: 3.10.15
         version: 3.10.15
       typescript:
-        specifier: 5.7.1-rc
-        version: 5.7.1-rc
+        specifier: 5.7.2
+        version: 5.7.2
       vite-tsconfig-paths:
         specifier: 5.1.4
-        version: 5.1.4(typescript@5.7.1-rc)(vite@5.4.11(@types/node@22.10.1))
+        version: 5.1.4(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1))
       vitest:
         specifier: 2.1.8
         version: 2.1.8(@types/node@22.10.1)(@vitest/ui@2.1.8)
@@ -1094,8 +1094,8 @@ packages:
       typescript:
         optional: true
 
-  typescript@5.7.1-rc:
-    resolution: {integrity: sha512-d6m+HT78uZtyUbXbUyIvuJ6kXCTSJEfy+2pZSUwt9d6JZ0kOMNDwhIILfV5FnaxMwVa48Yfw4sK0ISC4Qyq5tw==}
+  typescript@5.7.2:
+    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2182,11 +2182,11 @@ snapshots:
 
   totalist@3.0.1: {}
 
-  tsconfck@3.0.3(typescript@5.7.1-rc):
+  tsconfck@3.0.3(typescript@5.7.2):
     optionalDependencies:
-      typescript: 5.7.1-rc
+      typescript: 5.7.2
 
-  typescript@5.7.1-rc: {}
+  typescript@5.7.2: {}
 
   undici-types@6.20.0: {}
 
@@ -2210,11 +2210,11 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.1.4(typescript@5.7.1-rc)(vite@5.4.11(@types/node@22.10.1)):
+  vite-tsconfig-paths@5.1.4(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
-      tsconfck: 3.0.3(typescript@5.7.1-rc)
+      tsconfck: 3.0.3(typescript@5.7.2)
     optionalDependencies:
       vite: 5.4.11(@types/node@22.10.1)
     transitivePeerDependencies:
