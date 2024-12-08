@@ -51,12 +51,12 @@
 		"@tsconfig/strictest": "2.0.5",
 		"@types/json-schema": "7.0.15",
 		"@types/node": "22.10.1",
-		"@vitest/coverage-v8": "2.1.5",
-		"@vitest/ui": "2.1.5",
+		"@vitest/coverage-v8": "2.1.8",
+		"@vitest/ui": "2.1.8",
 		"effect": "3.10.15",
 		"typescript": "5.6.3",
 		"vite-tsconfig-paths": "5.1.4",
-		"vitest": "2.1.5"
+		"vitest": "2.1.8"
 	},
 	"packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
 	"engines": {
