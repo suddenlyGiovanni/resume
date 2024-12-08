@@ -1,6 +1,6 @@
 {
 	"name": "@suddenlygiovanni/resume",
-	"version": "13.1.0",
+	"version": "13.2.0",
 	"type": "module",
 	"exports": {
 		"./resume.yml": "./resume.yml",
@@ -14,7 +14,10 @@
 			"./schema-primitive": "./lib/schema-primitive/index.js"
 		}
 	},
-	"files": ["lib/**", "README.md"],
+	"files": [
+		"lib/**",
+		"README.md"
+	],
 	"author": {
 		"name": "Giovanni Ravalico",
 		"email": "15946771+suddenlygiovanni@users.noreply.github.com",

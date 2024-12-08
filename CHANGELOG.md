@@ -1,5 +1,11 @@
 # @suddenly-giovanni/resume
 
+## 13.2.0
+
+### Minor Changes
+
+- 2be109b: chore(package): bump `effect` dependency to 3.11.3
+
 ## 13.1.0
 
 ### Minor Changes
