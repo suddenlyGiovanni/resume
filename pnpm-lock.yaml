@@ -36,8 +36,8 @@ importers:
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8)
       effect:
-        specifier: 3.10.15
-        version: 3.10.15
+        specifier: 3.11.3
+        version: 3.11.3
       typescript:
         specifier: 5.7.2
         version: 5.7.2
@@ -628,8 +628,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  effect@3.10.15:
-    resolution: {integrity: sha512-LdczPAFbtij3xGr9i+8PyDtuWdlXjSY5UJ8PKrYrr0DClKfR/OW3j8sxtambWYljzJAYD865KFhv7LdbWdG7VQ==}
+  effect@3.11.3:
+    resolution: {integrity: sha512-pbdB97Ejdbu7YvnkOf5J8y9J0ZIveAK+uKUZJpZGqUyTfykpL9VqfzahjWfdkseDqsktEZS7bFuJ9IBowVWNpA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -1741,7 +1741,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.10.15:
+  effect@3.11.3:
     dependencies:
       fast-check: 3.22.0
 
