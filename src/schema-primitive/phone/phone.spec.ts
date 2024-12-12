@@ -53,24 +53,29 @@ describe('PhoneString', () => {
 		describe('naked', () => {
 			test('with no annotations', () => {
 				expect(JSONSchema.make(Phone)).toMatchInlineSnapshot(`
-				{
-				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a phone number conforming to the E.164 format standard",
-				  "examples": [
-				    "+4907121172923",
-				    "+441632960961",
-				    "+353861234567",
-				    "00353861234567",
-				    "+39 02 1234567",
-				    "+1-800-123-4567",
-				    "+1 800 123 4567",
-				    "+49 (0) 216 554 1036",
-				  ],
-				  "pattern": "^\\+[1-9]\\d{1,14}$",
-				  "title": "PhoneString",
-				  "type": "string",
-				}
-			`)
+					{
+					  "$defs": {
+					    "PhoneString": {
+					      "description": "a phone number conforming to the E.164 format standard",
+					      "examples": [
+					        "+4907121172923",
+					        "+441632960961",
+					        "+353861234567",
+					        "00353861234567",
+					        "+39 02 1234567",
+					        "+1-800-123-4567",
+					        "+1 800 123 4567",
+					        "+49 (0) 216 554 1036",
+					      ],
+					      "pattern": "^\\+[1-9]\\d{1,14}$",
+					      "title": "PhoneString",
+					      "type": "string",
+					    },
+					  },
+					  "$ref": "#/$defs/PhoneString",
+					  "$schema": "http://json-schema.org/draft-07/schema#",
+					}
+				`)
 			})
 
 			test('with custom annotations', () => {
@@ -83,21 +88,26 @@ describe('PhoneString', () => {
 					),
 				).toMatchInlineSnapshot(`
 					{
+					  "$defs": {
+					    "PhoneString": {
+					      "description": "DESCRIPTION",
+					      "examples": [
+					        "+4907121172923",
+					        "+441632960961",
+					        "+353861234567",
+					        "00353861234567",
+					        "+39 02 1234567",
+					        "+1-800-123-4567",
+					        "+1 800 123 4567",
+					        "+49 (0) 216 554 1036",
+					      ],
+					      "pattern": "^\\+[1-9]\\d{1,14}$",
+					      "title": "TITLE",
+					      "type": "string",
+					    },
+					  },
+					  "$ref": "#/$defs/PhoneString",
 					  "$schema": "http://json-schema.org/draft-07/schema#",
-					  "description": "DESCRIPTION",
-					  "examples": [
-					    "+4907121172923",
-					    "+441632960961",
-					    "+353861234567",
-					    "00353861234567",
-					    "+39 02 1234567",
-					    "+1-800-123-4567",
-					    "+1 800 123 4567",
-					    "+49 (0) 216 554 1036",
-					  ],
-					  "pattern": "^\\+[1-9]\\d{1,14}$",
-					  "title": "TITLE",
-					  "type": "string",
 					}
 				`)
 			})
@@ -106,8 +116,13 @@ describe('PhoneString', () => {
 		test('encodedSchema', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(Phone))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "PhoneString": {
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/PhoneString",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "type": "string",
 				}
 			`)
 		})
@@ -115,21 +130,26 @@ describe('PhoneString', () => {
 		test('typedSchema', () => {
 			expect(JSONSchema.make(Schema.typeSchema(Phone))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "PhoneString": {
+				      "description": "a phone number conforming to the E.164 format standard",
+				      "examples": [
+				        "+4907121172923",
+				        "+441632960961",
+				        "+353861234567",
+				        "00353861234567",
+				        "+39 02 1234567",
+				        "+1-800-123-4567",
+				        "+1 800 123 4567",
+				        "+49 (0) 216 554 1036",
+				      ],
+				      "pattern": "^\\+[1-9]\\d{1,14}$",
+				      "title": "PhoneString",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/PhoneString",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a phone number conforming to the E.164 format standard",
-				  "examples": [
-				    "+4907121172923",
-				    "+441632960961",
-				    "+353861234567",
-				    "00353861234567",
-				    "+39 02 1234567",
-				    "+1-800-123-4567",
-				    "+1 800 123 4567",
-				    "+49 (0) 216 554 1036",
-				  ],
-				  "pattern": "^\\+[1-9]\\d{1,14}$",
-				  "title": "PhoneString",
-				  "type": "string",
 				}
 			`)
 		})

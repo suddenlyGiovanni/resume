@@ -1,52 +1,66 @@
 {
+	"$ref": "#/$defs/Volunteer",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [],
-	"properties": {
-		"endDate": {
-			"type": "string",
-			"description": "a string that is a valid YYYY-MM-DD date",
-			"title": "StringDate",
-			"minLength": 10,
-			"maxLength": 10,
-			"format": "date"
-		},
-		"highlights": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"description": "a non-empty string with no leading or trailing whitespace",
-				"title": "highlight",
-				"examples": [
-					"Increased profits by 20% from 2011-2012 through viral advertising"
-				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
+	"$defs": {
+		"Volunteer": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"endDate": {
+					"$ref": "#/$defs/StringDate"
+				},
+				"highlights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/TrimmedNonEmpty"
+					},
+					"description": "Specify accomplishments and achievements",
+					"title": "highlights",
+					"examples": [
+						[
+							"Increased profits by 20% from 2011-2012 through viral advertising"
+						]
+					]
+				},
+				"organization": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Name of the organization",
+					"title": "organization",
+					"examples": [
+						"Facebook"
+					]
+				},
+				"position": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "The title of your position at the company",
+					"title": "position",
+					"examples": [
+						"Software Engineer"
+					]
+				},
+				"startDate": {
+					"$ref": "#/$defs/StringDate"
+				},
+				"summary": {
+					"$ref": "#/$defs/TrimmedNonEmpty",
+					"description": "Give an overview of your responsibilities at the company",
+					"title": "summary",
+					"examples": [
+						"My day-to-day activities involved designing and building web applications..."
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "URL (as per RFC 3986) of the company",
+					"title": "url",
+					"examples": [
+						"https://facebook.example.com"
+					]
+				}
 			},
-			"description": "Specify accomplishments and achievements",
-			"title": "highlights"
+			"additionalProperties": false
 		},
-		"organization": {
-			"type": "string",
-			"description": "Name of the organization",
-			"title": "organization",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Facebook"
-			],
-			"minLength": 1
-		},
-		"position": {
-			"type": "string",
-			"description": "The title of your position at the company",
-			"title": "position",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Software Engineer"
-			],
-			"minLength": 1
-		},
-		"startDate": {
+		"StringDate": {
 			"type": "string",
 			"description": "a string that is a valid YYYY-MM-DD date",
 			"title": "StringDate",
@@ -54,25 +68,32 @@
 			"maxLength": 10,
 			"format": "date"
 		},
-		"summary": {
+		"TrimmedNonEmpty": {
 			"type": "string",
-			"description": "Give an overview of your responsibilities at the company",
-			"title": "summary",
-			"examples": [
-				"My day-to-day activities involved designing and building web applications..."
-			],
+			"description": "a non-empty string with no leading or trailing whitespace",
+			"title": "TrimmedNonEmpty",
 			"minLength": 1,
 			"pattern": "^[^\\s].*[^\\s]$"
 		},
-		"url": {
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "URL (as per RFC 3986) of the company",
-			"title": "url",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
+			"minLength": 1
+		},
+		"UrlString": {
+			"type": "string",
+			"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "UrlString",
 			"examples": [
-				"https://facebook.example.com"
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
 			],
 			"format": "uri"
 		}
-	},
-	"additionalProperties": false
+	}
 }

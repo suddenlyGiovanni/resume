@@ -78,12 +78,17 @@ describe('NonEmptyTrimmedString', () => {
 				expect(JSONSchema.make(Schema.NonEmptyTrimmedString)).toMatchInlineSnapshot(
 					`
 					{
+					  "$defs": {
+					    "NonEmptyTrimmedString": {
+					      "description": "a non empty string",
+					      "minLength": 1,
+					      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
+					      "title": "NonEmptyTrimmedString",
+					      "type": "string",
+					    },
+					  },
+					  "$ref": "#/$defs/NonEmptyTrimmedString",
 					  "$schema": "http://json-schema.org/draft-07/schema#",
-					  "description": "a non empty string",
-					  "minLength": 1,
-					  "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-					  "title": "NonEmptyTrimmedString",
-					  "type": "string",
 					}
 				`,
 				)
@@ -100,15 +105,20 @@ describe('NonEmptyTrimmedString', () => {
 					),
 				).toMatchInlineSnapshot(`
 					{
+					  "$defs": {
+					    "NonEmptyTrimmedString": {
+					      "description": "description",
+					      "examples": [
+					        "examples",
+					      ],
+					      "minLength": 1,
+					      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
+					      "title": "title",
+					      "type": "string",
+					    },
+					  },
+					  "$ref": "#/$defs/NonEmptyTrimmedString",
 					  "$schema": "http://json-schema.org/draft-07/schema#",
-					  "description": "description",
-					  "examples": [
-					    "examples",
-					  ],
-					  "minLength": 1,
-					  "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-					  "title": "title",
-					  "type": "string",
 					}
 				`)
 			})
@@ -126,12 +136,19 @@ describe('NonEmptyTrimmedString', () => {
 					),
 				).toMatchInlineSnapshot(`
 					{
+					  "$defs": {
+					    "NonEmptyTrimmedString": {
+					      "description": "a non empty string",
+					      "minLength": 1,
+					      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
+					      "title": "NonEmptyTrimmedString",
+					      "type": "string",
+					    },
+					  },
+					  "$ref": "#/$defs/NonEmptyTrimmedString",
 					  "$schema": "http://json-schema.org/draft-07/schema#",
 					  "description": "a lowercase string",
-					  "minLength": 1,
 					  "pattern": "^[a-z]+$",
-					  "title": "NonEmptyTrimmedString",
-					  "type": "string",
 					}
 				`)
 
@@ -152,13 +169,22 @@ describe('NonEmptyTrimmedString', () => {
 					),
 				).toMatchInlineSnapshot(`
 					{
+					  "$defs": {
+					    "NonEmptyTrimmedString": {
+					      "description": "a non empty string",
+					      "minLength": 1,
+					      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
+					      "title": "NonEmptyTrimmedString",
+					      "type": "string",
+					    },
+					  },
+					  "$ref": "#/$defs/NonEmptyTrimmedString",
 					  "$schema": "http://json-schema.org/draft-07/schema#",
 					  "description": "DESCRIPTION",
 					  "maxLength": 10,
 					  "minLength": 2,
 					  "pattern": "^[a-z]+$",
 					  "title": "TITLE",
-					  "type": "string",
 					}
 				`)
 			})

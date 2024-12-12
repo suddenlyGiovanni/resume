@@ -1,53 +1,54 @@
 {
+	"$ref": "#/$defs/Skill",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [
-		"keywords",
-		"name"
-	],
-	"properties": {
-		"keywords": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"description": "a non empty string",
-				"title": "keyword",
-				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-				"examples": [
-					"Rust"
-				],
-				"minLength": 1
+	"$defs": {
+		"Skill": {
+			"type": "object",
+			"required": [
+				"keywords",
+				"name"
+			],
+			"properties": {
+				"keywords": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/NonEmptyTrimmedString"
+					},
+					"description": "List some keywords pertaining to this skill",
+					"title": "keywords",
+					"examples": [
+						[
+							"Rust",
+							"Java"
+						]
+					]
+				},
+				"level": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Level of expertise",
+					"title": "level",
+					"examples": [
+						"Master",
+						"Intermediate"
+					]
+				},
+				"name": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Name of the skill",
+					"title": "name",
+					"examples": [
+						"Web Development"
+					]
+				}
 			},
-			"description": "List some keywords pertaining to this skill",
-			"title": "keywords",
-			"examples": [
-				[
-					"Rust",
-					"Java"
-				]
-			]
+			"additionalProperties": false
 		},
-		"level": {
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "Level of expertise",
-			"title": "level",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Master",
-				"Intermediate"
-			],
-			"minLength": 1
-		},
-		"name": {
-			"type": "string",
-			"description": "Name of the skill",
-			"title": "name",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Web Development"
-			],
 			"minLength": 1
 		}
-	},
-	"additionalProperties": false
+	}
 }

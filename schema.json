@@ -1,73 +1,170 @@
 {
+  "$ref": "#/$defs/Resume",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "required": [
-    "$schema",
-    "basics",
-    "education",
-    "skills",
-    "work"
-  ],
-  "properties": {
-    "$schema": {
-      "type": "string",
-      "description": "link to the version of the schema that can validate the resume",
-      "title": "$schema",
-      "examples": [
-        "http://jsonresume.org/schema"
-      ]
-    },
-    "awards": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "awarder": {
-            "type": "string",
-            "description": "The name of the award given",
-            "title": "awarder",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Time Magazine"
-            ],
-            "minLength": 1
+  "$defs": {
+    "Resume": {
+      "type": "object",
+      "required": [
+        "$schema",
+        "basics",
+        "education",
+        "skills",
+        "work"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "description": "link to the version of the schema that can validate the resume",
+          "title": "$schema",
+          "examples": [
+            "http://jsonresume.org/schema"
+          ]
+        },
+        "awards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Award"
           },
-          "date": {
-            "type": "string",
-            "description": "Date of the award",
-            "title": "date",
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
+          "description": "Specify any awards you have received throughout your professional career",
+          "title": "awards"
+        },
+        "basics": {
+          "$ref": "#/$defs/Basics"
+        },
+        "certificates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Certificate"
           },
-          "summary": {
-            "type": "string",
-            "description": "A brief summary of the award",
-            "title": "summary",
-            "examples": [
-              "Received for my work with Quantum Physics"
-            ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          },
-          "title": {
-            "type": "string",
-            "description": "Title of the award",
-            "title": "title",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "One of the 100 greatest minds of the century"
-            ],
-            "minLength": 1
+          "description": "Specify any certificates you have received throughout your professional career",
+          "title": "certificates"
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Education"
           }
         },
-        "additionalProperties": false
+        "interests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Interest"
+          }
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Language"
+          },
+          "description": "List any other languages you speak",
+          "title": "languages"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Project"
+          },
+          "description": "Specify career projects",
+          "title": "projects"
+        },
+        "publications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Publication"
+          },
+          "description": "Specify your publications through your career",
+          "title": "publications"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Reference"
+          },
+          "description": "List references you have received",
+          "title": "references"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Skill"
+          },
+          "description": "List out your professional skill-set",
+          "title": "skills"
+        },
+        "volunteer": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Volunteer"
+          }
+        },
+        "work": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Work"
+          }
+        }
       },
-      "description": "Specify any awards you have received throughout your professional career",
-      "title": "awards"
+      "additionalProperties": false
     },
-    "basics": {
+    "Award": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "awarder": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The name of the award given",
+          "title": "awarder",
+          "examples": [
+            "Time Magazine"
+          ]
+        },
+        "date": {
+          "$ref": "#/$defs/StringDate",
+          "description": "Date of the award",
+          "title": "date"
+        },
+        "summary": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "A brief summary of the award",
+          "title": "summary",
+          "examples": [
+            "Received for my work with Quantum Physics"
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Title of the award",
+          "title": "title",
+          "examples": [
+            "One of the 100 greatest minds of the century"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "NonEmptyTrimmedString": {
+      "type": "string",
+      "description": "a non empty string",
+      "title": "NonEmptyTrimmedString",
+      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
+      "minLength": 1
+    },
+    "StringDate": {
+      "type": "string",
+      "description": "a string that is a valid YYYY-MM-DD date",
+      "title": "StringDate",
+      "minLength": 10,
+      "maxLength": 10,
+      "format": "date"
+    },
+    "TrimmedNonEmpty": {
+      "type": "string",
+      "description": "a non-empty string with no leading or trailing whitespace",
+      "title": "TrimmedNonEmpty",
+      "minLength": 1,
+      "pattern": "^[^\\s].*[^\\s]$"
+    },
+    "Basics": {
       "type": "object",
       "required": [
         "email",
@@ -79,1013 +176,810 @@
       ],
       "properties": {
         "email": {
-          "type": "string",
-          "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-          "title": "Email",
-          "examples": [
-            "<local-part>@<domain>",
-            "foo@bar.com",
-            "foo.bar@baz.com"
-          ],
-          "format": "email",
-          "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$"
+          "$ref": "#/$defs/Email"
         },
         "image": {
-          "type": "string",
+          "$ref": "#/$defs/UrlString",
           "description": "URL to a image in JPEG or PNG format (as per RFC 3986)",
-          "title": "image",
-          "examples": [
-            "https://example.com",
-            "https://example.com/#section",
-            "http://example.com:8080",
-            "http://🍌🍌🍌.ws",
-            "https://www.übercool.de"
-          ],
-          "format": "uri"
+          "title": "image"
         },
         "label": {
-          "type": "string",
+          "$ref": "#/$defs/NonEmptyTrimmedString",
           "description": "Label",
           "title": "label",
-          "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
           "examples": [
             "Web Developer"
-          ],
-          "minLength": 1
+          ]
         },
         "location": {
-          "type": "object",
-          "required": [
-            "city",
-            "countryCode"
-          ],
-          "properties": {
-            "address": {
-              "type": "string",
-              "description": "To add multiple address lines, use \"\\n\".",
-              "title": "address",
-              "examples": [
-                "1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
-              ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
-            },
-            "city": {
-              "type": "string",
-              "description": "City",
-              "title": "city",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "Berlin",
-                "New York",
-                "San Francisco"
-              ],
-              "minLength": 1
-            },
-            "countryCode": {
-              "type": "string",
-              "description": "Country code as per ISO-3166-1 ALPHA-2",
-              "title": "countryCode",
-              "examples": [
-                "US",
-                "AU",
-                "IN"
-              ],
-              "minLength": 2,
-              "maxLength": 2,
-              "pattern": "^[A-Z]{2}$"
-            },
-            "postalCode": {
-              "type": "string",
-              "description": "European postal code",
-              "title": "postalCode",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "12209"
-              ],
-              "minLength": 1
-            },
-            "region": {
-              "type": "string",
-              "description": "The general region where you live. Can be a US state, or a province",
-              "title": "region",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "California",
-                "Quebec"
-              ],
-              "minLength": 1
-            }
-          },
-          "additionalProperties": false
+          "$ref": "#/$defs/Location"
         },
         "name": {
-          "type": "string",
+          "$ref": "#/$defs/NonEmptyTrimmedString",
           "description": "Your full name",
           "title": "name",
-          "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
           "examples": [
             "Thomas Anderson"
-          ],
-          "minLength": 1
+          ]
         },
         "phone": {
-          "type": "string",
+          "$ref": "#/$defs/PhoneString",
           "description": "Phone numbers are stored as strings so use any format you like, as long as it is a valid phone number. E.164 format is recommended.",
           "title": "phone",
           "examples": [
             "712-117-2923"
-          ],
-          "pattern": "^\\+[1-9]\\d{1,14}$"
+          ]
         },
         "profiles": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "network",
-              "url",
-              "username"
-            ],
-            "properties": {
-              "network": {
-                "type": "string",
-                "description": "The name of the social network",
-                "title": "network",
-                "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-                "examples": [
-                  "Facebook",
-                  "Twitter"
-                ],
-                "minLength": 1
-              },
-              "url": {
-                "type": "string",
-                "description": "The URL of the profile on the social network",
-                "title": "url",
-                "examples": [
-                  "http://twitter.example.com/neutralthoughts"
-                ],
-                "format": "uri"
-              },
-              "username": {
-                "type": "string",
-                "description": "The username of the profile on the social network",
-                "title": "username",
-                "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-                "examples": [
-                  "neutralthoughts"
-                ],
-                "minLength": 1
-              }
-            },
-            "additionalProperties": false
+            "$ref": "#/$defs/Profile"
           },
           "description": "Specify any number of social networks that you participate in",
           "title": "profiles"
         },
         "summary": {
-          "type": "string",
+          "$ref": "#/$defs/TrimmedNonEmpty",
           "description": "Write a short 2-3 sentence biography about yourself",
           "title": "summary",
           "examples": [
             "Web Developer with a passion for web-based applications"
-          ],
-          "minLength": 1,
-          "pattern": "^[^\\s].*[^\\s]$"
+          ]
         },
         "url": {
-          "type": "string",
+          "$ref": "#/$defs/UrlString",
           "description": "URL (as per RFC 3986) to your website, e.g. personal homepage",
           "title": "url",
           "examples": [
             "http://thomasanderson.com"
-          ],
-          "format": "uri"
+          ]
         }
       },
       "additionalProperties": false
     },
-    "certificates": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "name of the certificate",
-            "title": "Name",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "e.g. Certified Kubernetes Administrator"
-            ],
-            "minLength": 1
-          },
-          "date": {
-            "type": "string",
-            "description": "a string that is a valid YYYY-MM-DD date",
-            "title": "date",
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
-          },
-          "url": {
-            "type": "string",
-            "description": "the url of the certificate",
-            "title": "url",
-            "examples": [
-              "http://example.com/cert.pdf"
-            ],
-            "format": "uri"
-          },
-          "issuer": {
-            "type": "string",
-            "description": "issuer of the certificate",
-            "title": "issuer",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "e.g. CNCF"
-            ],
-            "minLength": 1
-          }
-        },
-        "additionalProperties": false
-      },
-      "description": "Specify any certificates you have received throughout your professional career",
-      "title": "certificates"
+    "Email": {
+      "type": "string",
+      "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+      "title": "Email",
+      "examples": [
+        "<local-part>@<domain>",
+        "foo@bar.com",
+        "foo.bar@baz.com"
+      ],
+      "format": "email",
+      "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$"
     },
-    "education": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "area",
-          "institution",
-          "startDate",
-          "studyType"
-        ],
-        "properties": {
-          "area": {
-            "type": "string",
-            "description": "e.g. Arts",
-            "title": "area",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Arts",
-              "Computer Science"
-            ],
-            "minLength": 1
+    "UrlString": {
+      "type": "string",
+      "description": "a string that fulfills the URL requirements (as per RFC 3986)",
+      "title": "UrlString",
+      "examples": [
+        "https://example.com",
+        "https://example.com/#section",
+        "http://example.com:8080",
+        "http://🍌🍌🍌.ws",
+        "https://www.übercool.de"
+      ],
+      "format": "uri"
+    },
+    "Location": {
+      "type": "object",
+      "required": [
+        "city",
+        "countryCode"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "To add multiple address lines, use \"\\n\".",
+          "title": "address",
+          "examples": [
+            "1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
+          ]
+        },
+        "city": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "City",
+          "title": "city",
+          "examples": [
+            "Berlin",
+            "New York",
+            "San Francisco"
+          ]
+        },
+        "countryCode": {
+          "$ref": "#/$defs/countryCode"
+        },
+        "postalCode": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "European postal code",
+          "title": "postalCode",
+          "examples": [
+            "12209"
+          ]
+        },
+        "region": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The general region where you live. Can be a US state, or a province",
+          "title": "region",
+          "examples": [
+            "California",
+            "Quebec"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Country code as per ISO-3166-1 ALPHA-2",
+      "title": "countryCode",
+      "examples": [
+        "US",
+        "AU",
+        "IN"
+      ],
+      "minLength": 2,
+      "maxLength": 2,
+      "pattern": "^[A-Z]{2}$"
+    },
+    "PhoneString": {
+      "type": "string",
+      "description": "a phone number conforming to the E.164 format standard",
+      "title": "PhoneString",
+      "examples": [
+        "+4907121172923",
+        "+441632960961",
+        "+353861234567",
+        "00353861234567",
+        "+39 02 1234567",
+        "+1-800-123-4567",
+        "+1 800 123 4567",
+        "+49 (0) 216 554 1036"
+      ],
+      "pattern": "^\\+[1-9]\\d{1,14}$"
+    },
+    "Profile": {
+      "type": "object",
+      "required": [
+        "network",
+        "url",
+        "username"
+      ],
+      "properties": {
+        "network": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The name of the social network",
+          "title": "network",
+          "examples": [
+            "Facebook",
+            "Twitter"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/UrlString",
+          "description": "The URL of the profile on the social network",
+          "title": "url",
+          "examples": [
+            "http://twitter.example.com/neutralthoughts"
+          ]
+        },
+        "username": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The username of the profile on the social network",
+          "title": "username",
+          "examples": [
+            "neutralthoughts"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Certificate": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "name of the certificate",
+          "title": "Name",
+          "examples": [
+            "e.g. Certified Kubernetes Administrator"
+          ]
+        },
+        "date": {
+          "$ref": "#/$defs/StringDate",
+          "title": "date"
+        },
+        "url": {
+          "$ref": "#/$defs/UrlString",
+          "description": "the url of the certificate",
+          "title": "url",
+          "examples": [
+            "http://example.com/cert.pdf"
+          ]
+        },
+        "issuer": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "issuer of the certificate",
+          "title": "issuer",
+          "examples": [
+            "e.g. CNCF"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Education": {
+      "type": "object",
+      "required": [
+        "area",
+        "institution",
+        "startDate",
+        "studyType"
+      ],
+      "properties": {
+        "area": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "e.g. Arts",
+          "title": "area",
+          "examples": [
+            "Arts",
+            "Computer Science"
+          ]
+        },
+        "courses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NonEmptyTrimmedString"
           },
-          "courses": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "a non empty string",
-              "title": "course",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "H1302 - Introduction to American history"
-              ],
-              "minLength": 1
-            },
-            "description": "List notable courses/subjects",
-            "title": "courses",
-            "examples": [
-              [
-                "course1",
-                "course2"
-              ]
+          "description": "List notable courses/subjects",
+          "title": "courses",
+          "examples": [
+            [
+              "CS50",
+              "H1302 - Introduction to American history"
             ]
-          },
-          "endDate": {
-            "type": "string",
-            "description": "end date of education",
-            "title": "endDate",
-            "examples": [
-              "2020-01-01"
-            ],
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
-          },
-          "score": {
-            "type": "string",
-            "description": "grade point average, e.g. 3.67/4.0",
-            "title": "score",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "3.67/4.0"
-            ],
-            "minLength": 1
-          },
-          "institution": {
-            "type": "string",
-            "description": "name of the institution",
-            "title": "institution",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Massachusetts Institute of Technology"
-            ],
-            "minLength": 1
-          },
-          "location": {
-            "type": "string",
-            "description": "a non-empty string with no leading or trailing whitespace",
-            "title": "TrimmedNonEmpty",
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          },
-          "startDate": {
-            "type": "string",
-            "description": "start date of education",
-            "title": "startDate",
-            "examples": [
-              "1970-01-01T00:00"
-            ],
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
-          },
-          "studyType": {
-            "type": "string",
-            "description": "the type of study",
-            "title": "studyType",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Bachelor",
-              "Master",
-              "Doctorate"
-            ],
-            "minLength": 1
-          },
-          "url": {
-            "type": "string",
-            "description": "URL (as per RFC 3986) of the institution",
-            "title": "url",
-            "examples": [
-              "http://mit.com"
-            ],
-            "format": "uri"
-          }
+          ]
         },
-        "additionalProperties": false
-      }
+        "endDate": {
+          "$ref": "#/$defs/StringDate",
+          "description": "end date of education",
+          "title": "endDate",
+          "examples": [
+            "2020-01-01"
+          ]
+        },
+        "score": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "grade point average, e.g. 3.67/4.0",
+          "title": "score",
+          "examples": [
+            "3.67/4.0"
+          ]
+        },
+        "institution": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "name of the institution",
+          "title": "institution",
+          "examples": [
+            "Massachusetts Institute of Technology"
+          ]
+        },
+        "location": {
+          "$ref": "#/$defs/TrimmedNonEmpty"
+        },
+        "startDate": {
+          "$ref": "#/$defs/StringDate",
+          "description": "start date of education",
+          "title": "startDate",
+          "examples": [
+            "1970-01-01T00:00"
+          ]
+        },
+        "studyType": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "the type of study",
+          "title": "studyType",
+          "examples": [
+            "Bachelor",
+            "Master",
+            "Doctorate"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/UrlString",
+          "description": "URL (as per RFC 3986) of the institution",
+          "title": "url",
+          "examples": [
+            "http://mit.com"
+          ]
+        }
+      },
+      "additionalProperties": false
     },
-    "interests": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "a non empty string",
-              "title": "keyword",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "philosophy"
-              ],
-              "minLength": 1
-            },
-            "description": "List some keywords pertaining to this interest",
-            "title": "keywords",
-            "examples": [
-              [
-                "philosophy",
-                "distributed systems"
-              ]
+    "Interest": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "keywords": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NonEmptyTrimmedString"
+          },
+          "description": "List some keywords pertaining to this interest",
+          "title": "keywords",
+          "examples": [
+            [
+              "philosophy",
+              "distributed systems"
             ]
-          },
-          "name": {
-            "type": "string",
-            "description": "Interest name",
-            "title": "name",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Philosophy"
-            ],
-            "minLength": 1
-          }
+          ]
         },
-        "additionalProperties": false
-      }
-    },
-    "languages": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "fluency": {
-            "type": "string",
-            "description": "e.g. Fluent, Beginner",
-            "title": "fluency",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Fluent",
-              "Beginner",
-              "Intermediate",
-              "Advanced",
-              "Native"
-            ],
-            "minLength": 1
-          },
-          "language": {
-            "type": "string",
-            "description": "e.g. English, Spanish",
-            "title": "language",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "English",
-              "Spanish"
-            ],
-            "minLength": 1
-          }
-        },
-        "additionalProperties": false
+        "name": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Interest name",
+          "title": "name",
+          "examples": [
+            "Philosophy"
+          ]
+        }
       },
-      "description": "List any other languages you speak",
-      "title": "languages"
+      "additionalProperties": false
     },
-    "projects": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "description": {
-            "type": "string",
-            "description": "Short summary of project",
-            "title": "description",
-            "examples": [
-              "Collated works of 2017"
-            ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          },
-          "endDate": {
-            "type": "string",
-            "description": "a string that is a valid YYYY-MM-DD date",
-            "title": "StringDate",
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
-          },
-          "entity": {
-            "type": "string",
-            "description": "Specify the relevant company/entity affiliations",
-            "title": "entity",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Greenpeace",
-              "Microsoft"
-            ],
-            "minLength": 1
-          },
-          "highlights": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "Specify multiple features",
-              "title": "highlight",
-              "examples": [
-                "Directs you close but not quite there"
-              ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
-            },
-            "description": "Specify multiple features",
-            "title": "highlights"
-          },
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "a non empty string",
-              "title": "keyword",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "AngularJS",
-                "elements"
-              ],
-              "minLength": 1
-            },
-            "description": "Specify special elements involved",
-            "title": "keywords"
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the project",
-            "title": "name",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "The World Wide Web"
-            ],
-            "minLength": 1
-          },
-          "roles": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "a non empty string",
-              "title": "role",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "Team Lead",
-                "Speaker",
-                "Writer"
-              ],
-              "minLength": 1
-            },
-            "description": "Specify your role on this project or in company",
-            "title": "roles"
-          },
-          "startDate": {
-            "type": "string",
-            "description": "a string that is a valid YYYY-MM-DD date",
-            "title": "StringDate",
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
-          },
-          "type": {
-            "type": "string",
-            "description": "Type of project",
-            "title": "type",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "volunteering",
-              "presentation",
-              "talk",
-              "application",
-              "conference"
-            ],
-            "minLength": 1
-          },
-          "url": {
-            "type": "string",
-            "description": "URL (as per RFC 3986) to the project page",
-            "title": "url",
-            "examples": [
-              "http://www.computer.org.csdl/mags/co/1996/10/rx069-abs.html"
-            ],
-            "format": "uri"
-          }
+    "Language": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "fluency": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "e.g. Fluent, Beginner",
+          "title": "fluency",
+          "examples": [
+            "Fluent",
+            "Beginner",
+            "Intermediate",
+            "Advanced",
+            "Native"
+          ]
         },
-        "additionalProperties": false
+        "language": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "e.g. English, Spanish",
+          "title": "language",
+          "examples": [
+            "English",
+            "Spanish"
+          ]
+        }
       },
-      "description": "Specify career projects",
-      "title": "projects"
+      "additionalProperties": false
     },
-    "publications": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the publication",
-            "title": "name",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "The World Wide Web"
-            ],
-            "minLength": 1
-          },
-          "publisher": {
-            "type": "string",
-            "description": "The publisher of the publication",
-            "title": "publisher",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "IEEE",
-              "Computer Magazine"
-            ],
-            "minLength": 1
-          },
-          "releaseDate": {
-            "type": "string",
-            "description": "a string that is a valid YYYY-MM-DD date",
-            "title": "StringDate",
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
-          },
-          "summary": {
-            "type": "string",
-            "description": "Short summary of publication",
-            "title": "summary",
-            "examples": [
-              "Discussion of the World Wide Web, HTTP, HTML"
-            ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          },
-          "url": {
-            "type": "string",
-            "description": "URL (as per RFC 3986) to the publication",
-            "title": "url",
-            "examples": [
-              "http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
-            ],
-            "format": "uri"
-          }
+    "Project": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "description": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "Short summary of project",
+          "title": "description",
+          "examples": [
+            "Collated works of 2017"
+          ]
         },
-        "additionalProperties": false
-      },
-      "description": "Specify your publications through your career",
-      "title": "publications"
-    },
-    "references": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the reference",
-            "title": "name",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Timothy Cook"
-            ],
-            "minLength": 1
-          },
-          "reference": {
-            "type": "string",
-            "description": "The reference text",
-            "title": "reference",
-            "examples": [
-              "Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
-            ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          }
+        "endDate": {
+          "$ref": "#/$defs/StringDate"
         },
-        "additionalProperties": false
-      },
-      "description": "List references you have received",
-      "title": "references"
-    },
-    "skills": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "keywords",
-          "name"
-        ],
-        "properties": {
-          "keywords": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "a non empty string",
-              "title": "keyword",
-              "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-              "examples": [
-                "Rust"
-              ],
-              "minLength": 1
-            },
-            "description": "List some keywords pertaining to this skill",
-            "title": "keywords",
-            "examples": [
-              [
-                "Rust",
-                "Java"
-              ]
+        "entity": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Specify the relevant company/entity affiliations",
+          "title": "entity",
+          "examples": [
+            "Greenpeace",
+            "Microsoft"
+          ]
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TrimmedNonEmpty"
+          },
+          "description": "Specify multiple features",
+          "title": "highlights",
+          "examples": [
+            [
+              "Directs you close but not quite there"
             ]
-          },
-          "level": {
-            "type": "string",
-            "description": "Level of expertise",
-            "title": "level",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Master",
-              "Intermediate"
-            ],
-            "minLength": 1
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the skill",
-            "title": "name",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Web Development"
-            ],
-            "minLength": 1
-          }
+          ]
         },
-        "additionalProperties": false
+        "keywords": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NonEmptyTrimmedString"
+          },
+          "description": "Specify special elements involved",
+          "title": "keywords",
+          "examples": [
+            [
+              "AngularJS",
+              "elements"
+            ]
+          ]
+        },
+        "name": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Name of the project",
+          "title": "name",
+          "examples": [
+            "The World Wide Web"
+          ]
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NonEmptyTrimmedString"
+          },
+          "description": "Specify your role on this project or in company",
+          "title": "roles",
+          "examples": [
+            [
+              "Team Lead",
+              "Speaker",
+              "Writer"
+            ]
+          ]
+        },
+        "startDate": {
+          "$ref": "#/$defs/StringDate"
+        },
+        "type": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Type of project",
+          "title": "type",
+          "examples": [
+            "volunteering",
+            "presentation",
+            "talk",
+            "application",
+            "conference"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/UrlString",
+          "description": "URL (as per RFC 3986) to the project page",
+          "title": "url",
+          "examples": [
+            "http://www.computer.org.csdl/mags/co/1996/10/rx069-abs.html"
+          ]
+        }
       },
-      "description": "List out your professional skill-set",
-      "title": "skills"
+      "additionalProperties": false
     },
-    "volunteer": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "endDate": {
-            "type": "string",
-            "description": "a string that is a valid YYYY-MM-DD date",
-            "title": "StringDate",
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
+    "Publication": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The name of the publication",
+          "title": "name",
+          "examples": [
+            "The World Wide Web"
+          ]
+        },
+        "publisher": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The publisher of the publication",
+          "title": "publisher",
+          "examples": [
+            "IEEE",
+            "Computer Magazine"
+          ]
+        },
+        "releaseDate": {
+          "$ref": "#/$defs/StringDate"
+        },
+        "summary": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "Short summary of publication",
+          "title": "summary",
+          "examples": [
+            "Discussion of the World Wide Web, HTTP, HTML"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/UrlString",
+          "description": "URL (as per RFC 3986) to the publication",
+          "title": "url",
+          "examples": [
+            "http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Reference": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The name of the reference",
+          "title": "name",
+          "examples": [
+            "Timothy Cook"
+          ]
+        },
+        "reference": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "The reference text",
+          "title": "reference",
+          "examples": [
+            "Joe blogs was a great employee, who turned up to work at least once a week. He exceeded my expectations when it came to doing nothing."
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Skill": {
+      "type": "object",
+      "required": [
+        "keywords",
+        "name"
+      ],
+      "properties": {
+        "keywords": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NonEmptyTrimmedString"
           },
-          "highlights": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "a non-empty string with no leading or trailing whitespace",
-              "title": "highlight",
+          "description": "List some keywords pertaining to this skill",
+          "title": "keywords",
+          "examples": [
+            [
+              "Rust",
+              "Java"
+            ]
+          ]
+        },
+        "level": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Level of expertise",
+          "title": "level",
+          "examples": [
+            "Master",
+            "Intermediate"
+          ]
+        },
+        "name": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Name of the skill",
+          "title": "name",
+          "examples": [
+            "Web Development"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Volunteer": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "endDate": {
+          "$ref": "#/$defs/StringDate"
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TrimmedNonEmpty"
+          },
+          "description": "Specify accomplishments and achievements",
+          "title": "highlights",
+          "examples": [
+            [
+              "Increased profits by 20% from 2011-2012 through viral advertising"
+            ]
+          ]
+        },
+        "organization": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Name of the organization",
+          "title": "organization",
+          "examples": [
+            "Facebook"
+          ]
+        },
+        "position": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The title of your position at the company",
+          "title": "position",
+          "examples": [
+            "Software Engineer"
+          ]
+        },
+        "startDate": {
+          "$ref": "#/$defs/StringDate"
+        },
+        "summary": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "Give an overview of your responsibilities at the company",
+          "title": "summary",
+          "examples": [
+            "My day-to-day activities involved designing and building web applications..."
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/UrlString",
+          "description": "URL (as per RFC 3986) of the company",
+          "title": "url",
+          "examples": [
+            "https://facebook.example.com"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Work": {
+      "type": "object",
+      "required": [
+        "description",
+        "name",
+        "roles"
+      ],
+      "properties": {
+        "contact": {
+          "type": "object",
+          "required": [
+            "name",
+            "email"
+          ],
+          "properties": {
+            "name": {
+              "$ref": "#/$defs/NonEmptyTrimmedString",
+              "description": "The name and role of the contact person",
+              "title": "name",
               "examples": [
-                "Increased profits by 20% from 2011-2012 through viral advertising"
-              ],
-              "minLength": 1,
-              "pattern": "^[^\\s].*[^\\s]$"
+                "Mark Zuckerberg (CTO)"
+              ]
             },
-            "description": "Specify accomplishments and achievements",
-            "title": "highlights"
+            "email": {
+              "$ref": "#/$defs/Email"
+            },
+            "phone": {
+              "$ref": "#/$defs/PhoneString"
+            }
           },
-          "organization": {
-            "type": "string",
-            "description": "Name of the organization",
-            "title": "organization",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Facebook"
-            ],
-            "minLength": 1
-          },
-          "position": {
-            "type": "string",
-            "description": "The title of your position at the company",
-            "title": "position",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Software Engineer"
-            ],
-            "minLength": 1
-          },
-          "startDate": {
-            "type": "string",
-            "description": "a string that is a valid YYYY-MM-DD date",
-            "title": "StringDate",
-            "minLength": 10,
-            "maxLength": 10,
-            "format": "date"
-          },
-          "summary": {
-            "type": "string",
-            "description": "Give an overview of your responsibilities at the company",
-            "title": "summary",
-            "examples": [
-              "My day-to-day activities involved designing and building web applications..."
-            ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          },
-          "url": {
-            "type": "string",
-            "description": "URL (as per RFC 3986) of the company",
-            "title": "url",
-            "examples": [
-              "https://facebook.example.com"
-            ],
-            "format": "uri"
-          }
+          "additionalProperties": false
         },
-        "additionalProperties": false
-      }
+        "description": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "A short description of the company",
+          "title": "description",
+          "examples": [
+            "Social Media Company",
+            "Educational Software Company"
+          ]
+        },
+        "location": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Location of the company",
+          "title": "location",
+          "examples": [
+            "Menlo Park, CA"
+          ]
+        },
+        "name": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Name of the company",
+          "title": "name",
+          "examples": [
+            "Facebook"
+          ]
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/Role"
+          },
+          "description": "The roles you had at the company, in reverse chronological order",
+          "title": "roles"
+        },
+        "summary": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
+          "title": "summary",
+          "examples": [
+            "An educational software company that helps students learn through interactive games",
+            "Help users to handle all their administrative tasks digitally with ease."
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/UrlString"
+        }
+      },
+      "additionalProperties": false
     },
-    "work": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "description",
-          "name",
-          "roles"
-        ],
-        "properties": {
-          "contact": {
-            "type": "object",
-            "required": [
-              "name",
-              "email"
-            ],
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "The name and role of the contact person",
-                "title": "name",
-                "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-                "examples": [
-                  "Mark Zuckerberg (CTO)"
-                ],
-                "minLength": 1
-              },
-              "email": {
-                "type": "string",
-                "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-                "title": "Email",
-                "examples": [
-                  "<local-part>@<domain>",
-                  "foo@bar.com",
-                  "foo.bar@baz.com"
-                ],
-                "format": "email",
-                "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$"
-              },
-              "phone": {
-                "type": "string",
-                "description": "a phone number conforming to the E.164 format standard",
-                "title": "PhoneString",
-                "examples": [
-                  "+4907121172923",
-                  "+441632960961",
-                  "+353861234567",
-                  "00353861234567",
-                  "+39 02 1234567",
-                  "+1-800-123-4567",
-                  "+1 800 123 4567",
-                  "+49 (0) 216 554 1036"
-                ],
-                "pattern": "^\\+[1-9]\\d{1,14}$"
-              }
-            },
-            "additionalProperties": false
-          },
-          "description": {
-            "type": "string",
-            "description": "A short description of the company",
-            "title": "description",
-            "examples": [
-              "Social Media Company",
-              "Educational Software Company"
-            ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          },
-          "location": {
-            "type": "string",
-            "description": "Location of the company",
-            "title": "location",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Menlo Park, CA"
-            ],
-            "minLength": 1
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the company",
-            "title": "name",
-            "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-            "examples": [
-              "Facebook"
-            ],
-            "minLength": 1
-          },
-          "roles": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-              "type": "object",
-              "required": [
-                "title",
-                "startDate",
-                "responsibilities"
-              ],
-              "properties": {
-                "title": {
-                  "type": "string",
-                  "description": "The title of your position at the company: <seniority level> <role title>",
-                  "title": "title",
-                  "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-                  "examples": [
-                    "Junior Software Developer",
-                    "Senior Software Engineer"
-                  ],
-                  "minLength": 1
-                },
-                "startDate": {
-                  "type": "string",
-                  "description": "The date when you started working in this role",
-                  "title": "startDate",
-                  "examples": [
-                    "2011-01-01"
-                  ],
-                  "minLength": 10,
-                  "maxLength": 10,
-                  "format": "date"
-                },
-                "endDate": {
-                  "type": "string",
-                  "description": "The date when you stopped working in this role",
-                  "title": "endDate",
-                  "examples": [
-                    "2012-01-01"
-                  ],
-                  "minLength": 10,
-                  "maxLength": 10,
-                  "format": "date"
-                },
-                "responsibilities": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "description": "A specific responsibility",
-                    "title": "responsibility",
-                    "examples": [
-                      "code owner of x"
-                    ],
-                    "minLength": 1,
-                    "pattern": "^[^\\s].*[^\\s]$"
-                  },
-                  "description": "Specify multiple responsibilities",
-                  "title": "responsibilities"
-                },
-                "highlights": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "type": "string",
-                    "description": "A specific accomplishment",
-                    "title": "highlight",
-                    "examples": [
-                      "Increased profits by 20% from 2011-2012 through viral advertising"
-                    ],
-                    "minLength": 1,
-                    "pattern": "^[^\\s].*[^\\s]$"
-                  },
-                  "description": "Specify multiple accomplishments",
-                  "title": "highlights"
-                },
-                "technologies": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "type": "string",
-                    "description": "A specific technology used",
-                    "title": "technology",
-                    "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-                    "examples": [
-                      "React",
-                      "Node.js"
-                    ],
-                    "minLength": 1
-                  },
-                  "description": "Specify multiple technologies used",
-                  "title": "technologies"
-                }
-              },
-              "additionalProperties": false
-            },
-            "description": "The roles you had at the company, in reverse chronological order",
-            "title": "roles"
-          },
-          "summary": {
-            "type": "string",
-            "description": "A brief introduction of what the company does; a tagline, a mission statement, an elevator pitch; something that gives a sense of the company in a few words",
-            "title": "summary",
-            "examples": [
-              "An educational software company that helps students learn through interactive games",
-              "Help users to handle all their administrative tasks digitally with ease."
-            ],
-            "minLength": 1,
-            "pattern": "^[^\\s].*[^\\s]$"
-          },
-          "url": {
-            "type": "string",
-            "description": "a string that fulfills the URL requirements (as per RFC 3986)",
-            "title": "UrlString",
-            "examples": [
-              "https://example.com",
-              "https://example.com/#section",
-              "http://example.com:8080",
-              "http://🍌🍌🍌.ws",
-              "https://www.übercool.de"
-            ],
-            "format": "uri"
-          }
+    "Role": {
+      "type": "object",
+      "required": [
+        "title",
+        "startDate",
+        "responsibilities"
+      ],
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The title of your position at the company: <seniority level> <role title>",
+          "title": "title",
+          "examples": [
+            "Junior Software Developer",
+            "Senior Software Engineer"
+          ]
         },
-        "additionalProperties": false
-      }
+        "startDate": {
+          "$ref": "#/$defs/StringDate",
+          "description": "The date when you started working in this role",
+          "title": "startDate",
+          "examples": [
+            "2011-01-01"
+          ]
+        },
+        "endDate": {
+          "$ref": "#/$defs/StringDate",
+          "description": "The date when you stopped working in this role",
+          "title": "endDate",
+          "examples": [
+            "2012-01-01"
+          ]
+        },
+        "responsibilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TrimmedNonEmpty"
+          },
+          "description": "Specify multiple responsibilities",
+          "title": "responsibilities",
+          "examples": [
+            [
+              "code owner of x"
+            ]
+          ]
+        },
+        "highlights": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/TrimmedNonEmpty"
+          },
+          "description": "Specify multiple accomplishments",
+          "title": "highlights",
+          "examples": [
+            [
+              "Increased profits by 20% from 2011-2012 through viral advertising"
+            ]
+          ]
+        },
+        "technologies": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/NonEmptyTrimmedString"
+          },
+          "description": "Specify multiple technologies used",
+          "title": "technologies",
+          "examples": [
+            [
+              "React",
+              "Node.js"
+            ]
+          ]
+        }
+      },
+      "additionalProperties": false
     }
-  },
-  "additionalProperties": false
+  }
 }

@@ -50,28 +50,38 @@ describe('StringDate', () => {
 		test('naked', () => {
 			expect(JSONSchema.make(StringDate)).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "StringDate": {
+				      "description": "a string that is a valid YYYY-MM-DD date",
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "StringDate",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/StringDate",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a string that is a valid YYYY-MM-DD date",
-				  "format": "date",
-				  "maxLength": 10,
-				  "minLength": 10,
-				  "title": "StringDate",
-				  "type": "string",
 				}
 			`)
 
 			expect(JSONSchema.make(annotatedStringDate)).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "StringDate": {
+				      "description": "DESCRIPTION",
+				      "examples": [
+				        "2021-01-01",
+				      ],
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "TITLE",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/StringDate",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "DESCRIPTION",
-				  "examples": [
-				    "2021-01-01",
-				  ],
-				  "format": "date",
-				  "maxLength": 10,
-				  "minLength": 10,
-				  "title": "TITLE",
-				  "type": "string",
 				}
 			`)
 		})
@@ -79,15 +89,25 @@ describe('StringDate', () => {
 		test('encodedSchema', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(StringDate))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "StringDate": {
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/StringDate",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "type": "string",
 				}
 			`)
 
 			expect(JSONSchema.make(Schema.encodedSchema(StringDate))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "StringDate": {
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/StringDate",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "type": "string",
 				}
 			`)
 		})
@@ -95,28 +115,38 @@ describe('StringDate', () => {
 		test('typeSchema', () => {
 			expect(JSONSchema.make(Schema.typeSchema(StringDate))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "StringDate": {
+				      "description": "a string that is a valid YYYY-MM-DD date",
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "StringDate",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/StringDate",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a string that is a valid YYYY-MM-DD date",
-				  "format": "date",
-				  "maxLength": 10,
-				  "minLength": 10,
-				  "title": "StringDate",
-				  "type": "string",
 				}
 			`)
 
 			expect(JSONSchema.make(Schema.typeSchema(annotatedStringDate))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "StringDate": {
+				      "description": "DESCRIPTION",
+				      "examples": [
+				        "2021-01-01",
+				      ],
+				      "format": "date",
+				      "maxLength": 10,
+				      "minLength": 10,
+				      "title": "TITLE",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/StringDate",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "DESCRIPTION",
-				  "examples": [
-				    "2021-01-01",
-				  ],
-				  "format": "date",
-				  "maxLength": 10,
-				  "minLength": 10,
-				  "title": "TITLE",
-				  "type": "string",
 				}
 			`)
 		})

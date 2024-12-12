@@ -161,11 +161,16 @@ describe('ISO8601Date', () => {
 		test('naked', () => {
 			expect(JSON.stringify(JSONSchema.make(ISO8601DateString), null, '\t')).toMatchInlineSnapshot(`
 				"{
+					"$ref": "#/$defs/ISO8601DateString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"title": "ISO 8601 Date string",
-					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
-					"format": "date-time",
-					"type": "string"
+					"$defs": {
+						"ISO8601DateString": {
+							"title": "ISO 8601 Date string",
+							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
+							"format": "date-time",
+							"type": "string"
+						}
+					}
 				}"
 			`)
 
@@ -173,11 +178,16 @@ describe('ISO8601Date', () => {
 				JSON.stringify(JSONSchema.make(iso8601DateStringAnnotated), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
+					"$ref": "#/$defs/ISO8601DateString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"title": "ISO 8601 Date string",
-					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
-					"format": "date-time",
-					"type": "string"
+					"$defs": {
+						"ISO8601DateString": {
+							"title": "ISO 8601 Date string",
+							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
+							"format": "date-time",
+							"type": "string"
+						}
+					}
 				}"
 			`)
 		})
@@ -187,9 +197,14 @@ describe('ISO8601Date', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(ISO8601DateString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
+					"$ref": "#/$defs/ISO8601DateString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string",
-					"description": "a string that will be parsed into a Date"
+					"$defs": {
+						"ISO8601DateString": {
+							"type": "string",
+							"description": "a string that will be parsed into a Date"
+						}
+					}
 				}"
 			`)
 
@@ -201,9 +216,14 @@ describe('ISO8601Date', () => {
 				),
 			).toMatchInlineSnapshot(`
 				"{
+					"$ref": "#/$defs/ISO8601DateString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string",
-					"description": "a string that will be parsed into a Date"
+					"$defs": {
+						"ISO8601DateString": {
+							"type": "string",
+							"description": "a string that will be parsed into a Date"
+						}
+					}
 				}"
 			`)
 		})
@@ -213,8 +233,8 @@ describe('ISO8601Date', () => {
 				JSON.stringify(JSONSchema.make(Schema.typeSchema(ISO8601DateString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string"
+					"type": "string",
+					"$schema": "http://json-schema.org/draft-07/schema#"
 				}"
 			`)
 
@@ -222,8 +242,8 @@ describe('ISO8601Date', () => {
 				JSON.stringify(JSONSchema.make(Schema.typeSchema(iso8601DateStringAnnotated)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string"
+					"type": "string",
+					"$schema": "http://json-schema.org/draft-07/schema#"
 				}"
 			`)
 		})

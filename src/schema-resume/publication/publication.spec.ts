@@ -51,8 +51,8 @@ describe('Publication', () => {
 		})
 	})
 
-	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(Publication), null, '\t')).toMatchFileSnapshot(
+	test('JSONSchema', async () => {
+		await expect(JSON.stringify(JSONSchema.make(Publication), null, '\t')).toMatchFileSnapshot(
 			'publication-schema.snapshot.json',
 		)
 	})

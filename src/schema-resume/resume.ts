@@ -20,59 +20,41 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 		examples: ['http://jsonresume.org/schema'],
 	}),
 
-	awards: Schema.optionalWith(
-		Schema.Array(Award).annotations({
-			title: 'awards',
-			description: 'Specify any awards you have received throughout your professional career',
-		}),
-		{ exact: true },
-	),
+	awards: Schema.optionalWith(Schema.Array(Award), { exact: true }).annotations({
+		title: 'awards',
+		description: 'Specify any awards you have received throughout your professional career',
+	}),
 
 	basics: Basics,
 
-	certificates: Schema.optionalWith(
-		Schema.Array(Certificate).annotations({
-			title: 'certificates',
-			description: 'Specify any certificates you have received throughout your professional career',
-		}),
-		{ exact: true },
-	),
+	certificates: Schema.optionalWith(Schema.Array(Certificate), { exact: true }).annotations({
+		title: 'certificates',
+		description: 'Specify any certificates you have received throughout your professional career',
+	}),
 
 	education: Schema.Array(Education),
 
 	interests: Schema.optionalWith(Schema.Array(Interest), { exact: true }),
 
-	languages: Schema.optionalWith(
-		Schema.Array(Language).annotations({
-			title: 'languages',
-			description: 'List any other languages you speak',
-		}),
-		{ exact: true },
-	),
+	languages: Schema.optionalWith(Schema.Array(Language), { exact: true }).annotations({
+		title: 'languages',
+		description: 'List any other languages you speak',
+	}),
 
-	projects: Schema.optionalWith(
-		Schema.Array(Project).annotations({
-			title: 'projects',
-			description: 'Specify career projects',
-		}),
-		{ exact: true },
-	),
+	projects: Schema.optionalWith(Schema.Array(Project), { exact: true }).annotations({
+		title: 'projects',
+		description: 'Specify career projects',
+	}),
 
-	publications: Schema.optionalWith(
-		Schema.Array(Publication).annotations({
-			title: 'publications',
-			description: 'Specify your publications through your career',
-		}),
-		{ exact: true },
-	),
+	publications: Schema.optionalWith(Schema.Array(Publication), { exact: true }).annotations({
+		title: 'publications',
+		description: 'Specify your publications through your career',
+	}),
 
-	references: Schema.optionalWith(
-		Schema.Array(Reference).annotations({
-			title: 'references',
-			description: 'List references you have received',
-		}),
-		{ exact: true },
-	),
+	references: Schema.optionalWith(Schema.Array(Reference), { exact: true }).annotations({
+		title: 'references',
+		description: 'List references you have received',
+	}),
 
 	skills: Schema.Array(Skill).annotations({
 		title: 'skills',

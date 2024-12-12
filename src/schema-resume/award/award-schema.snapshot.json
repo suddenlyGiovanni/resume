@@ -1,46 +1,64 @@
 {
+  "$ref": "#/$defs/Award",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "required": [],
-  "properties": {
-    "awarder": {
+  "$defs": {
+    "Award": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "awarder": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The name of the award given",
+          "title": "awarder",
+          "examples": [
+            "Time Magazine"
+          ]
+        },
+        "date": {
+          "$ref": "#/$defs/StringDate",
+          "description": "Date of the award",
+          "title": "date"
+        },
+        "summary": {
+          "$ref": "#/$defs/TrimmedNonEmpty",
+          "description": "A brief summary of the award",
+          "title": "summary",
+          "examples": [
+            "Received for my work with Quantum Physics"
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "Title of the award",
+          "title": "title",
+          "examples": [
+            "One of the 100 greatest minds of the century"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "NonEmptyTrimmedString": {
       "type": "string",
-      "description": "The name of the award given",
-      "title": "awarder",
+      "description": "a non empty string",
+      "title": "NonEmptyTrimmedString",
       "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-      "examples": [
-        "Time Magazine"
-      ],
       "minLength": 1
     },
-    "date": {
+    "StringDate": {
       "type": "string",
-      "description": "Date of the award",
-      "title": "date",
+      "description": "a string that is a valid YYYY-MM-DD date",
+      "title": "StringDate",
       "minLength": 10,
       "maxLength": 10,
       "format": "date"
     },
-    "summary": {
+    "TrimmedNonEmpty": {
       "type": "string",
-      "description": "A brief summary of the award",
-      "title": "summary",
-      "examples": [
-        "Received for my work with Quantum Physics"
-      ],
+      "description": "a non-empty string with no leading or trailing whitespace",
+      "title": "TrimmedNonEmpty",
       "minLength": 1,
       "pattern": "^[^\\s].*[^\\s]$"
-    },
-    "title": {
-      "type": "string",
-      "description": "Title of the award",
-      "title": "title",
-      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-      "examples": [
-        "One of the 100 greatest minds of the century"
-      ],
-      "minLength": 1
     }
-  },
-  "additionalProperties": false
+  }
 }

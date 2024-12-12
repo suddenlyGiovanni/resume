@@ -3,37 +3,25 @@ import { Schema } from 'effect'
 import { StringDate, UrlString } from '../../schema-primitive/index.js'
 
 export class Certificate extends Schema.Class<Certificate>('Certificate')({
-	name: Schema.optionalWith(
-		Schema.NonEmptyTrimmedString.annotations({
-			title: 'Name',
-			description: 'name of the certificate',
-			examples: ['e.g. Certified Kubernetes Administrator'],
-		}),
-		{ exact: true },
-	),
+	name: Schema.optionalWith(Schema.NonEmptyTrimmedString, { exact: true }).annotations({
+		title: 'Name',
+		description: 'name of the certificate',
+		examples: ['e.g. Certified Kubernetes Administrator'],
+	}),
 
-	date: Schema.optionalWith(
-		StringDate.annotations({
-			title: 'date',
-		}),
-		{ exact: true },
-	),
+	date: Schema.optionalWith(StringDate, { exact: true }).annotations({
+		title: 'date',
+	}),
 
-	url: Schema.optionalWith(
-		UrlString.annotations({
-			title: 'url',
-			description: 'the url of the certificate',
-			examples: ['http://example.com/cert.pdf'],
-		}),
-		{ exact: true },
-	),
+	url: Schema.optionalWith(UrlString, { exact: true }).annotations({
+		title: 'url',
+		description: 'the url of the certificate',
+		examples: ['http://example.com/cert.pdf'],
+	}),
 
-	issuer: Schema.optionalWith(
-		Schema.NonEmptyTrimmedString.annotations({
-			title: 'issuer',
-			description: 'issuer of the certificate',
-			examples: ['e.g. CNCF'],
-		}),
-		{ exact: true },
-	),
+	issuer: Schema.optionalWith(Schema.NonEmptyTrimmedString, { exact: true }).annotations({
+		title: 'issuer',
+		description: 'issuer of the certificate',
+		examples: ['e.g. CNCF'],
+	}),
 }) {}

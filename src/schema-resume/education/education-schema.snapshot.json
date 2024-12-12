@@ -1,115 +1,129 @@
 {
+	"$ref": "#/$defs/Education",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [
-		"area",
-		"institution",
-		"startDate",
-		"studyType"
-	],
-	"properties": {
-		"area": {
-			"type": "string",
-			"description": "e.g. Arts",
-			"title": "area",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Arts",
-				"Computer Science"
+	"$defs": {
+		"Education": {
+			"type": "object",
+			"required": [
+				"area",
+				"institution",
+				"startDate",
+				"studyType"
 			],
+			"properties": {
+				"area": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "e.g. Arts",
+					"title": "area",
+					"examples": [
+						"Arts",
+						"Computer Science"
+					]
+				},
+				"courses": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/NonEmptyTrimmedString"
+					},
+					"description": "List notable courses/subjects",
+					"title": "courses",
+					"examples": [
+						[
+							"CS50",
+							"H1302 - Introduction to American history"
+						]
+					]
+				},
+				"endDate": {
+					"$ref": "#/$defs/StringDate",
+					"description": "end date of education",
+					"title": "endDate",
+					"examples": [
+						"2020-01-01"
+					]
+				},
+				"score": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "grade point average, e.g. 3.67/4.0",
+					"title": "score",
+					"examples": [
+						"3.67/4.0"
+					]
+				},
+				"institution": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "name of the institution",
+					"title": "institution",
+					"examples": [
+						"Massachusetts Institute of Technology"
+					]
+				},
+				"location": {
+					"$ref": "#/$defs/TrimmedNonEmpty"
+				},
+				"startDate": {
+					"$ref": "#/$defs/StringDate",
+					"description": "start date of education",
+					"title": "startDate",
+					"examples": [
+						"1970-01-01T00:00"
+					]
+				},
+				"studyType": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "the type of study",
+					"title": "studyType",
+					"examples": [
+						"Bachelor",
+						"Master",
+						"Doctorate"
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "URL (as per RFC 3986) of the institution",
+					"title": "url",
+					"examples": [
+						"http://mit.com"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"NonEmptyTrimmedString": {
+			"type": "string",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"minLength": 1
 		},
-		"courses": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"description": "a non empty string",
-				"title": "course",
-				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-				"examples": [
-					"H1302 - Introduction to American history"
-				],
-				"minLength": 1
-			},
-			"description": "List notable courses/subjects",
-			"title": "courses",
-			"examples": [
-				[
-					"course1",
-					"course2"
-				]
-			]
-		},
-		"endDate": {
+		"StringDate": {
 			"type": "string",
-			"description": "end date of education",
-			"title": "endDate",
-			"examples": [
-				"2020-01-01"
-			],
+			"description": "a string that is a valid YYYY-MM-DD date",
+			"title": "StringDate",
 			"minLength": 10,
 			"maxLength": 10,
 			"format": "date"
 		},
-		"score": {
-			"type": "string",
-			"description": "grade point average, e.g. 3.67/4.0",
-			"title": "score",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"3.67/4.0"
-			],
-			"minLength": 1
-		},
-		"institution": {
-			"type": "string",
-			"description": "name of the institution",
-			"title": "institution",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Massachusetts Institute of Technology"
-			],
-			"minLength": 1
-		},
-		"location": {
+		"TrimmedNonEmpty": {
 			"type": "string",
 			"description": "a non-empty string with no leading or trailing whitespace",
 			"title": "TrimmedNonEmpty",
 			"minLength": 1,
 			"pattern": "^[^\\s].*[^\\s]$"
 		},
-		"startDate": {
+		"UrlString": {
 			"type": "string",
-			"description": "start date of education",
-			"title": "startDate",
+			"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "UrlString",
 			"examples": [
-				"1970-01-01T00:00"
-			],
-			"minLength": 10,
-			"maxLength": 10,
-			"format": "date"
-		},
-		"studyType": {
-			"type": "string",
-			"description": "the type of study",
-			"title": "studyType",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Bachelor",
-				"Master",
-				"Doctorate"
-			],
-			"minLength": 1
-		},
-		"url": {
-			"type": "string",
-			"description": "URL (as per RFC 3986) of the institution",
-			"title": "url",
-			"examples": [
-				"http://mit.com"
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
 			],
 			"format": "uri"
 		}
-	},
-	"additionalProperties": false
+	}
 }

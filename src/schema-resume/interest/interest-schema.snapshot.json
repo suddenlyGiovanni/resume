@@ -1,39 +1,42 @@
 {
+	"$ref": "#/$defs/Interest",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [],
-	"properties": {
-		"keywords": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"description": "a non empty string",
-				"title": "keyword",
-				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-				"examples": [
-					"philosophy"
-				],
-				"minLength": 1
+	"$defs": {
+		"Interest": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"keywords": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/NonEmptyTrimmedString"
+					},
+					"description": "List some keywords pertaining to this interest",
+					"title": "keywords",
+					"examples": [
+						[
+							"philosophy",
+							"distributed systems"
+						]
+					]
+				},
+				"name": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Interest name",
+					"title": "name",
+					"examples": [
+						"Philosophy"
+					]
+				}
 			},
-			"description": "List some keywords pertaining to this interest",
-			"title": "keywords",
-			"examples": [
-				[
-					"philosophy",
-					"distributed systems"
-				]
-			]
+			"additionalProperties": false
 		},
-		"name": {
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "Interest name",
-			"title": "name",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Philosophy"
-			],
 			"minLength": 1
 		}
-	},
-	"additionalProperties": false
+	}
 }

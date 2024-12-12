@@ -28,8 +28,8 @@ describe('Reference', () => {
 		})
 	})
 
-	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(Reference), null, '\t')).toMatchFileSnapshot(
+	test('JSONSchema', async () => {
+		await expect(JSON.stringify(JSONSchema.make(Reference), null, '\t')).toMatchFileSnapshot(
 			'reference-schema.snapshot.json',
 		)
 	})

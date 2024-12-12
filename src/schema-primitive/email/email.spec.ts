@@ -48,31 +48,41 @@ describe('Email', () => {
 		test('naked', () => {
 			expect(JSONSchema.make(Email)).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "Email": {
+				      "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+				      "examples": [
+				        "<local-part>@<domain>",
+				        "foo@bar.com",
+				        "foo.bar@baz.com",
+				      ],
+				      "format": "email",
+				      "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+				      "title": "Email",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/Email",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-				  "examples": [
-				    "<local-part>@<domain>",
-				    "foo@bar.com",
-				    "foo.bar@baz.com",
-				  ],
-				  "format": "email",
-				  "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-				  "title": "Email",
-				  "type": "string",
 				}
 			`)
 
 			expect(JSONSchema.make(AnnotatedEmail)).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "Email": {
+				      "description": "EMAIL DESCRIPTION",
+				      "examples": [
+				        "EMAIL EXAMPLE",
+				      ],
+				      "format": "email",
+				      "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+				      "title": "EMAIL TITLE",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/Email",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "EMAIL DESCRIPTION",
-				  "examples": [
-				    "EMAIL EXAMPLE",
-				  ],
-				  "format": "email",
-				  "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-				  "title": "EMAIL TITLE",
-				  "type": "string",
 				}
 			`)
 		})
@@ -82,15 +92,25 @@ describe('Email', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(Email)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
+					"$ref": "#/$defs/Email",
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string"
+					"$defs": {
+						"Email": {
+							"type": "string"
+						}
+					}
 				}"
 			`)
 
 			expect(JSONSchema.make(Schema.encodedSchema(AnnotatedEmail))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "Email": {
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/Email",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "type": "string",
 				}
 			`)
 		})
@@ -98,31 +118,41 @@ describe('Email', () => {
 		test('with typeSchema', () => {
 			expect(JSONSchema.make(Schema.typeSchema(Email))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "Email": {
+				      "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+				      "examples": [
+				        "<local-part>@<domain>",
+				        "foo@bar.com",
+				        "foo.bar@baz.com",
+				      ],
+				      "format": "email",
+				      "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+				      "title": "Email",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/Email",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-				  "examples": [
-				    "<local-part>@<domain>",
-				    "foo@bar.com",
-				    "foo.bar@baz.com",
-				  ],
-				  "format": "email",
-				  "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-				  "title": "Email",
-				  "type": "string",
 				}
 			`)
 
 			expect(JSONSchema.make(Schema.typeSchema(AnnotatedEmail))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "Email": {
+				      "description": "EMAIL DESCRIPTION",
+				      "examples": [
+				        "EMAIL EXAMPLE",
+				      ],
+				      "format": "email",
+				      "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
+				      "title": "EMAIL TITLE",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/Email",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "EMAIL DESCRIPTION",
-				  "examples": [
-				    "EMAIL EXAMPLE",
-				  ],
-				  "format": "email",
-				  "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
-				  "title": "EMAIL TITLE",
-				  "type": "string",
 				}
 			`)
 		})

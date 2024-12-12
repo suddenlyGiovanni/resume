@@ -106,35 +106,71 @@ describe('Basics', () => {
 		test('encodedSchema', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(Basics))).toMatchInlineSnapshot(`
 				{
-				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "additionalProperties": false,
-				  "properties": {
-				    "email": {
+				  "$defs": {
+				    "Basics": {
+				      "additionalProperties": false,
+				      "properties": {
+				        "email": {
+				          "$ref": "#/$defs/Email",
+				        },
+				        "image": {
+				          "$ref": "#/$defs/UrlString",
+				        },
+				        "label": {
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
+				        },
+				        "location": {
+				          "$ref": "#/$defs/Location",
+				        },
+				        "name": {
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
+				        },
+				        "phone": {
+				          "$ref": "#/$defs/PhoneString",
+				        },
+				        "profiles": {
+				          "items": {
+				            "$ref": "#/$defs/Profile",
+				          },
+				          "type": "array",
+				        },
+				        "summary": {
+				          "$ref": "#/$defs/TrimmedNonEmpty",
+				        },
+				        "url": {
+				          "$ref": "#/$defs/UrlString",
+				        },
+				      },
+				      "required": [
+				        "email",
+				        "label",
+				        "location",
+				        "name",
+				        "profiles",
+				        "summary",
+				      ],
+				      "type": "object",
+				    },
+				    "Email": {
 				      "type": "string",
 				    },
-				    "image": {
-				      "type": "string",
-				    },
-				    "label": {
-				      "type": "string",
-				    },
-				    "location": {
+				    "Location": {
 				      "additionalProperties": false,
 				      "properties": {
 				        "address": {
-				          "type": "string",
+				          "$ref": "#/$defs/TrimmedNonEmpty",
 				        },
 				        "city": {
-				          "type": "string",
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
 				        },
 				        "countryCode": {
-				          "type": "string",
+				          "$ref": "#/$defs/countryCode",
 				        },
 				        "postalCode": {
-				          "type": "string",
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
 				        },
 				        "region": {
-				          "type": "string",
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
 				        },
 				      },
 				      "required": [
@@ -143,57 +179,50 @@ describe('Basics', () => {
 				      ],
 				      "type": "object",
 				    },
-				    "name": {
+				    "NonEmptyTrimmedString": {
 				      "type": "string",
 				    },
-				    "phone": {
+				    "PhoneString": {
 				      "type": "string",
 				    },
-				    "profiles": {
-				      "items": {
-				        "additionalProperties": false,
-				        "properties": {
-				          "network": {
-				            "type": "string",
-				          },
-				          "url": {
-				            "type": "string",
-				          },
-				          "username": {
-				            "type": "string",
-				          },
+				    "Profile": {
+				      "additionalProperties": false,
+				      "properties": {
+				        "network": {
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
 				        },
-				        "required": [
-				          "network",
-				          "url",
-				          "username",
-				        ],
-				        "type": "object",
+				        "url": {
+				          "$ref": "#/$defs/UrlString",
+				        },
+				        "username": {
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
+				        },
 				      },
-				      "type": "array",
+				      "required": [
+				        "network",
+				        "url",
+				        "username",
+				      ],
+				      "type": "object",
 				    },
-				    "summary": {
+				    "TrimmedNonEmpty": {
 				      "type": "string",
 				    },
-				    "url": {
+				    "UrlString": {
+				      "type": "string",
+				    },
+				    "countryCode": {
 				      "type": "string",
 				    },
 				  },
-				  "required": [
-				    "email",
-				    "label",
-				    "location",
-				    "name",
-				    "profiles",
-				    "summary",
-				  ],
-				  "type": "object",
+				  "$ref": "#/$defs/Basics",
+				  "$schema": "http://json-schema.org/draft-07/schema#",
 				}
 			`)
 		})
 
-		test('naked', () => {
-			expect(JSON.stringify(JSONSchema.make(Basics), null, '\t')).toMatchFileSnapshot(
+		test('naked', async () => {
+			await expect(JSON.stringify(JSONSchema.make(Basics), null, '\t')).toMatchFileSnapshot(
 				'basic-schema.snapshot.json',
 			)
 		})

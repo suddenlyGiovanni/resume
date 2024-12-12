@@ -1,19 +1,115 @@
 {
+	"$ref": "#/$defs/Project",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [],
-	"properties": {
-		"description": {
+	"$defs": {
+		"Project": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"description": {
+					"$ref": "#/$defs/TrimmedNonEmpty",
+					"description": "Short summary of project",
+					"title": "description",
+					"examples": [
+						"Collated works of 2017"
+					]
+				},
+				"endDate": {
+					"$ref": "#/$defs/StringDate"
+				},
+				"entity": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Specify the relevant company/entity affiliations",
+					"title": "entity",
+					"examples": [
+						"Greenpeace",
+						"Microsoft"
+					]
+				},
+				"highlights": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/TrimmedNonEmpty"
+					},
+					"description": "Specify multiple features",
+					"title": "highlights",
+					"examples": [
+						[
+							"Directs you close but not quite there"
+						]
+					]
+				},
+				"keywords": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/NonEmptyTrimmedString"
+					},
+					"description": "Specify special elements involved",
+					"title": "keywords",
+					"examples": [
+						[
+							"AngularJS",
+							"elements"
+						]
+					]
+				},
+				"name": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Name of the project",
+					"title": "name",
+					"examples": [
+						"The World Wide Web"
+					]
+				},
+				"roles": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/NonEmptyTrimmedString"
+					},
+					"description": "Specify your role on this project or in company",
+					"title": "roles",
+					"examples": [
+						[
+							"Team Lead",
+							"Speaker",
+							"Writer"
+						]
+					]
+				},
+				"startDate": {
+					"$ref": "#/$defs/StringDate"
+				},
+				"type": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Type of project",
+					"title": "type",
+					"examples": [
+						"volunteering",
+						"presentation",
+						"talk",
+						"application",
+						"conference"
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "URL (as per RFC 3986) to the project page",
+					"title": "url",
+					"examples": [
+						"http://www.computer.org.csdl/mags/co/1996/10/rx069-abs.html"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"TrimmedNonEmpty": {
 			"type": "string",
-			"description": "Short summary of project",
-			"title": "description",
-			"examples": [
-				"Collated works of 2017"
-			],
+			"description": "a non-empty string with no leading or trailing whitespace",
+			"title": "TrimmedNonEmpty",
 			"minLength": 1,
 			"pattern": "^[^\\s].*[^\\s]$"
 		},
-		"endDate": {
+		"StringDate": {
 			"type": "string",
 			"description": "a string that is a valid YYYY-MM-DD date",
 			"title": "StringDate",
@@ -21,106 +117,25 @@
 			"maxLength": 10,
 			"format": "date"
 		},
-		"entity": {
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "Specify the relevant company/entity affiliations",
-			"title": "entity",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Greenpeace",
-				"Microsoft"
-			],
 			"minLength": 1
 		},
-		"highlights": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"description": "Specify multiple features",
-				"title": "highlight",
-				"examples": [
-					"Directs you close but not quite there"
-				],
-				"minLength": 1,
-				"pattern": "^[^\\s].*[^\\s]$"
-			},
-			"description": "Specify multiple features",
-			"title": "highlights"
-		},
-		"keywords": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"description": "a non empty string",
-				"title": "keyword",
-				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-				"examples": [
-					"AngularJS",
-					"elements"
-				],
-				"minLength": 1
-			},
-			"description": "Specify special elements involved",
-			"title": "keywords"
-		},
-		"name": {
+		"UrlString": {
 			"type": "string",
-			"description": "Name of the project",
-			"title": "name",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
+			"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "UrlString",
 			"examples": [
-				"The World Wide Web"
-			],
-			"minLength": 1
-		},
-		"roles": {
-			"type": "array",
-			"items": {
-				"type": "string",
-				"description": "a non empty string",
-				"title": "role",
-				"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-				"examples": [
-					"Team Lead",
-					"Speaker",
-					"Writer"
-				],
-				"minLength": 1
-			},
-			"description": "Specify your role on this project or in company",
-			"title": "roles"
-		},
-		"startDate": {
-			"type": "string",
-			"description": "a string that is a valid YYYY-MM-DD date",
-			"title": "StringDate",
-			"minLength": 10,
-			"maxLength": 10,
-			"format": "date"
-		},
-		"type": {
-			"type": "string",
-			"description": "Type of project",
-			"title": "type",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"volunteering",
-				"presentation",
-				"talk",
-				"application",
-				"conference"
-			],
-			"minLength": 1
-		},
-		"url": {
-			"type": "string",
-			"description": "URL (as per RFC 3986) to the project page",
-			"title": "url",
-			"examples": [
-				"http://www.computer.org.csdl/mags/co/1996/10/rx069-abs.html"
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
 			],
 			"format": "uri"
 		}
-	},
-	"additionalProperties": false
+	}
 }
