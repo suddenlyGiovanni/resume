@@ -36,8 +36,8 @@ describe('Certificate', () => {
 		})
 	})
 
-	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(Certificate), null, '\t')).toMatchFileSnapshot(
+	test('JSONSchema', async () => {
+		await expect(JSON.stringify(JSONSchema.make(Certificate), null, '\t')).toMatchFileSnapshot(
 			'certificate-schema.snapshot.json',
 		)
 	})

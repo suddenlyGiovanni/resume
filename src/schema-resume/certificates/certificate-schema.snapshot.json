@@ -1,45 +1,69 @@
 {
+	"$ref": "#/$defs/Certificate",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [],
-	"properties": {
-		"name": {
+	"$defs": {
+		"Certificate": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"name": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "name of the certificate",
+					"title": "Name",
+					"examples": [
+						"e.g. Certified Kubernetes Administrator"
+					]
+				},
+				"date": {
+					"$ref": "#/$defs/StringDate",
+					"title": "date"
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "the url of the certificate",
+					"title": "url",
+					"examples": [
+						"http://example.com/cert.pdf"
+					]
+				},
+				"issuer": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "issuer of the certificate",
+					"title": "issuer",
+					"examples": [
+						"e.g. CNCF"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "name of the certificate",
-			"title": "Name",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"e.g. Certified Kubernetes Administrator"
-			],
 			"minLength": 1
 		},
-		"date": {
+		"StringDate": {
 			"type": "string",
 			"description": "a string that is a valid YYYY-MM-DD date",
-			"title": "date",
+			"title": "StringDate",
 			"minLength": 10,
 			"maxLength": 10,
 			"format": "date"
 		},
-		"url": {
+		"UrlString": {
 			"type": "string",
-			"description": "the url of the certificate",
-			"title": "url",
+			"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "UrlString",
 			"examples": [
-				"http://example.com/cert.pdf"
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
 			],
 			"format": "uri"
-		},
-		"issuer": {
-			"type": "string",
-			"description": "issuer of the certificate",
-			"title": "issuer",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"e.g. CNCF"
-			],
-			"minLength": 1
 		}
-	},
-	"additionalProperties": false
+	}
 }

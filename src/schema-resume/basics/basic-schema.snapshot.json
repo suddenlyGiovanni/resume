@@ -1,16 +1,81 @@
 {
+	"$ref": "#/$defs/Basics",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [
-		"email",
-		"label",
-		"location",
-		"name",
-		"profiles",
-		"summary"
-	],
-	"properties": {
-		"email": {
+	"$defs": {
+		"Basics": {
+			"type": "object",
+			"required": [
+				"email",
+				"label",
+				"location",
+				"name",
+				"profiles",
+				"summary"
+			],
+			"properties": {
+				"email": {
+					"$ref": "#/$defs/Email"
+				},
+				"image": {
+					"$ref": "#/$defs/UrlString",
+					"description": "URL to a image in JPEG or PNG format (as per RFC 3986)",
+					"title": "image"
+				},
+				"label": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Label",
+					"title": "label",
+					"examples": [
+						"Web Developer"
+					]
+				},
+				"location": {
+					"$ref": "#/$defs/Location"
+				},
+				"name": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "Your full name",
+					"title": "name",
+					"examples": [
+						"Thomas Anderson"
+					]
+				},
+				"phone": {
+					"$ref": "#/$defs/PhoneString",
+					"description": "Phone numbers are stored as strings so use any format you like, as long as it is a valid phone number. E.164 format is recommended.",
+					"title": "phone",
+					"examples": [
+						"712-117-2923"
+					]
+				},
+				"profiles": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Profile"
+					},
+					"description": "Specify any number of social networks that you participate in",
+					"title": "profiles"
+				},
+				"summary": {
+					"$ref": "#/$defs/TrimmedNonEmpty",
+					"description": "Write a short 2-3 sentence biography about yourself",
+					"title": "summary",
+					"examples": [
+						"Web Developer with a passion for web-based applications"
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "URL (as per RFC 3986) to your website, e.g. personal homepage",
+					"title": "url",
+					"examples": [
+						"http://thomasanderson.com"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"Email": {
 			"type": "string",
 			"description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
 			"title": "Email",
@@ -22,10 +87,10 @@
 			"format": "email",
 			"pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$"
 		},
-		"image": {
+		"UrlString": {
 			"type": "string",
-			"description": "URL to a image in JPEG or PNG format (as per RFC 3986)",
-			"title": "image",
+			"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "UrlString",
 			"examples": [
 				"https://example.com",
 				"https://example.com/#section",
@@ -35,17 +100,14 @@
 			],
 			"format": "uri"
 		},
-		"label": {
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "Label",
-			"title": "label",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Web Developer"
-			],
 			"minLength": 1
 		},
-		"location": {
+		"Location": {
 			"type": "object",
 			"required": [
 				"city",
@@ -53,148 +115,117 @@
 			],
 			"properties": {
 				"address": {
-					"type": "string",
+					"$ref": "#/$defs/TrimmedNonEmpty",
 					"description": "To add multiple address lines, use \"\\n\".",
 					"title": "address",
 					"examples": [
 						"1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
-					],
-					"minLength": 1,
-					"pattern": "^[^\\s].*[^\\s]$"
+					]
 				},
 				"city": {
-					"type": "string",
+					"$ref": "#/$defs/NonEmptyTrimmedString",
 					"description": "City",
 					"title": "city",
-					"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 					"examples": [
 						"Berlin",
 						"New York",
 						"San Francisco"
-					],
-					"minLength": 1
+					]
 				},
 				"countryCode": {
-					"type": "string",
-					"description": "Country code as per ISO-3166-1 ALPHA-2",
-					"title": "countryCode",
-					"examples": [
-						"US",
-						"AU",
-						"IN"
-					],
-					"minLength": 2,
-					"maxLength": 2,
-					"pattern": "^[A-Z]{2}$"
+					"$ref": "#/$defs/countryCode"
 				},
 				"postalCode": {
-					"type": "string",
+					"$ref": "#/$defs/NonEmptyTrimmedString",
 					"description": "European postal code",
 					"title": "postalCode",
-					"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 					"examples": [
 						"12209"
-					],
-					"minLength": 1
+					]
 				},
 				"region": {
-					"type": "string",
+					"$ref": "#/$defs/NonEmptyTrimmedString",
 					"description": "The general region where you live. Can be a US state, or a province",
 					"title": "region",
-					"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 					"examples": [
 						"California",
 						"Quebec"
-					],
-					"minLength": 1
+					]
 				}
 			},
 			"additionalProperties": false
 		},
-		"name": {
+		"TrimmedNonEmpty": {
 			"type": "string",
-			"description": "Your full name",
-			"title": "name",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Thomas Anderson"
-			],
-			"minLength": 1
-		},
-		"phone": {
-			"type": "string",
-			"description": "Phone numbers are stored as strings so use any format you like, as long as it is a valid phone number. E.164 format is recommended.",
-			"title": "phone",
-			"examples": [
-				"712-117-2923"
-			],
-			"pattern": "^\\+[1-9]\\d{1,14}$"
-		},
-		"profiles": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"required": [
-					"network",
-					"url",
-					"username"
-				],
-				"properties": {
-					"network": {
-						"type": "string",
-						"description": "The name of the social network",
-						"title": "network",
-						"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-						"examples": [
-							"Facebook",
-							"Twitter"
-						],
-						"minLength": 1
-					},
-					"url": {
-						"type": "string",
-						"description": "The URL of the profile on the social network",
-						"title": "url",
-						"examples": [
-							"http://twitter.example.com/neutralthoughts"
-						],
-						"format": "uri"
-					},
-					"username": {
-						"type": "string",
-						"description": "The username of the profile on the social network",
-						"title": "username",
-						"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-						"examples": [
-							"neutralthoughts"
-						],
-						"minLength": 1
-					}
-				},
-				"additionalProperties": false
-			},
-			"description": "Specify any number of social networks that you participate in",
-			"title": "profiles"
-		},
-		"summary": {
-			"type": "string",
-			"description": "Write a short 2-3 sentence biography about yourself",
-			"title": "summary",
-			"examples": [
-				"Web Developer with a passion for web-based applications"
-			],
+			"description": "a non-empty string with no leading or trailing whitespace",
+			"title": "TrimmedNonEmpty",
 			"minLength": 1,
 			"pattern": "^[^\\s].*[^\\s]$"
 		},
-		"url": {
+		"countryCode": {
 			"type": "string",
-			"description": "URL (as per RFC 3986) to your website, e.g. personal homepage",
-			"title": "url",
+			"description": "Country code as per ISO-3166-1 ALPHA-2",
+			"title": "countryCode",
 			"examples": [
-				"http://thomasanderson.com"
+				"US",
+				"AU",
+				"IN"
 			],
-			"format": "uri"
+			"minLength": 2,
+			"maxLength": 2,
+			"pattern": "^[A-Z]{2}$"
+		},
+		"PhoneString": {
+			"type": "string",
+			"description": "a phone number conforming to the E.164 format standard",
+			"title": "PhoneString",
+			"examples": [
+				"+4907121172923",
+				"+441632960961",
+				"+353861234567",
+				"00353861234567",
+				"+39 02 1234567",
+				"+1-800-123-4567",
+				"+1 800 123 4567",
+				"+49 (0) 216 554 1036"
+			],
+			"pattern": "^\\+[1-9]\\d{1,14}$"
+		},
+		"Profile": {
+			"type": "object",
+			"required": [
+				"network",
+				"url",
+				"username"
+			],
+			"properties": {
+				"network": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "The name of the social network",
+					"title": "network",
+					"examples": [
+						"Facebook",
+						"Twitter"
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "The URL of the profile on the social network",
+					"title": "url",
+					"examples": [
+						"http://twitter.example.com/neutralthoughts"
+					]
+				},
+				"username": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "The username of the profile on the social network",
+					"title": "username",
+					"examples": [
+						"neutralthoughts"
+					]
+				}
+			},
+			"additionalProperties": false
 		}
-	},
-	"additionalProperties": false
+	}
 }

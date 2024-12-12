@@ -33,16 +33,13 @@ const countryCode =
 	}
 
 export class Location extends Schema.Class<Location>('Location')({
-	address: Schema.optionalWith(
-		TrimmedNonEmpty.annotations({
-			title: 'address',
-			description: 'To add multiple address lines, use "\\n".',
-			examples: ['1234 Glücklichkeit Straße\nHinterhaus 5. Etage li.'],
-		}),
-		{ exact: true },
-	),
+	address: Schema.optionalWith(TrimmedNonEmpty, { exact: true }).annotations({
+		title: 'address',
+		description: 'To add multiple address lines, use "\\n".',
+		examples: ['1234 Glücklichkeit Straße\nHinterhaus 5. Etage li.'],
+	}),
 
-	city: Schema.NonEmptyTrimmedString.annotations({
+	city: Schema.propertySignature(Schema.NonEmptyTrimmedString).annotations({
 		title: 'city',
 		description: 'City',
 		examples: ['Berlin', 'New York', 'San Francisco'],
@@ -55,23 +52,15 @@ export class Location extends Schema.Class<Location>('Location')({
 		}),
 	),
 
-	postalCode: Schema.optionalWith(
-		Schema.NonEmptyTrimmedString.annotations({
-			title: 'postalCode',
-			description: 'European postal code',
-			examples: ['12209'],
-		}),
-		{
-			exact: true,
-		},
-	),
+	postalCode: Schema.optionalWith(Schema.NonEmptyTrimmedString, { exact: true }).annotations({
+		title: 'postalCode',
+		description: 'European postal code',
+		examples: ['12209'],
+	}),
 
-	region: Schema.optionalWith(
-		Schema.NonEmptyTrimmedString.annotations({
-			title: 'region',
-			description: 'The general region where you live. Can be a US state, or a province',
-			examples: ['California', 'Quebec'],
-		}),
-		{ exact: true },
-	),
+	region: Schema.optionalWith(Schema.NonEmptyTrimmedString, { exact: true }).annotations({
+		title: 'region',
+		description: 'The general region where you live. Can be a US state, or a province',
+		examples: ['California', 'Quebec'],
+	}),
 }) {}

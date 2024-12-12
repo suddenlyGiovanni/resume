@@ -102,8 +102,8 @@ describe('Education', () => {
 		})
 	})
 
-	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(Education), null, '\t')).toMatchFileSnapshot(
+	test('JSONSchema', async () => {
+		await expect(JSON.stringify(JSONSchema.make(Education), null, '\t')).toMatchFileSnapshot(
 			'education-schema.snapshot.json',
 		)
 	})

@@ -1,42 +1,62 @@
 {
+	"$ref": "#/$defs/Profile",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [
-		"network",
-		"url",
-		"username"
-	],
-	"properties": {
-		"network": {
-			"type": "string",
-			"description": "The name of the social network",
-			"title": "network",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Facebook",
-				"Twitter"
+	"$defs": {
+		"Profile": {
+			"type": "object",
+			"required": [
+				"network",
+				"url",
+				"username"
 			],
+			"properties": {
+				"network": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "The name of the social network",
+					"title": "network",
+					"examples": [
+						"Facebook",
+						"Twitter"
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "The URL of the profile on the social network",
+					"title": "url",
+					"examples": [
+						"http://twitter.example.com/neutralthoughts"
+					]
+				},
+				"username": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "The username of the profile on the social network",
+					"title": "username",
+					"examples": [
+						"neutralthoughts"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"NonEmptyTrimmedString": {
+			"type": "string",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
+			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"minLength": 1
 		},
-		"url": {
+		"UrlString": {
 			"type": "string",
-			"description": "The URL of the profile on the social network",
-			"title": "url",
+			"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "UrlString",
 			"examples": [
-				"http://twitter.example.com/neutralthoughts"
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
 			],
 			"format": "uri"
-		},
-		"username": {
-			"type": "string",
-			"description": "The username of the profile on the social network",
-			"title": "username",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"neutralthoughts"
-			],
-			"minLength": 1
 		}
-	},
-	"additionalProperties": false
+	}
 }

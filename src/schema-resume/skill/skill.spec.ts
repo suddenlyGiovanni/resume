@@ -42,8 +42,8 @@ describe('Skill', () => {
 		})
 	})
 
-	test('JSONSchema', () => {
-		expect(JSON.stringify(JSONSchema.make(Skill), null, '\t')).toMatchFileSnapshot(
+	test('JSONSchema', async () => {
+		await expect(JSON.stringify(JSONSchema.make(Skill), null, '\t')).toMatchFileSnapshot(
 			'skill-schema.snapshot.json',
 		)
 	})

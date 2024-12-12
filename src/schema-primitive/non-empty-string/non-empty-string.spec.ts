@@ -44,8 +44,8 @@ describe('nonEmptyString', () => {
 		test('naked', () => {
 			expect(JSON.stringify(JSONSchema.make(NonEmptyString), null, '\t')).toMatchInlineSnapshot(`
 				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$ref": "#/$defs/NonEmptyString",
+					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
 							"type": "string",
@@ -64,8 +64,8 @@ describe('nonEmptyString', () => {
 				JSON.stringify(JSONSchema.make(NonEmptyStringAnnotated), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$ref": "#/$defs/NonEmptyString",
+					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
 							"type": "string",
@@ -85,8 +85,8 @@ describe('nonEmptyString', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$ref": "#/$defs/NonEmptyString",
+					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
 							"type": "string",
@@ -105,8 +105,8 @@ describe('nonEmptyString', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyStringAnnotated)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$ref": "#/$defs/NonEmptyString",
+					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
 							"type": "string",
@@ -139,8 +139,8 @@ describe('nonEmptyString', () => {
 				),
 			).toMatchInlineSnapshot(`
 				"{
-					"$schema": "http://json-schema.org/draft-07/schema#",
-					"minLength": 1
+					"minLength": 1,
+					"$schema": "http://json-schema.org/draft-07/schema#"
 				}"
 			`)
 		})
@@ -221,11 +221,16 @@ describe('Annotation', () => {
 		// default annotations
 		expect(JSONSchema.make(NonEmpty)).toMatchInlineSnapshot(`
 			{
+			  "$defs": {
+			    "NonEmpty": {
+			      "description": "a non empty string",
+			      "minLength": 1,
+			      "title": "NonEmpty",
+			      "type": "string",
+			    },
+			  },
+			  "$ref": "#/$defs/NonEmpty",
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "description": "a non empty string",
-			  "minLength": 1,
-			  "title": "NonEmpty",
-			  "type": "string",
 			}
 		`)
 
@@ -248,14 +253,19 @@ describe('Annotation', () => {
 			),
 		).toMatchInlineSnapshot(`
 			{
+			  "$defs": {
+			    "NonEmpty": {
+			      "description": "custom description",
+			      "examples": [
+			        "custom example",
+			      ],
+			      "foo": "bar",
+			      "title": "custom title",
+			      "type": "string",
+			    },
+			  },
+			  "$ref": "#/$defs/NonEmpty",
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "description": "custom description",
-			  "examples": [
-			    "custom example",
-			  ],
-			  "foo": "bar",
-			  "title": "custom title",
-			  "type": "string",
 			}
 		`)
 	})
@@ -295,8 +305,13 @@ describe('Annotation', () => {
 		// default annotations
 		expect(JSONSchema.make(Schema.encodedSchema(Trimmed))).toMatchInlineSnapshot(`
 			{
+			  "$defs": {
+			    "Trimmed": {
+			      "type": "string",
+			    },
+			  },
+			  "$ref": "#/$defs/Trimmed",
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "type": "string",
 			}
 		`)
 
@@ -313,8 +328,13 @@ describe('Annotation', () => {
 			),
 		).toMatchInlineSnapshot(`
 			{
+			  "$defs": {
+			    "Trimmed": {
+			      "type": "string",
+			    },
+			  },
+			  "$ref": "#/$defs/Trimmed",
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "type": "string",
 			}
 		`)
 
@@ -326,8 +346,13 @@ describe('Annotation', () => {
 		// default annotations
 		expect(JSONSchema.make(Schema.encodedSchema(Trim))).toMatchInlineSnapshot(`
 			{
+			  "$defs": {
+			    "Trim": {
+			      "type": "string",
+			    },
+			  },
+			  "$ref": "#/$defs/Trim",
 			  "$schema": "http://json-schema.org/draft-07/schema#",
-			  "type": "string",
 			}
 		`)
 	})

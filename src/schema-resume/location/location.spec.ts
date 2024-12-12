@@ -64,36 +64,50 @@ describe('Location', () => {
 		test('encodedSchema', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(Location))).toMatchInlineSnapshot(`
 				{
-				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "additionalProperties": false,
-				  "properties": {
-				    "address": {
+				  "$defs": {
+				    "Location": {
+				      "additionalProperties": false,
+				      "properties": {
+				        "address": {
+				          "$ref": "#/$defs/TrimmedNonEmpty",
+				        },
+				        "city": {
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
+				        },
+				        "countryCode": {
+				          "$ref": "#/$defs/countryCode",
+				        },
+				        "postalCode": {
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
+				        },
+				        "region": {
+				          "$ref": "#/$defs/NonEmptyTrimmedString",
+				        },
+				      },
+				      "required": [
+				        "city",
+				        "countryCode",
+				      ],
+				      "type": "object",
+				    },
+				    "NonEmptyTrimmedString": {
 				      "type": "string",
 				    },
-				    "city": {
+				    "TrimmedNonEmpty": {
 				      "type": "string",
 				    },
 				    "countryCode": {
 				      "type": "string",
 				    },
-				    "postalCode": {
-				      "type": "string",
-				    },
-				    "region": {
-				      "type": "string",
-				    },
 				  },
-				  "required": [
-				    "city",
-				    "countryCode",
-				  ],
-				  "type": "object",
+				  "$ref": "#/$defs/Location",
+				  "$schema": "http://json-schema.org/draft-07/schema#",
 				}
 			`)
 		})
 
-		test('naked', () => {
-			expect(JSON.stringify(JSONSchema.make(Location), null, '\t')).toMatchFileSnapshot(
+		test('naked', async () => {
+			await expect(JSON.stringify(JSONSchema.make(Location), null, '\t')).toMatchFileSnapshot(
 				'location-schema.snapshot.json',
 			)
 		})

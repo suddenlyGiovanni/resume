@@ -1,33 +1,41 @@
 {
+	"$ref": "#/$defs/Language",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [],
-	"properties": {
-		"fluency": {
-			"type": "string",
-			"description": "e.g. Fluent, Beginner",
-			"title": "fluency",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"Fluent",
-				"Beginner",
-				"Intermediate",
-				"Advanced",
-				"Native"
-			],
-			"minLength": 1
+	"$defs": {
+		"Language": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"fluency": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "e.g. Fluent, Beginner",
+					"title": "fluency",
+					"examples": [
+						"Fluent",
+						"Beginner",
+						"Intermediate",
+						"Advanced",
+						"Native"
+					]
+				},
+				"language": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "e.g. English, Spanish",
+					"title": "language",
+					"examples": [
+						"English",
+						"Spanish"
+					]
+				}
+			},
+			"additionalProperties": false
 		},
-		"language": {
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "e.g. English, Spanish",
-			"title": "language",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"English",
-				"Spanish"
-			],
 			"minLength": 1
 		}
-	},
-	"additionalProperties": false
+	}
 }

@@ -1,30 +1,58 @@
 {
+	"$ref": "#/$defs/Publication",
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"type": "object",
-	"required": [],
-	"properties": {
-		"name": {
+	"$defs": {
+		"Publication": {
+			"type": "object",
+			"required": [],
+			"properties": {
+				"name": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "The name of the publication",
+					"title": "name",
+					"examples": [
+						"The World Wide Web"
+					]
+				},
+				"publisher": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "The publisher of the publication",
+					"title": "publisher",
+					"examples": [
+						"IEEE",
+						"Computer Magazine"
+					]
+				},
+				"releaseDate": {
+					"$ref": "#/$defs/StringDate"
+				},
+				"summary": {
+					"$ref": "#/$defs/TrimmedNonEmpty",
+					"description": "Short summary of publication",
+					"title": "summary",
+					"examples": [
+						"Discussion of the World Wide Web, HTTP, HTML"
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "URL (as per RFC 3986) to the publication",
+					"title": "url",
+					"examples": [
+						"http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"NonEmptyTrimmedString": {
 			"type": "string",
-			"description": "The name of the publication",
-			"title": "name",
+			"description": "a non empty string",
+			"title": "NonEmptyTrimmedString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"The World Wide Web"
-			],
 			"minLength": 1
 		},
-		"publisher": {
-			"type": "string",
-			"description": "The publisher of the publication",
-			"title": "publisher",
-			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-			"examples": [
-				"IEEE",
-				"Computer Magazine"
-			],
-			"minLength": 1
-		},
-		"releaseDate": {
+		"StringDate": {
 			"type": "string",
 			"description": "a string that is a valid YYYY-MM-DD date",
 			"title": "StringDate",
@@ -32,25 +60,25 @@
 			"maxLength": 10,
 			"format": "date"
 		},
-		"summary": {
+		"TrimmedNonEmpty": {
 			"type": "string",
-			"description": "Short summary of publication",
-			"title": "summary",
-			"examples": [
-				"Discussion of the World Wide Web, HTTP, HTML"
-			],
+			"description": "a non-empty string with no leading or trailing whitespace",
+			"title": "TrimmedNonEmpty",
 			"minLength": 1,
 			"pattern": "^[^\\s].*[^\\s]$"
 		},
-		"url": {
+		"UrlString": {
 			"type": "string",
-			"description": "URL (as per RFC 3986) to the publication",
-			"title": "url",
+			"description": "a string that fulfills the URL requirements (as per RFC 3986)",
+			"title": "UrlString",
 			"examples": [
-				"http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
+				"https://example.com",
+				"https://example.com/#section",
+				"http://example.com:8080",
+				"http://🍌🍌🍌.ws",
+				"https://www.übercool.de"
 			],
 			"format": "uri"
 		}
-	},
-	"additionalProperties": false
+	}
 }

@@ -61,20 +61,26 @@ describe('UrlString', () => {
 				JSONSchema.make(UrlString.pipe(Schema.maxLength(100), Schema.minLength(1))),
 			).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "UrlString": {
+				      "description": "a string that fulfills the URL requirements (as per RFC 3986)",
+				      "examples": [
+				        "https://example.com",
+				        "https://example.com/#section",
+				        "http://example.com:8080",
+				        "http://🍌🍌🍌.ws",
+				        "https://www.übercool.de",
+				      ],
+				      "format": "uri",
+				      "title": "UrlString",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/UrlString",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
 				  "description": "a string at least 1 character(s) long",
-				  "examples": [
-				    "https://example.com",
-				    "https://example.com/#section",
-				    "http://example.com:8080",
-				    "http://🍌🍌🍌.ws",
-				    "https://www.übercool.de",
-				  ],
-				  "format": "uri",
 				  "maxLength": 100,
 				  "minLength": 1,
-				  "title": "UrlString",
-				  "type": "string",
 				}
 			`)
 
@@ -89,16 +95,21 @@ describe('UrlString', () => {
 				),
 			).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "URL_IDENTIFIER": {
+				      "description": "URL DESCRIPTION",
+				      "examples": [
+				        "URL EXAMPLE",
+				      ],
+				      "format": "uri",
+				      "maxLength": 100,
+				      "minLength": 1,
+				      "title": "URL TITLE",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/URL_IDENTIFIER",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "URL DESCRIPTION",
-				  "examples": [
-				    "URL EXAMPLE",
-				  ],
-				  "format": "uri",
-				  "maxLength": 100,
-				  "minLength": 1,
-				  "title": "URL TITLE",
-				  "type": "string",
 				}
 			`)
 		})
@@ -108,15 +119,25 @@ describe('UrlString', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(UrlString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
+					"$ref": "#/$defs/UrlString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"type": "string"
+					"$defs": {
+						"UrlString": {
+							"type": "string"
+						}
+					}
 				}"
 			`)
 
 			expect(JSONSchema.make(Schema.encodedSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "UrlString": {
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/UrlString",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "type": "string",
 				}
 			`)
 		})
@@ -124,31 +145,41 @@ describe('UrlString', () => {
 		test('with typeSchema', () => {
 			expect(JSONSchema.make(Schema.typeSchema(UrlString))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "UrlString": {
+				      "description": "a string that fulfills the URL requirements (as per RFC 3986)",
+				      "examples": [
+				        "https://example.com",
+				        "https://example.com/#section",
+				        "http://example.com:8080",
+				        "http://🍌🍌🍌.ws",
+				        "https://www.übercool.de",
+				      ],
+				      "format": "uri",
+				      "title": "UrlString",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/UrlString",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "a string that fulfills the URL requirements (as per RFC 3986)",
-				  "examples": [
-				    "https://example.com",
-				    "https://example.com/#section",
-				    "http://example.com:8080",
-				    "http://🍌🍌🍌.ws",
-				    "https://www.übercool.de",
-				  ],
-				  "format": "uri",
-				  "title": "UrlString",
-				  "type": "string",
 				}
 			`)
 
 			expect(JSONSchema.make(Schema.typeSchema(AnnotatedUrlString))).toMatchInlineSnapshot(`
 				{
+				  "$defs": {
+				    "UrlString": {
+				      "description": "URL DESCRIPTION",
+				      "examples": [
+				        "URL EXAMPLE",
+				      ],
+				      "format": "uri",
+				      "title": "URL TITLE",
+				      "type": "string",
+				    },
+				  },
+				  "$ref": "#/$defs/UrlString",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
-				  "description": "URL DESCRIPTION",
-				  "examples": [
-				    "URL EXAMPLE",
-				  ],
-				  "format": "uri",
-				  "title": "URL TITLE",
-				  "type": "string",
 				}
 			`)
 		})
