@@ -1,0 +1,45 @@
+{
+	"author": {
+		"name": "Giovanni Ravalico",
+		"email": "15946771+suddenlygiovanni@users.noreply.github.com",
+		"url": "https://wwww.suddenlygiovanni.dev/resume"
+	},
+	"devDependencies": {
+		"@std/yaml": "npm:@jsr/std__yaml@1.0.5",
+		"@types/json-schema": "7.0.15",
+		"effect": "3.12.0",
+		"vite-tsconfig-paths": "5.1.4"
+	},
+	"exports": {
+		"./schema-resume": "./src/schema-resume/index.ts",
+		"./schema-primitive": "./src/schema-primitive/index.ts"
+	},
+	"license": "MIT",
+	"name": "@suddenlygiovanni/schema-resume",
+	"peerDependencieqs": {
+		"effect": "~3.12.0"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com",
+		"exports": {
+			".": "./lib/index.js",
+			"./schema-primitive": "./lib/schema-primitive/index.js",
+			"./schema-resume": "./lib/schema-resume/index.js",
+			"types": "./lib/index.d.ts"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/suddenlyGiovanni/resume.git"
+	},
+	"scripts": {
+		"build": "tsc -b tsconfig.build.json",
+		"ci:publish": "pmpm publish",
+		"typecheck": "tsc --noEmit",
+		"format": "biome format .",
+		"format:write": "pnpm format --write",
+		"test": "vitest"
+	},
+	"type": "module",
+	"version": "13.3.1"
+}
