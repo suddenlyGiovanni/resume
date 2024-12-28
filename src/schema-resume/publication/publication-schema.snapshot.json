@@ -1,5 +1,4 @@
 {
-	"$ref": "#/$defs/Publication",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"$defs": {
 		"Publication": {
@@ -48,7 +47,7 @@
 		"NonEmptyTrimmedString": {
 			"type": "string",
 			"description": "a non empty string",
-			"title": "NonEmptyTrimmedString",
+			"title": "nonEmptyString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"minLength": 1
 		},
@@ -80,5 +79,6 @@
 			],
 			"format": "uri"
 		}
-	}
+	},
+	"$ref": "#/$defs/Publication"
 }

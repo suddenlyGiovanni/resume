@@ -92,13 +92,13 @@ describe('Email', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(Email)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$ref": "#/$defs/Email",
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"Email": {
 							"type": "string"
 						}
-					}
+					},
+					"$ref": "#/$defs/Email"
 				}"
 			`)
 

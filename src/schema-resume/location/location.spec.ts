@@ -65,31 +65,6 @@ describe('Location', () => {
 			expect(JSONSchema.make(Schema.encodedSchema(Location))).toMatchInlineSnapshot(`
 				{
 				  "$defs": {
-				    "Location": {
-				      "additionalProperties": false,
-				      "properties": {
-				        "address": {
-				          "$ref": "#/$defs/TrimmedNonEmpty",
-				        },
-				        "city": {
-				          "$ref": "#/$defs/NonEmptyTrimmedString",
-				        },
-				        "countryCode": {
-				          "$ref": "#/$defs/countryCode",
-				        },
-				        "postalCode": {
-				          "$ref": "#/$defs/NonEmptyTrimmedString",
-				        },
-				        "region": {
-				          "$ref": "#/$defs/NonEmptyTrimmedString",
-				        },
-				      },
-				      "required": [
-				        "city",
-				        "countryCode",
-				      ],
-				      "type": "object",
-				    },
 				    "NonEmptyTrimmedString": {
 				      "type": "string",
 				    },
@@ -100,8 +75,30 @@ describe('Location', () => {
 				      "type": "string",
 				    },
 				  },
-				  "$ref": "#/$defs/Location",
 				  "$schema": "http://json-schema.org/draft-07/schema#",
+				  "additionalProperties": false,
+				  "properties": {
+				    "address": {
+				      "$ref": "#/$defs/TrimmedNonEmpty",
+				    },
+				    "city": {
+				      "$ref": "#/$defs/NonEmptyTrimmedString",
+				    },
+				    "countryCode": {
+				      "$ref": "#/$defs/countryCode",
+				    },
+				    "postalCode": {
+				      "$ref": "#/$defs/NonEmptyTrimmedString",
+				    },
+				    "region": {
+				      "$ref": "#/$defs/NonEmptyTrimmedString",
+				    },
+				  },
+				  "required": [
+				    "city",
+				    "countryCode",
+				  ],
+				  "type": "object",
 				}
 			`)
 		})

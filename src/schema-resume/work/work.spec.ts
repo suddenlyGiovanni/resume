@@ -125,56 +125,6 @@ describe('Work', () => {
 					    "PhoneString": {
 					      "type": "string",
 					    },
-					    "Role": {
-					      "additionalProperties": false,
-					      "properties": {
-					        "endDate": {
-					          "$ref": "#/$defs/StringDate",
-					        },
-					        "highlights": {
-					          "additionalItems": {
-					            "$ref": "#/$defs/TrimmedNonEmpty",
-					          },
-					          "items": [
-					            {
-					              "$ref": "#/$defs/TrimmedNonEmpty",
-					            },
-					          ],
-					          "minItems": 1,
-					          "type": "array",
-					        },
-					        "responsibilities": {
-					          "items": {
-					            "$ref": "#/$defs/TrimmedNonEmpty",
-					          },
-					          "type": "array",
-					        },
-					        "startDate": {
-					          "$ref": "#/$defs/StringDate",
-					        },
-					        "technologies": {
-					          "additionalItems": {
-					            "$ref": "#/$defs/NonEmptyTrimmedString",
-					          },
-					          "items": [
-					            {
-					              "$ref": "#/$defs/NonEmptyTrimmedString",
-					            },
-					          ],
-					          "minItems": 1,
-					          "type": "array",
-					        },
-					        "title": {
-					          "$ref": "#/$defs/NonEmptyTrimmedString",
-					        },
-					      },
-					      "required": [
-					        "title",
-					        "startDate",
-					        "responsibilities",
-					      ],
-					      "type": "object",
-					    },
 					    "StringDate": {
 					      "type": "string",
 					    },
@@ -184,66 +134,157 @@ describe('Work', () => {
 					    "UrlString": {
 					      "type": "string",
 					    },
-					    "Work": {
+					  },
+					  "$schema": "http://json-schema.org/draft-07/schema#",
+					  "additionalProperties": false,
+					  "properties": {
+					    "contact": {
 					      "additionalProperties": false,
 					      "properties": {
-					        "contact": {
-					          "additionalProperties": false,
-					          "properties": {
-					            "email": {
-					              "$ref": "#/$defs/Email",
-					            },
-					            "name": {
-					              "$ref": "#/$defs/NonEmptyTrimmedString",
-					            },
-					            "phone": {
-					              "$ref": "#/$defs/PhoneString",
-					            },
-					          },
-					          "required": [
-					            "name",
-					            "email",
-					          ],
-					          "type": "object",
-					        },
-					        "description": {
-					          "$ref": "#/$defs/TrimmedNonEmpty",
-					        },
-					        "location": {
-					          "$ref": "#/$defs/NonEmptyTrimmedString",
+					        "email": {
+					          "$ref": "#/$defs/Email",
 					        },
 					        "name": {
 					          "$ref": "#/$defs/NonEmptyTrimmedString",
 					        },
-					        "roles": {
-					          "additionalItems": {
-					            "$ref": "#/$defs/Role",
-					          },
-					          "items": [
-					            {
-					              "$ref": "#/$defs/Role",
-					            },
-					          ],
-					          "minItems": 1,
-					          "type": "array",
-					        },
-					        "summary": {
-					          "$ref": "#/$defs/TrimmedNonEmpty",
-					        },
-					        "url": {
-					          "$ref": "#/$defs/UrlString",
+					        "phone": {
+					          "$ref": "#/$defs/PhoneString",
 					        },
 					      },
 					      "required": [
-					        "description",
 					        "name",
-					        "roles",
+					        "email",
 					      ],
 					      "type": "object",
 					    },
+					    "description": {
+					      "$ref": "#/$defs/TrimmedNonEmpty",
+					    },
+					    "location": {
+					      "$ref": "#/$defs/NonEmptyTrimmedString",
+					    },
+					    "name": {
+					      "$ref": "#/$defs/NonEmptyTrimmedString",
+					    },
+					    "roles": {
+					      "additionalItems": {
+					        "additionalProperties": false,
+					        "properties": {
+					          "endDate": {
+					            "$ref": "#/$defs/StringDate",
+					          },
+					          "highlights": {
+					            "additionalItems": {
+					              "$ref": "#/$defs/TrimmedNonEmpty",
+					            },
+					            "items": [
+					              {
+					                "$ref": "#/$defs/TrimmedNonEmpty",
+					              },
+					            ],
+					            "minItems": 1,
+					            "type": "array",
+					          },
+					          "responsibilities": {
+					            "items": {
+					              "$ref": "#/$defs/TrimmedNonEmpty",
+					            },
+					            "type": "array",
+					          },
+					          "startDate": {
+					            "$ref": "#/$defs/StringDate",
+					          },
+					          "technologies": {
+					            "additionalItems": {
+					              "$ref": "#/$defs/NonEmptyTrimmedString",
+					            },
+					            "items": [
+					              {
+					                "$ref": "#/$defs/NonEmptyTrimmedString",
+					              },
+					            ],
+					            "minItems": 1,
+					            "type": "array",
+					          },
+					          "title": {
+					            "$ref": "#/$defs/NonEmptyTrimmedString",
+					          },
+					        },
+					        "required": [
+					          "title",
+					          "startDate",
+					          "responsibilities",
+					        ],
+					        "type": "object",
+					      },
+					      "items": [
+					        {
+					          "additionalProperties": false,
+					          "properties": {
+					            "endDate": {
+					              "$ref": "#/$defs/StringDate",
+					            },
+					            "highlights": {
+					              "additionalItems": {
+					                "$ref": "#/$defs/TrimmedNonEmpty",
+					              },
+					              "items": [
+					                {
+					                  "$ref": "#/$defs/TrimmedNonEmpty",
+					                },
+					              ],
+					              "minItems": 1,
+					              "type": "array",
+					            },
+					            "responsibilities": {
+					              "items": {
+					                "$ref": "#/$defs/TrimmedNonEmpty",
+					              },
+					              "type": "array",
+					            },
+					            "startDate": {
+					              "$ref": "#/$defs/StringDate",
+					            },
+					            "technologies": {
+					              "additionalItems": {
+					                "$ref": "#/$defs/NonEmptyTrimmedString",
+					              },
+					              "items": [
+					                {
+					                  "$ref": "#/$defs/NonEmptyTrimmedString",
+					                },
+					              ],
+					              "minItems": 1,
+					              "type": "array",
+					            },
+					            "title": {
+					              "$ref": "#/$defs/NonEmptyTrimmedString",
+					            },
+					          },
+					          "required": [
+					            "title",
+					            "startDate",
+					            "responsibilities",
+					          ],
+					          "type": "object",
+					        },
+					      ],
+					      "minItems": 1,
+					      "type": "array",
+					    },
+					    "summary": {
+					      "$ref": "#/$defs/TrimmedNonEmpty",
+					    },
+					    "url": {
+					      "$ref": "#/$defs/UrlString",
+					    },
 					  },
-					  "$ref": "#/$defs/Work",
-					  "$schema": "http://json-schema.org/draft-07/schema#",
+					  "required": [
+					    "description",
+					    "name",
+					    "roles",
+					  ],
+					  "type": "object",
 					}
 				`)
 			})

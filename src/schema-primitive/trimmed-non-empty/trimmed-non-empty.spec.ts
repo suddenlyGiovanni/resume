@@ -159,6 +159,7 @@ describe('trimmedNonEmpty', () => {
 					  "$schema": "http://json-schema.org/draft-07/schema#",
 					  "description": "a lowercase string",
 					  "pattern": "^[a-z]+$",
+					  "title": "lowercased",
 					}
 				`)
 

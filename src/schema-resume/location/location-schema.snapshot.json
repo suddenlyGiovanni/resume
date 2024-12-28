@@ -1,5 +1,4 @@
 {
-	"$ref": "#/$defs/Location",
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"$defs": {
 		"Location": {
@@ -60,7 +59,7 @@
 		"NonEmptyTrimmedString": {
 			"type": "string",
 			"description": "a non empty string",
-			"title": "NonEmptyTrimmedString",
+			"title": "nonEmptyString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"minLength": 1
 		},
@@ -77,5 +76,6 @@
 			"maxLength": 2,
 			"pattern": "^[A-Z]{2}$"
 		}
-	}
+	},
+	"$ref": "#/$defs/Location"
 }

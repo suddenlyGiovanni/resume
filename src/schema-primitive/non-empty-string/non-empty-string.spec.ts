@@ -20,7 +20,7 @@ describe('nonEmptyString', () => {
 			  "_tag": "Left",
 			  "left": {
 			    "_id": "ParseError",
-			    "message": "a non empty string
+			    "message": "nonEmptyString
 			└─ Predicate refinement failure
 			   └─ Expected a non empty string, actual """,
 			  },
@@ -44,7 +44,6 @@ describe('nonEmptyString', () => {
 		test('naked', () => {
 			expect(JSON.stringify(JSONSchema.make(NonEmptyString), null, '\t')).toMatchInlineSnapshot(`
 				"{
-					"$ref": "#/$defs/NonEmptyString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
@@ -56,7 +55,8 @@ describe('nonEmptyString', () => {
 								"'test string'"
 							]
 						}
-					}
+					},
+					"$ref": "#/$defs/NonEmptyString"
 				}"
 			`)
 
@@ -64,7 +64,6 @@ describe('nonEmptyString', () => {
 				JSON.stringify(JSONSchema.make(NonEmptyStringAnnotated), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$ref": "#/$defs/NonEmptyString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
@@ -75,7 +74,8 @@ describe('nonEmptyString', () => {
 								"EXAMPLES"
 							]
 						}
-					}
+					},
+					"$ref": "#/$defs/NonEmptyString"
 				}"
 			`)
 		})
@@ -85,7 +85,6 @@ describe('nonEmptyString', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$ref": "#/$defs/NonEmptyString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
@@ -97,7 +96,8 @@ describe('nonEmptyString', () => {
 								"'test string'"
 							]
 						}
-					}
+					},
+					"$ref": "#/$defs/NonEmptyString"
 				}"
 			`)
 
@@ -105,7 +105,6 @@ describe('nonEmptyString', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyStringAnnotated)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$ref": "#/$defs/NonEmptyString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"NonEmptyString": {
@@ -116,7 +115,8 @@ describe('nonEmptyString', () => {
 								"EXAMPLES"
 							]
 						}
-					}
+					},
+					"$ref": "#/$defs/NonEmptyString"
 				}"
 			`)
 
@@ -139,8 +139,8 @@ describe('nonEmptyString', () => {
 				),
 			).toMatchInlineSnapshot(`
 				"{
-					"minLength": 1,
-					"$schema": "http://json-schema.org/draft-07/schema#"
+					"$schema": "http://json-schema.org/draft-07/schema#",
+					"minLength": 1
 				}"
 			`)
 		})
