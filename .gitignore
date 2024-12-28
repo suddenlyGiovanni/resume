@@ -136,6 +136,8 @@ dist
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+
+
 /resume.iml
-/lib
 /.direnv/
+/packages/schema-resume/lib/
