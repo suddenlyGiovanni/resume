@@ -25,14 +25,14 @@ describe('ISODateString', () => {
 		const serializedJsonSchema = JSON.stringify(jsonSchema, null, '\t')
 		expect(serializedJsonSchema).toMatchInlineSnapshot(`
 			"{
-				"$ref": "#/$defs/Trim",
 				"$schema": "http://json-schema.org/draft-07/schema#",
 				"$defs": {
 					"Trim": {
 						"type": "string",
 						"description": "a string that will be trimmed"
 					}
-				}
+				},
+				"$ref": "#/$defs/Trim"
 			}"
 		`)
 	})

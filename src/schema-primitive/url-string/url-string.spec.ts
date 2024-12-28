@@ -81,6 +81,7 @@ describe('UrlString', () => {
 				  "description": "a string at least 1 character(s) long",
 				  "maxLength": 100,
 				  "minLength": 1,
+				  "title": "minLength(1)",
 				}
 			`)
 
@@ -119,13 +120,13 @@ describe('UrlString', () => {
 				JSON.stringify(JSONSchema.make(Schema.encodedSchema(UrlString)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
-					"$ref": "#/$defs/UrlString",
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"UrlString": {
 							"type": "string"
 						}
-					}
+					},
+					"$ref": "#/$defs/UrlString"
 				}"
 			`)
 

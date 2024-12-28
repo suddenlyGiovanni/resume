@@ -46,7 +46,7 @@ describe('NonEmptyTrimmedString', () => {
 			└─ From side refinement failure
 			   └─ Trimmed
 			      └─ Predicate refinement failure
-			         └─ Expected Trimmed, actual "   "",
+			         └─ Expected a string with no leading or trailing whitespace, actual "   "",
 			  },
 			}
 		`)
@@ -66,7 +66,7 @@ describe('NonEmptyTrimmedString', () => {
 			└─ From side refinement failure
 			   └─ Trimmed
 			      └─ Predicate refinement failure
-			         └─ Expected Trimmed, actual "   test string   "",
+			         └─ Expected a string with no leading or trailing whitespace, actual "   test string   "",
 			  },
 			}
 		`)
@@ -83,7 +83,7 @@ describe('NonEmptyTrimmedString', () => {
 					      "description": "a non empty string",
 					      "minLength": 1,
 					      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-					      "title": "NonEmptyTrimmedString",
+					      "title": "nonEmptyString",
 					      "type": "string",
 					    },
 					  },
@@ -141,7 +141,7 @@ describe('NonEmptyTrimmedString', () => {
 					      "description": "a non empty string",
 					      "minLength": 1,
 					      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-					      "title": "NonEmptyTrimmedString",
+					      "title": "nonEmptyString",
 					      "type": "string",
 					    },
 					  },
@@ -149,6 +149,7 @@ describe('NonEmptyTrimmedString', () => {
 					  "$schema": "http://json-schema.org/draft-07/schema#",
 					  "description": "a lowercase string",
 					  "pattern": "^[a-z]+$",
+					  "title": "lowercased",
 					}
 				`)
 
@@ -174,7 +175,7 @@ describe('NonEmptyTrimmedString', () => {
 					      "description": "a non empty string",
 					      "minLength": 1,
 					      "pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
-					      "title": "NonEmptyTrimmedString",
+					      "title": "nonEmptyString",
 					      "type": "string",
 					    },
 					  },
