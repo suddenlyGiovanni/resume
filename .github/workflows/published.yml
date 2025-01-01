@@ -23,8 +23,9 @@ jobs:
 
       - name: 🏗️Run Build
         run: pnpm run build
+        run: pnpm run --filter @suddenlygiovanni/schema-resume build
 
       - name: 📦 Publish package
-        run: pnpm publish --no-git-checks
+        run: pnpm --filter @suddenlygiovanni/schema-resume publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
