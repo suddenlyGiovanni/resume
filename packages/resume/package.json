@@ -1,0 +1,16 @@
+{
+	"devDependencies": {
+		"@suddenlygiovanni/schema-resume": "workspace:*"
+	},
+	"exports": {
+		"./resume.yml": "./resume.yml"
+	},
+	"license": "UNLICENSED",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"title": "@suddenlygiovanni/resume",
+	"type": "module",
+	"version": "13.3.1",
+	"@vitest/ui": "3.0.0-beta.3"
+}
