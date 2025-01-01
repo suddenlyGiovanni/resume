@@ -25,13 +25,13 @@ importers:
         version: 22.10.5
       '@vitest/coverage-v8':
         specifier: 3.0.0-beta.3
-        version: 3.0.0-beta.3(vitest@3.0.0-beta.3(@types/node@22.10.2))
+        version: 3.0.0-beta.3(vitest@3.0.0-beta.3(@types/node@22.10.3))
       typescript:
         specifier: 5.7.2
         version: 5.7.2
-vite-tsconfig-paths:
-  specifier: 5.1.4
-  version: 5.1.4(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.5))
+      vitest:
+        specifier: 3.0.0-beta.3
+        version: 3.0.0-beta.3(@types/node@22.10.5)
       vitest:
         specifier: 3.0.0-beta.3
         version: 3.0.0-beta.3(@types/node@22.10.5)
@@ -1534,7 +1534,7 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
-  '@vitest/coverage-v8@3.0.0-beta.3(vitest@3.0.0-beta.3(@types/node@22.10.2))':
+  '@vitest/coverage-v8@3.0.0-beta.3(vitest@3.0.0-beta.3(@types/node@22.10.3))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
