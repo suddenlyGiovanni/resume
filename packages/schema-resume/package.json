@@ -19,6 +19,10 @@
 	"peerDependencieqs": {
 		"effect": "~3.12.0"
 	},
+	"files": [
+		"lib/",
+		"lib/!tsconfig.build.tsbuildinfo"
+	],
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com",
 		"exports": {
