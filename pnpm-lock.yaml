@@ -4,6 +4,12 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    effect:
+      specifier: 3.12.0
+      version: 3.12.0
+
 importers:
 
   .:
@@ -42,7 +48,7 @@ importers:
         specifier: workspace:*
         version: link:../schema-resume
       effect:
-        specifier: 3.12.0
+        specifier: 'catalog:'
         version: 3.12.0
 
   packages/schema-resume:
@@ -51,7 +57,7 @@ importers:
         specifier: 7.0.15
         version: 7.0.15
       effect:
-        specifier: 3.12.0
+        specifier: 'catalog:'
         version: 3.12.0
 
 packages:

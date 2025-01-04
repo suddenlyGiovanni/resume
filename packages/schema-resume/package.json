@@ -6,7 +6,7 @@
 	},
 	"devDependencies": {
 		"@types/json-schema": "7.0.15",
-		"effect": "3.12.0"
+		"effect": "catalog:"
 	},
 	"exports": {
 		"./schema-resume": "./src/schema-resume/index.ts",

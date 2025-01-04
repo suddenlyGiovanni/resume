@@ -1,2 +1,4 @@
 packages:
-  - "packages/*"
+  - packages/*
+catalog:
+  effect: 3.12.0
