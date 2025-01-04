@@ -6,7 +6,9 @@
 	},
 	"devDependencies": {
 		"@types/json-schema": "7.0.15",
-		"effect": "catalog:"
+		"@types/node": "catalog:",
+		"effect": "catalog:",
+		"vitest": "catalog:"
 	},
 	"exports": {
 		"./schema-resume": "./src/schema-resume/index.ts",

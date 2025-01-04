@@ -1,8 +1,10 @@
 {
 	"devDependencies": {
+		"@std/yaml": "npm:@jsr/std__yaml@1.0.5",
 		"@suddenlygiovanni/schema-resume": "workspace:*",
+		"@types/node": "catalog:",
 		"effect": "catalog:",
-		"@std/yaml": "npm:@jsr/std__yaml@1.0.5"
+		"vitest": "catalog:"
 	},
 	"exports": {
 		"./resume.yml": "./resume.yml",
