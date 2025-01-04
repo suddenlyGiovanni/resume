@@ -1,10 +1,12 @@
 {
 	"devDependencies": {
 		"@suddenlygiovanni/schema-resume": "workspace:*",
-		"effect": "3.12.0"
+		"effect": "3.12.0",
+		"@std/yaml": "npm:@jsr/std__yaml@1.0.5"
 	},
 	"exports": {
-		"./resume.yml": "./resume.yml"
+		"./resume.yml": "./resume.yml",
+		"./schema.json": "./schema.json"
 	},
 	"license": "UNLICENSED",
 	"title": "@suddenlygiovanni/resume",

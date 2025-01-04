@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@std/yaml':
+        specifier: npm:@jsr/std__yaml@1.0.5
+        version: '@jsr/std__yaml@1.0.5'
       '@suddenlygiovanni/schema-resume':
         specifier: workspace:*
         version: link:../schema-resume
@@ -16,6 +19,9 @@ importers:
         version: 3.12.0
 
 packages:
+
+  '@jsr/std__yaml@1.0.5':
+    resolution: {integrity: sha512-jbh2xwnja+ar+7NE0oDTlbST1WW29dAQOKX8+1DZgdT54NVt9lZ9YVDrzh4uP1w6ZHVirtY0z99BSym0v+Zh4Q==, tarball: https://npm.jsr.io/~/11/@jsr/std__yaml/1.0.5.tgz}
 
   effect@3.12.0:
     resolution: {integrity: sha512-b/u9s3b9HfTo0qygVouegP0hkbiuxRIeaCe1ppf8P88hPyl6lKCbErtn7Az4jG7LuU7f0Wgm4c8WXbMcL2j8+g==}
@@ -28,6 +34,8 @@ packages:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
 
 snapshots:
+
+  '@jsr/std__yaml@1.0.5': {}
 
   effect@3.12.0:
     dependencies:

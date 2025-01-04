@@ -8,9 +8,6 @@ importers:
 
   .:
     devDependencies:
-      '@std/yaml':
-        specifier: npm:@jsr/std__yaml@1.0.5
-        version: '@jsr/std__yaml@1.0.5'
       '@types/json-schema':
         specifier: 7.0.15
         version: 7.0.15
@@ -172,9 +169,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@jsr/std__yaml@1.0.5':
-    resolution: {integrity: sha512-jbh2xwnja+ar+7NE0oDTlbST1WW29dAQOKX8+1DZgdT54NVt9lZ9YVDrzh4uP1w6ZHVirtY0z99BSym0v+Zh4Q==, tarball: https://npm.jsr.io/~/11/@jsr/std__yaml/1.0.5.tgz}
 
   '@rollup/rollup-android-arm-eabi@4.29.1':
     resolution: {integrity: sha512-ssKhA8RNltTZLpG6/QNkCSge+7mBQGUqJRisZ2MDQcEGaK93QESEgWK2iOpIDZ7k9zPVkG5AS3ksvD5ZWxmItw==}
@@ -478,8 +472,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.24.2':
     optional: true
-
-  '@jsr/std__yaml@1.0.5': {}
 
   '@rollup/rollup-android-arm-eabi@4.29.1':
     optional: true

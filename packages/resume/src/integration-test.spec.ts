@@ -1,9 +1,8 @@
-import * as fs from 'node:fs/promises'
 import * as yaml from '@std/yaml'
+import { Resume } from '@suddenlygiovanni/schema-resume/schema-resume'
 import { Schema } from 'effect'
+import * as fs from 'node:fs/promises'
 import { describe, expect, it } from 'vitest'
-
-import { Resume } from '../schema-resume/resume.js'
 
 describe('integration test', () => {
 	it('resume.yml should fulfill Resume schema constraints', async () => {
