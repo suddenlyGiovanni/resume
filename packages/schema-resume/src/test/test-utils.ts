@@ -15,42 +15,50 @@ export const allErrors: SchemaAST.ParseOptions = {
 	errors: 'all',
 }
 
-export const expectDecodeUnknownSuccess = async <A, I>(
+export async function expectDecodeUnknownSuccess<A, I>(
 	schema: Schema.Schema<A, I, never>,
 	input: unknown,
 	expected: A = input as any,
 	options?: SchemaAST.ParseOptions,
-) => expectSuccess(Schema.decodeUnknown(schema)(input, options), expected)
+): Promise<void> {
+	return expectSuccess(Schema.decodeUnknown(schema)(input, options), expected)
+}
 
-export const expectDecodeUnknownFailure = async <A, I>(
+export async function expectDecodeUnknownFailure<A, I>(
 	schema: Schema.Schema<A, I, never>,
 	input: unknown,
 	message: string,
 	options?: SchemaAST.ParseOptions,
-) => expectFailure(Schema.decodeUnknown(schema)(input, options), message)
+): Promise<void> {
+	return expectFailure(Schema.decodeUnknown(schema)(input, options), message)
+}
 
-export const expectEncodeSuccess = async <A, I>(
+export async function expectEncodeSuccess<A, I>(
 	schema: Schema.Schema<A, I, never>,
 	a: A,
 	expected: unknown,
 	options?: SchemaAST.ParseOptions,
-) => expectSuccess(Schema.encode(schema)(a, options), expected)
+): Promise<void> {
+	return expectSuccess(Schema.encode(schema)(a, options), expected)
+}
 
-export const expectEncodeFailure = async <A, I>(
+export async function expectEncodeFailure<A, I>(
 	schema: Schema.Schema<A, I, never>,
 	a: A,
 	message: string,
 	options?: SchemaAST.ParseOptions,
-) => expectFailure(Schema.encode(schema)(a, options), message)
+): Promise<void> {
+	return expectFailure(Schema.encode(schema)(a, options), message)
+}
 
-export const printAST = <A, I, R>(schema: Schema.Schema<A, I, R>) => {
+export function printAST<A, I, R>(schema: Schema.Schema<A, I, R>): void {
 	console.log('%o', schema.ast)
 }
 
-export const expectFailure = async <A>(
+export async function expectFailure<A>(
 	effect: Either.Either<A, ParseResult.ParseError> | Effect.Effect<A, ParseResult.ParseError>,
 	message: string,
-) => {
+): Promise<void> {
 	if (Either.isEither(effect)) {
 		expectEitherLeft(effect, message)
 	} else {
@@ -58,10 +66,10 @@ export const expectFailure = async <A>(
 	}
 }
 
-export const expectSuccess = async <E, A>(
+export async function expectSuccess<E, A>(
 	effect: Either.Either<A, E> | Effect.Effect<A, E>,
 	a: A,
-) => {
+): Promise<void> {
 	if (Either.isEither(effect)) {
 		expectEitherRight(effect, a)
 	} else {
@@ -69,34 +77,34 @@ export const expectSuccess = async <E, A>(
 	}
 }
 
-export const expectEffectFailure = async <A>(
+export async function expectEffectFailure<A>(
 	effect: Effect.Effect<A, ParseResult.ParseError>,
 	message: string,
-) => {
+): Promise<void> {
 	expect(
 		await Effect.runPromise(Effect.either(Effect.mapError(effect, TreeFormatter.formatErrorSync))),
 	).toStrictEqual(Either.left(message))
 }
 
-export const expectEffectSuccess = async <E, A>(effect: Effect.Effect<A, E>, a: A) => {
+export async function expectEffectSuccess<E, A>(effect: Effect.Effect<A, E>, a: A): Promise<void> {
 	expect(await Effect.runPromise(Effect.either(effect))).toStrictEqual(Either.right(a))
 }
 
-export const expectEitherLeft = <A>(
+export function expectEitherLeft<A>(
 	e: Either.Either<A, ParseResult.ParseError>,
 	message: string,
-) => {
+): void {
 	expect(Either.mapLeft(e, TreeFormatter.formatErrorSync)).toStrictEqual(Either.left(message))
 }
 
-export const expectEitherRight = <E, A>(e: Either.Either<A, E>, a: A) => {
+export function expectEitherRight<E, A>(e: Either.Either<A, E>, a: A): void {
 	expect(e).toStrictEqual(Either.right(a))
 }
 
-export const expectNone = <A>(o: Option.Option<A>) => {
+export function expectNone<A>(o: Option.Option<A>): void {
 	expect(o).toStrictEqual(Option.none())
 }
 
-export const expectSome = <A>(o: Option.Option<A>, a: A) => {
+export function expectSome<A>(o: Option.Option<A>, a: A): void {
 	expect(o).toStrictEqual(Option.some(a))
 }

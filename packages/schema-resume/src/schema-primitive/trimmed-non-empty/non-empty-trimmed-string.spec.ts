@@ -129,7 +129,9 @@ describe('NonEmptyTrimmedString', () => {
 						Schema.NonEmptyTrimmedString.pipe(
 							Schema.lowercased({
 								jsonSchema: {
-									pattern: new RegExp(/^[a-z]+$/).source,
+									pattern: new RegExp(
+										/^[a-z]+$/,
+									).source,
 								},
 							}),
 						),
@@ -158,7 +160,9 @@ describe('NonEmptyTrimmedString', () => {
 						Schema.NonEmptyTrimmedString.pipe(
 							Schema.lowercased({
 								jsonSchema: {
-									pattern: new RegExp(/^[a-z]+$/).source,
+									pattern: new RegExp(
+										/^[a-z]+$/,
+									).source,
 								},
 							}),
 							Schema.maxLength(10),

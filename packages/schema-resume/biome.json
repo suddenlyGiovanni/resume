@@ -5,6 +5,19 @@
 		"include": ["./src/**/*", "./test/**/*"],
 		"ignore": ["./src/**/*.snapshot.json"]
 	},
+	"linter": {
+		"rules": {
+			"correctness": {
+				"noUndeclaredDependencies": "off"
+			},
+			"nursery": {
+				"useImportRestrictions": "off"
+			},
+			"performance": {
+				"useTopLevelRegex": "off"
+			}
+		}
+	},
 	"overrides": [
 		{
 			"include": ["**/*.snapshot.json"],
@@ -12,12 +25,20 @@
 				"enabled": false
 			}
 		},
+
 		{
 			"include": ["src/test/test-utils.ts"],
 			"linter": {
 				"rules": {
 					"suspicious": {
-						"noExplicitAny": "off"
+						"noExplicitAny": "off",
+						"noMisplacedAssertion": "off",
+						"noConsole": "off",
+						"noConsoleLog": "off",
+						"useAwait": "off"
+					},
+					"style": {
+						"useNamingConvention": "off"
 					}
 				}
 			}
