@@ -7,6 +7,9 @@
 		"include": [
 			"./src/**/*",
 			"./test/**/*"
+		],
+		"ignore": [
+			"./src/**/*.snapshot.json"
 		]
 	},
 	"overrides": [

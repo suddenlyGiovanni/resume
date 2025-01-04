@@ -1,12 +1,7 @@
 {
-	"extends": [
-		"@tsconfig/node23/tsconfig.json",
-		"@tsconfig/strictest/tsconfig.json"
-	],
+	"extends": ["@tsconfig/node23/tsconfig.json", "@tsconfig/strictest/tsconfig.json"],
 	"compilerOptions": {
-		"types": [
-			"vitest/importMeta"
-		],
+		"types": ["vitest/importMeta"],
 		"allowImportingTsExtensions": false,
 		"noEmit": true,
 		"exactOptionalPropertyTypes": true,
@@ -16,11 +11,6 @@
 		"skipLibCheck": true
 		/* Skip type checking all .d.ts files. */
 	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"node_modules",
-		".pnpm"
-	]
+	"include": ["src"],
+	"exclude": ["node_modules", ".pnpm"]
 }
