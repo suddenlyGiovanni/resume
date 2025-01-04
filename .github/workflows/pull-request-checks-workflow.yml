@@ -23,7 +23,7 @@ jobs:
         run: pnpm run -r lint:ci --reporter=github
 
       - name: 🧪 Run unit tests
-        run: pnpm run -r test -- --coverage
+        run: pnpm exec vitest --coverage
 
       - name: 🛫 Upload coverage to Codecov
         uses: codecov/codecov-action@v5
