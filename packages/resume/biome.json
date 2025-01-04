@@ -4,5 +4,17 @@
 	"files": {
 		"include": ["./src/**/*", "./test/**/*"],
 		"ignore": ["schema.json"]
-	}
+	},
+	"overrides": [
+		{
+			"include": ["src/**/*.spec.ts"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noNodejsModules": "off"
+					}
+				}
+			}
+		}
+	]
 }

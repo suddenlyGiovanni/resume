@@ -10,12 +10,18 @@
 		"./resume.yml": "./resume.yml",
 		"./schema.json": "./schema.json"
 	},
+	"imports": {
+		"#*": "./src/*"
+	},
 	"license": "UNLICENSED",
 	"scripts": {
-		"typecheck": "tsc --noEmit",
-		"format": "biome format .",
-		"format:write": "pnpm format --write",
-		"test": "vitest"
+		"format": "biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true .",
+		"format:write": "biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true --write .",
+		"lint": "biome check .",
+		"lint:ci": "biome ci --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched .",
+		"lint:write": "biome check --apply .",
+		"test": "vitest",
+		"typecheck": "tsc --noEmit"
 	},
 	"title": "@suddenlygiovanni/resume",
 	"type": "module",
