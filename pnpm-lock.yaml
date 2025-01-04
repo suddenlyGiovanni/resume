@@ -14,9 +14,9 @@ importers:
       '@changesets/cli':
         specifier: 2.27.11
         version: 2.27.11
-      '@tsconfig/node22':
-        specifier: 22.0.0
-        version: 22.0.0
+      '@tsconfig/node23':
+        specifier: 23.0.0
+        version: 23.0.0
       '@tsconfig/strictest':
         specifier: 2.0.5
         version: 2.0.5
@@ -464,8 +464,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@tsconfig/node22@22.0.0':
-    resolution: {integrity: sha512-twLQ77zevtxobBOD4ToAtVmuYrpeYUh3qh+TEp+08IWhpsrIflVHqQ1F1CiPxQGL7doCdBIOOCF+1Tm833faNg==}
+  '@tsconfig/node23@23.0.0':
+    resolution: {integrity: sha512-a2qO9QOEWnomKbFFE3XlOJ5za6Sc+XduxQkFpah42enbTPFPaW0QzKw616KDNfmMLPhXMwCw4EHVjcKaFOj/OA==}
 
   '@tsconfig/strictest@2.0.5':
     resolution: {integrity: sha512-ec4tjL2Rr0pkZ5hww65c+EEPYwxOi4Ryv+0MtjeaSQRJyq322Q27eOQiFbuNgw2hpL4hB1/W/HBGk3VKS43osg==}
@@ -1519,7 +1519,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.29.1':
     optional: true
 
-  '@tsconfig/node22@22.0.0': {}
+  '@tsconfig/node23@23.0.0': {}
 
   '@tsconfig/strictest@2.0.5': {}
 

@@ -1,8 +1,11 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
-		"include": ["./src/*"],
-		"ignore": ["node_modules", ".pnpm", "./~"]
+		"ignore": [
+			"node_modules",
+			".pnpm",
+			"./~"
+		]
 	},
 	"vcs": {
 		"enabled": true,
@@ -60,28 +63,5 @@
 			"trailingCommas": "all",
 			"attributePosition": "multiline"
 		}
-	},
-	"css": {
-		"formatter": {
-			"enabled": true
-		}
-	},
-	"overrides": [
-		{
-			"include": ["**/*.snapshot.json"],
-			"formatter": {
-				"enabled": false
-			}
-		},
-		{
-			"include": ["src/test/test-utils.ts"],
-			"linter": {
-				"rules": {
-					"suspicious": {
-						"noExplicitAny": "off"
-					}
-				}
-			}
-		}
-	]
+	}
 }

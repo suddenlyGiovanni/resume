@@ -1,4 +1,4 @@
-$schema: ../schema-resume/src/schema.json
+$schema: ./schema.json
 basics:
   name: Giovanni Ravalico
   label: Software Developer
