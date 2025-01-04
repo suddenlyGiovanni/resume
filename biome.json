@@ -1,11 +1,7 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
-		"ignore": [
-			"node_modules",
-			".pnpm",
-			"./~"
-		]
+		"ignore": ["node_modules", ".pnpm", "./~"]
 	},
 	"vcs": {
 		"enabled": true,
@@ -66,10 +62,7 @@
 	},
 	"overrides": [
 		{
-			"include": [
-				"**/*.snapshot.json",
-				"packages/resume/schema.json"
-			],
+			"include": ["**/*.snapshot.json", "packages/resume/schema.json"],
 			"formatter": {
 				"enabled": false
 			}
