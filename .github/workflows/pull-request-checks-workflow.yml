@@ -28,11 +28,11 @@ jobs:
       - name: 🛫 Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          directory: ./coverage/reports/
           fail_ci_if_error: false
-          name: codecov-umbrella
-          token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
+          files: ./coverage/coverage-final.json
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: 🦋 Require changesets
         run: pnpm exec changeset status --since=origin/main

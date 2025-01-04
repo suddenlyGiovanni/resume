@@ -8,7 +8,7 @@ export default defineConfig({
 		workspace: ['packages/*'],
 		coverage: {
 			provider: 'v8',
-			reporter: ['text', 'json', 'html'],
+			reporter: ['json', 'text'],
 		},
 	},
 })
