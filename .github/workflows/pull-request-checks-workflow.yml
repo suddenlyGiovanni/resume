@@ -14,28 +14,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🧬 Setup Biome
-        uses: biomejs/setup-biome@v2
-
-      - name: 🧬 check code for errors (with Biome)
-        run: |
-          biome ci  \
-            --formatter-enabled=false \
-            --linter-enabled=true \
-            --organize-imports-enabled=false  \
-            --vcs-enabled=true  \
-            --vcs-use-ignore-file=true  \
-            --no-errors-on-unmatched  \
-            --reporter=github \
-            .
-
       - name: 📦 Setup Node, Pnpm and install deps
         uses: ./.github/actions/setup
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: 🧬 check code for errors (with Biome)
+        run: pnpm run -r lint:ci --reporter=github
+
       - name: 🧪 Run unit tests
-        run: pnpm run test -- --coverage
+        run: pnpm run -r test -- --coverage
 
       - name: 🛫 Upload coverage to Codecov
         uses: codecov/codecov-action@v5
