@@ -67,7 +67,8 @@
 	"overrides": [
 		{
 			"include": [
-				"**/*.snapshot.json"
+				"**/*.snapshot.json",
+				"packages/resume/schema.json"
 			],
 			"formatter": {
 				"enabled": false
