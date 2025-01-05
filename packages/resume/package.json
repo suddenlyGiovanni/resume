@@ -1,7 +1,7 @@
 {
 	"description": "Suddenly Giovanni's personal resume",
 	"devDependencies": {
-		"@std/yaml": "npm:@jsr/std__yaml@1.0.5",
+		"@std/yaml": "catalog:",
 		"@suddenlygiovanni/schema-resume": "workspace:*",
 		"@types/node": "catalog:",
 		"effect": "catalog:",

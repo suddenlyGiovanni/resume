@@ -5,7 +5,7 @@
 		"url": "https://wwww.suddenlygiovanni.dev/resume"
 	},
 	"devDependencies": {
-		"@types/json-schema": "7.0.15",
+		"@types/json-schema": "catalog:",
 		"@types/node": "catalog:",
 		"effect": "catalog:",
 		"vitest": "catalog:"
@@ -17,7 +17,10 @@
 	"imports": {
 		"#*": "./src/*"
 	},
-	"files": ["lib/", "lib/!tsconfig.build.tsbuildinfo"],
+	"files": [
+		"lib/",
+		"lib/!tsconfig.build.tsbuildinfo"
+	],
 	"license": "MIT",
 	"name": "@suddenlygiovanni/schema-resume",
 	"peerDependencieqs": {

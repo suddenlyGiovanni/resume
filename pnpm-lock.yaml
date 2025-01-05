@@ -6,6 +6,24 @@ settings:
 
 catalogs:
   default:
+    '@biomejs/biome':
+      specifier: 1.9.4
+      version: 1.9.4
+    '@changesets/cli':
+      specifier: 2.27.11
+      version: 2.27.11
+    '@std/yaml':
+      specifier: npm:@jsr/std__yaml@1.0.5
+      version: 1.0.5
+    '@tsconfig/node23':
+      specifier: 23.0.0
+      version: 23.0.0
+    '@tsconfig/strictest':
+      specifier: 2.0.5
+      version: 2.0.5
+    '@types/json-schema':
+      specifier: 7.0.15
+      version: 7.0.15
     '@types/node':
       specifier: 22.10.5
       version: 22.10.5
@@ -18,6 +36,9 @@ catalogs:
     effect:
       specifier: 3.12.0
       version: 3.12.0
+    typescript:
+      specifier: 5.7.2
+      version: 5.7.2
     vitest:
       specifier: 3.0.0-beta.3
       version: 3.0.0-beta.3
@@ -27,19 +48,19 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: 1.9.4
+        specifier: 'catalog:'
         version: 1.9.4
       '@changesets/cli':
-        specifier: 2.27.11
+        specifier: 'catalog:'
         version: 2.27.11
       '@tsconfig/node23':
-        specifier: 23.0.0
+        specifier: 'catalog:'
         version: 23.0.0
       '@tsconfig/strictest':
-        specifier: 2.0.5
+        specifier: 'catalog:'
         version: 2.0.5
       '@types/node':
-        specifier: 22.10.5
+        specifier: 'catalog:'
         version: 22.10.5
       '@vitest/coverage-v8':
         specifier: 'catalog:'
@@ -48,7 +69,7 @@ importers:
         specifier: 'catalog:'
         version: 3.0.0-beta.3(vitest@3.0.0-beta.3)
       typescript:
-        specifier: 5.7.2
+        specifier: 'catalog:'
         version: 5.7.2
       vitest:
         specifier: 'catalog:'
@@ -57,7 +78,7 @@ importers:
   packages/resume:
     devDependencies:
       '@std/yaml':
-        specifier: npm:@jsr/std__yaml@1.0.5
+        specifier: 'catalog:'
         version: '@jsr/std__yaml@1.0.5'
       '@suddenlygiovanni/schema-resume':
         specifier: workspace:*
@@ -75,7 +96,7 @@ importers:
   packages/schema-resume:
     devDependencies:
       '@types/json-schema':
-        specifier: 7.0.15
+        specifier: 'catalog:'
         version: 7.0.15
       '@types/node':
         specifier: 'catalog:'
