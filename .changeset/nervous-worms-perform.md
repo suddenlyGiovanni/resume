@@ -1,0 +1,7 @@
+---
+"@suddenlygiovanni/schema-resume": major
+---
+
+Refactored project into a monorepo, decoupling resume data from the schema and improving project
+structure. This involved updating build processes, linting, formatting, and configuration files. The
+resume is now a separate package and build process now publishes only the schema package.
