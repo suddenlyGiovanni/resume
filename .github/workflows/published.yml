@@ -22,7 +22,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🏗️Run Build
-        run: pnpm run build
         run: pnpm run --filter @suddenlygiovanni/schema-resume build
 
       - name: 📦 Publish package
