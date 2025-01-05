@@ -1,16 +1,14 @@
+// biome-ignore lint/correctness/noNodejsModules: <explanation>
+import * as process from 'node:process'
 import { defineConfig } from 'vitest/config'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-	plugins: [tsconfigPaths()],
 	test: {
-		includeSource: ['./src/test/test-globals.ts'],
-		reporters: process.env['GITHUB_ACTIONS'] ? ['dot', 'github-actions'] : ['default'],
-		globalSetup: './src/test/test-globals.ts',
+		reporters: process.env.GITHUB_ACTIONS ? ['dot', 'github-actions'] : ['dot'],
+		workspace: ['packages/*'],
 		coverage: {
 			provider: 'v8',
-			reporter: ['text', 'json', 'html'],
+			reporter: ['json', 'text'],
 		},
-		include: ['src/**/*.spec.ts'],
 	},
 })

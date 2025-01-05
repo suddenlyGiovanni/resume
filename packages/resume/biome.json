@@ -1,0 +1,20 @@
+{
+	"$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
+	"extends": ["../../biome.json"],
+	"files": {
+		"include": ["./src/**/*", "./test/**/*"],
+		"ignore": ["./src/schema.json", "./src/resume.yml"]
+	},
+	"overrides": [
+		{
+			"include": ["src/**/*.spec.ts"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noNodejsModules": "off"
+					}
+				}
+			}
+		}
+	]
+}

@@ -16,31 +16,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🧬 Setup Biome
-        uses: biomejs/setup-biome@v2
-
       - name: 👣 Retrieve Git REF
         run: echo "GIT_REF=$(git rev-parse origin/main)" >> $GITHUB_ENV
 
-      - name: 🐛 Debug Git REF
-        run: echo "${{ env.GIT_REF }}"
+      - name: 📦 Setup Node, Pnpm and install deps
+        uses: ./.github/actions/setup
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 💅 Format code (with Biome)
         continue-on-error: true
-        run: |
-          biome check                         \
-            --write                           \
-            --changed                         \
-            --since=${{ env.GIT_REF }}        \
-            --formatter-enabled=true          \
-            --linter-enabled=false            \
-            --organize-imports-enabled=true   \
-            --vcs-enabled=true                \
-            --vcs-use-ignore-file=true        \
-            --no-errors-on-unmatched          \
-            --log-level=warn                  \
-            --reporter=github                 \
-            .
+        run: pnpm run -r format:write --since=${{ env.GIT_REF }}
 
       - name: 🚦 Git Auto Commit Lint fixes (with Biome)
         uses: stefanzweifel/git-auto-commit-action@v5.0.1

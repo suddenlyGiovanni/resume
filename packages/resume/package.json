@@ -1,0 +1,32 @@
+{
+	"description": "Suddenly Giovanni's personal resume",
+	"devDependencies": {
+		"@std/yaml": "catalog:",
+		"@suddenlygiovanni/schema-resume": "workspace:*",
+		"@types/node": "catalog:",
+		"effect": "catalog:",
+		"vitest": "catalog:"
+	},
+	"exports": {
+		"./resume.yml": "./src/resume.yml",
+		"./schema.json": "./src/schema.json"
+	},
+	"imports": {
+		"#*": "./src/*"
+	},
+	"license": "UNLICENSED",
+	"name": "resume",
+	"private": true,
+	"scripts": {
+		"format": "biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true .",
+		"format:write": "biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true --write .",
+		"lint": "biome check .",
+		"lint:ci": "biome ci --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched .",
+		"lint:write": "biome check --apply",
+		"test": "vitest",
+		"typecheck": "tsc --noEmit"
+	},
+	"title": "@suddenlygiovanni/resume",
+	"type": "module",
+	"version": "13.3.1"
+}

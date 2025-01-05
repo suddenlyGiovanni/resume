@@ -29,7 +29,7 @@ export const trimmedNonEmpty =
 		const pattern = regex.source
 
 		return self.pipe(
-			Schema.filter((a): a is A => a.trim().length >= 1, {
+			Schema.filter((a): a is A => a.trim().length > 0, {
 				description: 'a non-empty string with no leading or trailing whitespace',
 				message: issue =>
 					`expected a non-empty string with no leading or trailing whitespace, got "${issue.actual}"`,

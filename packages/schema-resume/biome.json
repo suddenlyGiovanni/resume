@@ -1,0 +1,47 @@
+{
+	"$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
+	"extends": ["../../biome.json"],
+	"files": {
+		"include": ["./src/**/*", "./test/**/*"],
+		"ignore": ["./src/**/*.snapshot.json"]
+	},
+	"linter": {
+		"rules": {
+			"correctness": {
+				"noUndeclaredDependencies": "off"
+			},
+			"nursery": {
+				"useImportRestrictions": "off"
+			},
+			"performance": {
+				"useTopLevelRegex": "off"
+			}
+		}
+	},
+	"overrides": [
+		{
+			"include": ["**/*.snapshot.json"],
+			"formatter": {
+				"enabled": false
+			}
+		},
+
+		{
+			"include": ["src/test/test-utils.ts"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noExplicitAny": "off",
+						"noMisplacedAssertion": "off",
+						"noConsole": "off",
+						"noConsoleLog": "off",
+						"useAwait": "off"
+					},
+					"style": {
+						"useNamingConvention": "off"
+					}
+				}
+			}
+		}
+	]
+}

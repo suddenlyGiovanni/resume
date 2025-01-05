@@ -1,4 +1,4 @@
-import { Either, JSONSchema, ParseResult, Schema } from 'effect'
+import { Either, ParseResult, Schema } from 'effect'
 import { describe, expect, it } from 'vitest'
 
 import type { Basics } from './basics/basics.js'
@@ -111,11 +111,5 @@ describe('Resume', () => {
 				expect(resume.work).toBeDefined()
 			})
 		})
-	})
-
-	it('jsonSchema match its snapshot', async () => {
-		await expect(JSON.stringify(JSONSchema.make(ResumeSchema), null, 2)).toMatchFileSnapshot(
-			'../../schema.json',
-		)
 	})
 })

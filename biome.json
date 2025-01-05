@@ -1,7 +1,6 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
-		"include": ["./src/*"],
 		"ignore": ["node_modules", ".pnpm", "./~"]
 	},
 	"vcs": {
@@ -61,26 +60,11 @@
 			"attributePosition": "multiline"
 		}
 	},
-	"css": {
-		"formatter": {
-			"enabled": true
-		}
-	},
 	"overrides": [
 		{
-			"include": ["**/*.snapshot.json"],
+			"include": ["**/*.snapshot.json", "packages/resume/src/schema.json"],
 			"formatter": {
 				"enabled": false
-			}
-		},
-		{
-			"include": ["src/test/test-utils.ts"],
-			"linter": {
-				"rules": {
-					"suspicious": {
-						"noExplicitAny": "off"
-					}
-				}
 			}
 		}
 	]
