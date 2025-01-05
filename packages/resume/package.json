@@ -8,8 +8,8 @@
 		"vitest": "catalog:"
 	},
 	"exports": {
-		"./resume.yml": "./resume.yml",
-		"./schema.json": "./schema.json"
+		"./resume.yml": "./src/resume.yml",
+		"./schema.json": "./src/schema.json"
 	},
 	"imports": {
 		"#*": "./src/*"

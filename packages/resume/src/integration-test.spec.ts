@@ -8,7 +8,7 @@ describe('integration test', () => {
 	it('resume.yml should fulfill Resume schema constraints', async () => {
 		const parse = Schema.decodeUnknownSync(Resume)
 
-		const pathToResume = new URL('../resume.yml', import.meta.url)
+		const pathToResume = new URL('./resume.yml', import.meta.url)
 		const stringifyResumeYaml = await fs.readFile(pathToResume, 'utf8')
 		const resumeYaml = yaml.parse(stringifyResumeYaml)
 
