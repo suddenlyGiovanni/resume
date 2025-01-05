@@ -7,9 +7,7 @@
 		"changeset:add": "pnpm exec changeset add",
 		"changeset:empty": "pnpm exec changeset --empty",
 		"changeset:publish": "pnpm exec changeset publish",
-		"changeset:version": "pnpm exec changeset version",
-		"format": "biome format .",
-		"format:write": "pnpm format --write"
+		"changeset:version": "pnpm exec changeset version"
 	},
 	"license": "UNLICENSED",
 	"devDependencies": {
