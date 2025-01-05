@@ -62,7 +62,7 @@
 	},
 	"overrides": [
 		{
-			"include": ["**/*.snapshot.json", "packages/resume/schema.json"],
+			"include": ["**/*.snapshot.json", "packages/resume/src/schema.json"],
 			"formatter": {
 				"enabled": false
 			}

@@ -3,7 +3,7 @@
 	"extends": ["../../biome.json"],
 	"files": {
 		"include": ["./src/**/*", "./test/**/*"],
-		"ignore": ["schema.json"]
+		"ignore": ["./src/schema.json", "./src/resume.yml"]
 	},
 	"overrides": [
 		{
