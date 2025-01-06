@@ -1,6 +1,6 @@
 import * as fs from 'node:fs/promises'
 import * as yaml from '@std/yaml'
-import { Resume } from '@suddenlygiovanni/schema-resume/schema-resume'
+import { Resume } from '@suddenlygiovanni/schema-resume'
 import { Schema } from 'effect'
 import { describe, expect, it } from 'vitest'
 
