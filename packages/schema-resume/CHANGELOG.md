@@ -1,5 +1,11 @@
 # @suddenlygiovanni/schema-resume
 
+## 14.0.1
+
+### Patch Changes
+
+- 5bdcbaf: fix export paths
+
 ## 14.0.0
 
 ### Major Changes
