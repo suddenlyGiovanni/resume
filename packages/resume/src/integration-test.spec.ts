@@ -1,8 +1,7 @@
-import { expect } from '@std/expect'
-import { describe, it } from '@std/testing/bdd'
 import * as yaml from '@std/yaml'
 import { Resume } from '@suddenlygiovanni/schema-resume'
 import { Schema } from 'effect'
+import { describe, expect, it } from 'vitest'
 
 describe('integration test', () => {
 	it('resume.yml should fulfill Resume schema constraints', async () => {

@@ -7,10 +7,9 @@
 		"./schema.json": "./src/schema.json"
 	},
 	"imports": {
-		"@std/expect": "jsr:@std/expect@^1.0.10",
-		"@std/testing": "jsr:@std/testing@^1.0.8",
 		"@std/yaml": "jsr:@std/yaml@1.0.5",
-		"effect": "npm:effect@3.12.0"
+		"effect": "npm:effect@3.12.0",
+		"vitest": "npm:vitest@3.0.0-beta.3"
 	},
 	"license": "UNLICENSED",
 	"private": true,
@@ -38,6 +37,10 @@
 		"typecheck": {
 			"description": "Typecheck the codebase",
 			"command": "deno check ."
+		},
+		"test": {
+			"description": "Run tests",
+			"command": "deno run -A npm:vitest"
 		}
 	},
 	"title": "@suddenlygiovanni/resume",
