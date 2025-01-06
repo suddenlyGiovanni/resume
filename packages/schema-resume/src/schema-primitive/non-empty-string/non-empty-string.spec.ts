@@ -1,8 +1,8 @@
 import { JSONSchema, Schema, identity } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { expectEitherRight } from '../../test/index.js'
-import { nonEmptyString } from './non-empty-string.js'
+import { expectEitherRight } from '../../test/index.ts'
+import { nonEmptyString } from './non-empty-string.ts'
 
 describe('nonEmptyString', () => {
 	const NonEmptyString = nonEmptyString()

@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Phone } from './phone.js'
+import { Phone } from './phone.ts'
 
 describe('PhoneString', () => {
 	const parse = Schema.decodeUnknownSync(Phone)

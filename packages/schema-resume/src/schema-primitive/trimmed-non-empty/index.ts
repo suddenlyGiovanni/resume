@@ -1,1 +1,1 @@
-export { omit, trimmedNonEmpty, TrimmedNonEmpty } from './trimmed-non-empty.js'
+export { omit, TrimmedNonEmpty, trimmedNonEmpty } from './trimmed-non-empty.ts'

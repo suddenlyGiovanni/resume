@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Basics } from './basics.js'
+import { Basics } from './basics.ts'
 
 describe('Basics', () => {
 	const basicsInput = {

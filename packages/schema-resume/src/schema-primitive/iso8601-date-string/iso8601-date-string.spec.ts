@@ -3,8 +3,8 @@ import { JSONSchema, Schema } from 'effect'
 import { Either, pipe } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { expectEitherRight } from '../../test/test-utils.js'
-import { ISO8601DateString } from './iso8601-date-string.js'
+import { expectEitherRight } from '../../test/test-utils.ts'
+import { ISO8601DateString } from './iso8601-date-string.ts'
 
 // decode: transform data from an input type `Encoded` to an output type `Type`
 // encode: converting data from an output type `Type` back to an input type `Encoded`

@@ -1,7 +1,7 @@
 import { Schema } from 'effect'
 import type { JSONSchema7 } from 'json-schema'
 
-import { omit } from '../trimmed-non-empty/index.js'
+import { omit } from '../trimmed-non-empty/index.ts'
 
 export const stringDate =
 	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>

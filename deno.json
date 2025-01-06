@@ -31,5 +31,13 @@
 		"changeset:publish": "deno run npm:changeset publish",
 		"changeset:version": "deno run npm:changeset version"
 	},
-	"workspace": ["./packages/resume", "./packages/schema-resume"]
+	"workspace": ["./packages/resume", "./packages/schema-resume"],
+	"fmt": {
+		"semiColons": false,
+		"useTabs": true,
+		"singleQuote": true,
+		"indentWidth": 2,
+		"lineWidth": 100,
+		"proseWrap": "never"
+	}
 }

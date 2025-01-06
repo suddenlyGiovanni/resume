@@ -1,4 +1,1 @@
-export {
-	StringDate,
-	stringDate,
-} from './string-date.js'
+export { StringDate, stringDate } from './string-date.ts'

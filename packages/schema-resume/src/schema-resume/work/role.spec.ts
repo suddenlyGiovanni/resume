@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Role } from './role.js'
+import { Role } from './role.ts'
 
 describe('Role', () => {
 	const role: typeof Role.Type = {

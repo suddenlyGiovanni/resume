@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Certificate } from './certificates.js'
+import { Certificate } from './certificates.ts'
 
 describe('Certificate', () => {
 	describe('decode', () => {
