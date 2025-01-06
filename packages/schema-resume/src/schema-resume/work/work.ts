@@ -1,7 +1,7 @@
 import { Schema } from 'effect'
 
-import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
-import { Role } from './role.js'
+import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.ts'
+import { Role } from './role.ts'
 
 export class Work extends Schema.Class<Work>('Work')({
 	contact: Schema.optionalWith(

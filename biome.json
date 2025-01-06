@@ -1,7 +1,11 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
-		"ignore": ["node_modules", ".pnpm", "./~"]
+		"ignore": [
+			"node_modules",
+			".pnpm",
+			"./~"
+		]
 	},
 	"vcs": {
 		"enabled": true,
@@ -22,16 +26,14 @@
 		"enabled": true,
 		"rules": {
 			"all": true,
+			"correctness": {
+				"noUndeclaredDependencies": "off",
+				"noUndeclaredVariables": "off"
+			},
 			"nursery": {
 				"all": true,
 				"noSecrets": "off",
 				"useExplicitType": {
-					"level": "off"
-				}
-			},
-			"style": {
-				"all": true,
-				"noNamespaceImport": {
 					"level": "off"
 				}
 			},
@@ -41,6 +43,12 @@
 					"level": "off"
 				},
 				"noReExportAll": {
+					"level": "off"
+				}
+			},
+			"style": {
+				"all": true,
+				"noNamespaceImport": {
 					"level": "off"
 				}
 			}
@@ -62,7 +70,10 @@
 	},
 	"overrides": [
 		{
-			"include": ["**/*.snapshot.json", "packages/resume/src/schema.json"],
+			"include": [
+				"**/*.snapshot.json",
+				"packages/resume/src/schema.json"
+			],
 			"formatter": {
 				"enabled": false
 			}

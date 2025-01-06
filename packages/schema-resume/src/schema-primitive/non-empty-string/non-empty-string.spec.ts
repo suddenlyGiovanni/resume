@@ -1,4 +1,4 @@
-import { JSONSchema, Schema, identity } from 'effect'
+import { identity, JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { expectEitherRight } from '../../test/index.ts'
@@ -149,9 +149,8 @@ describe('nonEmptyString', () => {
 			expect(() => JSONSchema.make(Schema.typeSchema(NonEmptyString))).toMatchInlineSnapshot(
 				'[Function]',
 			)
-			expect(() =>
-				JSONSchema.make(Schema.typeSchema(NonEmptyStringAnnotated)),
-			).toMatchInlineSnapshot('[Function]')
+			expect(() => JSONSchema.make(Schema.typeSchema(NonEmptyStringAnnotated)))
+				.toMatchInlineSnapshot('[Function]')
 		})
 	})
 })
@@ -204,7 +203,7 @@ describe('Annotation', () => {
 
 		const nonEmpty = <A extends string>(
 			annotations?: Schema.Annotations.Filter<A>,
-		): (<I, R>(self: Schema.Schema<A, I, R>) => Schema.Schema<A, I, R>) =>
+		): <I, R>(self: Schema.Schema<A, I, R>) => Schema.Schema<A, I, R> =>
 			minLength(1, {
 				description: 'a non empty string',
 				...annotations,
@@ -339,7 +338,7 @@ describe('Annotation', () => {
 		`)
 
 		const Trim = Schema.transform(Schema.String, Trimmed, {
-			decode: s => s.trim(),
+			decode: (s) => s.trim(),
 			encode: identity,
 		}).annotations({ identifier: 'Trim' })
 

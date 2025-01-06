@@ -1,5 +1,5 @@
+import type { JSONSchema7 } from 'npm:@types/json-schema'
 import { ParseResult, Schema } from 'effect'
-import type { JSONSchema7 } from 'json-schema'
 
 // biome-ignore lint/style/useNamingConvention: this case is correct
 export interface ISO8601DateString extends Schema.Annotable<ISO8601DateString, string> {}
@@ -31,12 +31,12 @@ export const ISO8601DateString: ISO8601DateString = Schema.transformOrFail(
 	Schema.Date,
 	Schema.String,
 	{
-		decode: date => ParseResult.succeed(date.toISOString()),
+		decode: (date) => ParseResult.succeed(date.toISOString()),
 		encode: (maybeIsoStringDate, _, ast) =>
 			Number.isNaN(Date.parse(maybeIsoStringDate))
 				? ParseResult.fail(
-						new ParseResult.Type(ast, maybeIsoStringDate, `Invalid date: ${maybeIsoStringDate}`),
-					)
+					new ParseResult.Type(ast, maybeIsoStringDate, `Invalid date: ${maybeIsoStringDate}`),
+				)
 				: ParseResult.succeed(new Date(maybeIsoStringDate)),
 		strict: true,
 	},

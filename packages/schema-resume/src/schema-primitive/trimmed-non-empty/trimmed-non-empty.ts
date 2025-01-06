@@ -1,5 +1,5 @@
+import type { JSONSchema7 } from 'npm:@types/json-schema'
 import { Schema } from 'effect'
-import type { JSONSchema7 } from 'json-schema'
 
 /**
  * Omit a specific property from an object
@@ -31,7 +31,7 @@ export const trimmedNonEmpty =
 		return self.pipe(
 			Schema.filter((a): a is A => a.trim().length > 0, {
 				description: 'a non-empty string with no leading or trailing whitespace',
-				message: issue =>
+				message: (issue) =>
 					`expected a non-empty string with no leading or trailing whitespace, got "${issue.actual}"`,
 				jsonSchema: { minLength: 1, pattern, ...annotations?.jsonSchema } satisfies JSONSchema7,
 				...(annotations ? omit(annotations, 'jsonSchema') : {}),

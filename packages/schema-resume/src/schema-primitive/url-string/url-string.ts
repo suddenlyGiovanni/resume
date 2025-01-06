@@ -1,5 +1,5 @@
+import type { JSONSchema7 } from 'npm:@types/json-schema'
 import { Schema } from 'effect'
-import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/index.ts'
 
@@ -24,7 +24,7 @@ const validUrlString =
 				},
 				{
 					description: 'a string that fulfills the URL requirements (as per RFC 3986)',
-					message: issue => `Invalid URL string; got: '${issue.actual}'`,
+					message: (issue) => `Invalid URL string; got: '${issue.actual}'`,
 					examples: [
 						'https://example.com' as A,
 						'https://example.com/#section' as A,

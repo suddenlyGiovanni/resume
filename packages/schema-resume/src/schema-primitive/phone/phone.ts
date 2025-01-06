@@ -1,5 +1,5 @@
+import type { JSONSchema7 } from 'npm:@types/json-schema'
 import { Schema } from 'effect'
-import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/index.ts'
 
@@ -30,7 +30,7 @@ const phone =
 						'+49 (0) 216 554 1036' as A,
 					],
 					description: 'a phone number conforming to the E.164 format standard',
-					message: issue => `Invalid E.164 phone number: "${String(issue.actual)}"`,
+					message: (issue) => `Invalid E.164 phone number: "${String(issue.actual)}"`,
 					jsonSchema: {
 						pattern: E164Regex.source,
 						...annotations?.jsonSchema,

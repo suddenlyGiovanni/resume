@@ -1,5 +1,5 @@
+import type { JSONSchema7 } from 'npm:@types/json-schema'
 import { Schema } from 'effect'
-import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/index.ts'
 
@@ -12,7 +12,7 @@ const email =
 			Schema.filter((maybeEmail): maybeEmail is A => regex.test(maybeEmail), {
 				typeId: { id: Schema.PatternSchemaId, annotation: { regex } },
 				description: `an Email address string matching the pattern ${pattern}`,
-				message: issue =>
+				message: (issue) =>
 					`expected an Email address string matching the pattern ${pattern}, got "${issue.actual}"`,
 				jsonSchema: {
 					format: 'email',
@@ -22,7 +22,7 @@ const email =
 				examples: ['<local-part>@<domain>' as A, 'foo@bar.com' as A, 'foo.bar@baz.com' as A],
 
 				// biome-ignore lint/suspicious/noExplicitAny: this is needed.
-				arbitrary: () => fc => fc.stringMatching(regex) as any,
+				arbitrary: () => (fc) => fc.stringMatching(regex) as any,
 				...(annotations ? omit(annotations, 'jsonSchema') : {}),
 			}),
 		)
