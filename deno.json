@@ -1,0 +1,35 @@
+{
+	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+	"compilerOptions": {
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"checkJs": true,
+		"exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+		"types": ["vitest/importMeta", "node"]
+	},
+	"imports": {
+		"@biomejs/biome": "npm:@biomejs/biome@1.9.4",
+		"@changesets/cli": "npm:@changesets/cli@2.27.11",
+		"@vitest/coverage-v8": "npm:@vitest/coverage-v8@3.0.0-beta.3",
+		"@vitest/ui": "npm:@vitest/ui@3.0.0-beta.3",
+		"vitest": "npm:vitest@3.0.0-beta.3"
+	},
+	"license": "UNLICENSED",
+	"lock": true,
+	"nodeModulesDir": "auto",
+	"tasks": {
+		"changeset:add": "deno run npm:changeset add",
+		"changeset:empty": "deno run npm:changeset --empty",
+		"changeset:publish": "deno run npm:changeset publish",
+		"changeset:version": "deno run npm:changeset version"
+	},
+	"workspace": ["./packages/resume", "./packages/schema-resume"]
+}
