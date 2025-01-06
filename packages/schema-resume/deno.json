@@ -6,7 +6,7 @@
 		"url": "https://www.suddenlygiovanni.dev/resume"
 	},
 	"exports": {
-		"index.ts": "./src/index.ts"
+		".": "./src/index.ts"
 	},
 	"imports": {
 		"#*": "./src/*",

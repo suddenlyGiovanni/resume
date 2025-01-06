@@ -7,12 +7,10 @@
 		"./schema.json": "./src/schema.json"
 	},
 	"imports": {
-		"#*": "./src/*",
+		"@std/expect": "jsr:@std/expect@^1.0.10",
+		"@std/testing": "jsr:@std/testing@^1.0.8",
 		"@std/yaml": "jsr:@std/yaml@1.0.5",
-		"@suddenlygiovanni/schema-resume": "@suddenlygiovanni/schema-resume",
-		"@types/node": "npm:@types/node@22.10.5",
-		"effect": "npm:effect@3.12.0",
-		"vitest": "npm:vitest@3.0.0-beta.3"
+		"effect": "npm:effect@3.12.0"
 	},
 	"license": "UNLICENSED",
 	"private": true,
@@ -37,10 +35,6 @@
 			"description": "Lint the codebase and apply fixes",
 			"command": "biome check --apply"
 		},
-		"test": {
-			"description": "Run tests",
-			"command": "vitest"
-		},
 		"typecheck": {
 			"description": "Typecheck the codebase",
 			"command": "tsc --noEmit"
@@ -48,4 +42,5 @@
 	},
 	"title": "@suddenlygiovanni/resume",
 	"version": "13.3.1"
+
 }
