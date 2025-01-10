@@ -34,8 +34,8 @@ catalogs:
       specifier: 3.0.0-beta.3
       version: 3.0.0-beta.3
     effect:
-      specifier: 3.12.0
-      version: 3.12.0
+      specifier: 3.12.1
+      version: 3.12.1
     typescript:
       specifier: 5.7.3
       version: 5.7.3
@@ -88,7 +88,7 @@ importers:
         version: 22.10.5
       effect:
         specifier: 'catalog:'
-        version: 3.12.0
+        version: 3.12.1
       vitest:
         specifier: 'catalog:'
         version: 3.0.0-beta.3(@types/node@22.10.5)(@vitest/ui@3.0.0-beta.3)
@@ -103,7 +103,7 @@ importers:
         version: 22.10.5
       effect:
         specifier: 'catalog:'
-        version: 3.12.0
+        version: 3.12.1
       vitest:
         specifier: 'catalog:'
         version: 3.0.0-beta.3(@types/node@22.10.5)(@vitest/ui@3.0.0-beta.3)
@@ -705,8 +705,8 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  effect@3.12.0:
-    resolution: {integrity: sha512-b/u9s3b9HfTo0qygVouegP0hkbiuxRIeaCe1ppf8P88hPyl6lKCbErtn7Az4jG7LuU7f0Wgm4c8WXbMcL2j8+g==}
+  effect@3.12.1:
+    resolution: {integrity: sha512-aAZdh56Yp1ehOFYeMcHHctTtxfqm6kkOdZFTXK6Zf0QoaKKc1hPG6ocjrKOc0axE8JbG4eZw351ogNLrM4vo9w==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -1815,7 +1815,7 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  effect@3.12.0:
+  effect@3.12.1:
     dependencies:
       fast-check: 3.23.2
 
