@@ -37,8 +37,8 @@ catalogs:
       specifier: 3.12.0
       version: 3.12.0
     typescript:
-      specifier: 5.7.2
-      version: 5.7.2
+      specifier: 5.7.3
+      version: 5.7.3
     vitest:
       specifier: 3.0.0-beta.3
       version: 3.0.0-beta.3
@@ -70,7 +70,7 @@ importers:
         version: 3.0.0-beta.3(vitest@3.0.0-beta.3)
       typescript:
         specifier: 'catalog:'
-        version: 5.7.2
+        version: 5.7.3
       vitest:
         specifier: 'catalog:'
         version: 3.0.0-beta.3(@types/node@22.10.5)(@vitest/ui@3.0.0-beta.3)
@@ -1158,8 +1158,8 @@ packages:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
     engines: {node: '>=6'}
 
-  typescript@5.7.2:
-    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
+  typescript@5.7.3:
+    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2257,7 +2257,7 @@ snapshots:
 
   totalist@3.0.1: {}
 
-  typescript@5.7.2: {}
+  typescript@5.7.3: {}
 
   undici-types@6.20.0: {}
 
