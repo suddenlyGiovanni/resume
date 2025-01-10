@@ -23,7 +23,7 @@
 	"license": "MIT",
 	"name": "@suddenlygiovanni/schema-resume",
 	"peerDependencies": {
-		"effect": "~3.12.0"
+		"effect": "~3.12.1"
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com",
