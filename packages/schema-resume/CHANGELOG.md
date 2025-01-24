@@ -1,5 +1,11 @@
 # @suddenlygiovanni/schema-resume
 
+## 14.0.3
+
+### Patch Changes
+
+- 0f74566: chore(package): bump `effect` dependency to 3.12.7
+
 ## 14.0.2
 
 ### Patch Changes
