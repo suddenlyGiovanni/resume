@@ -16,10 +16,7 @@
 	"imports": {
 		"#*": "./src/*"
 	},
-	"files": [
-		"lib/",
-		"lib/!tsconfig.build.tsbuildinfo"
-	],
+	"files": ["lib/", "lib/!tsconfig.build.tsbuildinfo"],
 	"license": "MIT",
 	"name": "@suddenlygiovanni/schema-resume",
 	"peerDependencies": {
