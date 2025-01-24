@@ -16,7 +16,10 @@
 	"imports": {
 		"#*": "./src/*"
 	},
-	"files": ["lib/", "lib/!tsconfig.build.tsbuildinfo"],
+	"files": [
+		"lib/",
+		"lib/!tsconfig.build.tsbuildinfo"
+	],
 	"license": "MIT",
 	"name": "@suddenlygiovanni/schema-resume",
 	"peerDependencies": {
@@ -44,5 +47,5 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"type": "module",
-	"version": "14.0.2"
+	"version": "14.0.3"
 }
