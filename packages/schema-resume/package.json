@@ -16,14 +16,11 @@
 	"imports": {
 		"#*": "./src/*"
 	},
-	"files": [
-		"lib/",
-		"lib/!tsconfig.build.tsbuildinfo"
-	],
+	"files": ["lib/", "lib/!tsconfig.build.tsbuildinfo"],
 	"license": "MIT",
 	"name": "@suddenlygiovanni/schema-resume",
 	"peerDependencies": {
-		"effect": "~3.12.1"
+		"effect": "~3.12.7"
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com",
