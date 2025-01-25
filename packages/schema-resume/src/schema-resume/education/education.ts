@@ -1,10 +1,6 @@
 import { Schema } from 'effect'
 
-import {
-	StringDate,
-	TrimmedNonEmpty,
-	UrlString,
-} from '../../schema-primitive/index.ts'
+import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.ts'
 
 export class Education extends Schema.Class<Education>('Education')({
 	area: Schema.propertySignature(Schema.NonEmptyTrimmedString).annotations({

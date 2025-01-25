@@ -1,10 +1,6 @@
 import { Schema } from 'effect'
 
-import {
-	StringDate,
-	TrimmedNonEmpty,
-	UrlString,
-} from '../../schema-primitive/index.ts'
+import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.ts'
 
 export class Volunteer extends Schema.Class<Volunteer>('Volunteer')({
 	endDate: Schema.optionalWith(StringDate, { exact: true }),

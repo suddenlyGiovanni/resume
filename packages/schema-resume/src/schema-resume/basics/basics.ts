@@ -1,11 +1,6 @@
 import { Schema } from 'effect'
 
-import {
-	Email,
-	Phone,
-	TrimmedNonEmpty,
-	UrlString,
-} from '../../schema-primitive/index.ts'
+import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.ts'
 import { Location } from '../location/location.ts'
 import { Profile } from '../profile/profile.ts'
 

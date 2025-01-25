@@ -31,12 +31,12 @@ export const ISO8601DateString: ISO8601DateString = Schema.transformOrFail(
 	Schema.Date,
 	Schema.String,
 	{
-		decode: (date) => ParseResult.succeed(date.toISOString()),
+		decode: date => ParseResult.succeed(date.toISOString()),
 		encode: (maybeIsoStringDate, _, ast) =>
 			Number.isNaN(Date.parse(maybeIsoStringDate))
 				? ParseResult.fail(
-					new ParseResult.Type(ast, maybeIsoStringDate, `Invalid date: ${maybeIsoStringDate}`),
-				)
+						new ParseResult.Type(ast, maybeIsoStringDate, `Invalid date: ${maybeIsoStringDate}`),
+					)
 				: ParseResult.succeed(new Date(maybeIsoStringDate)),
 		strict: true,
 	},

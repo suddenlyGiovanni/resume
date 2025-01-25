@@ -30,7 +30,7 @@ const phone =
 						'+49 (0) 216 554 1036' as A,
 					],
 					description: 'a phone number conforming to the E.164 format standard',
-					message: (issue) => `Invalid E.164 phone number: "${String(issue.actual)}"`,
+					message: issue => `Invalid E.164 phone number: "${String(issue.actual)}"`,
 					jsonSchema: {
 						pattern: E164Regex.source,
 						...annotations?.jsonSchema,

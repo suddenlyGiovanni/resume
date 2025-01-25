@@ -1,10 +1,6 @@
 import { Schema } from 'effect'
 
-import {
-	StringDate,
-	TrimmedNonEmpty,
-	UrlString,
-} from '../../schema-primitive/index.ts'
+import { StringDate, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.ts'
 
 export class Project extends Schema.Class<Project>('Project')({
 	description: Schema.optionalWith(TrimmedNonEmpty, { exact: true }).annotations({

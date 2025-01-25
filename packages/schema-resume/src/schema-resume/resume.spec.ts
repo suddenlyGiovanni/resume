@@ -2,10 +2,7 @@ import { Either, ParseResult, Schema } from 'effect'
 import { describe, expect, it } from 'vitest'
 
 import type { Basics } from './basics/basics.ts'
-import {
-	type Resume as ResumeEncoded,
-	Resume as ResumeSchema,
-} from './resume.ts'
+import { type Resume as ResumeEncoded, Resume as ResumeSchema } from './resume.ts'
 
 describe('Resume', () => {
 	const basics: Basics = {

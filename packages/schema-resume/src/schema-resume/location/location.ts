@@ -1,6 +1,6 @@
 import { Schema } from 'effect'
 
-import { omit, TrimmedNonEmpty } from '../../schema-primitive/index.ts'
+import { TrimmedNonEmpty, omit } from '../../schema-primitive/index.ts'
 
 const countryCode =
 	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
