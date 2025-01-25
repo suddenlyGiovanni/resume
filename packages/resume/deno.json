@@ -8,8 +8,8 @@
 	},
 	"imports": {
 		"@std/yaml": "jsr:@std/yaml@1.0.5",
-		"effect": "npm:effect@3.12.0",
-		"vitest": "npm:vitest@3.0.0-beta.3"
+		"effect": "npm:effect@3.12.7",
+		"vitest": "npm:vitest@3.0.4"
 	},
 	"license": "UNLICENSED",
 	"private": true,
