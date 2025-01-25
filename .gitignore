@@ -141,3 +141,4 @@ dist
 /resume.iml
 /.direnv/
 /packages/schema-resume/lib/
+**/.vite/

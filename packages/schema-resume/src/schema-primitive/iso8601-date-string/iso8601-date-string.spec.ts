@@ -201,7 +201,7 @@ describe('ISO8601Date', () => {
 					"$defs": {
 						"ISO8601DateString": {
 							"type": "string",
-							"description": "a string that will be parsed into a Date"
+							"description": "a string to be decoded into a Date"
 						}
 					},
 					"$ref": "#/$defs/ISO8601DateString"
@@ -220,7 +220,7 @@ describe('ISO8601Date', () => {
 					"$defs": {
 						"ISO8601DateString": {
 							"type": "string",
-							"description": "a string that will be parsed into a Date"
+							"description": "a string to be decoded into a Date"
 						}
 					},
 					"$ref": "#/$defs/ISO8601DateString"
