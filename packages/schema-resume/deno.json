@@ -12,8 +12,7 @@
 		"#*": "./src/*",
 		"@types/json-schema": "npm:@types/json-schema@7.0.15",
 		"@types/node": "npm:@types/node@22.10.5",
-		"effect": "npm:effect@3.12.7",
-		"vitest": "npm:vitest@3.0.4"
+		"effect": "npm:effect@3.12.7"
 	},
 	"license": "MIT",
 	"name": "@suddenlygiovanni/schema-resume",
@@ -46,7 +45,7 @@
 			"command": "biome check --apply ."
 		},
 		"test": {
-			"command": "deno run -A npm:vitest",
+			"command": "deno run -A npm:vitest@3.0.4",
 			"description": "Run tests"
 		},
 		"typecheck": {

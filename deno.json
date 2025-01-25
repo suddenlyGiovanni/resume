@@ -15,12 +15,11 @@
 		"strict": true
 	},
 	"license": "UNLICENSED",
-	"lock": true,
-	"nodeModulesDir": "auto",
-	"workspace": [
-		"./packages/resume",
-		"./packages/schema-resume"
-	],
+	"lock": {
+		"frozen": true,
+		"lockfile": "deno.lock"
+	},
+	"workspace": ["./packages/resume", "./packages/schema-resume"],
 	"fmt": {
 		"semiColons": false,
 		"useTabs": true,
