@@ -31,5 +31,11 @@
 		"indentWidth": 2,
 		"lineWidth": 100,
 		"proseWrap": "never"
+	},
+	"tasks": {
+		"changeset:add": "./node_modules/.bin/changeset add",
+		"changeset:empty": "./node_modules/.bin/changeset --empty",
+		"changeset:publish": "./node_modules/.bin/changeset publish",
+		"changeset:version": "./node_modules/.bin/changeset version"
 	}
 }

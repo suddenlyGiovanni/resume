@@ -1,19 +1,11 @@
 {
-	"scripts": {
-		"changeset:add": "pnpm exec changeset add",
-		"changeset:empty": "pnpm exec changeset --empty",
-		"changeset:publish": "pnpm exec changeset publish",
-		"changeset:version": "pnpm exec changeset version"
-	},
 	"devDependencies": {
-		"@biomejs/biome": "catalog:",
-		"@changesets/cli": "catalog:",
-		"@types/node": "catalog:",
-		"@vitest/ui": "catalog:",
-		"vitest": "catalog:"
+		"@types/node": "22.10.10",
+		"vitest": "3.0.4",
+		"@changesets/cli": "2.27.12"
 	},
 	"workspaces": [
-		"packages/resume",
-		"packages/schema-resume"
+		"./packages/resume",
+		"./packages/schema-resume"
 	]
 }
