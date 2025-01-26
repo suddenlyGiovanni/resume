@@ -4,6 +4,12 @@
 	"version": "0.0.0",
 	"private": true,
 	"dependencies": {
-		"@suddenlygiovanni/schema-resume": "workspace:*"
+		"@suddenlygiovanni/schema-resume": "workspace:*",
+		"@std/yaml": "npm:@jsr/std__yaml@1.0.5",
+		"effect": "3.12.7"
+	},
+	"devDependencies": {
+		"vitest": "3.0.4",
+		"@types/node": "22.10.10"
 	}
 }
