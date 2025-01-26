@@ -39,7 +39,7 @@
 		},
 		"test": {
 			"description": "Run tests",
-			"command": "deno run -A npm:vitest"
+			"command": "deno run -A npm:vitest@3.0.4"
 		}
 	},
 	"title": "@suddenlygiovanni/resume",
