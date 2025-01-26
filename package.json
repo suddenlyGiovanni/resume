@@ -1,9 +1,11 @@
 {
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"@changesets/cli": "2.27.12",
-		"vitest": "3.0.4",
-		"@types/node": "22.10.10"
+	  "@changesets/cli": "2.27.12",
+	  "vitest": "3.0.4",
+	  "@types/node": "22.10.10"
 	},
-	"workspaces": ["./packages/resume", "./packages/schema-resume"]
+	"workspaces": [
+		"./packages/resume",
+		"./packages/schema-resume"
+	]
 }

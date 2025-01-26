@@ -1,16 +1,9 @@
 {
-	"$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
-	"extends": [
-		"../../biome.json"
-	],
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"extends": ["../../biome.json"],
 	"files": {
-		"include": [
-			"./src/**/*",
-			"./test/**/*"
-		],
-		"ignore": [
-			"./src/**/*.snapshot.json"
-		]
+		"include": ["./src/**/*", "./test/**/*"],
+		"ignore": ["./src/**/*.snapshot.json"]
 	},
 	"linter": {
 		"rules": {
@@ -27,17 +20,13 @@
 	},
 	"overrides": [
 		{
-			"include": [
-				"**/*.snapshot.json"
-			],
+			"include": ["**/*.snapshot.json"],
 			"formatter": {
 				"enabled": false
 			}
 		},
 		{
-			"include": [
-				"src/test/test-utils.ts"
-			],
+			"include": ["src/test/test-utils.ts"],
 			"linter": {
 				"rules": {
 					"suspicious": {

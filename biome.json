@@ -1,12 +1,5 @@
 {
-	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"files": {
-		"ignore": [
-			"node_modules",
-			".pnpm",
-			"./~"
-		]
-	},
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"vcs": {
 		"enabled": true,
 		"clientKind": "git",

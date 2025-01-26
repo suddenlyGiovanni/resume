@@ -6,23 +6,23 @@
 	"tasks": {
 		"format": {
 			"description": "Format all files",
-			"command": "deno run npm:biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true ."
+			"command": "deno run --allow-env --allow-read --allow-sys npm:biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true ."
 		},
 		"format:write": {
 			"description": "Format all files and write changes",
-			"command": "deno run npm:biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true --write ."
+			"command": "deno run --allow-env --allow-read --allow-sys npm:biome check --vcs-enabled=true --vcs-use-ignore-file=true --vcs-root='../../' --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true --write ."
 		},
 		"lint": {
-			"command": "biome check .",
+			"command": "deno run --allow-env --allow-read --allow-sys npm:biome check .",
 			"description": "Lint all files"
 		},
 		"lint:ci": {
 			"description": "Lint all files in CI",
-			"command": "biome ci --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched ."
+			"command": "deno run --allow-env --allow-read --allow-sys npm:biome ci --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched ."
 		},
 		"lint:write": {
 			"description": "Lint all files and write changes",
-			"command": "biome check --apply ."
+			"command": "deno run --allow-env --allow-read --allow-sys npm:biome check --apply ."
 		},
 		"test": {
 			"command": "deno run -A npm:vitest@3.0.4",
