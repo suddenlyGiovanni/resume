@@ -16,7 +16,7 @@
 	},
 	"license": "UNLICENSED",
 	"lock": {
-		"frozen": true,
+		"frozen": false,
 		"lockfile": "deno.lock"
 	},
 	"nodeModulesDir": "auto",
@@ -36,6 +36,7 @@
 		"changeset:add": "./node_modules/.bin/changeset add",
 		"changeset:empty": "./node_modules/.bin/changeset --empty",
 		"changeset:publish": "./node_modules/.bin/changeset publish",
-		"changeset:version": "./node_modules/.bin/changeset version"
+		"changeset:version": "./node_modules/.bin/changeset version",
+		"test:all": "./node_modules/.bin/vitest"
 	}
 }

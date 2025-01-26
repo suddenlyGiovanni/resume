@@ -1,14 +1,9 @@
 {
-	"description": "Suddenly Giovanni's personal resume",
-	"dependencies": {
-		"effect": "3.12.7",
-		"@suddenlygiovanni/schema-resume": "workspace:*",
-		"@std/yaml": "npm:@jsr/std__yaml@1.0.5"
-	},
-	"imports": {
-		"#*": "./src/*"
-	},
 	"name": "@suddenlygiovanni/resume",
 	"type": "module",
-	"version": "0.0.0"
+	"version": "0.0.0",
+	"private": true,
+	"dependencies": {
+		"@suddenlygiovanni/schema-resume": "workspace:*"
+	}
 }

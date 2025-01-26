@@ -33,5 +33,9 @@
 			"command": "deno check ."
 		}
 	},
-	"version": "14.0.1"
+	"version": "14.0.1",
+	"imports": {
+		"@types/json-schema": "npm:@types/json-schema@7.0.15",
+		"effect": "npm:effect@3.12.7"
+	}
 }
