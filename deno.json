@@ -12,7 +12,8 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"strict": true
+		"strict": true,
+		"types": ["node"]
 	},
 	"license": "UNLICENSED",
 	"lock": {
@@ -20,10 +21,7 @@
 		"lockfile": "deno.lock"
 	},
 	"nodeModulesDir": "auto",
-	"workspace": [
-		"./packages/resume",
-		"./packages/schema-resume"
-	],
+	"workspace": ["./packages/resume", "./packages/schema-resume"],
 	"fmt": {
 		"semiColons": false,
 		"useTabs": true,
