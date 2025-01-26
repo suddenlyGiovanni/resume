@@ -1,6 +1,5 @@
 {
 	"dependencies": {
-		"@types/json-schema": "7.0.15",
 		"effect": "3.12.7"
 	},
 	"devDependencies": {

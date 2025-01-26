@@ -9,7 +9,6 @@
 		"effect": "3.12.7"
 	},
 	"devDependencies": {
-		"vitest": "3.0.4",
-		"@types/node": "22.10.10"
+		"vitest": "3.0.4"
 	}
 }

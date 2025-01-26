@@ -1,5 +1,6 @@
-import type { JSONSchema7 } from 'npm:@types/json-schema'
 import { ParseResult, Schema } from 'effect'
+// @ts-types="npm:@types/json-schema"
+import type { JSONSchema7 } from 'json-schema'
 
 // biome-ignore lint/style/useNamingConvention: this case is correct
 export interface ISO8601DateString extends Schema.Annotable<ISO8601DateString, string> {}

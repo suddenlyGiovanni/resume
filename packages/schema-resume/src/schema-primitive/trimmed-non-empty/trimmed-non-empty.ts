@@ -1,5 +1,6 @@
-import type { JSONSchema7 } from 'npm:@types/json-schema'
 import { Schema } from 'effect'
+// @ts-types="npm:@types/json-schema"
+import type { JSONSchema7 } from 'json-schema'
 
 /**
  * Omit a specific property from an object

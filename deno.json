@@ -12,8 +12,7 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"strict": true,
-		"types": ["node"]
+		"strict": true
 	},
 	"license": "UNLICENSED",
 	"lock": {

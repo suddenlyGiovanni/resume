@@ -3,7 +3,6 @@
   "specifiers": {
     "npm:@changesets/cli@2.27.12": "2.27.12",
     "npm:@jsr/std__yaml@1.0.5": "1.0.5",
-    "npm:@types/json-schema@7.0.15": "7.0.15",
     "npm:@types/node@22.10.10": "22.10.10",
     "npm:effect@3.12.7": "3.12.7",
     "npm:vitest@3.0.4": "3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10"
@@ -367,9 +366,6 @@
     },
     "@types/estree@1.0.6": {
       "integrity": "sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw=="
-    },
-    "@types/json-schema@7.0.15": {
-      "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="
     },
     "@types/node@12.20.55": {
       "integrity": "sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ=="
@@ -1024,7 +1020,6 @@
         "packageJson": {
           "dependencies": [
             "npm:@jsr/std__yaml@1.0.5",
-            "npm:@types/node@22.10.10",
             "npm:effect@3.12.7",
             "npm:vitest@3.0.4"
           ]
@@ -1033,7 +1028,6 @@
       "packages/schema-resume": {
         "packageJson": {
           "dependencies": [
-            "npm:@types/json-schema@7.0.15",
             "npm:effect@3.12.7",
             "npm:vitest@3.0.4"
           ]
