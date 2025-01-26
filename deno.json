@@ -30,10 +30,10 @@
 		"proseWrap": "never"
 	},
 	"tasks": {
-		"changeset:add": "./node_modules/.bin/changeset add",
-		"changeset:empty": "./node_modules/.bin/changeset --empty",
-		"changeset:publish": "./node_modules/.bin/changeset publish",
-		"changeset:version": "./node_modules/.bin/changeset version",
-		"test:all": "./node_modules/.bin/vitest"
+		"changeset:add": "deno run -A npm:@changesets/cli add",
+		"changeset:empty": "deno run -A npm:@changesets/cli --empty",
+		"changeset:publish": "deno run -A npm:@changesets/cli publish",
+		"changeset:version": "deno run -A npm:@changesets/cli version",
+		"test:all": "deno run -A npm:vitest@3.0.4"
 	}
 }
