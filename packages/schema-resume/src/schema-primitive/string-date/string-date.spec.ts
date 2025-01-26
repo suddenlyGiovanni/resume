@@ -2,7 +2,7 @@ import { JSONSchema, Schema } from 'effect'
 import { Either } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { StringDate } from './string-date.js'
+import { StringDate } from './string-date.ts'
 
 describe('StringDate', () => {
 	const decode = Schema.decodeEither(StringDate)
