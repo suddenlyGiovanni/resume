@@ -20,7 +20,10 @@
 		"lockfile": "deno.lock"
 	},
 	"nodeModulesDir": "auto",
-	"workspace": ["./packages/resume", "./packages/schema-resume"],
+	"workspace": [
+		"./packages/resume",
+		"./packages/schema-resume"
+	],
 	"fmt": {
 		"semiColons": false,
 		"useTabs": true,
@@ -28,8 +31,5 @@
 		"indentWidth": 2,
 		"lineWidth": 100,
 		"proseWrap": "never"
-	},
-	"imports": {
-		"vitest": "npm:vitest@3.0.4"
 	}
 }

@@ -1,17 +1,5 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
-	"description": "Suddenly Giovanni's personal resume",
-	"exports": {
-		"./resume.yml": "./src/resume.yml",
-		"./schema.json": "./src/schema.json"
-	},
-	"imports": {
-		"@std/yaml": "jsr:@std/yaml@1.0.5",
-		"effect": "npm:effect@3.12.7"
-	},
-	"license": "UNLICENSED",
-	"name": "@suddenlygiovanni/resume",
-	"private": true,
 	"tasks": {
 		"format": {
 			"description": "Format the codebase",
@@ -41,7 +29,5 @@
 			"description": "Run tests",
 			"command": "deno run -A npm:vitest@3.0.4"
 		}
-	},
-	"title": "@suddenlygiovanni/resume",
-	"version": "13.3.1"
+	}
 }

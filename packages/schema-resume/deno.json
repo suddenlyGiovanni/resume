@@ -1,27 +1,7 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
-	"author": {
-		"name": "Giovanni Ravalico",
-		"email": "15946771+suddenlygiovanni@users.noreply.github.com",
-		"url": "https://www.suddenlygiovanni.dev/resume"
-	},
 	"exports": {
 		".": "./src/index.ts"
-	},
-	"imports": {
-		"#*": "./src/*",
-		"@types/json-schema": "npm:@types/json-schema@7.0.15",
-		"@types/node": "npm:@types/node@22.10.5",
-		"effect": "npm:effect@3.12.7"
-	},
-	"license": "MIT",
-	"name": "@suddenlygiovanni/schema-resume",
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/suddenlyGiovanni/resume.git"
 	},
 	"tasks": {
 		"format": {
@@ -53,6 +33,5 @@
 			"command": "deno check ."
 		}
 	},
-	"type": "module",
 	"version": "14.0.1"
 }
