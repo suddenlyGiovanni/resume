@@ -1458,6 +1458,7 @@
         "packageJson": {
           "dependencies": [
             "npm:@jsr/std__yaml@1.0.5",
+            "npm:@types/node@22.10.10",
             "npm:effect@3.12.7",
             "npm:vitest@3.0.4"
           ]
@@ -1467,6 +1468,7 @@
         "packageJson": {
           "dependencies": [
             "npm:@types/json-schema@7.0.15",
+            "npm:@types/node@22.10.10",
             "npm:effect@3.12.7",
             "npm:vitest@3.0.4"
           ]

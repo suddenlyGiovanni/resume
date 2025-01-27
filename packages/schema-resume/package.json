@@ -3,11 +3,12 @@
 		"effect": "3.12.7"
 	},
 	"devDependencies": {
-		"vitest": "3.0.4",
-		"@types/json-schema": "7.0.15"
+		"@types/json-schema": "7.0.15",
+		"@types/node": "22.10.10",
+		"vitest": "3.0.4"
 	},
 	"exports": {
-		".": "./src/index.ts"
+		"default": {}
 	},
 	"name": "@suddenlygiovanni/schema-resume",
 	"type": "module",

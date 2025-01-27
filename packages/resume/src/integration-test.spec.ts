@@ -1,3 +1,4 @@
+// @ts-types="npm:@types/node@22.10.10"
 import * as fs from 'node:fs/promises'
 
 import * as yaml from '@std/yaml'
