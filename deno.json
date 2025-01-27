@@ -35,6 +35,6 @@
 		"changeset:publish": "changeset publish",
 		"changeset:status": "changeset status",
 		"changeset:version": "changeset version",
-		"test:all": "deno run -A npm:vitest@3.0.4"
+		"test:all": "vitest"
 	}
 }
