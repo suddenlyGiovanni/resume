@@ -5,7 +5,7 @@ export default defineConfig({
 		reporters: process.env['GITHUB_ACTIONS'] ? ['dot', 'github-actions'] : ['dot'],
 		workspace: ['packages/*'],
 		coverage: {
-			provider: 'v8',
+			provider: 'istanbul',
 			reporter: ['json', 'text'],
 		},
 	},
