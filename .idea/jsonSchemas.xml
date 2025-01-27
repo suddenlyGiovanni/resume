@@ -8,7 +8,7 @@
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
               <option name="name" value="deno" />
-              <option name="relativePathToSchema" value="https://deno.land/x/deno/cli/schemas/config-file.v1.json" />
+              <option name="relativePathToSchema" value="https://deno.land/x/deno@v2.1.7/cli/schemas/config-file.v1.json" />
               <option name="schemaVersion" value="JSON Schema 202,012" />
               <option name="patterns">
                 <list>
