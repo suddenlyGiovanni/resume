@@ -1,5 +1,5 @@
 import { ParseResult, Schema } from 'effect'
-// @ts-types="npm:@types/json-schema"
+// @ts-types="@types/json-schema"
 import type { JSONSchema7 } from 'json-schema'
 
 // biome-ignore lint/style/useNamingConvention: this case is correct

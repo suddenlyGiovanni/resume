@@ -1,5 +1,5 @@
 import { Schema } from 'effect'
-// @ts-types="npm:@types/json-schema"
+// @ts-types="@types/json-schema"
 import type { JSONSchema7 } from 'json-schema'
 
 import { omit } from '../trimmed-non-empty/index.ts'
