@@ -7,9 +7,7 @@
 		"@types/node": "22.10.10",
 		"vitest": "3.0.4"
 	},
-	"exports": {
-		"default": {}
-	},
+	"main": "./src/index.ts",
 	"name": "@suddenlygiovanni/schema-resume",
 	"type": "module",
 	"version": "14.0.3"

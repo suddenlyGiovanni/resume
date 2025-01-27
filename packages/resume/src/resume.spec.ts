@@ -1,5 +1,4 @@
 import { Resume } from '@suddenlygiovanni/schema-resume'
-
 import { JSONSchema } from 'effect'
 import { describe, expect, it } from 'vitest'
 
