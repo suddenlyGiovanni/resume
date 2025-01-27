@@ -33,7 +33,7 @@ jobs:
         #          --no-errors-on-unmatched \
         #          --reporter=github \
         #          .
-        run: ls -alt
+        run: ls -alt ../../
 
       - name: 🧬 check packages/schema-resume code for errors (with Biome)
         working-directory: ./packages/schema-resume
