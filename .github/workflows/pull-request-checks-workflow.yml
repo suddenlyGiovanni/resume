@@ -1,4 +1,5 @@
 name: 🔗Pull Request Checks Workflow
+
 on:
   pull_request:
     branches:
@@ -14,16 +15,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📦 Setup Node, Pnpm and install deps
+      - name: 📦 Setup Deno and install deps
         uses: ./.github/actions/setup
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🧬 check code for errors (with Biome)
-        run: pnpm run -r lint:ci --reporter=github
+        run: deno task --recursive lint:ci --reporter=github
 
       - name: 🧪 Run unit tests
-        run: pnpm exec vitest run --coverage
+        run: deno task test:all --coverage
 
       - name: 🛫 Upload coverage to Codecov
         uses: codecov/codecov-action@v5
@@ -35,4 +34,4 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: 🦋 Require changesets
-        run: pnpm exec changeset status --since=origin/main
+        run: deno task changeset:status --since=origin/main
