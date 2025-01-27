@@ -24,6 +24,7 @@ jobs:
           version: latest
 
       - name: 🧬 check packages/resume code for errors (with Biome)
+        working-directory: ./packages/resume
         run: |
           biome ci \
           --formatter-enabled=false \
@@ -31,9 +32,10 @@ jobs:
           --organize-imports-enabled=false \
           --no-errors-on-unmatched \
           --reporter=github \
-          packages/resume
+          .
 
       - name: 🧬 check packages/schema-resume code for errors (with Biome)
+        working-directory: ./packages/schema-resume
         run: |
           biome ci \
           --formatter-enabled=false \
@@ -41,7 +43,7 @@ jobs:
           --organize-imports-enabled=false \
           --no-errors-on-unmatched \
           --reporter=github \
-          packages/schema-resume
+          .
 
       - name: 🧪 Run unit tests
         run: deno task test:all --coverage
