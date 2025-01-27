@@ -16,15 +16,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📦 Setup Node, Pnpm and install deps
+      - name: 📦 Setup Deno and install deps
         uses: ./.github/actions/setup
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🏗️Run Build
-        run: pnpm run --filter @suddenlygiovanni/schema-resume build
 
-      - name: 📦 Publish package
-        run: pnpm --filter @suddenlygiovanni/schema-resume publish --no-git-checks
+
+      - name: 📦 Publish package to JSR
+        shell: bash
+        run: |
+          echo "TODO: Publishing package to JSR"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
