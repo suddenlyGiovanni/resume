@@ -13,17 +13,12 @@ runs:
       with:
         deno-version: v2.x
 
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-    - name: Cache Deno dependencies
-      uses: actions/cache@v4
-      with:
-        path: ${{ inputs.deno_dir }}
-        key: ${{ hashFiles('deno.lock') }}
+    #    - name: Cache Deno dependencies
+    #      uses: actions/cache@v4
+    #      with:
+    #        path: ${{ inputs.deno_dir }}
+    #        key: ${{ hashFiles('deno.lock') }}
 
     - name: 🧩 Install dependencies
       shell: bash
-      run: deno install --lock=deno.lock --frozen=true
+      run: deno install
