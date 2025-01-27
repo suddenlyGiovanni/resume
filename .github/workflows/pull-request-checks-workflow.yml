@@ -18,8 +18,25 @@ jobs:
       - name: 📦 Setup Deno and install deps
         uses: ./.github/actions/setup
 
-      - name: 🧬 check code for errors (with Biome)
-        run: deno task --recursive lint:ci --reporter=github
+      - name: 🧬 check packages/resume code for errors (with Biome)
+        run: |
+          biome ci \
+          --formatter-enabled=false \
+          --linter-enabled=true \
+          --organize-imports-enabled=false \
+          --no-errors-on-unmatched \
+          --reporter=github \
+          packages/resume
+
+      - name: 🧬 check packages/schema-resume code for errors (with Biome)
+        run: |
+          biome ci \
+          --formatter-enabled=false \
+          --linter-enabled=true \
+          --organize-imports-enabled=false \
+          --no-errors-on-unmatched \
+          --reporter=github \
+          packages/schema-resume
 
       - name: 🧪 Run unit tests
         run: deno task test:all --coverage
