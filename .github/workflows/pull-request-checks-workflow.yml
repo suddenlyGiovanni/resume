@@ -18,6 +18,11 @@ jobs:
       - name: 📦 Setup Deno and install deps
         uses: ./.github/actions/setup
 
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+
       - name: 🧬 check packages/resume code for errors (with Biome)
         run: |
           biome ci \
