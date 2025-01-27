@@ -25,15 +25,12 @@ jobs:
 
       - name: 🧬 check packages/resume code for errors (with Biome)
         working-directory: ./packages/resume
-        #        run: |
-        #          biome ci \
-        #          --formatter-enabled=false \
-        #          --linter-enabled=true \
-        #          --organize-imports-enabled=false \
-        #          --no-errors-on-unmatched \
-        #          --reporter=github \
-        #          .
-        run: ls -alt ../../
+        run: |
+          biome ci \
+          --formatter-enabled=false \
+          --linter-enabled=true \
+          --organize-imports-enabled=false \
+          .
 
       - name: 🧬 check packages/schema-resume code for errors (with Biome)
         working-directory: ./packages/schema-resume
@@ -42,8 +39,6 @@ jobs:
           --formatter-enabled=false \
           --linter-enabled=true \
           --organize-imports-enabled=false \
-          --no-errors-on-unmatched \
-          --reporter=github \
           .
 
       - name: 🧪 Run unit tests
