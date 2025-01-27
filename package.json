@@ -1,10 +1,8 @@
 {
 	"devDependencies": {
+		"@changesets/cli": "2.27.12",
 		"@vitest/coverage-istanbul": "3.0.4",
 		"vitest": "3.0.4"
 	},
-	"workspaces": [
-		"./packages/resume",
-		"./packages/schema-resume"
-	]
+	"workspaces": ["./packages/resume", "./packages/schema-resume"]
 }

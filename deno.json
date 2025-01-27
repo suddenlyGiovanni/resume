@@ -20,10 +20,7 @@
 		"lockfile": "deno.lock"
 	},
 	"nodeModulesDir": "auto",
-	"workspace": [
-		"./packages/resume",
-		"./packages/schema-resume"
-	],
+	"workspace": ["./packages/resume", "./packages/schema-resume"],
 	"fmt": {
 		"semiColons": false,
 		"useTabs": true,
@@ -33,11 +30,11 @@
 		"proseWrap": "never"
 	},
 	"tasks": {
-		"changeset:add": "deno run -A npm:@changesets/cli add",
-		"changeset:empty": "deno run -A npm:@changesets/cli --empty",
-		"changeset:publish": "deno run -A npm:@changesets/cli publish",
-		"changeset:status": "deno run -A npm:@changesets/cli status",
-		"changeset:version": "deno run -A npm:@changesets/cli version",
+		"changeset:add": "changeset add",
+		"changeset:empty": "changeset add --empty",
+		"changeset:publish": "changeset publish",
+		"changeset:status": "changeset status",
+		"changeset:version": "changeset version",
 		"test:all": "deno run -A npm:vitest@3.0.4"
 	}
 }
