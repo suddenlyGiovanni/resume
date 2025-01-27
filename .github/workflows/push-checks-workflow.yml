@@ -19,14 +19,13 @@ jobs:
       - name: 👣 Retrieve Git REF
         run: echo "GIT_REF=$(git rev-parse origin/main)" >> $GITHUB_ENV
 
-      - name: 📦 Setup Node, Pnpm and install deps
+      - name: 📦 Setup Deno and install deps
         uses: ./.github/actions/setup
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: 💅 Format code (with Biome)
         continue-on-error: true
-        run: pnpm run -r format:write --since=${{ env.GIT_REF }}
+        run: deno task --recursive format:write --since=${{ env.GIT_REF }}
 
       - name: 🚦 Git Auto Commit Lint fixes (with Biome)
         uses: stefanzweifel/git-auto-commit-action@v5.1.0

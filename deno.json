@@ -36,6 +36,7 @@
 		"changeset:add": "deno run -A npm:@changesets/cli add",
 		"changeset:empty": "deno run -A npm:@changesets/cli --empty",
 		"changeset:publish": "deno run -A npm:@changesets/cli publish",
+		"changeset:status": "deno run -A npm:@changesets/cli status",
 		"changeset:version": "deno run -A npm:@changesets/cli version",
 		"test:all": "deno run -A npm:vitest@3.0.4"
 	}
