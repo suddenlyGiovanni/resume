@@ -1,7 +1,7 @@
 {
 	"name": "@suddenly-giovanni/resume",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": true,
 	"dependencies": {
 		"@suddenly-giovanni/schema-resume": "npm:@suddenly-giovanni/schema-resume",
