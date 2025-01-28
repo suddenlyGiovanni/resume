@@ -6,7 +6,7 @@ import { omit } from '../trimmed-non-empty/index.ts'
 
 export const stringDate =
 	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
-	<I, R>(self: Schema.Schema<A, I, R>) => {
+	<I, R>(self: Schema.Schema<A, I, R>): Schema.refine<A, Schema.Schema<A, I, R>> => {
 		return self.pipe(
 			Schema.filter(
 				(maybeStringDate): maybeStringDate is A =>

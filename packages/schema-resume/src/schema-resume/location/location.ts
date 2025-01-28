@@ -4,7 +4,7 @@ import { TrimmedNonEmpty, omit } from '../../schema-primitive/index.ts'
 
 const countryCode =
 	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
-	<I, R>(self: Schema.Schema<A, I, R>) => {
+	<I, R>(self: Schema.Schema<A, I, R>): Schema.refine<A, Schema.Schema<A, I, R>> => {
 		const regex = /^[A-Z]{2}$/
 		const pattern = regex.source
 		return self.pipe(
