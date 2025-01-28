@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Location } from './location.js'
+import { Location } from './location.ts'
 
 describe('Location', () => {
 	const locationInput = {

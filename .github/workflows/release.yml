@@ -19,40 +19,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📦 Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-          run_install: false
-
-      - name: 🗂️ Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: 🛠️ Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: "pnpm"
-
-      - name: 🗄️ Setup pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: 🧩 Install dependencies
-        run: pnpm install --frozen-lockfile --prod=false
+      - name: 📦 Setup Deno and install deps
+        uses: ./.github/actions/setup
 
       - name: 🦋 Create a Changeset Release Pull Request
         uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          version: "pnpm run changeset:version"
+          version: "deno task changeset:version"
           commit: "chore(🦋): update versions"
           title: "chore(🦋): Update Package Version"
-          createGithubReleases: true
+          createGithubReleases: false

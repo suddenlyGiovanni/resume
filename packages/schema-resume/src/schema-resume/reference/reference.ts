@@ -1,6 +1,6 @@
 import { Schema } from 'effect'
 
-import { TrimmedNonEmpty } from '../../schema-primitive/index.js'
+import { TrimmedNonEmpty } from '../../schema-primitive/index.ts'
 
 export class Reference extends Schema.Class<Reference>('Reference')({
 	name: Schema.propertySignature(Schema.NonEmptyTrimmedString).annotations({

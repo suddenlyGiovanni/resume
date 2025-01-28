@@ -1,4 +1,4 @@
-// biome-ignore lint/correctness/noNodejsModules: necessary for testing purpose
+// @ts-types="@types/node"
 import process from 'node:process'
 import { describe, it } from 'vitest'
 

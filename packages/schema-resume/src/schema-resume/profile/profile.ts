@@ -1,5 +1,5 @@
 import { Schema } from 'effect'
-import { UrlString } from '../../schema-primitive/index.js'
+import { UrlString } from '../../schema-primitive/index.ts'
 
 export class Profile extends Schema.Class<Profile>('Profile')({
 	network: Schema.propertySignature(Schema.NonEmptyTrimmedString).annotations({

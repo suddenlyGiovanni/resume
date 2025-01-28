@@ -1,6 +1,6 @@
 import { Schema } from 'effect'
 
-import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
+import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.ts'
 
 export class Role extends Schema.Class<Role>('Role')({
 	title: Schema.propertySignature(Schema.NonEmptyTrimmedString).annotations({

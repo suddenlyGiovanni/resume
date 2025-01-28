@@ -1,0 +1,25 @@
+name: 🎁 Publish
+on:
+  workflow_dispatch:
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Deno and install deps
+        uses: ./.github/actions/setup
+
+      - name: 📦 Publish package to JSR
+        shell: bash
+        working-directory: ./packages/schema-resume
+        run: deno publish --dry-run

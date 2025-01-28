@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Language } from './language.js'
+import { Language } from './language.ts'
 
 describe('Language', () => {
 	const languageInput = {

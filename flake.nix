@@ -29,6 +29,7 @@
             nodejs-slim_23
             corepack_23
             biome
+            deno
           ];
 
           # Set any environment variables for your dev shell
@@ -37,7 +38,8 @@
           # Add any shell logic you want executed any time the environment is activated
           shellHook = ''
             echo "Nix dev env!"
-            echo "Node version: $(node --version)"
+            echo "Node 🪢 version: $(node --version)"
+            echo "Deno 🦕 version: $(deno -V)"
           '';
         };
       });

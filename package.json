@@ -1,29 +1,10 @@
 {
-	"name": "@suddenlygiovanni/resume",
-	"type": "module",
-	"version": "13.3.1",
 	"private": true,
-	"scripts": {
-		"changeset:add": "pnpm exec changeset add",
-		"changeset:empty": "pnpm exec changeset --empty",
-		"changeset:publish": "pnpm exec changeset publish",
-		"changeset:version": "pnpm exec changeset version"
-	},
-	"license": "UNLICENSED",
 	"devDependencies": {
-		"@biomejs/biome": "catalog:",
-		"@changesets/cli": "catalog:",
-		"@tsconfig/node23": "catalog:",
-		"@tsconfig/strictest": "catalog:",
-		"@types/node": "catalog:",
-		"@vitest/coverage-v8": "catalog:",
-		"@vitest/ui": "catalog:",
-		"typescript": "catalog:",
-		"vitest": "catalog:"
+		"@changesets/cli": "2.27.12",
+		"@types/node": "22.10.10",
+		"@vitest/coverage-istanbul": "3.0.4",
+		"vitest": "3.0.4"
 	},
-	"packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
-	"engines": {
-		"node": ">=23",
-		"pnpm": ">=9.15"
-	}
+	"workspaces": ["./packages/resume", "./packages/schema-resume"]
 }

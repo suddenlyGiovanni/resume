@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { expectEitherRight } from '../../test/test-utils.js'
+import { expectEitherRight } from '../../test/test-utils.ts'
 
 describe('NonEmptyTrimmedString', () => {
 	describe('Regex Pattern', () => {

@@ -1,1 +1,1 @@
-export { Phone } from './phone.js'
+export { Phone } from './phone.ts'
