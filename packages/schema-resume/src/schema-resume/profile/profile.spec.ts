@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Profile } from './profile.js'
+import { Profile } from './profile.ts'
 
 describe('Profile', () => {
 	const profileInput: typeof Profile.Type = {

@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Award } from './award.js'
+import { Award } from './award.ts'
 
 describe('award', () => {
 	const awardInput = {

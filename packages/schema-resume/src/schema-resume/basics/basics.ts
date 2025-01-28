@@ -1,8 +1,8 @@
 import { Schema } from 'effect'
 
-import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.js'
-import { Location } from '../location/location.js'
-import { Profile } from '../profile/profile.js'
+import { Email, Phone, TrimmedNonEmpty, UrlString } from '../../schema-primitive/index.ts'
+import { Location } from '../location/location.ts'
+import { Profile } from '../profile/profile.ts'
 
 export class Basics extends Schema.Class<Basics>('Basics')({
 	email: Email,

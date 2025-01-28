@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { Email } from './email.js'
+import { Email } from './email.ts'
 
 describe('Email', () => {
 	describe('decode', () => {

@@ -1,7 +1,7 @@
 import { JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { ISODateString } from './iso-date-string.js'
+import { ISODateString } from './iso-date-string.ts'
 
 describe('ISODateString', () => {
 	describe('decode', () => {

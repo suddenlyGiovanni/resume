@@ -1,1 +1,1 @@
-export { UrlString } from './url-string.js'
+export { UrlString } from './url-string.ts'

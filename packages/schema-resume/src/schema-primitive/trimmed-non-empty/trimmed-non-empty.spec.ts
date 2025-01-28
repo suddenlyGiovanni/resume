@@ -1,8 +1,8 @@
 import { JSONSchema, Schema, SchemaAST } from 'effect'
 import { describe, expect, test } from 'vitest'
 
-import { expectEitherLeft, expectEitherRight } from '../../test/index.js'
-import { TrimmedNonEmpty, trimmedNonEmpty } from './trimmed-non-empty.js'
+import { expectEitherLeft, expectEitherRight } from '../../test/index.ts'
+import { TrimmedNonEmpty, trimmedNonEmpty } from './trimmed-non-empty.ts'
 
 describe('trimmedNonEmpty', () => {
 	describe('Regex Pattern', () => {

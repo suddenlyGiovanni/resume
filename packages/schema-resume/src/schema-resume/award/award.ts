@@ -1,6 +1,6 @@
 import { Schema } from 'effect'
 
-import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.js'
+import { StringDate, TrimmedNonEmpty } from '../../schema-primitive/index.ts'
 
 export class Award extends Schema.Class<Award>('Award')({
 	awarder: Schema.optionalWith(Schema.NonEmptyTrimmedString, { exact: true }).annotations({

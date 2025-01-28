@@ -1,6 +1,6 @@
 import { Schema } from 'effect'
 
-import { StringDate, UrlString } from '../../schema-primitive/index.js'
+import { StringDate, UrlString } from '../../schema-primitive/index.ts'
 
 export class Certificate extends Schema.Class<Certificate>('Certificate')({
 	name: Schema.optionalWith(Schema.NonEmptyTrimmedString, { exact: true }).annotations({

@@ -1,7 +1,8 @@
 import { Schema } from 'effect'
+// @ts-types="@types/json-schema"
 import type { JSONSchema7 } from 'json-schema'
 
-import { omit } from '../trimmed-non-empty/index.js'
+import { omit } from '../trimmed-non-empty/index.ts'
 
 /**
  * Verifies that a string is a valid URL (as per RFC 3986).

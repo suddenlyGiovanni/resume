@@ -1,4 +1,4 @@
-// biome-ignore lint/correctness/noNodejsModules: necessary for testing purpose
+// @ts-types="@types/node"
 import * as process from 'node:process'
 
 export function setup() {
