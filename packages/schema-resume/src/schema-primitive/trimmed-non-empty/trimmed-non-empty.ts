@@ -25,7 +25,7 @@ export const omit = <O extends object, K extends keyof O>(o: O, k: K): Omit<O, K
  */
 export const trimmedNonEmpty =
 	<A extends string>(annotations?: Schema.Annotations.Filter<A>) =>
-	<I, R>(self: Schema.Schema<A, I, R>) => {
+	<I, R>(self: Schema.Schema<A, I, R>): Schema.refine<A, Schema.Schema<A, I, R>> => {
 		const regex = /^[^\s].*[^\s]$/
 		const pattern = regex.source
 
