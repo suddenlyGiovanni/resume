@@ -23,6 +23,12 @@ jobs:
         with:
           version: latest
 
+      - name: type check
+        run: deno task --recursive typecheck
+
+      - name: type check docs
+        run: deno task --recursive typecheck --doc-only
+
       - name: 🧬 check packages/resume code for errors (with Biome)
         working-directory: ./packages/resume
         run: |
@@ -40,6 +46,14 @@ jobs:
           --linter-enabled=true \
           --organize-imports-enabled=false \
           .
+
+      - name: deno lint code
+        continue-on-error: true
+        run: deno lint packages/**/*.ts
+
+      - name: deno lint docs
+        continue-on-error: true
+        run: deno doc --lint packages/**/*.ts
 
       - name: 🧪 Run unit tests
         run: deno task test:all --coverage

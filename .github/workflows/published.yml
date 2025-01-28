@@ -19,8 +19,6 @@ jobs:
       - name: 📦 Setup Deno and install deps
         uses: ./.github/actions/setup
 
-
-
       - name: 📦 Publish package to JSR
         shell: bash
         run: |
