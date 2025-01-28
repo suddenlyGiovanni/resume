@@ -4,7 +4,7 @@ import * as fs from 'node:fs/promises'
 import { URL } from 'node:url'
 
 import * as yaml from '@std/yaml'
-import { Resume } from '@suddenlygiovanni/schema-resume'
+import { Resume } from '@suddenly-giovanni/schema-resume'
 import { Schema } from 'effect'
 import { describe, expect, it } from 'vitest'
 

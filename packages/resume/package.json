@@ -1,10 +1,10 @@
 {
-	"name": "@suddenlygiovanni/resume",
+	"name": "@suddenly-giovanni/resume",
 	"type": "module",
 	"version": "0.0.1",
 	"private": true,
 	"dependencies": {
-		"@suddenlygiovanni/schema-resume": "npm:@suddenlygiovanni/schema-resume",
+		"@suddenly-giovanni/schema-resume": "npm:@suddenly-giovanni/schema-resume",
 		"@std/yaml": "npm:@jsr/std__yaml@1.0.5",
 		"effect": "3.12.7"
 	},
