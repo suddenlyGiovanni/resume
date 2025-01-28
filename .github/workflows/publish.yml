@@ -22,4 +22,4 @@ jobs:
       - name: 📦 Publish package to JSR
         shell: bash
         working-directory: ./packages/schema-resume
-        run: deno publish --dry-run
+        run: deno publish --allow-slow-types
