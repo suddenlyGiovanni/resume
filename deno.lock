@@ -1447,14 +1447,12 @@
     }
   },
   "workspace": {
-    "packageJson": {
-      "dependencies": [
-        "npm:@changesets/cli@2.27.12",
-        "npm:@types/node@22.10.10",
-        "npm:@vitest/coverage-istanbul@3.0.4",
-        "npm:vitest@3.0.4"
-      ]
-    },
+    "dependencies": [
+      "npm:@changesets/cli@2.27.12",
+      "npm:@types/node@22.10.10",
+      "npm:@vitest/coverage-istanbul@3.0.4",
+      "npm:vitest@3.0.4"
+    ],
     "members": {
       "packages/resume": {
         "packageJson": {

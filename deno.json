@@ -48,5 +48,11 @@
 			"description": "The version command takes changesets that have been made and updates versions and dependencies of packages, as well as writing changelogs. It is responsible for all file changes to versions before publishing to npm."
 		},
 		"test:all": "vitest"
+	},
+	"imports": {
+		"@changesets/cli": "npm:@changesets/cli@2.27.12",
+		"@types/node": "npm:@types/node@22.10.10",
+		"@vitest/coverage-istanbul": "npm:@vitest/coverage-istanbul@3.0.4",
+		"vitest": "npm:vitest@3.0.4"
 	}
 }
