@@ -3,13 +3,13 @@
   <component name="JsonSchemaMappingsProjectConfiguration">
     <state>
       <map>
-        <entry key="deno">
+        <entry key="Deno Config (deno.json)">
           <value>
             <SchemaInfo>
-              <option name="generatedName" value="New Schema" />
-              <option name="name" value="deno" />
-              <option name="relativePathToSchema" value="https://deno.land/x/deno@v2.1.7/cli/schemas/config-file.v1.json" />
+              <option name="name" value="Deno Config (deno.json)" />
+              <option name="relativePathToSchema" value="https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json" />
               <option name="schemaVersion" value="JSON Schema 202,012" />
+              <option name="applicationDefined" value="true" />
               <option name="patterns">
                 <list>
                   <Item>
