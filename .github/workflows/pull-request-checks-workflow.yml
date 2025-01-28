@@ -1,4 +1,5 @@
 name: 🔗Pull Request Checks Workflow
+
 on:
   pull_request:
     branches:
@@ -14,16 +15,48 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📦 Setup Node, Pnpm and install deps
+      - name: 📦 Setup Deno and install deps
         uses: ./.github/actions/setup
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🧬 check code for errors (with Biome)
-        run: pnpm run -r lint:ci --reporter=github
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+
+      - name: type check
+        run: deno task --recursive typecheck
+
+      - name: type check docs
+        run: deno task --recursive typecheck --doc-only
+
+      - name: 🧬 check packages/resume code for errors (with Biome)
+        working-directory: ./packages/resume
+        run: |
+          biome ci \
+          --formatter-enabled=false \
+          --linter-enabled=true \
+          --organize-imports-enabled=false \
+          .
+
+      - name: 🧬 check packages/schema-resume code for errors (with Biome)
+        working-directory: ./packages/schema-resume
+        run: |
+          biome ci \
+          --formatter-enabled=false \
+          --linter-enabled=true \
+          --organize-imports-enabled=false \
+          .
+
+      - name: deno lint code
+        continue-on-error: true
+        run: deno lint packages/**/*.ts
+
+      - name: deno lint docs
+        continue-on-error: true
+        run: deno doc --lint packages/**/*.ts
 
       - name: 🧪 Run unit tests
-        run: pnpm exec vitest run --coverage
+        run: deno task test:all --coverage
 
       - name: 🛫 Upload coverage to Codecov
         uses: codecov/codecov-action@v5
@@ -35,4 +68,4 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: 🦋 Require changesets
-        run: pnpm exec changeset status --since=origin/main
+        run: deno task changeset:status --since=origin/main

@@ -1,44 +1,24 @@
 name: 💉Setup the project
-description: Perform standard setup and install dependencies using pnpm.
+description: Perform standard setup and install dependencies using deno.
 inputs:
-  github_token:
-    description: 'GitHub token'
-    required: true
+  deno_dir:
+    description: 'The directory where deno dependencies are stored.'
+    required: false
+    default: 'my_cache_directory' # Set DENO_DIR to an absolute or relative path on the runner.
 runs:
   using: composite
   steps:
-    - name: 🛠️ Install node
-      uses: actions/setup-node@v4
+    - name: 🛠️ Install deno
+      uses: denoland/setup-deno@v2
       with:
-        node-version-file: '.nvmrc'
-        registry-url: 'https://npm.pkg.github.com'
+        deno-version: v2.x
 
-    - name: Configure .npmrc
-      shell: bash
-      run: echo "//npm.pkg.github.com/:_authToken=${{ inputs.github_token }}" >> ~/.npmrc
-
-
-    - name: 🗂️ Install pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        package_json_file: 'package.json'
-        run_install: false
-
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-    - name: Setup pnpm cache
+    - name: Cache Deno dependencies
       uses: actions/cache@v4
       with:
-        path: ${{ env.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+        path: ${{ inputs.deno_dir }}
+        key: ${{ hashFiles('deno.lock') }}
 
     - name: 🧩 Install dependencies
       shell: bash
-      env:
-        NODE_AUTH_TOKEN: ${{ inputs.github_token }}
-      run: pnpm install --recursive --frozen-lockfile --prod=false
+      run: deno install
