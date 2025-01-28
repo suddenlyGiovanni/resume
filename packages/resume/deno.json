@@ -1,12 +1,5 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
-	"imports": {
-		"@std/yaml": "jsr:@std/yaml@1.0.5",
-		"@suddenlygiovanni/schema-resume": "jsr:@suddenlygiovanni/schema-resume",
-		"@types/node": "npm:@types/node@22.10.10",
-		"effect": "npm:effect@3.12.7",
-		"vitest": "npm:vitest@3.0.4"
-	},
 	"tasks": {
 		"format": {
 			"description": "Format the codebase",

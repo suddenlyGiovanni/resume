@@ -1,19 +1,13 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@std/yaml@1.0.5": "1.0.5",
     "npm:@changesets/cli@2.27.12": "2.27.12",
     "npm:@jsr/std__yaml@1.0.5": "1.0.5",
     "npm:@types/json-schema@7.0.15": "7.0.15",
     "npm:@types/node@22.10.10": "22.10.10",
-    "npm:@vitest/coverage-istanbul@3.0.4": "3.0.4_vitest@3.0.4__vite@6.0.11",
+    "npm:@vitest/coverage-istanbul@3.0.4": "3.0.4_vitest@3.0.4__@types+node@22.10.10__vite@6.0.11___@types+node@22.10.10_@types+node@22.10.10",
     "npm:effect@3.12.7": "3.12.7",
-    "npm:vitest@3.0.4": "3.0.4_vite@6.0.11"
-  },
-  "jsr": {
-    "@std/yaml@1.0.5": {
-      "integrity": "71ba3d334305ee2149391931508b2c293a8490f94a337eef3a09cade1a2a2742"
-    }
+    "npm:vitest@3.0.4": "3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10"
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
@@ -548,7 +542,7 @@
         "undici-types"
       ]
     },
-    "@vitest/coverage-istanbul@3.0.4_vitest@3.0.4__vite@6.0.11": {
+    "@vitest/coverage-istanbul@3.0.4_vitest@3.0.4__@types+node@22.10.10__vite@6.0.11___@types+node@22.10.10_@types+node@22.10.10": {
       "integrity": "sha512-a+SgPMom0PlRTuDasoucL2V7FDpS8j7p6jpHLNgt3d7oOSWYwtAFVCfZ3iQ+a+cOnh76g4mOftVR5Y9HokB/GQ==",
       "dependencies": [
         "@istanbuljs/schema",
@@ -573,7 +567,7 @@
         "tinyrainbow"
       ]
     },
-    "@vitest/mocker@3.0.4_vite@6.0.11": {
+    "@vitest/mocker@3.0.4_vite@6.0.11__@types+node@22.10.10_@types+node@22.10.10": {
       "integrity": "sha512-gEef35vKafJlfQbnyOXZ0Gcr9IBUsMTyTLXsEQwuyYAerpHqvXhzdBnDFuHLpFqth3F7b6BaFr4qV/Cs1ULx5A==",
       "dependencies": [
         "@vitest/spy",
@@ -1373,7 +1367,7 @@
         "picocolors"
       ]
     },
-    "vite-node@3.0.4": {
+    "vite-node@3.0.4_@types+node@22.10.10": {
       "integrity": "sha512-7JZKEzcYV2Nx3u6rlvN8qdo3QV7Fxyt6hx+CCKz9fbWxdX5IvUOmTWEAxMrWxaiSf7CKGLJQ5rFu8prb/jBjOA==",
       "dependencies": [
         "cac",
@@ -1383,18 +1377,20 @@
         "vite"
       ]
     },
-    "vite@6.0.11": {
+    "vite@6.0.11_@types+node@22.10.10": {
       "integrity": "sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==",
       "dependencies": [
+        "@types/node@22.10.10",
         "esbuild",
         "fsevents",
         "postcss",
         "rollup"
       ]
     },
-    "vitest@3.0.4_vite@6.0.11": {
+    "vitest@3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10": {
       "integrity": "sha512-6XG8oTKy2gnJIFTHP6LD7ExFeNLxiTkK3CfMvT7IfR8IN+BYICCf0lXUQmX7i7JoxUP8QmeP4mTnWXgflu4yjw==",
       "dependencies": [
+        "@types/node@22.10.10",
         "@vitest/expect",
         "@vitest/mocker",
         "@vitest/pretty-format",
@@ -1461,16 +1457,10 @@
     },
     "members": {
       "packages/resume": {
-        "dependencies": [
-          "jsr:@std/yaml@1.0.5",
-          "jsr:@suddenlygiovanni/schema-resume@*",
-          "npm:@types/node@22.10.10",
-          "npm:effect@3.12.7",
-          "npm:vitest@3.0.4"
-        ],
         "packageJson": {
           "dependencies": [
             "npm:@jsr/std__yaml@1.0.5",
+            "npm:@suddenlygiovanni/schema-resume@*",
             "npm:@types/node@22.10.10",
             "npm:effect@3.12.7",
             "npm:vitest@3.0.4"
@@ -1478,12 +1468,14 @@
         }
       },
       "packages/schema-resume": {
-        "dependencies": [
-          "npm:@types/json-schema@7.0.15",
-          "npm:@types/node@22.10.10",
-          "npm:effect@3.12.7",
-          "npm:vitest@3.0.4"
-        ]
+        "packageJson": {
+          "dependencies": [
+            "npm:@types/json-schema@7.0.15",
+            "npm:@types/node@22.10.10",
+            "npm:effect@3.12.7",
+            "npm:vitest@3.0.4"
+          ]
+        }
       }
     }
   }
