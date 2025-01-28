@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@std/yaml@1.0.5": "1.0.5",
     "npm:@changesets/cli@2.27.12": "2.27.12",
     "npm:@jsr/std__yaml@1.0.5": "1.0.5",
     "npm:@types/json-schema@7.0.15": "7.0.15",
@@ -8,6 +9,11 @@
     "npm:@vitest/coverage-istanbul@3.0.4": "3.0.4_vitest@3.0.4__vite@6.0.11",
     "npm:effect@3.12.7": "3.12.7",
     "npm:vitest@3.0.4": "3.0.4_vite@6.0.11"
+  },
+  "jsr": {
+    "@std/yaml@1.0.5": {
+      "integrity": "71ba3d334305ee2149391931508b2c293a8490f94a337eef3a09cade1a2a2742"
+    }
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
@@ -1455,6 +1461,13 @@
     },
     "members": {
       "packages/resume": {
+        "dependencies": [
+          "jsr:@std/yaml@1.0.5",
+          "jsr:@suddenlygiovanni/schema-resume@*",
+          "npm:@types/node@22.10.10",
+          "npm:effect@3.12.7",
+          "npm:vitest@3.0.4"
+        ],
         "packageJson": {
           "dependencies": [
             "npm:@jsr/std__yaml@1.0.5",
@@ -1465,14 +1478,12 @@
         }
       },
       "packages/schema-resume": {
-        "packageJson": {
-          "dependencies": [
-            "npm:@types/json-schema@7.0.15",
-            "npm:@types/node@22.10.10",
-            "npm:effect@3.12.7",
-            "npm:vitest@3.0.4"
-          ]
-        }
+        "dependencies": [
+          "npm:@types/json-schema@7.0.15",
+          "npm:@types/node@22.10.10",
+          "npm:effect@3.12.7",
+          "npm:vitest@3.0.4"
+        ]
       }
     }
   }

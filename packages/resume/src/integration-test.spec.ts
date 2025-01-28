@@ -1,5 +1,7 @@
-// @ts-types="npm:@types/node@22.10.10"
+// @ts-types="@types/node"
 import * as fs from 'node:fs/promises'
+// @ts-types="@types/node"
+import { URL } from 'node:url'
 
 import * as yaml from '@std/yaml'
 import { Resume } from '@suddenlygiovanni/schema-resume'

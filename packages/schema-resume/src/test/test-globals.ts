@@ -1,4 +1,4 @@
-// @ts-types="npm:@types/node@22.10.10"
+// @ts-types="@types/node"
 import * as process from 'node:process'
 
 export function setup() {

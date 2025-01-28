@@ -1,4 +1,4 @@
-// @ts-types="npm:@types/node@22.10.10"
+// @ts-types="@types/node"
 import process from 'node:process'
 import { describe, it } from 'vitest'
 
