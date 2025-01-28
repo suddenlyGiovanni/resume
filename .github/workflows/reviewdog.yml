@@ -11,7 +11,7 @@ jobs:
         uses: reviewdog/action-actionlint@v1
         continue-on-error: true
         with:
-          fail_on_error: false
+          fail_level: 'error'
           filter_mode: nofilter
           github_token: ${{ secrets.github_token }}
           level: error
