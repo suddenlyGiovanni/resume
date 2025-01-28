@@ -7,7 +7,7 @@
           <value>
             <SchemaInfo>
               <option name="name" value="Deno Config (deno.json)" />
-              <option name="relativePathToSchema" value="https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json" />
+              <option name="relativePathToSchema" value="https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json" />
               <option name="schemaVersion" value="JSON Schema 202,012" />
               <option name="applicationDefined" value="true" />
               <option name="patterns">
