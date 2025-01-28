@@ -30,4 +30,4 @@ jobs:
           version: "deno task changeset:version"
           commit: "chore(🦋): update versions"
           title: "chore(🦋): Update Package Version"
-          createGithubReleases: true
+          createGithubReleases: false
