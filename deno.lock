@@ -1468,14 +1468,12 @@
         }
       },
       "packages/schema-resume": {
-        "packageJson": {
-          "dependencies": [
-            "npm:@types/json-schema@7.0.15",
-            "npm:@types/node@22.10.10",
-            "npm:effect@3.12.7",
-            "npm:vitest@3.0.4"
-          ]
-        }
+        "dependencies": [
+          "npm:@types/json-schema@7.0.15",
+          "npm:@types/node@22.10.10",
+          "npm:effect@3.12.7",
+          "npm:vitest@3.0.4"
+        ]
       }
     }
   }

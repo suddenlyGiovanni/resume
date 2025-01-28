@@ -29,5 +29,17 @@
 			"description": "Typecheck all files",
 			"command": "deno check ."
 		}
-	}
+	},
+	"exports": {
+		".": "./src/index.ts",
+		"./primitives": "./src/schema-primitive/index.ts",
+		"./schema": "./src/schema-resume/index.ts"
+	},
+	"imports": {
+		"effect": "npm:effect@3.12.7",
+		"vitest": "npm:vitest@3.0.4",
+		"@types/json-schema": "npm:@types/json-schema@7.0.15",
+		"@types/node": "npm:@types/node@22.10.10"
+	},
+	"name": "@suddenlygiovanni/schema-resume"
 }
