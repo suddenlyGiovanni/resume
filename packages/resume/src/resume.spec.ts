@@ -1,4 +1,4 @@
-import { Resume } from '@suddenlygiovanni/schema-resume'
+import { Resume } from '@suddenly-giovanni/schema-resume'
 import { JSONSchema } from 'effect'
 import { describe, expect, it } from 'vitest'
 
