@@ -1,13 +1,24 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@suddenly-giovanni/schema-resume@0.0.2": "0.0.2",
     "npm:@changesets/cli@2.27.12": "2.27.12",
-    "npm:@jsr/std__yaml@1.0.5": "1.0.5",
+    "npm:@deno/vite-plugin@1.0.2": "1.0.2_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0",
     "npm:@types/json-schema@7.0.15": "7.0.15",
     "npm:@types/node@22.10.10": "22.10.10",
-    "npm:@vitest/coverage-istanbul@3.0.4": "3.0.4_vitest@3.0.4__@types+node@22.10.10__vite@6.0.11___@types+node@22.10.10_@types+node@22.10.10",
+    "npm:@vitest/coverage-istanbul@3.0.4": "3.0.4_vitest@3.0.4__@types+node@22.10.10__vite@6.0.11___@types+node@22.10.10___yaml@2.7.0__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0",
     "npm:effect@3.12.7": "3.12.7",
-    "npm:vitest@3.0.4": "3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10"
+    "npm:vitest@*": "3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_yaml@2.7.0",
+    "npm:vitest@3.0.4": "3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_yaml@2.7.0",
+    "npm:yaml@2.7.0": "2.7.0"
+  },
+  "jsr": {
+    "@suddenly-giovanni/schema-resume@0.0.2": {
+      "integrity": "7fdf4fe2899219020597b49e96f877856883893812027efa26b299081a49f696",
+      "dependencies": [
+        "npm:effect"
+      ]
+    }
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
@@ -154,7 +165,7 @@
         "outdent",
         "prettier",
         "resolve-from",
-        "semver@7.6.3"
+        "semver@7.7.0"
       ]
     },
     "@changesets/assemble-release-plan@6.0.5": {
@@ -165,7 +176,7 @@
         "@changesets/should-skip-package",
         "@changesets/types@6.0.0",
         "@manypkg/get-packages",
-        "semver@7.6.3"
+        "semver@7.7.0"
       ]
     },
     "@changesets/changelog-git@0.2.0": {
@@ -202,7 +213,7 @@
         "package-manager-detector",
         "picocolors",
         "resolve-from",
-        "semver@7.6.3",
+        "semver@7.7.0",
         "spawndamnit",
         "term-size"
       ]
@@ -231,7 +242,7 @@
         "@changesets/types@6.0.0",
         "@manypkg/get-packages",
         "picocolors",
-        "semver@7.6.3"
+        "semver@7.7.0"
       ]
     },
     "@changesets/get-release-plan@4.0.6": {
@@ -312,6 +323,12 @@
         "fs-extra@7.0.1",
         "human-id",
         "prettier"
+      ]
+    },
+    "@deno/vite-plugin@1.0.2_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0": {
+      "integrity": "sha512-ZaC5W1yCb1xdRURU5qHFHrxZABr1tC68tS73/YhXUUbe9nuytCV4CG/dpLxMkxS64Fs3YwcqEz2k1eAqE9W5SQ==",
+      "dependencies": [
+        "vite"
       ]
     },
     "@esbuild/aix-ppc64@0.24.2": {
@@ -427,9 +444,6 @@
         "@jridgewell/sourcemap-codec"
       ]
     },
-    "@jsr/std__yaml@1.0.5": {
-      "integrity": "sha512-jbh2xwnja+ar+7NE0oDTlbST1WW29dAQOKX8+1DZgdT54NVt9lZ9YVDrzh4uP1w6ZHVirtY0z99BSym0v+Zh4Q=="
-    },
     "@manypkg/find-root@1.1.0": {
       "integrity": "sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==",
       "dependencies": [
@@ -542,7 +556,7 @@
         "undici-types"
       ]
     },
-    "@vitest/coverage-istanbul@3.0.4_vitest@3.0.4__@types+node@22.10.10__vite@6.0.11___@types+node@22.10.10_@types+node@22.10.10": {
+    "@vitest/coverage-istanbul@3.0.4_vitest@3.0.4__@types+node@22.10.10__vite@6.0.11___@types+node@22.10.10___yaml@2.7.0__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0": {
       "integrity": "sha512-a+SgPMom0PlRTuDasoucL2V7FDpS8j7p6jpHLNgt3d7oOSWYwtAFVCfZ3iQ+a+cOnh76g4mOftVR5Y9HokB/GQ==",
       "dependencies": [
         "@istanbuljs/schema",
@@ -567,7 +581,7 @@
         "tinyrainbow"
       ]
     },
-    "@vitest/mocker@3.0.4_vite@6.0.11__@types+node@22.10.10_@types+node@22.10.10": {
+    "@vitest/mocker@3.0.4_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0": {
       "integrity": "sha512-gEef35vKafJlfQbnyOXZ0Gcr9IBUsMTyTLXsEQwuyYAerpHqvXhzdBnDFuHLpFqth3F7b6BaFr4qV/Cs1ULx5A==",
       "dependencies": [
         "@vitest/spy",
@@ -674,8 +688,8 @@
     "cac@6.7.14": {
       "integrity": "sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ=="
     },
-    "caniuse-lite@1.0.30001695": {
-      "integrity": "sha512-vHyLade6wTgI2u1ec3WQBxv+2BrTERV28UXQu9LO6lZ9pYeMk34vjXFLOxo1A4UBA8XTL4njRQZdno/yYaSmWw=="
+    "caniuse-lite@1.0.30001696": {
+      "integrity": "sha512-pDCPkvzfa39ehJtJ+OwGT/2yvT2SbjfHhiIW2LWOAcMQ7BzwxT/XuyUp4OTOd0XFWA6BKw0JalnBHgSi5DGJBQ=="
     },
     "chai@5.1.2": {
       "integrity": "sha512-aGtmf24DW6MLHHG5gCx4zaI3uBq3KRtxeVs0DjFH6Z0rDNbsvTxFASFvdj79pxjxZ8/5u3PIiN3IwEIQkiiuPw==",
@@ -971,7 +985,7 @@
         "@babel/parser",
         "@istanbuljs/schema",
         "istanbul-lib-coverage",
-        "semver@7.6.3"
+        "semver@7.7.0"
       ]
     },
     "istanbul-lib-report@3.0.1": {
@@ -1064,7 +1078,7 @@
     "make-dir@4.0.0": {
       "integrity": "sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==",
       "dependencies": [
-        "semver@7.6.3"
+        "semver@7.7.0"
       ]
     },
     "merge2@1.4.1": {
@@ -1238,8 +1252,8 @@
     "semver@6.3.1": {
       "integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="
     },
-    "semver@7.6.3": {
-      "integrity": "sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A=="
+    "semver@7.7.0": {
+      "integrity": "sha512-DrfFnPzblFmNrIZzg5RzHegbiRWg7KMR7btwi2yjHwx06zsUbO5g613sVwEV7FTwmzJu+Io0lJe2GJ3LxqpvBQ=="
     },
     "shebang-command@2.0.0": {
       "integrity": "sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==",
@@ -1367,7 +1381,7 @@
         "picocolors"
       ]
     },
-    "vite-node@3.0.4_@types+node@22.10.10": {
+    "vite-node@3.0.4_@types+node@22.10.10_yaml@2.7.0": {
       "integrity": "sha512-7JZKEzcYV2Nx3u6rlvN8qdo3QV7Fxyt6hx+CCKz9fbWxdX5IvUOmTWEAxMrWxaiSf7CKGLJQ5rFu8prb/jBjOA==",
       "dependencies": [
         "cac",
@@ -1377,17 +1391,18 @@
         "vite"
       ]
     },
-    "vite@6.0.11_@types+node@22.10.10": {
+    "vite@6.0.11_@types+node@22.10.10_yaml@2.7.0": {
       "integrity": "sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==",
       "dependencies": [
         "@types/node@22.10.10",
         "esbuild",
         "fsevents",
         "postcss",
-        "rollup"
+        "rollup",
+        "yaml"
       ]
     },
-    "vitest@3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10": {
+    "vitest@3.0.4_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_yaml@2.7.0": {
       "integrity": "sha512-6XG8oTKy2gnJIFTHP6LD7ExFeNLxiTkK3CfMvT7IfR8IN+BYICCf0lXUQmX7i7JoxUP8QmeP4mTnWXgflu4yjw==",
       "dependencies": [
         "@types/node@22.10.10",
@@ -1444,29 +1459,33 @@
     },
     "yallist@3.1.1": {
       "integrity": "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g=="
+    },
+    "yaml@2.7.0": {
+      "integrity": "sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA=="
     }
   },
   "workspace": {
     "dependencies": [
       "npm:@changesets/cli@2.27.12",
+      "npm:@deno/vite-plugin@1.0.2",
       "npm:@types/node@22.10.10",
       "npm:@vitest/coverage-istanbul@3.0.4",
       "npm:vitest@3.0.4"
     ],
     "members": {
       "packages/resume": {
-        "packageJson": {
-          "dependencies": [
-            "npm:@jsr/std__yaml@1.0.5",
-            "npm:@suddenly-giovanni/schema-resume@*",
-            "npm:@types/node@22.10.10",
-            "npm:effect@3.12.7",
-            "npm:vitest@3.0.4"
-          ]
-        }
+        "dependencies": [
+          "jsr:@suddenly-giovanni/schema-resume@0.0.2",
+          "npm:@deno/vite-plugin@1.0.2",
+          "npm:@types/node@22.10.10",
+          "npm:effect@3.12.7",
+          "npm:vitest@3.0.4",
+          "npm:yaml@2.7.0"
+        ]
       },
       "packages/schema-resume": {
         "dependencies": [
+          "npm:@deno/vite-plugin@1.0.2",
           "npm:@types/json-schema@7.0.15",
           "npm:@types/node@22.10.10",
           "npm:effect@3.12.7",
