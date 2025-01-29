@@ -27,7 +27,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          version: "deno task changeset:version"
           commit: "chore(🦋): update versions"
           title: "chore(🦋): Update Package Version"
-          createGithubReleases: false
