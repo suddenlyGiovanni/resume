@@ -9,6 +9,7 @@
 		"exclude": ["package.json", "src/test", "src/**/*.spec.ts"]
 	},
 	"imports": {
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.2",
 		"@types/json-schema": "npm:@types/json-schema@7.0.15",
 		"@types/node": "npm:@types/node@22.10.10",
 		"effect": "npm:effect@3.12.7",
@@ -36,7 +37,7 @@
 			"description": "Lint all files and write changes"
 		},
 		"test": {
-			"command": "vitest",
+			"command": "deno run -A --inspect npm:vitest@3.0.4",
 			"description": "Run tests"
 		},
 		"typecheck": {

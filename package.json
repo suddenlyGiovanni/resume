@@ -1,3 +1,0 @@
-{
-	"workspaces": ["./packages/resume", "./packages/schema-resume"]
-}

@@ -66,6 +66,3 @@ jobs:
           files: ./coverage/coverage-final.json
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: 🦋 Require changesets
-        run: deno task changeset:status --since=origin/main

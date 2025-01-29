@@ -37,7 +37,7 @@
 		},
 		"changeset:empty": {
 			"command": "changeset add --empty",
-			"description": "allows you to create an empty changeset if no packages are being bumped, usually only required if you have CI that blocks merges without a changeset."
+			"description": "Allows you to create an empty changeset if no packages are being bumped, usually only required if you have CI that blocks merges without a changeset."
 		},
 		"changeset:status": {
 			"command": "changeset status",
@@ -47,9 +47,13 @@
 			"command": "changeset version",
 			"description": "The version command takes changesets that have been made and updates versions and dependencies of packages, as well as writing changelogs. It is responsible for all file changes to versions before publishing to npm."
 		},
-		"test:all": "vitest"
+		"test:all": {
+			"command": "deno run -A --inspect npm:vitest@3.0.4",
+			"description": "Run all the project tests with vitest"
+		}
 	},
 	"imports": {
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.2",
 		"@changesets/cli": "npm:@changesets/cli@2.27.12",
 		"@types/node": "npm:@types/node@22.10.10",
 		"@vitest/coverage-istanbul": "npm:@vitest/coverage-istanbul@3.0.4",
