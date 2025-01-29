@@ -1,6 +1,12 @@
 # `@suddenly-giovanni/schema-resume`
 
+## 0.0.3
+
+### Patch Changes
+
 ## 0.0.2
+
+- b20eb22: # Completely migrated away from package.json
 
 ### Patch Changes
 
