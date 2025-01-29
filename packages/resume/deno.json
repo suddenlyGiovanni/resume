@@ -1,5 +1,13 @@
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
+	"imports": {
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.2",
+		"@suddenly-giovanni/schema-resume": "jsr:@suddenly-giovanni/schema-resume@0.0.2",
+		"@types/node": "npm:@types/node@22.10.10",
+		"effect": "npm:effect@3.12.7",
+		"vitest": "npm:vitest@3.0.4",
+		"yaml": "npm:yaml@2.7.0"
+	},
 	"tasks": {
 		"format": {
 			"description": "Format the codebase",
