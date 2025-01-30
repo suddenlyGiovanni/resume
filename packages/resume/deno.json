@@ -1,5 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
+	"version": "0.0.2",
 	"imports": {
 		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.2",
 		"@suddenly-giovanni/schema-resume": "jsr:@suddenly-giovanni/schema-resume@0.0.3",
