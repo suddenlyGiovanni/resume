@@ -27,6 +27,22 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="resume">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="resume" />
+              <option name="relativePathToSchema" value="packages/resume/src/schema.json" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="packages/resume/src/resume.yml" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
       </map>
     </state>
   </component>
