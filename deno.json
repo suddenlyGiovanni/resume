@@ -31,32 +31,15 @@
 		"proseWrap": "never"
 	},
 	"tasks": {
-		"changeset:add": {
-			"command": "changeset add",
-			"description": "This command will ask you a series of questions, first about what packages you want to release, then what semver bump type for each package, then it will ask for a summary of the entire changeset. The final step will show the changeset it will generate and confirm that you want to add it. Once confirmed, the changeset will be written as a Markdown file that contains the summary and YAML front matter which stores the packages that will be released and the semver bump types for them."
-		},
-		"changeset:empty": {
-			"command": "changeset add --empty",
-			"description": "Allows you to create an empty changeset if no packages are being bumped, usually only required if you have CI that blocks merges without a changeset."
-		},
-		"changeset:status": {
-			"command": "changeset status",
-			"description": "The status command provides information about the changesets that currently exist. If there are no changesets present, it exits with an error status code."
-		},
-		"changeset:version": {
-			"command": "changeset version",
-			"description": "The version command takes changesets that have been made and updates versions and dependencies of packages, as well as writing changelogs. It is responsible for all file changes to versions before publishing to npm."
-		},
 		"test:all": {
-			"command": "deno run -A --inspect npm:vitest@3.0.4",
+			"command": "deno run -A --inspect npm:vitest@3.0.5",
 			"description": "Run all the project tests with vitest"
 		}
 	},
 	"imports": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.2",
-		"@changesets/cli": "npm:@changesets/cli@2.27.12",
-		"@types/node": "npm:@types/node@22.10.10",
-		"@vitest/coverage-istanbul": "npm:@vitest/coverage-istanbul@3.0.4",
-		"vitest": "npm:vitest@3.0.4"
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.3",
+		"@types/node": "npm:@types/node@22.13.1",
+		"@vitest/coverage-istanbul": "npm:@vitest/coverage-istanbul@3.0.5",
+		"vitest": "npm:vitest@3.0.5"
 	}
 }
