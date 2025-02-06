@@ -8,6 +8,7 @@
     "npm:@types/node@22.13.1": "22.13.1",
     "npm:@vitest/coverage-istanbul@3.0.5": "3.0.5_vitest@3.0.5__@types+node@22.10.10__vite@6.0.11___@types+node@22.10.10___yaml@2.7.0__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0",
     "npm:effect@3.12.7": "3.12.7",
+    "npm:effect@3.12.9": "3.12.9",
     "npm:vitest@3.0.5": "3.0.5_@types+node@22.10.10_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_yaml@2.7.0",
     "npm:yaml@2.7.0": "2.7.0"
   },
@@ -15,7 +16,7 @@
     "@suddenly-giovanni/schema-resume@0.0.3": {
       "integrity": "c530f4638dba9c368d3594d7eb4bb7592279f359acdacde4593af018510d7f1e",
       "dependencies": [
-        "npm:effect"
+        "npm:effect@3.12.7"
       ]
     }
   },
@@ -502,6 +503,12 @@
         "fast-check"
       ]
     },
+    "effect@3.12.9": {
+      "integrity": "sha512-u3PsO0KWtCTO56yGGYaa8RLOccE6Kbeb4UotS/ArAG/tqAyf0x3JF3WaaklhnxJtt67P6SktLmwRPT4hiuhKEA==",
+      "dependencies": [
+        "fast-check"
+      ]
+    },
     "electron-to-chromium@1.5.93": {
       "integrity": "sha512-M+29jTcfNNoR9NV7la4SwUqzWAxEwnc7ThA5e1m6LRSotmpfpCpLcIfgtSCVL+MllNLgAyM/5ru86iMRemPzDQ=="
     },
@@ -956,7 +963,7 @@
           "jsr:@suddenly-giovanni/schema-resume@0.0.3",
           "npm:@deno/vite-plugin@1.0.3",
           "npm:@types/node@22.13.1",
-          "npm:effect@3.12.7",
+          "npm:effect@3.12.9",
           "npm:vitest@3.0.5",
           "npm:yaml@2.7.0"
         ]
@@ -966,7 +973,7 @@
           "npm:@deno/vite-plugin@1.0.3",
           "npm:@types/json-schema@7.0.15",
           "npm:@types/node@22.13.1",
-          "npm:effect@3.12.7",
+          "npm:effect@3.12.9",
           "npm:vitest@3.0.5"
         ]
       }
