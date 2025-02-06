@@ -13,7 +13,7 @@
 		"@types/json-schema": "npm:@types/json-schema@7.0.15",
 		"@types/node": "npm:@types/node@22.10.10",
 		"effect": "npm:effect@3.12.7",
-		"vitest": "npm:vitest@3.0.4"
+		"vitest": "npm:vitest@3.0.5"
 	},
 	"tasks": {
 		"format": {
@@ -37,7 +37,7 @@
 			"description": "Lint all files and write changes"
 		},
 		"test": {
-			"command": "deno run -A --inspect npm:vitest@3.0.4",
+			"command": "deno run -A --inspect npm:vitest@3.0.5",
 			"description": "Run tests"
 		},
 		"typecheck": {
