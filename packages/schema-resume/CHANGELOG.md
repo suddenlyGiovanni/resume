@@ -3,6 +3,11 @@
 ## 0.0.3
 
 ### Patch Changes
+- b9f5b25f34b682988cf8852e174aa768a608e80f: # upgrade dependency `effect` from `3.12.7` to `3.12.9`.
+
+## 0.0.3
+
+### Patch Changes
 
 ## 0.0.2
 
