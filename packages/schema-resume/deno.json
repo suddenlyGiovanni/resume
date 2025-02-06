@@ -9,9 +9,9 @@
 		"exclude": ["package.json", "src/test", "src/**/*.spec.ts"]
 	},
 	"imports": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.2",
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.3",
 		"@types/json-schema": "npm:@types/json-schema@7.0.15",
-		"@types/node": "npm:@types/node@22.10.10",
+		"@types/node": "npm:@types/node@22.13.1",
 		"effect": "npm:effect@3.12.7",
 		"vitest": "npm:vitest@3.0.5"
 	},

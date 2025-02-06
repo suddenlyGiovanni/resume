@@ -2,7 +2,6 @@
   "version": "4",
   "specifiers": {
     "jsr:@suddenly-giovanni/schema-resume@0.0.3": "0.0.3",
-    "npm:@deno/vite-plugin@1.0.2": "1.0.2_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0",
     "npm:@deno/vite-plugin@1.0.3": "1.0.3_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0",
     "npm:@types/json-schema@7.0.15": "7.0.15",
     "npm:@types/node@22.10.10": "22.10.10",
@@ -142,12 +141,6 @@
       "dependencies": [
         "@babel/helper-string-parser",
         "@babel/helper-validator-identifier"
-      ]
-    },
-    "@deno/vite-plugin@1.0.2_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0": {
-      "integrity": "sha512-ZaC5W1yCb1xdRURU5qHFHrxZABr1tC68tS73/YhXUUbe9nuytCV4CG/dpLxMkxS64Fs3YwcqEz2k1eAqE9W5SQ==",
-      "dependencies": [
-        "vite"
       ]
     },
     "@deno/vite-plugin@1.0.3_vite@6.0.11__@types+node@22.10.10__yaml@2.7.0_@types+node@22.10.10_yaml@2.7.0": {
@@ -961,8 +954,8 @@
       "packages/resume": {
         "dependencies": [
           "jsr:@suddenly-giovanni/schema-resume@0.0.3",
-          "npm:@deno/vite-plugin@1.0.2",
-          "npm:@types/node@22.10.10",
+          "npm:@deno/vite-plugin@1.0.3",
+          "npm:@types/node@22.13.1",
           "npm:effect@3.12.7",
           "npm:vitest@3.0.5",
           "npm:yaml@2.7.0"
@@ -970,9 +963,9 @@
       },
       "packages/schema-resume": {
         "dependencies": [
-          "npm:@deno/vite-plugin@1.0.2",
+          "npm:@deno/vite-plugin@1.0.3",
           "npm:@types/json-schema@7.0.15",
-          "npm:@types/node@22.10.10",
+          "npm:@types/node@22.13.1",
           "npm:effect@3.12.7",
           "npm:vitest@3.0.5"
         ]
