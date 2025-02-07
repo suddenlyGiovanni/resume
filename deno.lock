@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@suddenly-giovanni/schema-resume@0.0.4": "0.0.4",
     "npm:@deno/vite-plugin@1.0.3": "1.0.3_vite@6.1.0__@types+node@22.13.1__yaml@2.7.0_@types+node@22.13.1_yaml@2.7.0",
     "npm:@types/json-schema@7.0.15": "7.0.15",
     "npm:@types/node@22.13.1": "22.13.1",
@@ -8,6 +9,14 @@
     "npm:effect@3.12.9": "3.12.9",
     "npm:vitest@3.0.5": "3.0.5_@types+node@22.13.1_vite@6.1.0__@types+node@22.13.1__yaml@2.7.0_yaml@2.7.0",
     "npm:yaml@2.7.0": "2.7.0"
+  },
+  "jsr": {
+    "@suddenly-giovanni/schema-resume@0.0.4": {
+      "integrity": "f091e28931e6c48aa4020d07b3c9d4036e17eb994e338ea5e38adc71e2bb3af3",
+      "dependencies": [
+        "npm:effect"
+      ]
+    }
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
