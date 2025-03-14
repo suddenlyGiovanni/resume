@@ -5,8 +5,8 @@
       <entry url="file://$PROJECT_DIR$">
         <entryData>
           <resourceRoots>
-            <path value="file://$PROJECT_DIR$/packages/schema-resume" />
             <path value="file://$PROJECT_DIR$/packages/resume" />
+            <path value="file://$PROJECT_DIR$/packages/schema-resume" />
           </resourceRoots>
         </entryData>
       </entry>
