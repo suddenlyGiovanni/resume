@@ -35,7 +35,7 @@
 		},
 		"test": {
 			"description": "Run tests",
-			"command": "deno run -A --inspect npm:vitest@3.0.8 --inspect --no-file-parallelism"
+			"command": "deno run -A --inspect npm:vitest@3.1.1 --inspect --no-file-parallelism"
 		}
 	}
 }
