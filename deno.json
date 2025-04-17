@@ -32,7 +32,7 @@
 	},
 	"tasks": {
 		"test:all": {
-			"command": "deno run -A --inspect npm:vitest@3.0.8",
+			"command": "deno run -A --inspect npm:vitest@3.1.1",
 			"description": "Run all the project tests with vitest"
 		}
 	},
