@@ -234,6 +234,9 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
+					"title": "ISO 8601 Date string",
+					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
+					"format": "date-time",
 					"type": "string"
 				}"
 			`)
@@ -243,6 +246,9 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
+					"title": "ISO 8601 Date string",
+					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
+					"format": "date-time",
 					"type": "string"
 				}"
 			`)
