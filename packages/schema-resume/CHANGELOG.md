@@ -1,10 +1,15 @@
 # `@suddenly-giovanni/schema-resume`
 
+## 0.0.7
+- Upgraded dependency `effect` from `~3.13.10` to `^3.14.10` which brings in new features and improvements from the Effect library.
+
 ## 0.0.6
-- 5f01a8b5489fc905baa3e3e50893990fd79e52dd: # upgrade dependency `effect` from `3.12.10` to `~3.13.10`. 
+
+- 5f01a8b5489fc905baa3e3e50893990fd79e52dd: # upgrade dependency `effect` from `3.12.10` to `~3.13.10`.
 
 ## 0.0.4
-- 376cea140323faf0879c94a8add5675ce3c50636: # upgrade dependency `effect` from `3.12.9` to `~3.12.10`. 
+
+- 376cea140323faf0879c94a8add5675ce3c50636: # upgrade dependency `effect` from `3.12.9` to `~3.12.10`.
 
 ## 0.0.3
 

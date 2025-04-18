@@ -2,6 +2,5 @@
 <project version="4">
   <component name="DenoSettings">
     <option name="enableFormatting" value="false" />
-    <option name="useDenoValue" value="ENABLE" />
   </component>
 </project>

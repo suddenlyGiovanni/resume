@@ -32,14 +32,14 @@
 	},
 	"tasks": {
 		"test:all": {
-			"command": "deno run -A --inspect npm:vitest@3.0.8",
+			"command": "deno run -A --inspect npm:vitest@3.1.1",
 			"description": "Run all the project tests with vitest"
 		}
 	},
 	"imports": {
 		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
-		"@types/node": "npm:@types/node@22.13.10",
-		"@vitest/coverage-istanbul": "npm:@vitest/coverage-istanbul@3.0.8",
-		"vitest": "npm:vitest@3.0.8"
+		"@types/node": "npm:@types/node@22.14.1",
+		"@vitest/coverage-istanbul": "npm:@vitest/coverage-istanbul@3.1.1",
+		"vitest": "npm:vitest@3.1.1"
 	}
 }
