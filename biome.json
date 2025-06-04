@@ -1,53 +1,31 @@
 {
-	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"vcs": {
+	"$schema": "https://biomejs.dev/schemas/2.0.0-beta.6/schema.json",
+	"assist": {
 		"enabled": true,
-		"clientKind": "git",
-		"defaultBranch": "main",
-		"useIgnoreFile": true,
-		"root": "."
+		"actions": {
+			"source": {
+				"organizeImports": "on",
+				"recommended": true,
+				"useSortedKeys": "on"
+			}
+		}
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
-		"lineWidth": 100,
+		"lineWidth": 120,
 		"lineEnding": "lf",
 		"indentWidth": 2,
-		"formatWithErrors": true
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"all": true,
-			"correctness": {
-				"noUndeclaredDependencies": "off",
-				"noUndeclaredVariables": "off"
-			},
-			"nursery": {
-				"all": true,
-				"noSecrets": "off",
-				"useExplicitType": {
-					"level": "off"
-				}
-			},
-			"performance": {
-				"all": true,
-				"noBarrelFile": {
-					"level": "off"
-				},
-				"noReExportAll": {
-					"level": "off"
-				}
-			},
-			"style": {
-				"all": true,
-				"noNamespaceImport": {
-					"level": "off"
-				}
-			}
-		}
+		"formatWithErrors": true,
+		"expand": "auto"
 	},
 	"javascript": {
+		"linter": {
+			"enabled": true
+		},
+		"assist": {
+			"enabled": true
+		},
 		"formatter": {
 			"enabled": true,
 			"arrowParentheses": "asNeeded",
@@ -61,15 +39,75 @@
 			"attributePosition": "multiline"
 		}
 	},
-	"overrides": [
-		{
-			"include": [
-				"**/*.snapshot.json",
-				"packages/resume/src/schema.json"
-			],
-			"formatter": {
-				"enabled": false
+	"json": {
+		"formatter": {
+			"enabled": true
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"domains": {
+			"project": "recommended",
+			"test": "recommended"
+		},
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"recommended": true
+			},
+			"complexity": {
+				"recommended": true
+			},
+			"security": {
+				"recommended": true
+			},
+			"suspicious": {
+				"recommended": true
+			},
+			"correctness": {
+				"recommended": true,
+				"noUndeclaredDependencies": "off",
+				"noUndeclaredVariables": "off"
+			},
+			"nursery": {
+				"recommended": true,
+				"noSecrets": "off",
+				"useExplicitType": {
+					"level": "off"
+				}
+			},
+			"performance": {
+				"recommended": true,
+				"noBarrelFile": {
+					"level": "off"
+				},
+				"noReExportAll": {
+					"level": "off"
+				},
+				"noNamespaceImport": {
+					"level": "off"
+				}
+			},
+			"style": {
+				"recommended": true,
+				"noParameterAssign": "on",
+				"useAsConstAssertion": "on",
+				"useDefaultParameterLast": "on",
+				"useEnumInitializers": "on",
+				"useSelfClosingElements": "on",
+				"useSingleVarDeclarator": "on",
+				"noUnusedTemplateLiteral": "on",
+				"useNumberNamespace": "on",
+				"noInferrableTypes": "on",
+				"noUselessElse": "on"
 			}
 		}
-	]
+	},
+	"vcs": {
+		"clientKind": "git",
+		"defaultBranch": "main",
+		"enabled": true,
+		"root": ".",
+		"useIgnoreFile": true
+	}
 }

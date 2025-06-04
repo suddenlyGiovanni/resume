@@ -1,7 +1,8 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@biomejs/biome@^2.0.0-beta.6": "2.0.0-beta.6",
+    "npm:@biomejs/biome@2.0.0-beta.6": "2.0.0-beta.6",
+    "npm:@biomejs/biome@beta": "2.0.0-beta.6",
     "npm:@deno/vite-plugin@1.0.4": "1.0.4_vite@6.3.1__@types+node@22.13.10__yaml@2.7.1__picomatch@4.0.2_@types+node@22.13.10_yaml@2.7.1",
     "npm:@types/json-schema@7.0.15": "7.0.15",
     "npm:@types/node@22.13.10": "22.13.10",
@@ -694,7 +695,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@biomejs/biome@^2.0.0-beta.6",
+        "npm:@biomejs/biome@2.0.0-beta.6",
         "npm:@deno/vite-plugin@1.0.4",
         "npm:@types/node@22.15.29",
         "npm:vitest@3.2.1"

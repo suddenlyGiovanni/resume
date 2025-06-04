@@ -1,39 +1,49 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-	"extends": ["../../biome.json"],
+	"$schema": "https://biomejs.dev/schemas/2.0.0-beta.6/schema.json",
+	"extends": "//",
 	"files": {
-		"include": ["./src/**/*", "./test/**/*"],
-		"ignore": ["./src/**/*.snapshot.json"]
+		"includes": [
+			"src/**/*",
+			"test/**/*",
+			"!src/**/*.snapshot.json"
+		]
 	},
 	"linter": {
+		"enabled": true,
 		"rules": {
-			"correctness": {
-				"noUndeclaredDependencies": "off"
-			},
-			"nursery": {
-				"useImportRestrictions": "off"
-			},
-			"performance": {
-				"useTopLevelRegex": "off"
+			"style": {
+				"noParameterAssign": "error",
+				"useAsConstAssertion": "error",
+				"useDefaultParameterLast": "error",
+				"useEnumInitializers": "error",
+				"useSelfClosingElements": "error",
+				"useSingleVarDeclarator": "error",
+				"noUnusedTemplateLiteral": "error",
+				"useNumberNamespace": "error",
+				"noInferrableTypes": "error",
+				"noUselessElse": "error"
 			}
 		}
 	},
 	"overrides": [
 		{
-			"include": ["**/*.snapshot.json"],
+			"includes": [
+				"**/*.snapshot.json"
+			],
 			"formatter": {
 				"enabled": false
 			}
 		},
 		{
-			"include": ["src/test/test-utils.ts"],
+			"includes": [
+				"**/src/test/test-utils.ts"
+			],
 			"linter": {
 				"rules": {
 					"suspicious": {
 						"noExplicitAny": "off",
 						"noMisplacedAssertion": "off",
 						"noConsole": "off",
-						"noConsoleLog": "off",
 						"useAwait": "off"
 					},
 					"style": {
@@ -42,5 +52,6 @@
 				}
 			}
 		}
-	]
+	],
+	"root": false
 }
