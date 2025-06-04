@@ -9,11 +9,8 @@
 		"exclude": ["package.json", "src/test", "src/**/*.spec.ts"]
 	},
 	"imports": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
 		"@types/json-schema": "npm:@types/json-schema@7.0.15",
-		"@types/node": "npm:@types/node@22.14.1",
-		"effect": "npm:effect@^3.14.10",
-		"vitest": "npm:vitest@3.1.1"
+		"effect": "npm:effect@^3.14.10"
 	},
 	"tasks": {
 		"format": {
@@ -35,10 +32,6 @@
 		"lint:write": {
 			"command": "biome check --apply .",
 			"description": "Lint all files and write changes"
-		},
-		"test": {
-			"command": "deno run -A --inspect npm:vitest@3.1.1",
-			"description": "Run tests"
 		},
 		"typecheck": {
 			"command": "deno check .",

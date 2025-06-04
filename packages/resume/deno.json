@@ -2,10 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
 	"version": "0.0.2",
 	"imports": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
-		"@types/node": "npm:@types/node@22.14.1",
 		"effect": "npm:effect@^3.14.10",
-		"vitest": "npm:vitest@3.1.1",
 		"yaml": "npm:yaml@2.7.1"
 	},
 	"tasks": {
@@ -32,10 +29,6 @@
 		"typecheck": {
 			"description": "Typecheck the codebase",
 			"command": "deno check ."
-		},
-		"test": {
-			"description": "Run tests",
-			"command": "deno run -A --inspect npm:vitest@3.1.1 --no-file-parallelism"
 		}
 	}
 }
