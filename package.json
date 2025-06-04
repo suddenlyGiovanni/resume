@@ -1,0 +1,11 @@
+{
+	"scripts": {
+		"test:all": "vitest"
+	},
+	"devDependencies": {
+		"vitest": "npm:vitest@3.2.1",
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
+		"@types/node": "npm:@types/node@22.15.29"
+	},
+	"private": true
+}
