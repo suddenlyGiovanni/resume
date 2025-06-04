@@ -14,6 +14,10 @@
 			"src/**/*.spec.ts"
 		]
 	},
+	"imports": {
+		"@types/json-schema": "npm:@types/json-schema@7.0.15",
+		"effect": "npm:effect@^3.14.10"
+	},
 	"tasks": {
 		"build": {
 			"command": "tsdown",

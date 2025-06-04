@@ -1,8 +1,0 @@
-{
-	"devDependencies": {
-		"@biomejs/biome": "npm:@biomejs/biome@2.0.0-beta.6",
-		"@types/node": "npm:@types/node@22.15.29",
-		"typescript": "npm:typescript@^5.8.3",
-		"vitest": "npm:vitest@3.2.1"
-	}
-}

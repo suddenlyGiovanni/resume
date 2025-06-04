@@ -1,7 +1,0 @@
-{
-	"devDependencies": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
-		"vitest": "npm:vitest@3.2.1"
-	},
-	"private": true
-}
