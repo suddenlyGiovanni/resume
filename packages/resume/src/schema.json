@@ -152,9 +152,9 @@
       "type": "string",
       "description": "a string that is a valid YYYY-MM-DD date",
       "title": "StringDate",
-      "minLength": 10,
+      "format": "date",
       "maxLength": 10,
-      "format": "date"
+      "minLength": 10
     },
     "TrimmedNonEmpty": {
       "type": "string",
@@ -318,8 +318,8 @@
         "AU",
         "IN"
       ],
-      "minLength": 2,
       "maxLength": 2,
+      "minLength": 2,
       "pattern": "^[A-Z]{2}$"
     },
     "PhoneString": {
@@ -378,6 +378,18 @@
       "type": "object",
       "required": [],
       "properties": {
+        "date": {
+          "$ref": "#/$defs/StringDate",
+          "title": "date"
+        },
+        "issuer": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "issuer of the certificate",
+          "title": "issuer",
+          "examples": [
+            "e.g. CNCF"
+          ]
+        },
         "name": {
           "$ref": "#/$defs/NonEmptyTrimmedString",
           "description": "name of the certificate",
@@ -386,24 +398,12 @@
             "e.g. Certified Kubernetes Administrator"
           ]
         },
-        "date": {
-          "$ref": "#/$defs/StringDate",
-          "title": "date"
-        },
         "url": {
           "$ref": "#/$defs/UrlString",
           "description": "the url of the certificate",
           "title": "url",
           "examples": [
             "http://example.com/cert.pdf"
-          ]
-        },
-        "issuer": {
-          "$ref": "#/$defs/NonEmptyTrimmedString",
-          "description": "issuer of the certificate",
-          "title": "issuer",
-          "examples": [
-            "e.g. CNCF"
           ]
         }
       },
@@ -449,14 +449,6 @@
             "2020-01-01"
           ]
         },
-        "score": {
-          "$ref": "#/$defs/NonEmptyTrimmedString",
-          "description": "grade point average, e.g. 3.67/4.0",
-          "title": "score",
-          "examples": [
-            "3.67/4.0"
-          ]
-        },
         "institution": {
           "$ref": "#/$defs/NonEmptyTrimmedString",
           "description": "name of the institution",
@@ -467,6 +459,14 @@
         },
         "location": {
           "$ref": "#/$defs/TrimmedNonEmpty"
+        },
+        "score": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "grade point average, e.g. 3.67/4.0",
+          "title": "score",
+          "examples": [
+            "3.67/4.0"
+          ]
         },
         "startDate": {
           "$ref": "#/$defs/StringDate",
@@ -832,10 +832,13 @@
         "contact": {
           "type": "object",
           "required": [
-            "name",
-            "email"
+            "email",
+            "name"
           ],
           "properties": {
+            "email": {
+              "$ref": "#/$defs/Email"
+            },
             "name": {
               "$ref": "#/$defs/NonEmptyTrimmedString",
               "description": "The name and role of the contact person",
@@ -843,9 +846,6 @@
               "examples": [
                 "Mark Zuckerberg (CTO)"
               ]
-            },
-            "email": {
-              "$ref": "#/$defs/Email"
             },
             "phone": {
               "$ref": "#/$defs/PhoneString"
@@ -905,47 +905,17 @@
     "Role": {
       "type": "object",
       "required": [
-        "title",
+        "responsibilities",
         "startDate",
-        "responsibilities"
+        "title"
       ],
       "properties": {
-        "title": {
-          "$ref": "#/$defs/NonEmptyTrimmedString",
-          "description": "The title of your position at the company: <seniority level> <role title>",
-          "title": "title",
-          "examples": [
-            "Junior Software Developer",
-            "Senior Software Engineer"
-          ]
-        },
-        "startDate": {
-          "$ref": "#/$defs/StringDate",
-          "description": "The date when you started working in this role",
-          "title": "startDate",
-          "examples": [
-            "2011-01-01"
-          ]
-        },
         "endDate": {
           "$ref": "#/$defs/StringDate",
           "description": "The date when you stopped working in this role",
           "title": "endDate",
           "examples": [
             "2012-01-01"
-          ]
-        },
-        "responsibilities": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/TrimmedNonEmpty"
-          },
-          "description": "Specify multiple responsibilities",
-          "title": "responsibilities",
-          "examples": [
-            [
-              "code owner of x"
-            ]
           ]
         },
         "highlights": {
@@ -962,6 +932,27 @@
             ]
           ]
         },
+        "responsibilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TrimmedNonEmpty"
+          },
+          "description": "Specify multiple responsibilities",
+          "title": "responsibilities",
+          "examples": [
+            [
+              "code owner of x"
+            ]
+          ]
+        },
+        "startDate": {
+          "$ref": "#/$defs/StringDate",
+          "description": "The date when you started working in this role",
+          "title": "startDate",
+          "examples": [
+            "2011-01-01"
+          ]
+        },
         "technologies": {
           "type": "array",
           "minItems": 1,
@@ -975,6 +966,15 @@
               "React",
               "Node.js"
             ]
+          ]
+        },
+        "title": {
+          "$ref": "#/$defs/NonEmptyTrimmedString",
+          "description": "The title of your position at the company: <seniority level> <role title>",
+          "title": "title",
+          "examples": [
+            "Junior Software Developer",
+            "Senior Software Engineer"
           ]
         }
       },
