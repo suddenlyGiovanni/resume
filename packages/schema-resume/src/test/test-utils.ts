@@ -62,7 +62,7 @@ export async function expectFailure<A>(
 	if (Either.isEither(effect)) {
 		expectEitherLeft(effect, message)
 	} else {
-		expectEffectFailure(effect, message)
+		await expectEffectFailure(effect, message)
 	}
 }
 
@@ -70,7 +70,7 @@ export async function expectSuccess<E, A>(effect: Either.Either<A, E> | Effect.E
 	if (Either.isEither(effect)) {
 		expectEitherRight(effect, a)
 	} else {
-		expectEffectSuccess(effect, a)
+		await expectEffectSuccess(effect, a)
 	}
 }
 
