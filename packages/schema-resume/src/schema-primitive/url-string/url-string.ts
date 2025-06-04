@@ -25,7 +25,6 @@ const validUrlString =
 				},
 				{
 					description: 'a string that fulfills the URL requirements (as per RFC 3986)',
-					message: issue => `Invalid URL string; got: '${issue.actual}'`,
 					examples: [
 						'https://example.com' as A,
 						'https://example.com/#section' as A,
@@ -34,6 +33,7 @@ const validUrlString =
 						'https://www.übercool.de' as A,
 					],
 					jsonSchema: { format: 'uri', ...annotations?.jsonSchema } satisfies JSONSchema7,
+					message: issue => `Invalid URL string; got: '${issue.actual}'`,
 					...(annotations ? omit(annotations, 'jsonSchema') : {}),
 				},
 			),

@@ -7,38 +7,38 @@ describe('PhoneString', () => {
 	const parse = Schema.decodeUnknownSync(Phone)
 
 	const validNumbers = [
-		{ phone: '+4907121172923', description: 'German number (standard format)' },
-		{ phone: '+441632960961', description: 'UK number (standard format)' },
-		{ phone: '+353861234567', description: 'Irish number (standard format)' },
+		{ description: 'German number (standard format)', phone: '+4907121172923' },
+		{ description: 'UK number (standard format)', phone: '+441632960961' },
+		{ description: 'Irish number (standard format)', phone: '+353861234567' },
 		{
-			phone: '00353861234567',
 			description: 'Irish number with double-zero prefix (alternative format)',
+			phone: '00353861234567',
 		},
-		{ phone: '+39 02 1234567', description: 'Italian number with space as separator' },
+		{ description: 'Italian number with space as separator', phone: '+39 02 1234567' },
 		{
-			phone: '+1-800-123-4567',
 			description: 'US number with hyphen as separator (assuming supported)',
+			phone: '+1-800-123-4567',
 		},
 		{
-			phone: '+1 800 123 4567',
 			description: 'US number with spaces (might be valid depending on logic)',
+			phone: '+1 800 123 4567',
 		},
 		{
-			phone: '+49 (0) 216 554 1036',
 			description: 'German number with parentheses and leading zero',
+			phone: '+49 (0) 216 554 1036',
 		},
 		{
-			phone: '+39021234567',
 			description: 'Italian number without space (might be valid depending on logic)',
+			phone: '+39021234567',
 		},
 	]
 
 	const invalidNumbers = [
-		{ phone: '', description: 'Empty string' },
-		{ phone: ' ', description: 'Whitespace' },
+		{ description: 'Empty string', phone: '' },
+		{ description: 'Whitespace', phone: ' ' },
 		// { phone: '+1234567890', description: 'Non-standard phone number (missing country code)' },
-		{ phone: '123456', description: 'Too short' },
-		{ phone: 'abcdefghijk', description: 'Non-numeric characters' },
+		{ description: 'Too short', phone: '123456' },
+		{ description: 'Non-numeric characters', phone: 'abcdefghijk' },
 	]
 
 	test.each(validNumbers)('parse valid phone number $phone ($description)', ({ phone }) => {
@@ -82,8 +82,8 @@ describe('PhoneString', () => {
 				expect(
 					JSONSchema.make(
 						Phone.annotations({
-							title: 'TITLE',
 							description: 'DESCRIPTION',
+							title: 'TITLE',
 						}),
 					),
 				).toMatchInlineSnapshot(`

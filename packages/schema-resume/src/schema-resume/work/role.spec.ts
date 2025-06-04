@@ -5,9 +5,9 @@ import { Role } from './role.ts'
 
 describe('Role', () => {
 	const role: typeof Role.Type = {
+		responsibilities: ['code owner of front end app'],
 		startDate: '1988-02-01',
 		title: 'Junior Web Developer',
-		responsibilities: ['code owner of front end app'],
 	}
 
 	test('required role attributes', () => {
@@ -19,8 +19,8 @@ describe('Role', () => {
 		const roleInput: typeof Role.Type = {
 			...role,
 			endDate: '1989-02-01',
-			responsibilities: ['Managed a team of 10 engineers'],
 			highlights: ['Wrote a new algorithm'],
+			responsibilities: ['Managed a team of 10 engineers'],
 			technologies: ['JavaScript', 'HTML', 'CSS'],
 		}
 		expect(() => decodeRole(roleInput)).not.toThrow()
@@ -45,8 +45,6 @@ describe('Role', () => {
 	})
 
 	test('toJsonSchema', async () => {
-		await expect(JSON.stringify(JSONSchema.make(Role), null, '\t')).toMatchFileSnapshot(
-			'role-schema.snapshot.json',
-		)
+		await expect(JSON.stringify(JSONSchema.make(Role), null, '\t')).toMatchFileSnapshot('role-schema.snapshot.json')
 	})
 })

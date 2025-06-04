@@ -59,9 +59,7 @@ describe('trimmedNonEmpty', () => {
 		`)
 
 		expect(
-			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: {} })).ast.annotations[
-				SchemaAST.JSONSchemaAnnotationId
-			],
+			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: {} })).ast.annotations[SchemaAST.JSONSchemaAnnotationId],
 		).toMatchInlineSnapshot(`
 			{
 			  "minLength": 1,
@@ -70,8 +68,9 @@ describe('trimmedNonEmpty', () => {
 		`)
 
 		expect(
-			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: { foo: 'bar', baz: 'zebra' } })).ast
-				.annotations[SchemaAST.JSONSchemaAnnotationId],
+			Schema.String.pipe(trimmedNonEmpty({ jsonSchema: { baz: 'zebra', foo: 'bar' } })).ast.annotations[
+				SchemaAST.JSONSchemaAnnotationId
+			],
 		).toMatchInlineSnapshot(`
 				{
 				  "baz": "zebra",
@@ -108,9 +107,9 @@ describe('trimmedNonEmpty', () => {
 				expect(
 					JSONSchema.make(
 						TrimmedNonEmpty.annotations({
-							title: 'title',
 							description: 'description',
 							examples: ['examples'],
+							title: 'title',
 						}),
 					),
 				).toMatchInlineSnapshot(`
@@ -174,8 +173,8 @@ describe('trimmedNonEmpty', () => {
 							Schema.maxLength(10),
 							Schema.minLength(2),
 						).annotations({
-							title: 'TITLE',
 							description: 'DESCRIPTION',
+							title: 'TITLE',
 						}),
 					),
 				).toMatchInlineSnapshot(`

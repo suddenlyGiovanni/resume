@@ -20,6 +20,7 @@ const phone =
 							.replace(/(?!^\+)\D/g, ''),
 					),
 				{
+					description: 'a phone number conforming to the E.164 format standard',
 					examples: [
 						'+4907121172923' as A,
 						'+441632960961' as A,
@@ -30,12 +31,11 @@ const phone =
 						'+1 800 123 4567' as A,
 						'+49 (0) 216 554 1036' as A,
 					],
-					description: 'a phone number conforming to the E.164 format standard',
-					message: issue => `Invalid E.164 phone number: "${String(issue.actual)}"`,
 					jsonSchema: {
 						pattern: E164Regex.source,
 						...annotations?.jsonSchema,
 					} satisfies JSONSchema7,
+					message: issue => `Invalid E.164 phone number: "${String(issue.actual)}"`,
 					...(annotations ? omit(annotations, 'jsonSchema') : {}),
 				},
 			),
@@ -45,7 +45,7 @@ const phone =
 export interface Phone extends Schema.Annotable<Phone, string> {}
 export const Phone: Phone = Schema.String.pipe(
 	phone({
-		title: 'PhoneString',
 		identifier: 'PhoneString',
+		title: 'PhoneString',
 	}),
 )

@@ -8,12 +8,12 @@ describe('Education', () => {
 		area: 'Computer Science',
 		courses: ['Computer Science', 'Data Structures'],
 		endDate: '2020-02-01',
-		score: '3.67/4.0',
 		institution: 'Massachusetts Institute of Technology',
+		location: 'Cambridge, MA',
+		score: '3.67/4.0',
 		startDate: '2008-03-01',
 		studyType: 'Bachelor',
 		url: 'https://mit.com',
-		location: 'Cambridge, MA',
 	} satisfies typeof Education.Type
 
 	const required: typeof Education.Type = {
@@ -61,9 +61,7 @@ describe('Education', () => {
 				expect(() => parse({ ...required, startDate: '' })).toThrow()
 				expect(() => parse({ ...required, startDate: '  ' })).toThrow()
 				expect(() => parse({ ...required, startDate: educationInput.startDate })).not.toThrow()
-				expect(parse({ ...required, startDate: educationInput.startDate }).startDate).toBe(
-					'2008-03-01',
-				)
+				expect(parse({ ...required, startDate: educationInput.startDate }).startDate).toBe('2008-03-01')
 			})
 
 			test('endDate', () => {
@@ -76,8 +74,8 @@ describe('Education', () => {
 			test.todo('start date before end date', () => {
 				const input: Schema.Schema.Encoded<typeof Education> = {
 					...required,
-					startDate: '1989-01-01',
 					endDate: '1988-01-01',
+					startDate: '1989-01-01',
 				}
 				expect(() => parse(input)).toThrow()
 			})

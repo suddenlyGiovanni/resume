@@ -15,13 +15,13 @@ export const stringDate =
 						: new Date(maybeStringDate).toISOString().slice(0, 10) === maybeStringDate,
 				{
 					description: 'a string that is a valid YYYY-MM-DD date',
-					message: issue => `expected a sting date 'YYYY-MM-DD', got '${issue.actual}'`,
 					jsonSchema: {
-						minLength: 10,
-						maxLength: 10,
 						format: 'date',
+						maxLength: 10,
+						minLength: 10,
 						...annotations?.jsonSchema,
 					} satisfies JSONSchema7,
+					message: issue => `expected a sting date 'YYYY-MM-DD', got '${issue.actual}'`,
 					...(annotations ? omit(annotations, 'jsonSchema') : {}),
 				},
 			),

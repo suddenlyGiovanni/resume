@@ -40,9 +40,9 @@ describe('Email', () => {
 
 	describe('JSONSchema', () => {
 		const AnnotatedEmail = Email.annotations({
-			title: 'EMAIL TITLE',
 			description: 'EMAIL DESCRIPTION',
 			examples: ['EMAIL EXAMPLE'],
+			title: 'EMAIL TITLE',
 		})
 
 		test('naked', () => {
@@ -88,9 +88,7 @@ describe('Email', () => {
 		})
 
 		test('with encodedSchema', () => {
-			expect(
-				JSON.stringify(JSONSchema.make(Schema.encodedSchema(Email)), null, '\t'),
-			).toMatchInlineSnapshot(`
+			expect(JSON.stringify(JSONSchema.make(Schema.encodedSchema(Email)), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {

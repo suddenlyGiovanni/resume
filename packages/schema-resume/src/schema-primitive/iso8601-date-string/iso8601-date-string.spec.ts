@@ -1,6 +1,4 @@
-import { JSONSchema, Schema } from 'effect'
-
-import { Either, pipe } from 'effect'
+import { Either, JSONSchema, pipe, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { expectEitherRight } from '../../test/test-utils.ts'
@@ -14,9 +12,7 @@ describe('ISO8601Date', () => {
 	test('Years', () => {
 		const expected = '1970-01-01T00:00:00.000Z'
 		expectEitherRight(decode('1970'), expected)
-		expect(
-			pipe('1970', Schema.decodeSync(ISO8601DateString), Schema.encodeSync(ISO8601DateString)),
-		).toEqual(expected)
+		expect(pipe('1970', Schema.decodeSync(ISO8601DateString), Schema.encodeSync(ISO8601DateString))).toEqual(expected)
 		expectEitherRight(decode('1'), '2001-01-01T00:00:00.000Z')
 		expectEitherRight(decode('01'), '2001-01-01T00:00:00.000Z')
 		expectEitherRight(decode('0001'), '0001-01-01T00:00:00.000Z')
@@ -152,10 +148,10 @@ describe('ISO8601Date', () => {
 
 	describe('JSONSchema', () => {
 		const iso8601DateStringAnnotated = ISO8601DateString.annotations({
-			title: 'ISO8601Date',
 			description:
 				'A string ISO 8601 date Schema. Given any string date, it validates it to be a valid input for the Date constructor, and then it converts it to a string in the ISO 8601 format.',
 			examples: ['2021-01-01', '2021-01-01T00:00:00.000Z'],
+			title: 'ISO8601Date',
 		})
 
 		test('naked', () => {
@@ -174,9 +170,7 @@ describe('ISO8601Date', () => {
 				}"
 			`)
 
-			expect(
-				JSON.stringify(JSONSchema.make(iso8601DateStringAnnotated), null, '\t'),
-			).toMatchInlineSnapshot(`
+			expect(JSON.stringify(JSONSchema.make(iso8601DateStringAnnotated), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
@@ -209,11 +203,7 @@ describe('ISO8601Date', () => {
 			`)
 
 			expect(
-				JSON.stringify(
-					JSONSchema.make(Schema.encodedSchema(iso8601DateStringAnnotated)),
-					null,
-					'\t',
-				),
+				JSON.stringify(JSONSchema.make(Schema.encodedSchema(iso8601DateStringAnnotated)), null, '\t'),
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
@@ -229,9 +219,7 @@ describe('ISO8601Date', () => {
 		})
 
 		test('typeSchema', () => {
-			expect(
-				JSON.stringify(JSONSchema.make(Schema.typeSchema(ISO8601DateString)), null, '\t'),
-			).toMatchInlineSnapshot(`
+			expect(JSON.stringify(JSONSchema.make(Schema.typeSchema(ISO8601DateString)), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"title": "ISO 8601 Date string",

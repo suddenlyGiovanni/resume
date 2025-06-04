@@ -6,15 +6,15 @@ import { type Resume as ResumeEncoded, Resume as ResumeSchema } from './resume.t
 
 describe('Resume', () => {
 	const basics: Basics = {
-		name: 'Thomas Anderson',
-		label: 'Software Engineer',
 		email: 'thomas@gmail.com',
-		summary: 'Web Developer with a passion for web-based applications',
+		label: 'Software Engineer',
 		location: {
 			city: 'Berlin',
 			countryCode: 'DE',
 		},
+		name: 'Thomas Anderson',
 		profiles: [],
+		summary: 'Web Developer with a passion for web-based applications',
 	}
 	const $schema = 'http://jsonresume.org/schema'
 	const skills: ResumeEncoded['skills'] = []
@@ -27,11 +27,7 @@ describe('Resume', () => {
 		it('should not throw for a valid JSON resume string', () => {
 			const parse = Schema.decodeUnknownEither(schema, { errors: 'all' })
 			const mockResult = parse(
-				JSON.stringify(
-					{ $schema: 'http://jsonresume.org/schema', basics, skills, work, education },
-					null,
-					2,
-				),
+				JSON.stringify({ $schema: 'http://jsonresume.org/schema', basics, education, skills, work }, null, 2),
 			)
 			// Either.mapLeft(mockResult, console.error)
 			expect(Either.isRight(mockResult)).toBe(true)
@@ -39,9 +35,7 @@ describe('Resume', () => {
 
 		it('should throw for invalid JSON resume string', () => {
 			const parse = Schema.decodeUnknownEither(schema, { errors: 'all' })
-			const mockResult = parse(
-				JSON.stringify({ $schema: 'http://jsonresume.org/schema', base: {} }, null, 2),
-			)
+			const mockResult = parse(JSON.stringify({ $schema: 'http://jsonresume.org/schema', base: {} }, null, 2))
 			expect(Either.isLeft(mockResult)).toBe(true)
 			Either.mapLeft(mockResult, parseError => {
 				expect(parseError).toBeInstanceOf(ParseResult.ParseError)
@@ -75,8 +69,8 @@ describe('Resume', () => {
 				JSON.stringify(
 					{
 						$schema: 'http://jsonresume.org/schema',
-						basics,
 						awards: [],
+						basics,
 						certificates: [],
 						education: [],
 						interests: [],

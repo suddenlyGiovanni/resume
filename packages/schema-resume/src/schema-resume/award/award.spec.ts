@@ -6,9 +6,9 @@ import { Award } from './award.ts'
 describe('award', () => {
 	const awardInput = {
 		awarder: 'Time Magazine',
-		title: 'One of the 100 greatest minds of the century',
 		date: '1970-01-01',
 		summary: 'Received for my work with Quantum Physics',
+		title: 'One of the 100 greatest minds of the century',
 	} satisfies typeof Award.Encoded
 
 	describe('decode', () => {
@@ -43,8 +43,6 @@ describe('award', () => {
 	})
 
 	test('JSONSchema', async () => {
-		await expect(JSON.stringify(JSONSchema.make(Award), null, 2)).toMatchFileSnapshot(
-			'award-schema.snapshot.json',
-		)
+		await expect(JSON.stringify(JSONSchema.make(Award), null, 2)).toMatchFileSnapshot('award-schema.snapshot.json')
 	})
 })

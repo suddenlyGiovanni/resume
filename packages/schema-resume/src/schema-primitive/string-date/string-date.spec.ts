@@ -1,5 +1,4 @@
-import { JSONSchema, Schema } from 'effect'
-import { Either } from 'effect'
+import { Either, JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { StringDate } from './string-date.ts'
@@ -42,9 +41,9 @@ describe('StringDate', () => {
 
 	describe('JSONSchema', () => {
 		const annotatedStringDate = StringDate.annotations({
-			title: 'TITLE',
 			description: 'DESCRIPTION',
 			examples: ['2021-01-01'],
+			title: 'TITLE',
 		})
 
 		test('naked', () => {

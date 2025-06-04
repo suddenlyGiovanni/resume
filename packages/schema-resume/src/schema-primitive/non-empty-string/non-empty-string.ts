@@ -11,9 +11,9 @@ export interface NonEmptyString extends Schema.Annotable<NonEmptyString, string>
 export const nonEmptyString = (annotations?: Schema.Annotations.Schema<string>): NonEmptyString =>
 	Schema.String.annotations(
 		annotations ?? {
-			identifier: 'NonEmptyString',
-			title: 'non empty string',
 			description: 'a non empty string',
 			examples: ["' test string  '", "'test string'"],
+			identifier: 'NonEmptyString',
+			title: 'non empty string',
 		},
 	).pipe(Schema.compose(Schema.Trim), Schema.nonEmptyString())

@@ -11,7 +11,7 @@ export const ISODateString: Schema.refine<
 		),
 	)
 	.annotations({
-		title: 'date',
 		description: 'Using ISO 8601',
 		examples: ['2012-04-05T10:00:00.000Z'],
+		title: 'date',
 	})

@@ -98,9 +98,9 @@ describe('NonEmptyTrimmedString', () => {
 				expect(
 					JSONSchema.make(
 						Schema.NonEmptyTrimmedString.annotations({
-							title: 'title',
 							description: 'description',
 							examples: ['examples'],
+							title: 'title',
 						}),
 					),
 				).toMatchInlineSnapshot(`
@@ -164,8 +164,8 @@ describe('NonEmptyTrimmedString', () => {
 							Schema.maxLength(10),
 							Schema.minLength(2),
 						).annotations({
-							title: 'TITLE',
 							description: 'DESCRIPTION',
+							title: 'TITLE',
 						}),
 					),
 				).toMatchInlineSnapshot(`

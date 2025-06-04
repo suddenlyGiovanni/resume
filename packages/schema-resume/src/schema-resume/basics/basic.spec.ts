@@ -29,15 +29,15 @@ describe('Basics', () => {
 	} satisfies typeof Basics.Encoded
 
 	const required: typeof Basics.Encoded = {
-		name: basicsInput.name,
-		label: basicsInput.label,
 		email: basicsInput.email,
-		summary: basicsInput.summary,
+		label: basicsInput.label,
 		location: {
 			city: basicsInput.location.city,
 			countryCode: basicsInput.location.countryCode,
 		},
+		name: basicsInput.name,
 		profiles: [],
+		summary: basicsInput.summary,
 	}
 
 	describe('decode', () => {

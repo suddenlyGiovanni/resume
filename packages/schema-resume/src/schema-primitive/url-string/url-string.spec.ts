@@ -51,15 +51,13 @@ describe('UrlString', () => {
 
 	describe('JSONSchema', () => {
 		const AnnotatedUrlString = UrlString.annotations({
-			title: 'URL TITLE',
 			description: 'URL DESCRIPTION',
 			examples: ['URL EXAMPLE'],
+			title: 'URL TITLE',
 		})
 
 		test('naked', () => {
-			expect(
-				JSONSchema.make(UrlString.pipe(Schema.maxLength(100), Schema.minLength(1))),
-			).toMatchInlineSnapshot(`
+			expect(JSONSchema.make(UrlString.pipe(Schema.maxLength(100), Schema.minLength(1)))).toMatchInlineSnapshot(`
 				{
 				  "$defs": {
 				    "UrlString": {
@@ -88,10 +86,10 @@ describe('UrlString', () => {
 			expect(
 				JSONSchema.make(
 					UrlString.pipe(Schema.maxLength(100), Schema.minLength(1)).annotations({
-						identifier: 'URL_IDENTIFIER', // todo: this should be present in the jsonSchema 🤔
-						title: 'URL TITLE',
-						description: 'URL DESCRIPTION',
+						description: 'URL DESCRIPTION', // todo: this should be present in the jsonSchema 🤔
 						examples: ['URL EXAMPLE'],
+						identifier: 'URL_IDENTIFIER',
+						title: 'URL TITLE',
 					}),
 				),
 			).toMatchInlineSnapshot(`
@@ -116,9 +114,7 @@ describe('UrlString', () => {
 		})
 
 		test('with encodedSchema', () => {
-			expect(
-				JSON.stringify(JSONSchema.make(Schema.encodedSchema(UrlString)), null, '\t'),
-			).toMatchInlineSnapshot(`
+			expect(JSON.stringify(JSONSchema.make(Schema.encodedSchema(UrlString)), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {

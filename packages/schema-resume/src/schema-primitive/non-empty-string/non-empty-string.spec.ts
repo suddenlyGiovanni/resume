@@ -1,4 +1,4 @@
-import { JSONSchema, Schema, identity } from 'effect'
+import { identity, JSONSchema, Schema } from 'effect'
 import { describe, expect, test } from 'vitest'
 
 import { expectEitherRight } from '../../test/index.ts'
@@ -35,10 +35,10 @@ describe('nonEmptyString', () => {
 
 	describe('JSONSchema', () => {
 		const NonEmptyStringAnnotated = nonEmptyString({
-			identifier: 'NonEmptyString',
-			title: 'TITLE',
 			description: 'DESCRIPTION',
 			examples: ['EXAMPLES'],
+			identifier: 'NonEmptyString',
+			title: 'TITLE',
 		})
 
 		test('naked', () => {
@@ -60,9 +60,7 @@ describe('nonEmptyString', () => {
 				}"
 			`)
 
-			expect(
-				JSON.stringify(JSONSchema.make(NonEmptyStringAnnotated), null, '\t'),
-			).toMatchInlineSnapshot(`
+			expect(JSON.stringify(JSONSchema.make(NonEmptyStringAnnotated), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
@@ -81,9 +79,7 @@ describe('nonEmptyString', () => {
 		})
 
 		test('encodedSchema', () => {
-			expect(
-				JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyString)), null, '\t'),
-			).toMatchInlineSnapshot(`
+			expect(JSON.stringify(JSONSchema.make(Schema.encodedSchema(NonEmptyString)), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
@@ -125,12 +121,12 @@ describe('nonEmptyString', () => {
 					JSONSchema.make(
 						Schema.encodedSchema(
 							nonEmptyString({
-								title: '__TITLE__',
 								description: '__DESCRIPTION__',
 								examples: ['__EXAMPLES__'],
 								jsonSchema: {
 									minLength: 1, // this is what throws it off...
 								},
+								title: '__TITLE__',
 							}),
 						),
 					),
@@ -146,12 +142,8 @@ describe('nonEmptyString', () => {
 		})
 
 		test('typeSchema', () => {
-			expect(() => JSONSchema.make(Schema.typeSchema(NonEmptyString))).toMatchInlineSnapshot(
-				'[Function]',
-			)
-			expect(() =>
-				JSONSchema.make(Schema.typeSchema(NonEmptyStringAnnotated)),
-			).toMatchInlineSnapshot('[Function]')
+			expect(() => JSONSchema.make(Schema.typeSchema(NonEmptyString))).toMatchInlineSnapshot('[Function]')
+			expect(() => JSONSchema.make(Schema.typeSchema(NonEmptyStringAnnotated))).toMatchInlineSnapshot('[Function]')
 		})
 	})
 })
@@ -168,9 +160,9 @@ describe('Annotation', () => {
 		expect(
 			JSONSchema.make(
 				Schema.String.annotations({
-					title: 'title',
 					description: 'description',
 					examples: ['example'],
+					title: 'title',
 				}),
 			),
 		).toMatchInlineSnapshot(`
@@ -192,12 +184,12 @@ describe('Annotation', () => {
 			<I, R>(self: Schema.Schema<A, I, R>): Schema.Schema<A, I, R> =>
 				self.pipe(
 					Schema.filter((a): a is A => a.length >= minLength, {
-						typeId: Schema.MinLengthSchemaId,
 						description: `a string at least ${minLength} character(s) long`,
 						jsonSchema: {
 							...annotations?.jsonSchema,
 							minLength,
 						},
+						typeId: Schema.MinLengthSchemaId,
 						...annotations,
 					}),
 				)
@@ -234,21 +226,19 @@ describe('Annotation', () => {
 			}
 		`)
 
-		expect(JSONSchema.make(NonEmpty.annotations({ jsonSchema: { foo: 'bar' } }))).not.toEqual(
-			JSONSchema.make(NonEmpty),
-		)
+		expect(JSONSchema.make(NonEmpty.annotations({ jsonSchema: { foo: 'bar' } }))).not.toEqual(JSONSchema.make(NonEmpty))
 
 		// custom annotations
 
 		expect(
 			JSONSchema.make(
 				NonEmpty.annotations({
-					title: 'custom title',
 					description: 'custom description',
 					examples: ['custom example'],
 					jsonSchema: {
 						foo: 'bar',
 					},
+					title: 'custom title',
 				}),
 			),
 		).toMatchInlineSnapshot(`
@@ -285,8 +275,8 @@ describe('Annotation', () => {
 			<I, R>(self: Schema.Schema<A, I, R>): Schema.Schema<A, I, R> =>
 				self.pipe(
 					Schema.filter((a): a is A => a === a.trim(), {
-						typeId: Schema.TrimmedSchemaId,
 						description: 'a string with no leading or trailing whitespace',
+						typeId: Schema.TrimmedSchemaId,
 						...annotations,
 					}),
 				)
@@ -320,9 +310,9 @@ describe('Annotation', () => {
 			JSONSchema.make(
 				Schema.encodedSchema(
 					Trimmed.annotations({
-						title: 'custom title',
 						description: 'custom description',
 						examples: ['custom example'],
+						title: 'custom title',
 					}),
 				),
 			),

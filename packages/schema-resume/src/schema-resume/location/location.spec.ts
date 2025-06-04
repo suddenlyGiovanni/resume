@@ -13,8 +13,8 @@ describe('Location', () => {
 	} satisfies typeof Location.Type
 
 	const required: typeof Location.Type = {
-		countryCode: locationInput.countryCode,
 		city: locationInput.city,
+		countryCode: locationInput.countryCode,
 	}
 
 	describe('decode', () => {

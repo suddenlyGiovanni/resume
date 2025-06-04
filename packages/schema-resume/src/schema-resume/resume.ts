@@ -15,21 +15,21 @@ import { Work } from './work/work.ts'
 
 export class Resume extends Schema.Class<Resume>('Resume')({
 	$schema: Schema.String.annotations({
-		title: '$schema',
 		description: 'link to the version of the schema that can validate the resume',
 		examples: ['http://jsonresume.org/schema'],
+		title: '$schema',
 	}),
 
 	awards: Schema.optionalWith(Schema.Array(Award), { exact: true }).annotations({
-		title: 'awards',
 		description: 'Specify any awards you have received throughout your professional career',
+		title: 'awards',
 	}),
 
 	basics: Basics,
 
 	certificates: Schema.optionalWith(Schema.Array(Certificate), { exact: true }).annotations({
-		title: 'certificates',
 		description: 'Specify any certificates you have received throughout your professional career',
+		title: 'certificates',
 	}),
 
 	education: Schema.Array(Education),
@@ -37,28 +37,28 @@ export class Resume extends Schema.Class<Resume>('Resume')({
 	interests: Schema.optionalWith(Schema.Array(Interest), { exact: true }),
 
 	languages: Schema.optionalWith(Schema.Array(Language), { exact: true }).annotations({
-		title: 'languages',
 		description: 'List any other languages you speak',
+		title: 'languages',
 	}),
 
 	projects: Schema.optionalWith(Schema.Array(Project), { exact: true }).annotations({
-		title: 'projects',
 		description: 'Specify career projects',
+		title: 'projects',
 	}),
 
 	publications: Schema.optionalWith(Schema.Array(Publication), { exact: true }).annotations({
-		title: 'publications',
 		description: 'Specify your publications through your career',
+		title: 'publications',
 	}),
 
 	references: Schema.optionalWith(Schema.Array(Reference), { exact: true }).annotations({
-		title: 'references',
 		description: 'List references you have received',
+		title: 'references',
 	}),
 
 	skills: Schema.Array(Skill).annotations({
-		title: 'skills',
 		description: 'List out your professional skill-set',
+		title: 'skills',
 	}),
 
 	volunteer: Schema.optionalWith(Schema.Array(Volunteer), { exact: true }),

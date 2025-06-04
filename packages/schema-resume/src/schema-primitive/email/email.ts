@@ -11,19 +11,17 @@ const email =
 		const pattern = regex.source
 		return self.pipe(
 			Schema.filter((maybeEmail): maybeEmail is A => regex.test(maybeEmail), {
-				typeId: { id: Schema.PatternSchemaId, annotation: { regex } },
+				// biome-ignore lint/suspicious/noExplicitAny: this is needed.
+				arbitrary: () => fc => fc.stringMatching(regex) as any,
 				description: `an Email address string matching the pattern ${pattern}`,
-				message: issue =>
-					`expected an Email address string matching the pattern ${pattern}, got "${issue.actual}"`,
+				examples: ['<local-part>@<domain>' as A, 'foo@bar.com' as A, 'foo.bar@baz.com' as A],
 				jsonSchema: {
 					format: 'email',
 					pattern,
 					...annotations?.jsonSchema,
 				} satisfies JSONSchema7,
-				examples: ['<local-part>@<domain>' as A, 'foo@bar.com' as A, 'foo.bar@baz.com' as A],
-
-				// biome-ignore lint/suspicious/noExplicitAny: this is needed.
-				arbitrary: () => fc => fc.stringMatching(regex) as any,
+				message: issue => `expected an Email address string matching the pattern ${pattern}, got "${issue.actual}"`,
+				typeId: { annotation: { regex }, id: Schema.PatternSchemaId },
 				...(annotations ? omit(annotations, 'jsonSchema') : {}),
 			}),
 		)

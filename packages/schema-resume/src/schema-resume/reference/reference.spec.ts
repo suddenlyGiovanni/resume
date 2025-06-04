@@ -22,9 +22,7 @@ describe('Reference', () => {
 		test('reference', () => {
 			expect(() => parse({ name: referenceInput.name, reference: '' })).toThrow()
 			expect(() => parse({ name: referenceInput.name, reference: '  ' })).toThrow()
-			expect(() =>
-				parse({ name: referenceInput.name, reference: referenceInput.reference }),
-			).not.toThrow()
+			expect(() => parse({ name: referenceInput.name, reference: referenceInput.reference })).not.toThrow()
 		})
 	})
 

@@ -5,30 +5,30 @@ import { Work } from './work.ts'
 
 describe('Work', () => {
 	const workInput = {
+		contact: {
+			email: 'zuckerberg@mark.cto',
+			name: 'Mark Zuckerberg (CTO)',
+			phone: '+353861234567',
+		},
 		description: 'Social Media Company',
 		location: 'Menlo Park, CA',
 		name: 'Facebook',
 		roles: [
 			{
-				startDate: '1988-02-01',
-				title: 'Software Engineer',
 				highlights: ['Founded the company', 'Wrote a new algorithm'],
 				responsibilities: ['Designed and built web applications', 'Managed a team of 10 engineers'],
+				startDate: '1988-02-01',
+				title: 'Software Engineer',
 			},
 		],
 		summary: 'My day-to-day activities involved designing and building web applications...',
 		url: 'https://facebook.example.com',
-		contact: {
-			phone: '+353861234567',
-			email: 'zuckerberg@mark.cto',
-			name: 'Mark Zuckerberg (CTO)',
-		},
 	} satisfies typeof Work.Type
 
 	const required: typeof Work.Type = {
+		description: workInput.description,
 		name: workInput.name,
 		roles: workInput.roles,
-		description: workInput.description,
 	}
 
 	describe('decode', () => {
@@ -41,9 +41,7 @@ describe('Work', () => {
 		test('description', () => {
 			expect(() => parse({ ...required, description: '' })).toThrow()
 			expect(() => parse({ ...required, description: ' ' })).toThrow()
-			expect(() =>
-				parse({ ...required, description: 'Educational Software Company' }),
-			).not.toThrow()
+			expect(() => parse({ ...required, description: 'Educational Software Company' })).not.toThrow()
 		})
 
 		test('location', () => {
@@ -77,9 +75,7 @@ describe('Work', () => {
 		})
 
 		test('contact', () => {
-			expect(() =>
-				parse({ ...required, contact: { email: workInput.contact.email, name: ' ' } }),
-			).toThrow()
+			expect(() => parse({ ...required, contact: { email: workInput.contact.email, name: ' ' } })).toThrow()
 			expect(() =>
 				parse({
 					...required,
@@ -103,9 +99,7 @@ describe('Work', () => {
 
 		describe('JSONSchema', () => {
 			test('naked', async () => {
-				await expect(JSON.stringify(JSONSchema.make(Work), null, 2)).toMatchFileSnapshot(
-					'work-schema.snapshot.json',
-				)
+				await expect(JSON.stringify(JSONSchema.make(Work), null, 2)).toMatchFileSnapshot('work-schema.snapshot.json')
 			})
 
 			test.todo('typeSchema', () => {
