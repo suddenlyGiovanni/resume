@@ -1,22 +1,30 @@
 {
-  description = "A flake for aarch64-darwin";
-
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-  outputs = { self, nixpkgs }:
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+  };
+  outputs =
+    { nixpkgs, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = import nixpkgs { inherit system; };
-    in {
-      devShells.aarch64-darwin.default = pkgs.mkShell {
-        packages = with pkgs; [
-          biome
-          deno
-        ];
-        shellHook = ''
-          echo "Nix dev env!"
-          echo "Deno 🦕 version: $(deno -V)"
-        '';
-      };
+      forAllSystems =
+        function:
+        nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (
+          system: function nixpkgs.legacyPackages.${system}
+        );
+    in
+    {
+      formatter = forAllSystems (pkgs: pkgs.alejandra);
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+
+            deno
+            biome
+          ];
+          shellHook = ''
+            echo "Nix dev env!"
+            echo "Deno 🦕 version: $(deno -V)"
+          '';
+        };
+      });
     };
 }
