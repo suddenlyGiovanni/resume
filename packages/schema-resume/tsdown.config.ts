@@ -11,5 +11,7 @@ export default defineConfig({
 	target: 'esnext',
 	treeshake: true,
 	unbundle: true,
-
+	dts: {
+		sourcemap: true,
+	}
 })
