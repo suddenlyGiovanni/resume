@@ -1,16 +1,18 @@
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
-	"name": "@suddenly-giovanni/schema-resume",
-	"version": "0.0.7",
-	"license": "MIT",
 	"exports": "./src/index.ts",
+	"license": "MIT",
+	"name": "@suddenly-giovanni/schema-resume",
 	"publish": {
-		"include": ["README.md", "src/**/*.ts"],
-		"exclude": ["package.json", "src/test", "src/**/*.spec.ts"]
-	},
-	"imports": {
-		"@types/json-schema": "npm:@types/json-schema@7.0.15",
-		"effect": "npm:effect@^3.14.10"
+		"include": [
+			"README.md",
+			"src/**/*.ts"
+		],
+		"exclude": [
+			"package.json",
+			"src/test",
+			"src/**/*.spec.ts"
+		]
 	},
 	"tasks": {
 		"build": {
@@ -41,5 +43,6 @@
 			"command": "deno check .",
 			"description": "Typecheck all files"
 		}
-	}
+	},
+	"version": "0.0.7"
 }

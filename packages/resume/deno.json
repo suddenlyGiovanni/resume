@@ -1,6 +1,5 @@
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
-	"version": "0.0.2",
 	"imports": {
 		"effect": "npm:effect@^3.14.10",
 		"yaml": "npm:yaml@2.7.1"
@@ -23,12 +22,13 @@
 			"command": "biome ci --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched ."
 		},
 		"test": {
-			"command": "vitest",
+			"command": "vitest --no-file-parallelism",
 			"description": "Run tests using Vitest"
 		},
 		"typecheck": {
 			"description": "Typecheck the codebase",
 			"command": "deno check ."
 		}
-	}
+	},
+	"version": "0.0.2"
 }
