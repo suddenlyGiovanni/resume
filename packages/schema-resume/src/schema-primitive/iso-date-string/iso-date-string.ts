@@ -1,6 +1,5 @@
 import { Schema } from 'effect'
 
-// biome-ignore lint/style/useNamingConvention: this case is correct
 export const ISODateString: Schema.refine<
 	Schema.Schema.Type<Schema.Schema<string, string, never>>,
 	Schema.Schema<string, string, never>
