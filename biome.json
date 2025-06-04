@@ -1,42 +1,42 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.0.0-beta.6/schema.json",
 	"assist": {
-		"enabled": true,
 		"actions": {
 			"source": {
 				"organizeImports": "on",
 				"recommended": true,
 				"useSortedKeys": "on"
 			}
-		}
+		},
+		"enabled": true
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab",
-		"lineWidth": 120,
-		"lineEnding": "lf",
-		"indentWidth": 2,
+		"expand": "auto",
 		"formatWithErrors": true,
-		"expand": "auto"
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 120
 	},
 	"javascript": {
-		"linter": {
-			"enabled": true
-		},
 		"assist": {
 			"enabled": true
 		},
 		"formatter": {
-			"enabled": true,
 			"arrowParentheses": "asNeeded",
+			"attributePosition": "multiline",
 			"bracketSameLine": false,
 			"bracketSpacing": true,
+			"enabled": true,
 			"jsxQuoteStyle": "double",
 			"quoteProperties": "asNeeded",
-			"semicolons": "asNeeded",
 			"quoteStyle": "single",
-			"trailingCommas": "all",
-			"attributePosition": "multiline"
+			"semicolons": "asNeeded",
+			"trailingCommas": "all"
+		},
+		"linter": {
+			"enabled": true
 		}
 	},
 	"json": {
@@ -45,61 +45,61 @@
 		}
 	},
 	"linter": {
-		"enabled": true,
 		"domains": {
 			"project": "recommended",
 			"test": "recommended"
 		},
+		"enabled": true,
 		"rules": {
-			"recommended": true,
 			"a11y": {
 				"recommended": true
 			},
 			"complexity": {
 				"recommended": true
 			},
-			"security": {
-				"recommended": true
-			},
-			"suspicious": {
-				"recommended": true
-			},
 			"correctness": {
-				"recommended": true,
 				"noUndeclaredDependencies": "off",
-				"noUndeclaredVariables": "off"
+				"noUndeclaredVariables": "off",
+				"recommended": true
 			},
 			"nursery": {
-				"recommended": true,
 				"noSecrets": "off",
+				"recommended": true,
 				"useExplicitType": {
 					"level": "off"
 				}
 			},
 			"performance": {
-				"recommended": true,
 				"noBarrelFile": {
+					"level": "off"
+				},
+				"noNamespaceImport": {
 					"level": "off"
 				},
 				"noReExportAll": {
 					"level": "off"
 				},
-				"noNamespaceImport": {
-					"level": "off"
-				}
+				"recommended": true
+			},
+			"recommended": true,
+			"security": {
+				"recommended": true
 			},
 			"style": {
-				"recommended": true,
+				"noInferrableTypes": "on",
 				"noParameterAssign": "on",
+				"noUnusedTemplateLiteral": "on",
+				"noUselessElse": "on",
+				"recommended": true,
 				"useAsConstAssertion": "on",
 				"useDefaultParameterLast": "on",
 				"useEnumInitializers": "on",
-				"useSelfClosingElements": "on",
-				"useSingleVarDeclarator": "on",
-				"noUnusedTemplateLiteral": "on",
 				"useNumberNamespace": "on",
-				"noInferrableTypes": "on",
-				"noUselessElse": "on"
+				"useSelfClosingElements": "on",
+				"useSingleVarDeclarator": "on"
+			},
+			"suspicious": {
+				"recommended": true
 			}
 		}
 	},
