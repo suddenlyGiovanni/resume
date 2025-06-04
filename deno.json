@@ -13,9 +13,7 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"strict": true,
-		"types": [
-			"node"
-		]
+		"types": ["node"]
 	},
 	"fmt": {
 		"indentWidth": 2,
@@ -31,8 +29,23 @@
 		"lockfile": "deno.lock"
 	},
 	"nodeModulesDir": "auto",
-	"workspace": [
-		"./packages/resume",
-		"./packages/schema-resume"
-	]
+	"tasks": {
+		"check": {
+			"command": "biome check",
+			"description": "Runs formatter, linter and import sorting to the requested files."
+		},
+		"format": {
+			"command": "biome format",
+			"description": "Run the formatter on a set of files."
+		},
+		"lint": {
+			"command": "biome lint",
+			"description": "Run various lint checks on a set of files."
+		},
+		"test": {
+			"command": "vitest",
+			"description": "Run tests"
+		}
+	},
+	"workspace": ["./packages/resume", "./packages/schema-resume"]
 }

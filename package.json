@@ -4,10 +4,5 @@
 		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
 		"@types/node": "npm:@types/node@22.15.29",
 		"vitest": "npm:vitest@3.2.1"
-	},
-	"private": true,
-	"scripts": {
-		"lint": "biome lint .",
-		"test:all": "vitest"
 	}
 }

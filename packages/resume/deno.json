@@ -6,25 +6,21 @@
 		"yaml": "npm:yaml@2.7.1"
 	},
 	"tasks": {
-		"format": {
-			"description": "Format the codebase",
-			"command": "biome check --formatter-enabled=true --linter-enabled=false --organize-imports-enabled=true ."
+		"check": {
+			"command": "biome check",
+			"description": "Runs formatter, linter and import sorting to the requested files."
 		},
-		"format:write": {
-			"description": "Format the codebase and write changes",
-			"command": "biome check --formatter-enabled=true --linter-enabled=false --write ."
+		"format": {
+			"command": "biome format",
+			"description": "Run the formatter on a set of files."
 		},
 		"lint": {
-			"description": "Lint the codebase",
-			"command": "biome check ."
+			"command": "biome lint",
+			"description": "Run various lint checks on a set of files."
 		},
 		"lint:ci": {
 			"description": "Lint the codebase in CI",
 			"command": "biome ci --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched ."
-		},
-		"lint:write": {
-			"description": "Lint the codebase and apply fixes",
-			"command": "biome check --write"
 		},
 		"typecheck": {
 			"description": "Typecheck the codebase",

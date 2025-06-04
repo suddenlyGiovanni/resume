@@ -13,25 +13,21 @@
 		"effect": "npm:effect@^3.14.10"
 	},
 	"tasks": {
-		"format": {
-			"command": "biome check --formatter-enabled=true --linter-enabled=false",
-			"description": "Format all files"
+		"check": {
+			"command": "biome check",
+			"description": "Runs formatter, linter and import sorting to the requested files."
 		},
-		"format:write": {
-			"command": "biome check --formatter-enabled=true --linter-enabled=false --write .",
-			"description": "Format all files and write changes"
+		"format": {
+			"command": "biome format",
+			"description": "Run the formatter on a set of files."
 		},
 		"lint": {
-			"command": "biome check .",
-			"description": "Lint all files"
+			"command": "biome lint",
+			"description": "Run various lint checks on a set of files."
 		},
 		"lint:ci": {
 			"command": "biome ci --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched .",
 			"description": "Lint all files in CI"
-		},
-		"lint:write": {
-			"command": "biome check --apply .",
-			"description": "Lint all files and write changes"
 		},
 		"typecheck": {
 			"command": "deno check .",
