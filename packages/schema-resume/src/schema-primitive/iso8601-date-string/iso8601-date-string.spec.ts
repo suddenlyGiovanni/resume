@@ -160,9 +160,9 @@ describe('ISO8601Date', () => {
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"ISO8601DateString": {
-							"title": "ISO 8601 Date string",
 							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
 							"format": "date-time",
+							"title": "ISO 8601 Date string",
 							"type": "string"
 						}
 					},
@@ -175,9 +175,9 @@ describe('ISO8601Date', () => {
 					"$schema": "http://json-schema.org/draft-07/schema#",
 					"$defs": {
 						"ISO8601DateString": {
-							"title": "ISO 8601 Date string",
 							"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
 							"format": "date-time",
+							"title": "ISO 8601 Date string",
 							"type": "string"
 						}
 					},
@@ -222,9 +222,9 @@ describe('ISO8601Date', () => {
 			expect(JSON.stringify(JSONSchema.make(Schema.typeSchema(ISO8601DateString)), null, '\t')).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"title": "ISO 8601 Date string",
 					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
 					"format": "date-time",
+					"title": "ISO 8601 Date string",
 					"type": "string"
 				}"
 			`)
@@ -234,9 +234,9 @@ describe('ISO8601Date', () => {
 			).toMatchInlineSnapshot(`
 				"{
 					"$schema": "http://json-schema.org/draft-07/schema#",
-					"title": "ISO 8601 Date string",
 					"description": "A date string conforming to the ISO 8601 format. valid inputs will be converter to fully qualified ISO 8601 strings.",
 					"format": "date-time",
+					"title": "ISO 8601 Date string",
 					"type": "string"
 				}"
 			`)

@@ -41,14 +41,6 @@
 						"2020-01-01"
 					]
 				},
-				"score": {
-					"$ref": "#/$defs/NonEmptyTrimmedString",
-					"description": "grade point average, e.g. 3.67/4.0",
-					"title": "score",
-					"examples": [
-						"3.67/4.0"
-					]
-				},
 				"institution": {
 					"$ref": "#/$defs/NonEmptyTrimmedString",
 					"description": "name of the institution",
@@ -59,6 +51,14 @@
 				},
 				"location": {
 					"$ref": "#/$defs/TrimmedNonEmpty"
+				},
+				"score": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "grade point average, e.g. 3.67/4.0",
+					"title": "score",
+					"examples": [
+						"3.67/4.0"
+					]
 				},
 				"startDate": {
 					"$ref": "#/$defs/StringDate",
@@ -100,9 +100,9 @@
 			"type": "string",
 			"description": "a string that is a valid YYYY-MM-DD date",
 			"title": "StringDate",
-			"minLength": 10,
+			"format": "date",
 			"maxLength": 10,
-			"format": "date"
+			"minLength": 10
 		},
 		"TrimmedNonEmpty": {
 			"type": "string",

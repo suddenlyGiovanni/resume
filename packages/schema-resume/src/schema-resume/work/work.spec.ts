@@ -146,8 +146,8 @@ describe('Work', () => {
 					        },
 					      },
 					      "required": [
-					        "name",
 					        "email",
+					        "name",
 					      ],
 					      "type": "object",
 					    },
@@ -205,9 +205,9 @@ describe('Work', () => {
 					          },
 					        },
 					        "required": [
-					          "title",
-					          "startDate",
 					          "responsibilities",
+					          "startDate",
+					          "title",
 					        ],
 					        "type": "object",
 					      },
@@ -256,9 +256,9 @@ describe('Work', () => {
 					            },
 					          },
 					          "required": [
-					            "title",
-					            "startDate",
 					            "responsibilities",
+					            "startDate",
+					            "title",
 					          ],
 					          "type": "object",
 					        },

@@ -112,9 +112,9 @@
 			"type": "string",
 			"description": "a string that is a valid YYYY-MM-DD date",
 			"title": "StringDate",
-			"minLength": 10,
+			"format": "date",
 			"maxLength": 10,
-			"format": "date"
+			"minLength": 10
 		},
 		"NonEmptyTrimmedString": {
 			"type": "string",

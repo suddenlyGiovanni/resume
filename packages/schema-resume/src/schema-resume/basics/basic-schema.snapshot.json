@@ -170,8 +170,8 @@
 				"AU",
 				"IN"
 			],
-			"minLength": 2,
 			"maxLength": 2,
+			"minLength": 2,
 			"pattern": "^[A-Z]{2}$"
 		},
 		"PhoneString": {

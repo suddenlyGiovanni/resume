@@ -5,25 +5,9 @@
 			"type": "object",
 			"required": [],
 			"properties": {
-				"name": {
-					"$ref": "#/$defs/NonEmptyTrimmedString",
-					"description": "name of the certificate",
-					"title": "Name",
-					"examples": [
-						"e.g. Certified Kubernetes Administrator"
-					]
-				},
 				"date": {
 					"$ref": "#/$defs/StringDate",
 					"title": "date"
-				},
-				"url": {
-					"$ref": "#/$defs/UrlString",
-					"description": "the url of the certificate",
-					"title": "url",
-					"examples": [
-						"http://example.com/cert.pdf"
-					]
 				},
 				"issuer": {
 					"$ref": "#/$defs/NonEmptyTrimmedString",
@@ -32,9 +16,33 @@
 					"examples": [
 						"e.g. CNCF"
 					]
+				},
+				"name": {
+					"$ref": "#/$defs/NonEmptyTrimmedString",
+					"description": "name of the certificate",
+					"title": "Name",
+					"examples": [
+						"e.g. Certified Kubernetes Administrator"
+					]
+				},
+				"url": {
+					"$ref": "#/$defs/UrlString",
+					"description": "the url of the certificate",
+					"title": "url",
+					"examples": [
+						"http://example.com/cert.pdf"
+					]
 				}
 			},
 			"additionalProperties": false
+		},
+		"StringDate": {
+			"type": "string",
+			"description": "a string that is a valid YYYY-MM-DD date",
+			"title": "StringDate",
+			"format": "date",
+			"maxLength": 10,
+			"minLength": 10
 		},
 		"NonEmptyTrimmedString": {
 			"type": "string",
@@ -42,14 +50,6 @@
 			"title": "nonEmptyString",
 			"pattern": "^\\S[\\s\\S]*\\S$|^\\S$|^$",
 			"minLength": 1
-		},
-		"StringDate": {
-			"type": "string",
-			"description": "a string that is a valid YYYY-MM-DD date",
-			"title": "StringDate",
-			"minLength": 10,
-			"maxLength": 10,
-			"format": "date"
 		},
 		"UrlString": {
 			"type": "string",
