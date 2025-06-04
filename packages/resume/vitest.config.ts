@@ -1,7 +1,7 @@
 import deno from '@deno/vite-plugin'
-import { defineConfig } from 'vitest/config'
+import { defineProject } from 'vitest/config'
 
-export default defineConfig({
+export default defineProject({
 	plugins: [deno()],
 	test: {
 		include: ['src/**/*.spec.ts'],
