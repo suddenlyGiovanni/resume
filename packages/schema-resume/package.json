@@ -1,6 +1,17 @@
 {
-	"private": true,
-	"scripts": {
-		"test": "vitest"
-	}
+  "private": true,
+  "scripts": {
+    "test": "vitest",
+    "build": "tsdown"
+  },
+  "devDependencies": {
+    "tsdown": "^0.12.6"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    "./schema-primitive/index": "./dist/schema-primitive/index.mjs",
+    "./schema-resume/index": "./dist/schema-resume/index.mjs",
+    "./package.json": "./package.json"
+  }
 }
