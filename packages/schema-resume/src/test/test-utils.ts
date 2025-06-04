@@ -84,7 +84,7 @@ export async function expectEffectFailure<A>(
 }
 
 export async function expectEffectSuccess<E, A>(effect: Effect.Effect<A, E>, a: A): Promise<void> {
-	expect(await Effect.runPromise(Effect.either(effect))).toStrictEqual(Either.right(a))
+	expect(await Effect.runPromise(Effect.either(effect))).toStrictEqual<Either.Either<A, E>>(Either.right(a) as any)
 }
 
 export function expectEitherLeft<A>(e: Either.Either<A, ParseResult.ParseError>, message: string): void {
@@ -92,7 +92,7 @@ export function expectEitherLeft<A>(e: Either.Either<A, ParseResult.ParseError>,
 }
 
 export function expectEitherRight<E, A>(e: Either.Either<A, E>, a: A): void {
-	expect(e).toStrictEqual(Either.right(a))
+	expect(e).toStrictEqual<Either.Either<A, E>>(Either.right(a) as any)
 }
 
 export function expectNone<A>(o: Option.Option<A>): void {
@@ -100,5 +100,5 @@ export function expectNone<A>(o: Option.Option<A>): void {
 }
 
 export function expectSome<A>(o: Option.Option<A>, a: A): void {
-	expect(o).toStrictEqual(Option.some(a))
+	expect(o).toStrictEqual<Option.Option<A>>(Option.some(a) as any)
 }
