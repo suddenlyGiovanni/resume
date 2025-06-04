@@ -52,7 +52,6 @@ describe('Email', () => {
 				    "Email": {
 				      "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
 				      "examples": [
-				        "<local-part>@<domain>",
 				        "foo@bar.com",
 				        "foo.bar@baz.com",
 				      ],
@@ -72,9 +71,6 @@ describe('Email', () => {
 				  "$defs": {
 				    "Email": {
 				      "description": "EMAIL DESCRIPTION",
-				      "examples": [
-				        "EMAIL EXAMPLE",
-				      ],
 				      "format": "email",
 				      "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
 				      "title": "EMAIL TITLE",
@@ -120,7 +116,6 @@ describe('Email', () => {
 				    "Email": {
 				      "description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
 				      "examples": [
-				        "<local-part>@<domain>",
 				        "foo@bar.com",
 				        "foo.bar@baz.com",
 				      ],
@@ -140,9 +135,6 @@ describe('Email', () => {
 				  "$defs": {
 				    "Email": {
 				      "description": "EMAIL DESCRIPTION",
-				      "examples": [
-				        "EMAIL EXAMPLE",
-				      ],
 				      "format": "email",
 				      "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
 				      "title": "EMAIL TITLE",

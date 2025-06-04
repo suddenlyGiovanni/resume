@@ -98,7 +98,11 @@ describe('UrlString', () => {
 				    "URL_IDENTIFIER": {
 				      "description": "URL DESCRIPTION",
 				      "examples": [
-				        "URL EXAMPLE",
+				        "https://example.com",
+				        "https://example.com/#section",
+				        "http://example.com:8080",
+				        "http://🍌🍌🍌.ws",
+				        "https://www.übercool.de",
 				      ],
 				      "format": "uri",
 				      "maxLength": 100,
@@ -167,9 +171,6 @@ describe('UrlString', () => {
 				  "$defs": {
 				    "UrlString": {
 				      "description": "URL DESCRIPTION",
-				      "examples": [
-				        "URL EXAMPLE",
-				      ],
 				      "format": "uri",
 				      "title": "URL TITLE",
 				      "type": "string",

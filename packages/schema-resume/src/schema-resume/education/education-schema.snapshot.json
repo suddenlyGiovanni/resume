@@ -63,10 +63,7 @@
 				"startDate": {
 					"$ref": "#/$defs/StringDate",
 					"description": "start date of education",
-					"title": "startDate",
-					"examples": [
-						"1970-01-01T00:00"
-					]
+					"title": "startDate"
 				},
 				"studyType": {
 					"$ref": "#/$defs/NonEmptyTrimmedString",

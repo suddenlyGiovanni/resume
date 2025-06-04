@@ -42,10 +42,7 @@
 				"phone": {
 					"$ref": "#/$defs/PhoneString",
 					"description": "Phone numbers are stored as strings so use any format you like, as long as it is a valid phone number. E.164 format is recommended.",
-					"title": "phone",
-					"examples": [
-						"712-117-2923"
-					]
+					"title": "phone"
 				},
 				"profiles": {
 					"type": "array",
@@ -79,7 +76,6 @@
 			"description": "an Email address string matching the pattern ^(?!\\.)(?!.*\\.\\.)([A-Z0-9_+-.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9-]*\\.)+[A-Z]{2,}$",
 			"title": "Email",
 			"examples": [
-				"<local-part>@<domain>",
 				"foo@bar.com",
 				"foo.bar@baz.com"
 			],
