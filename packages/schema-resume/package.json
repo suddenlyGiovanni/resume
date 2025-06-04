@@ -1,12 +1,5 @@
 {
   "private": true,
-  "scripts": {
-    "test": "vitest",
-    "build": "tsdown"
-  },
-  "devDependencies": {
-    "tsdown": "^0.12.6"
-  },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "exports": {

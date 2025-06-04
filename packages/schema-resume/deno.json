@@ -13,6 +13,10 @@
 		"effect": "npm:effect@^3.14.10"
 	},
 	"tasks": {
+		"build": {
+			"command": "tsdown",
+			"description": "Build the library for production"
+		},
 		"check": {
 			"command": "biome check",
 			"description": "Runs formatter, linter and import sorting to the requested files."
@@ -28,6 +32,10 @@
 		"lint:ci": {
 			"command": "biome ci --formatter-enabled=false --linter-enabled=true --organize-imports-enabled=false --no-errors-on-unmatched .",
 			"description": "Lint all files in CI"
+		},
+		"test": {
+			"command": "vitest",
+			"description": "Run tests using Vitest"
 		},
 		"typecheck": {
 			"command": "deno check .",

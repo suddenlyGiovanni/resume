@@ -3,6 +3,8 @@
 		"@biomejs/biome": "2.0.0-beta.6",
 		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
 		"@types/node": "npm:@types/node@22.15.29",
+		"tsdown": "^0.12.6",
+		"typescript": "^5.8.3",
 		"vitest": "npm:vitest@3.2.1"
 	}
 }
