@@ -14,7 +14,7 @@ runs:
         deno-version: v2.x
 
     - name: Cache Deno dependencies
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ${{ inputs.deno_dir }}
         key: ${{ hashFiles('deno.lock') }}
