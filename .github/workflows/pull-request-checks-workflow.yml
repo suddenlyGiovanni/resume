@@ -59,7 +59,7 @@ jobs:
         run: deno task test:all --coverage
 
       - name: 🛫 Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           fail_ci_if_error: false
           verbose: true
