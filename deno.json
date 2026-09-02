@@ -37,7 +37,7 @@
 		}
 	},
 	"imports": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@2.0.3",
 		"@types/node": "npm:@types/node@22.14.1",
 		"@vitest/coverage-istanbul": "npm:@vitest/coverage-istanbul@3.1.1",
 		"vitest": "npm:vitest@3.1.1"

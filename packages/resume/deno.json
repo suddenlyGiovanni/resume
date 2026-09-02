@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
 	"version": "0.0.2",
 	"imports": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@1.0.4",
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@2.0.3",
 		"@types/node": "npm:@types/node@22.14.1",
 		"effect": "npm:effect@^3.14.10",
 		"vitest": "npm:vitest@3.1.1",
